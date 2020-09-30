@@ -2,9 +2,9 @@
 // 시간 설정
 date_default_timezone_set("Asia/Seoul");
 
-$serverName = "";
+$serverName = "jbstv.synology.me:3307";
 $db_userName = "wootchadb";
-$db_password = "yongho123!";
+$db_password = "Yongho123!";
 $db_name = "wootchadb";
 $db_flag = false;
 
@@ -26,15 +26,15 @@ while ($row = mysqli_fetch_array($result)) {
 
 //wootchadb 없을 경우 생성
 if ($db_flag === false) {
-    $sql = "create database wootchadb";
+    $sql = "create database ". $db_name;
     $value = mysqli_query($con, $sql) or die("create Error" . mysqli_error($con));
     if ($value === true) {
         echo "<script> alert('wootchadb가 생성되었습니다');</script>";
     }
 }
 
-//DB 접속하기
-$dbCon = mysqli_select_db($con, "wootchadb") or die("select Error" . mysqli_error($con));
+//DB 선택하기
+$dbCon = mysqli_select_db($con, $db_name) or die("select Error" . mysqli_error($con));
 if (!$dbCon) {
     echo "<script> alert('DB가 선택되었습니다');</script>";
 }
@@ -51,10 +51,9 @@ function alert_back($message){
 }
 
 //데이터를 가공하는 함수
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+function test_input($data) {
+    $data = trim($data); //문자열 앞, 뒤 공백제거
+    $data = stripslashes($data); //'\'제거
+    $data = htmlspecialchars($data); // injection보안, &, ', ", <, > 변환
     return $data;
 }
