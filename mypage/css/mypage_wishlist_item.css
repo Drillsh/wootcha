@@ -1,0 +1,7 @@
+
+.list_item{list-style: none; margin: 10px; width: 180px; height: 280px; border-radius: 10px; overflow: hidden;
+    float: left; text-align: center; background-color: lightgray;}
+
+.list_item img{width: 100%; height: 250px; }
+.list_item a{text-decoration: none;}
+
