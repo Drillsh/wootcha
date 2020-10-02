@@ -5,7 +5,7 @@
                 <li><strong> Wootcha </strong></li>
                 <li>검색하기</li>
                 <li>사용자</li>
-                <li>관리자</li>
+                <li><a href="http://<?=$_SERVER['HTTP_HOST'];?>/wootcha/admin/admin_index.php">관리자</a></li>
             </ul>
         </div>
 

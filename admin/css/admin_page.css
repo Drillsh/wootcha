@@ -1,0 +1,93 @@
+#member_list { margin: 10px 0 30px 0;}
+#member_list li:nth-child(1) { font-weight: bold; border-top: solid 2px #dddddd; border-bottom: solid 2px #dddddd; background-color: #eeeeee;}
+#member_list li { padding: 10px 0; border-bottom: solid 1px #dddddd; }
+#member_list span { margin-right: 50px;display: inline-block; text-align: center;}
+#member_list input {  text-align: center;}
+#member_list button { padding: 3px 10px;}
+#member_list span {width: 8%; font-size: 0.8rem;}
+ul{
+  list-style: none;
+}
+.admin_content{
+  margin: 15px;
+  width: 100%;
+  height: 100%;
+}
+div .right_content{
+  float: left;
+  width: 1220px;
+  height: 100%;
+
+}
+/* section{
+  height: 1000px;
+  border: 10px red solid;
+} */
+div .top_content{
+  position: relative;
+  height: 333px;
+}
+div .center_content{
+  position: relative;
+  height: 333px;
+}
+div .bottom_content{
+  position: relative;
+  height: 333px;
+}
+.box{
+  float: left;
+  width: 280px;
+  height: 280px;
+  background-color: lightgray;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+span .col1{
+  width: 75px;
+}
+.col1 input{
+  width: 30px;
+}
+span .col2{
+  width: 75px;
+}
+.col2 input{
+  width: 60px;
+}
+span .col3{
+  width: 150px;
+}
+.col3 input{
+  width: 100px;
+}
+span .col4{
+  width: 250px;
+}
+.col4 input{
+  width: 120px;
+}
+span .col5{
+  width: 75px;
+}
+.col5 input{
+  width: 50px;
+}
+span .col6{
+  width: 75px;
+}
+.col6 input{
+  width: 150px;
+}
+span .col7{
+  width: 75px;
+}
+.col7 input{
+  width: 30px;
+}
+span .col8{
+  width: 75px;
+}
+.col8 input{
+  width: 30px;
+}
