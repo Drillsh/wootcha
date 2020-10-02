@@ -1,0 +1,35 @@
+.section_container{margin: 50px;}
+.section_container form tr{height: 70px;  border-bottom:solid 1px black;}
+.section_container form tr:hover{background-color: blanchedalmond;}
+.section_container form tr td:nth-child(1){width: 150px;}
+.section_container form tr td:nth-child(2){width: 450px; font-size: large;}
+.section_container form .small_img_box{width: 50px; height: 50px; margin: 0px auto; border-radius: 50%; position: relative; overflow: hidden;}
+/* .section_container form #small_img_box div{width: 50px; height: 50px; position: absolute; background-color: black; top: 0px; left: 0px;} */
+.section_container form img:nth-child(1){width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0px; left: 0px;}
+.section_container form img:nth-child(2){width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0px; left: 0px; opacity:0.4;}
+.section_container form img:nth-child(3){width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0px; left: 0px}
+
+/* 모달 관련 css */
+.modal h1{ font-family: 'Oswald', sans-serif; font-size: 30px;  color: #216182;  } 
+.modal label { display: block; margin-top: 20px; letter-spacing: 2px; } 
+.modal form {  margin: 0 auto;  width: 459px;  } 
+.modal input, textarea { width: 100%;height: 27px;  background-color: #efefef; border-radius: 6px; border: 1px solid #dedede; 
+     padding: 10px; margin-top: 3px; font-size: 0.9em;  color: #3a3a3a; } 
+input:focus, textarea:focus{ border: 1px solid #97d6eb; } 
+.modal textarea{ height: 60px; background-color: #efefef;} 
+.modal #submit{ width: 127px; height: 48px; text-align: center; border: none; margin-top: 20px; cursor: pointer; } 
+.modal #submit:hover{ color: #fff; background-color: #216282; opacity: 0.9; } 
+.modal #cancel { width: 127px; height: 48px; text-align: center; border: none; margin-top: 20px; cursor: pointer; } 
+.modal #cancel:hover{ color: #fff; background-color: #216282; opacity: 0.9; }
+.modal {  position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; 
+     visibility: hidden; transform: scale(1.1); transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; } 
+.modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; 
+    padding: 1rem 1.5rem;  width: 500px; height: 350px; border-radius: 0.5rem; } 
+.modal-content table{width: 100%;}
+.modal .close-button { float: right; width: 1.5rem; line-height: 1.5rem; text-align: center; cursor: pointer; 
+    border-radius: 0.25rem; background-color: lightgray; }
+.modal .close-button:hover { background-color: darkgray; } 
+.show-modal {  opacity: 1; visibility: visible; transform: scale(1.0); 
+   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
+.modal .button{width: 100px; height: 48px; text-align: center; border: none; cursor: pointer; margin-left: 30px;}
+.modal .button:hover{color: #fff; background-color: #216282; opacity: 0.9;}
