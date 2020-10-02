@@ -5,11 +5,9 @@
         <title>Wootcha</title>
         <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
         <link rel="stylesheet" type="text/css" href="./css/mypage.css?after">
-        <link rel="stylesheet" type="text/css" href="./css/mypage_edit_myinfo.css?ver=6">
+        <link rel="stylesheet" type="text/css" href="./css/mypage_edit_myinfo.css?ver=10">
         <script src="./js/edit_myinfo.js"></script>
         <style> 
-    
-    
 </style>
     </head>
     <body>
@@ -106,7 +104,8 @@
                             <td>
                                 <a href="#" class="trigger">
                                     <div class="small_img_box">
-                                    <img src="./img/edit.png" alt="수정">
+                                        <!-- checkbox 선택 시 popup -->
+                                        <img src="./img/edit.png" alt="">
                                     </div>
                                 </a>
                             </td>
@@ -115,9 +114,9 @@
                             <td>전화번호</td>
                             <td><?=$phone?></td>
                                 <td>
-                                <a href="#" class="trigger">
+                                <a href="#" class="trigger_phone">
                                     <div class="small_img_box">
-                                    <img src="./img/edit.png" alt="수정">
+                                        <img src="./img/edit.png" alt="">
                                     </div>
                                 </a>
                             </td>
@@ -126,9 +125,9 @@
                             <td>비밀번호</td>
                             <td>정기적으로 변경해주시는 것이 보안에 좋습니다.</td>
                             <td>
-                                <a href="#" class="trigger">
+                                <a href="#" class="trigger_password">
                                     <div class="small_img_box" >
-                                        <img src="./img/edit.png" alt="수정">
+                                        <img src="./img/edit.png" alt="">
                                     </div>
                                 </a>
                             </td>
@@ -163,6 +162,55 @@
                         </form>
                 </div> 
             </div>
+
+            <!-- modal 전화번호 수정 -->
+            <div class="modal_phone"> 
+                <div class="modal-content_phone"> 
+                    <span class="close-button_phone">&times;</span> 
+                        <h1 class="title">전화번호 수정</h1> 
+                        <form action="#" method="POST"> 
+                            <table>
+                                <tr>
+                                    <td><input type="tel" name="phone" placeholder="<?=$phone?>" required="required"></td>
+                                    <td><input type="button" onclick="" class="button" value="인증하기"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="button" id="cancel" value="취소">
+                                    <input type="submit" id="submit" value="보내기">
+                                </td>
+                                </tr>
+                            </table>
+                                                     
+                             
+                        </form>
+                </div> 
+            </div>
+
+            <!-- modal 비밀번호 수정 -->
+            <div class="modal_password"> 
+                <div class="modal-content_password"> 
+                    <span class="close-button_password">&times;</span> 
+                        <h1 class="title">비밀번호 수정</h1> 
+                        <form action="#" method="POST"> 
+                            <table>
+                                <tr>
+                                    <td><input type="password" name="password" placeholder="<?=$password?>" required="required"></td>
+                                    <td><input type="button" onclick="" class="button" value="인증하기"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="button" id="cancel" value="취소">
+                                    <input type="submit" id="submit" value="보내기">
+                                </td>
+                                </tr>
+                            </table>  
+                        </form>
+                </div> 
+            </div>
+
+            
+           
+
+
         </section><!-- section -->
         
         <!-- 푸터 -->
