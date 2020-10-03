@@ -3,12 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>Wootcha</title>
-        <link rel="stylesheet" type="text/css" href="./css/mypage.css">
-        <link rel="stylesheet" type="text/css" href="./css/mypage_follow_item.css">
+        <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
+        <link rel="stylesheet" type="text/css" href="./css/mypage.css?after">
+        <link rel="stylesheet" type="text/css" href="./css/mypage_follow_item.css?after">
     </head>
     <body>
         <!-- 헤더 -->
-        <header>헤더</header>
+        <header>
+            <?php include "../common/page_form/header.php"?>
+        </header>
 
         <!-- 네비게이션 : 왼쪽 -->
         <nav class="nav_left">
@@ -68,6 +71,8 @@
         </section><!-- section -->
         
         <!-- 푸터 -->
-        <footer>푸터</footer>
+        <footer>
+            <?php include "../common/page_form/footer.php"?>
+        </footer>
     </body>
 </html>
