@@ -115,7 +115,7 @@
              <div class="small_img_box">
                 <img src="./img/profile_image.png" alt="프로필 이미지">
             </div> 
-             <h3 class="title">영화제목</h1> 
+             <h3 class="title">영화제목</h3> 
 
              <form action="#" method="POST"> 
                <label for="line_review">한줄평</label> 
