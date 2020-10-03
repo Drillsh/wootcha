@@ -46,31 +46,31 @@ function create_table($con, $table_name)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
 
-            case 'comment':
-                $sql = "CREATE TABLE `comment` (
-                         `cmt_num`      INT            NOT NULL    AUTO_INCREMENT COMMENT '코멘트 등록번호', 
-                         `user_num`     INT            NOT NULL    COMMENT '작성자', 
-                         `mv_num`       INT            NOT NULL    COMMENT '영화 등록번호', 
-                         `cmt_date`     VARCHAR(45)    NULL        DEFAULT null COMMENT '관람날짜', 
-                         `cmt_site`     VARCHAR(45)    NULL        DEFAULT null COMMENT '관람 장소', 
-                         `cmt_rating`   FLOAT(2,1)     NOT NULL    COMMENT '별점', 
-                         `cmt_short`    VARCHAR(45)    NOT NULL    COMMENT '한줄평', 
-                         `cmt_long`     TEXT           NULL        DEFAULT null COMMENT '장문 리뷰', 
-                         `cmt_like`     INT            NULL        DEFAULT 0 COMMENT '좋아요', 
-                         `cmt_hit`      INT            NOT NULL    COMMENT '조회수', 
-                         `cmt_regtime`  VARCHAR(45)    NOT NULL    COMMENT '등록 시간', 
-                         PRIMARY KEY (cmt_num)
+            case 'review':
+                $sql = "CREATE TABLE `review` (
+                         `review_num`      INT            NOT NULL    AUTO_INCREMENT COMMENT '리뷰 등록번호', 
+                         `user_num`        INT            NOT NULL    COMMENT '작성자', 
+                         `mv_num`          INT            NOT NULL    COMMENT '영화 등록번호', 
+                         `review_date`     VARCHAR(45)    NULL        DEFAULT null COMMENT '관람날짜', 
+                         `review_site`     VARCHAR(45)    NULL        DEFAULT null COMMENT '관람 장소', 
+                         `review_rating`   FLOAT(2,1)     NOT NULL    COMMENT '별점', 
+                         `review_short`    VARCHAR(45)    NOT NULL    COMMENT '한줄평', 
+                         `review_long`     TEXT           NULL        DEFAULT null COMMENT '장문 리뷰', 
+                         `review_like`     INT            NULL        DEFAULT 0 COMMENT '좋아요', 
+                         `review_hit`      INT            NOT NULL    COMMENT '조회수', 
+                         `review_regtime`  VARCHAR(45)    NOT NULL    COMMENT '등록 시간', 
+                         PRIMARY KEY (review_num)
                         ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8";
                 break;
 
-            case 'comment_reply' :
-                $sql = "CREATE TABLE `comment_reply` (
-                         `cmt_reply_num`       INT             NOT NULL    AUTO_INCREMENT COMMENT '댓글 등록번호', 
-                         `cmt_num`             INT             NOT NULL    COMMENT '코멘트 등록번호', 
-                         `user_num`            INT             NOT NULL    COMMENT '작성자', 
-                         `cmt_reply_contents`  VARCHAR(200)    NOT NULL    COMMENT '댓글 내용', 
-                         `cmt_reply_regtime`   VARCHAR(45)     NOT NULL    COMMENT '등록 시간', 
-                         PRIMARY KEY (cmt_reply_num)
+            case 'review_reply' :
+                $sql = "CREATE TABLE `review_reply` (
+                         `review_reply_num`       INT             NOT NULL    AUTO_INCREMENT COMMENT '댓글 등록번호', 
+                         `review_num`             INT             NOT NULL    COMMENT '리뷰 등록번호', 
+                         `user_num`               INT             NOT NULL    COMMENT '작성자', 
+                         `review_reply_contents`  VARCHAR(200)    NOT NULL    COMMENT '댓글 내용', 
+                         `review_reply_regtime`   VARCHAR(45)     NOT NULL    COMMENT '등록 시간', 
+                         PRIMARY KEY (review_reply_num)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
 
