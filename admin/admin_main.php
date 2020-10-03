@@ -6,7 +6,7 @@
     <div class="right_content">
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_edit_user.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_user.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-user-cog"></i>
                 </div>
@@ -14,7 +14,7 @@
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">총 가입자 수 현황</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_edit_seller.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_seller.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
@@ -24,7 +24,7 @@
         </div> <!-- end of css_card_menu_row -->
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_edit_review.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_review.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-utensils"></i>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">셀러별 조회, 사용자별 조회</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_cancel.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_cancel.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-id-card"></i>
                 </div>
@@ -43,7 +43,7 @@
         </div> <!-- end of css_card_menu_row -->
 
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_chart_view.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_chart_view.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="fas fa-clipboard-list"></i>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">유저 나이대, 셀러 나이대, 식당 지역 분포도</div>
             </button>
 
-            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/admin/admin_database_setting.php'">
+            <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_database_setting.php'">
                 <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
                     <i class="far fa-question-circle"></i>
                 </div>

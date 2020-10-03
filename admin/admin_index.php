@@ -9,6 +9,7 @@
     <!-- CSS, JS 파일 링크 시, -->
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/common/css/common.css">
 
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/common_class_value.php"; ?>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
     <section>
-<!--        --><?php //include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/admin/admin_main.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/admin/admin_main.php"; ?>
     </section>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
