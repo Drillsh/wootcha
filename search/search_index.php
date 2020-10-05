@@ -1,6 +1,25 @@
 <?php
-$search_keyword = $_POST['search_keyword'];
+// 검색 결과 받음
+if (isset($_POST['search_keyword'])) {
+    $search = $_POST['search_keyword'];
+    $deco = '"';
+
+    echo "
+          <script>
+            function setSelectSear() {
+
+              document.getElementById('view_all_search').innerHTML = '$deco$search 검색결과';
+              document.getElementById('view_all_review').innerHTML = '';
+
+            }
+          </script>
+        ";
+} else {
+    $search = "";
+}
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +30,7 @@ $search_keyword = $_POST['search_keyword'];
 
     <!-- CSS, JS 파일 링크 -->
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/common/css/common.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/search/css/view_all.css">
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 
 </head>
@@ -22,9 +42,7 @@ $search_keyword = $_POST['search_keyword'];
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
     <section>
-        <div class="search_all">
-            <span class="search_title">&nbsp;&nbsp;:::&nbsp;&nbsp; "<?=$search_keyword?>" 에 대한 검색결과 입니다.</span>
-        </div>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/search_result.php"; ?>
     </section>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>

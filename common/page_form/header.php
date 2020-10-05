@@ -1,7 +1,7 @@
 <div id="top">
     <h3><a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/index.php"> WOOTCHA </a></h3>
     <div id="top_menu">
-        <form class="search_form" method="post" action="search/search_index.php">
+        <form class="search_form" method="post" action="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/search/search_index.php">
             <input class="search_input" type="text" placeholder="작품 제목,배우,감독을 검색해보세요" name="search_keyword">
             <button class="search_result_btn" id="search">검색</button>
             <button class="search_result_btn" type="button" name="search_filter" id="keyword_btn">&nbsp필터 ▼</button>

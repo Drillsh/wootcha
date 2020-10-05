@@ -5,7 +5,7 @@
 <ul>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_user.php">유저 관리</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_review.php">리뷰 관리</a> </li>
-    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_review.php">댓글 관리</a> </li>
+    <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_reply.php">댓글 관리</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_review.php">공지사항 관리</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_review.php">Q&A 관리</a> </li>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_review.php">FAQ 관리</a> </li>

@@ -43,13 +43,13 @@
             <div class="right_content">
                 <main>
                     <?php
-                    include_once '../lib/db_connector.php';
+                    include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
 
-                    $y = isset($_GET["y"])? $_GET["y"]: date("Y") ;
-                    $m = isset($_GET["m"])? $_GET["m"]: date("n") ;
-                    $page = isset($_GET["page"])? $_GET["page"]: 1 ;
-                    $col = isset($_GET["col"])? $_GET["col"]: '' ;
-                    $search = isset($_GET["search"])? $_GET["search"]: '' ;
+                    $y = isset($_GET["y"]) ? $_GET["y"] : date("Y");
+                    $m = isset($_GET["m"]) ? $_GET["m"] : date("n");
+                    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+                    $col = isset($_GET["col"]) ? $_GET["col"] : '';
+                    $search = isset($_GET["search"]) ? $_GET["search"] : '';
 
                     ?>
                     <!-- php 변수를 자바스크립트로 넘겨줌 -->
@@ -66,7 +66,7 @@
                             <span onclick="prevDateChange('review_mng')"><i class="fas fa-angle-left"></i></span>
                             <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('review_mng')">
                                 <?php
-                                for($i = 2018; $i<=date("Y"); $i++){
+                                for ($i = 2018; $i <= date("Y"); $i++) {
                                     echo "<option>$i</option>";
                                 }
                                 ?>
@@ -74,8 +74,8 @@
                             <span>년 </span>
                             <select id="top_select_month" dir="rtl" onchange="hrefDateChange('review_mng')">
                                 <?php
-                                $last_m = $y==date("Y")? date("n"): 12;
-                                for($i = 1; $i<=$last_m ; $i++){
+                                $last_m = $y == date("Y") ? date("n") : 12;
+                                for ($i = 1; $i <= $last_m; $i++) {
                                     echo "<option>$i</option>";
                                 }
                                 ?>
@@ -86,40 +86,39 @@
                         <!--end of 년 월 선택바 -->
 
                         <?php
-                        $m2 = $m <10? "0".$m : $m;
+                        $m2 = $m < 10 ? "0" . $m : $m;
                         $sql = "SELECT 
-            COUNT(*) AS count 
-          FROM
-            review
-          WHERE
-            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
+                                COUNT(*) AS count 
+                                FROM
+                                review
+                                WHERE
+                                review_regtime BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
 
-                        $result = mysqli_query($conn, $sql);
+                        $result = mysqli_query($con, $sql);
                         $row = mysqli_fetch_array($result);
-                        $total_review = $row['count'];
-
+                        $total_review = mysqli_num_rows($result);
 
                         //이달의 리뷰평점
                         $sql = "SELECT 
-                AVG(total_star) `ts`,
-                AVG(facility) `fc`,
-                AVG(acsbl) `asc`,
-                AVG(teacher)  `tc`,
-                AVG(cost_efct) `ce`,
-                AVG(achievement) `acm`
-            FROM
-                review
-            WHERE 
-            DATE_FORMAT(regist_day, '%Y%m%d') 
-            BETWEEN 
-            DATE_FORMAT('$y-$m2-01', '%Y%m%d') 
-            AND 
-            DATE_FORMAT(LAST_DAY('$y-$m2-01'), '%Y%m%d')";
+                                AVG(total_star) `ts`,
+                                AVG(facility) `fc`,
+                                AVG(acsbl) `asc`,
+                                AVG(teacher)  `tc`,
+                                AVG(cost_efct) `ce`,
+                                AVG(achievement) `acm`
+                                FROM
+                                review
+                                WHERE 
+                                DATE_FORMAT(review_regtime, '%Y%m%d') 
+                                BETWEEN 
+                                DATE_FORMAT('$y-$m2-01', '%Y%m%d') 
+                                AND 
+                                DATE_FORMAT(LAST_DAY('$y-$m2-01'), '%Y%m%d')";
 
-                        $result = mysqli_query($conn, $sql);
+                        $result = mysqli_query($con, $sql);
 
                         $review_avg = 0;
-                        if($result){
+                        if ($result) {
                             $row = mysqli_fetch_array($result);
                             $ts = $row['ts'];
                             $fc = $row['fc'];
@@ -127,7 +126,7 @@
                             $tc = $row['tc'];
                             $ce = $row['ce'];
                             $acm = $row['acm'];
-                            $review_avg = ($ts+ $fc+ $asc+ $tc+ $ce+ $acm)/6;
+                            $review_avg = ($ts + $fc + $asc + $tc + $ce + $acm) / 6;
                         }
 
                         ?>
@@ -136,17 +135,20 @@
                             <div id="dash_topline">
                                 <div>
                                     <span>전체 리뷰</span><br>
-                                    <span class="dash_topline_i"><i class="fas fa-box-open"></i>&nbsp;<span><?=$total_review?></span></span>
+                                    <span class="dash_topline_i"><i
+                                                class="fas fa-box-open"></i>&nbsp;<span><?= $total_review ?></span></span>
                                     <span class="caret up"> </i></span>
                                 </div>
                                 <div>
                                     <span>신규 리뷰</span><br>
-                                    <span class="dash_topline_i"><i class="fas fa-edit"></i>&nbsp;<span id="new_review_cnt"></span></span>
+                                    <span class="dash_topline_i"><i class="fas fa-edit"></i>&nbsp;<span
+                                                id="new_review_cnt"></span></span>
                                     <span class="caret up"> </i></span>
                                 </div>
                                 <div>
                                     <span>이달의 리뷰평점</span><br>
-                                    <span class="dash_topline_i"><i class="fas fa-star"></i>&nbsp;<span><?=sprintf('%0.1f', round($review_avg,1))?></span></span>
+                                    <span class="dash_topline_i"><i
+                                                class="fas fa-star"></i>&nbsp;<span><?= sprintf('%0.1f', round($review_avg, 1)) ?></span></span>
                                     <span class="caret down"> </i></span>
                                 </div>
                             </div>
@@ -154,7 +156,8 @@
 
                             <div id="g_members_totalGraph_wrap">
                                 <div id="g_members_totalGraph_cell1">
-                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Review Graph<span>단위: 건</span></h4>
+                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Review
+                                        Graph<span>단위: 건</span></h4>
                                     <canvas id="review_totalGraph"></canvas>
 
                                 </div>
@@ -181,17 +184,17 @@
                                         <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Review Management
                                         <div class="selectbox">
                                             <select id="search_select">
-                                                <option>학원이름</option>
+                                                <option>영화 제목</option>
                                                 <option>글쓴이</option>
                                                 <option>한줄평</option>
-                                                <option>평균평점</option>
+                                                <option>별점</option>
                                                 <option>등록일</option>
                                             </select>
                                         </div>
                                         <div class='search-box'>
                                             <div class='search-form'>
                                                 <input class='form-control' placeholder='검색어를 입력하세요' type='text'>
-                                                <button class='btn btn-link search-btn' onclick="onclickSearch()" >
+                                                <button class='btn btn-link search-btn' onclick="onclickSearch()">
                                                     <i class="fas fa-search"></i>
                                                 </button>
                                             </div>
@@ -205,82 +208,51 @@
                                     <ul id="member_list">
                                         <li>
                                             <span class="col1">No</span>
-                                            <span class="col2">학원이름</span>
+                                            <span class="col2">영화 제목</span>
                                             <span class="col3">글쓴이</span>
                                             <span class="col4">한줄평</span>
-                                            <span class="col5">평균평점</span>
+                                            <span class="col5">별점</span>
                                             <span class="col6">등록일</span>
                                         </li>
                                         <?php
-                                        if($col!='' && $search !=''){
+                                        if ($col != '' && $search != '') {
                                             $sql = "SELECT 
-                        rv.no,
-                        acd.acd_name,
-                        gm.id,
-                        rv.one_line,
-                        rv.avg,
-                        rv.regist_day
-                    FROM
-                        (SELECT 
-                            no,
-                                parent,
-                                user_no,
-                                one_line,
-                                (total_star + facility + acsbl + teacher + cost_efct + achievement) / 6 AS `avg`,
-                                regist_day
-                        FROM
-                            review) AS rv
-                            INNER JOIN
-                        (SELECT 
-                            no, acd_name
-                        FROM
-                            academy) AS acd ON acd.no = rv.parent
-                            INNER JOIN
-                        (SELECT 
-                            no, id
-                        FROM
-                            g_members) AS gm ON gm.no = rv.user_no
-                    WHERE
-                        $col LIKE '%$search%'
-                    ORDER BY regist_day DESC";
-                                        }else{
-                                            $sql = "SELECT 
-                          rv.no, acd.acd_name, gm.id, rv.one_line, rv.avg, rv.regist_day
-                      FROM
-                          (SELECT 
-                              no,
-                              parent,
-                              user_no,
-                              one_line,
-                              (total_star + facility + acsbl + teacher + cost_efct + achievement) / 6 AS `avg`,
-                              regist_day
-                          FROM
-                              review) AS rv
-                              INNER JOIN
-                          (SELECT 
-                              no, acd_name
-                          FROM
-                              academy) AS acd ON acd.no = rv.parent
-                              INNER JOIN
-                          (SELECT 
-                              no, id
-                          FROM
-                              g_members) AS gm ON gm.no = rv.user_no
-                      ORDER BY regist_day DESC";
+                                                     review_num,
+                                                     mv_num,
+                                                     user_num,
+                                                     review_short,
+                                                     review_rating,
+                                                     review_regtime
+                                                 FROM
+                                                     review
+                                                 WHERE
+                                                     $col LIKE '%$search%'
+                                                    ORDER BY regist_day DESC";
+                                        } else {
+                                            $sql = "SELECT
+                                                     review_num,
+                                                     mv_num,
+                                                     user_num,
+                                                     review_short,
+                                                     review_rating,
+                                                     review_regtime
+                                                  FROM
+                                                      review
+                                                  ORDER BY review_regtime DESC";
                                         }
 
-                                        $result = mysqli_query($conn, $sql);
+                                        $result = mysqli_query($con, $sql);
 
-                                        if(mysqli_num_rows($result)){
+                                        if (mysqli_num_rows($result)) {
                                             $total_record = mysqli_num_rows($result);
 
                                             $scale = 10; // 가져올 글 수
 
                                             // 전체 페이지 수($total_page) 계산
                                             if ($total_record % $scale == 0)
-                                                $total_page = floor($total_record/$scale);
+                                                $total_page = floor($total_record / $scale);
                                             else
-                                                $total_page = floor($total_record/$scale)+1;
+                                                $total_page = floor($total_record / $scale) + 1;
 
                                             // 표시할 페이지($page)에 따라 $truncated_num(한페이지에서 10개 리스트 보여지고 그 뒤 짤리는 넘버) 계산
                                             $truncated_num = ($page - 1) * $scale;
@@ -289,35 +261,35 @@
                                             //게시판 맨 상단 번호
                                             $number = $total_record - $truncated_num;
 
-                                            for ($i=$truncated_num; $i < $truncated_num+$scale && $i < $total_record; $i++){
+                                            for ($i = $truncated_num; $i < $truncated_num + $scale && $i < $total_record; $i++) {
                                                 // 가져올 레코드로 위치(포인터) 이동
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
-                                                $no         = $row["no"];
-                                                $acd_name        = $row["acd_name"];
-                                                $id          = $row["id"];
-                                                $one_line       = $row["one_line"];
-                                                $avg       = $row["avg"];
-                                                $regist_day  = $row["regist_day"];
+                                                $no = $row["review_num"];
+                                                $mv_name = $row["mv_num"];
+                                                $id = $row["user_num"];
+                                                $one_line = $row["review_short"];
+                                                $rating = $row["review_rating"];
+                                                $regist_day = $row["review_regtime"];
                                                 ?>
                                                 <li class="list_row">
                                                     <form method="post" action="#">
-                                                        <input type="hidden" name="no[]" value="<?=$no?>" readonly>
-                                                        <span class="col1"><?=$number?></span>
-                                                        <span class="col2 left-align"><?=$acd_name?></span>
-                                                        <span class="col3"><?=$id?></span>
-                                                        <span class="col4 left-align"><?=$one_line?></span>
-                                                        <span class="col5"><?=sprintf('%0.1f', round($avg,1))?></span>
-                                                        <span class="col6"><?=$regist_day?></span>
+                                                        <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
+                                                        <span class="col1"><?= $number ?></span>
+                                                        <span class="col2 left-align"><?= $mv_name ?></span>
+                                                        <span class="col3"><?= $id ?></span>
+                                                        <span class="col4 left-align"><?= $one_line ?></span>
+                                                        <span class="col5"><?= sprintf('%0.1f', round($rating, 1)) ?></span>
+                                                        <span class="col6"><?= $regist_day ?></span>
                                                     </form>
                                                 </li>
 
                                                 <?php
                                                 $number--;
                                             }
-                                            mysqli_close($conn);
-                                        }else{
-                                            echo"검색결과가 없습니다";
+                                            mysqli_close($con);
+                                        } else {
+                                            echo "검색결과가 없습니다";
                                             $total_page = 0;
                                         }
 
@@ -330,26 +302,26 @@
                                             <ul class="page_num_ul">
                                                 <?php
                                                 $page_scale = 5; // 페이지 쪽수 표시 량 (5 페이지씩 표기)
-                                                $pageGroup = ceil($page/$page_scale); // 페이지 그룹번호(페이지 5개가 1그룹)
+                                                $pageGroup = ceil($page / $page_scale); // 페이지 그룹번호(페이지 5개가 1그룹)
 
                                                 $last_page = $pageGroup * $page_scale; //그룹번호 안에서의 마지막 페이지 숫자
                                                 //그룹번호의 마지막 페이지는 전체 페이지보다 클 수 없음
-                                                if($total_page < $page_scale){
+                                                if ($total_page < $page_scale) {
                                                     $last_page = $total_page;
-                                                }else if($last_page > $total_page){
+                                                } else if ($last_page > $total_page) {
                                                     $last_page = $total_page;
                                                 }
 
                                                 //그룹번호의 첫번째 페이지 숫자
-                                                $first_page = $last_page - ($page_scale-1);
+                                                $first_page = $last_page - ($page_scale - 1);
                                                 //그룹번호의 첫번째 페이지는 1페이지보다 작을 수 없음
-                                                if($first_page < 1){
+                                                if ($first_page < 1) {
                                                     $first_page = 1;
-                                                }else if($last_page == $total_page){ //마지막 그룹번호일때 첫번째 페이지값 결정
-                                                    if($total_page % $page_scale==0){
-                                                        $first_page = $total_page - $page_scale+1;
-                                                    }else{
-                                                        $first_page = $total_page - ($total_page % $page_scale)+1;
+                                                } else if ($last_page == $total_page) { //마지막 그룹번호일때 첫번째 페이지값 결정
+                                                    if ($total_page % $page_scale == 0) {
+                                                        $first_page = $total_page - $page_scale + 1;
+                                                    } else {
+                                                        $first_page = $total_page - ($total_page % $page_scale) + 1;
                                                     }
                                                 }
                                                 echo "<script>console.log($first_page, $last_page)</script>";
@@ -357,13 +329,13 @@
                                                 $next = $last_page + 1;// > 버튼 누를때 나올 페이지
                                                 $prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
-                                                $url = "/eduplanet/admin/review_mng.php?y=$y&m=$m";
-                                                if($search!=''){
+                                                $url = "/wootcha/admin/admin_review.php?y=$y&m=$m";
+                                                if ($search != '') {
                                                     $url .= "&col=$col&search=$search";
                                                 }
                                                 // 첫번째 페이지일 때 앵커 비활성화
                                                 if ($first_page == 1) {
-                                                    if($page!=1)
+                                                    if ($page != 1)
                                                         echo "<li><a href='$url&page=1'><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
                                                     else
                                                         echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
@@ -376,7 +348,7 @@
 
 
                                                 //페이지 번호 매기기
-                                                for($i= $first_page ; $i <= $last_page ; $i++){
+                                                for ($i = $first_page; $i <= $last_page; $i++) {
                                                     if ($page == $i) {
                                                         echo "<li><span class='page_num_set'><b style='color:#2E89FF'> $i </b></span></li>";
                                                     } else {
@@ -388,7 +360,7 @@
                                                 if ($last_page == $total_page) {
                                                     echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-right'></i></span></a></li>";
 
-                                                    if($page !=$total_page)
+                                                    if ($page != $total_page)
                                                         echo "<li><a href='$url&page=$total_page'><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
                                                     else
                                                         echo "<li><a><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
@@ -410,7 +382,7 @@
 
     </section>
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
     </footer>
 </body>
 

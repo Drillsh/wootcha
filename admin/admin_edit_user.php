@@ -91,9 +91,9 @@
                             $m2 = "0" . $m2;
                         }
                         $sql = "SELECT 
-            COUNT(*) AS count 
-          FROM
-            user;";
+                                COUNT(*) AS count 
+                                FROM
+                                user;";
                         //          WHERE
                         //            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
 
@@ -369,7 +369,7 @@
 
     </section>
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/common/page_form/small_header/footer.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
     </footer>
 </body>
 
