@@ -4,7 +4,7 @@
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */
-    .modal_container .modal_content {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+    .modal_container .modal_content {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-75%, -50%); background-color: white; 
          padding: 1rem 1.5rem;   width: 700px;  height: 600px;   border-radius: 0.5rem;  } 
 
     /* 상단 닉네임 및 평점 부분 */

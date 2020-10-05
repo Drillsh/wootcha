@@ -6,6 +6,9 @@
         <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
         <link rel="stylesheet" type="text/css" href="./css/mypage.css?after">
         <link rel="stylesheet" type="text/css" href="./css/mypage_wishlist_item.css?after">
+        <?php include "../common/database/db_connector.php"?>
+        <?php include "./mypage_db_helper.php"?>
+        <?php include "./test/movie_cgv_crawling.php"?>
     </head>
     <body>
         <!-- 헤더 -->
@@ -102,35 +105,34 @@
                 // 좋아요
                 // ******************
                 }elseif ($_GET['mode'] == 'like') {
-                ?>    
-                    <!-- db에서 가져온 값이 들어갈 것 -->
-                    <li class='list_item'>
-                        <a href='#'>
-                            <img src='./img/movie_poster2.jpg' alt="">
-                            <h3>영화제목</h3>
-                        </a>
-                    </li> 
+                    // mypage_db_helper 에 정의된 함수
+                    $result = select_data($con, "select_user", "myohoon95@gmail.com");
 
-                    <li class='list_item'>
-                        <a href='#'>
-                            <img src='./img/movie_poster2.jpg' alt="">
-                            <h3>영화제목</h3>
-                        </a>
-                    </li> 
+                    // 사용자의 pk를 확인
+                    $row = mysqli_fetch_array($result);
+                    $user_num = $row['user_num'];
 
-                    <li class='list_item'>
-                        <a href='#'>
-                            <img src='./img/movie_poster2.jpg' alt="">
-                            <h3>영화제목</h3>
-                        </a>
-                    </li> 
+                    // 좋아하는 영화 리스트
+                    $result = select_data($con, "select_my_favorite_movie", $user_num);
+                    
+                    while($row_review = mysqli_fetch_array($result)){
+                        $fav_num = $row_review['fav_num'];
+                        $mv_num = $row_review['mv_num'];
+                        $mv_title = $row_review['mv_title'];
 
+                        $mv_big_img_link = get_cgv_movie_poster_url($mv_title);
+                ?>   
                     <li class='list_item'>
                         <a href='#'>
-                            <img src='./img/movie_poster2.jpg' alt="">
-                            <h3>영화제목</h3>
+                            <img src='<?=$mv_big_img_link?>' alt="">
+                            <h3><?=$mv_title?></h3>
                         </a>
                     </li> 
+                <?php
+                    // while문 끝
+                    }
+                ?>
+                    
 
                     
 
@@ -139,6 +141,7 @@
 
 
                 <?php
+                // mode로 like 와 wish 분기용 if문
                 }
                 ?>
 

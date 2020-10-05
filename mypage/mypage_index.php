@@ -41,6 +41,8 @@
                     // 사용자의 pk를 확인
                     $row = mysqli_fetch_array($result);
                     $user_num = $row['user_num'];
+                    $user_img = $row['user_img'];
+                    $user_nickname = $row['user_nickname'];
 
                     // pk로 review 리스트 검색함
                     $result = select_data($con, "select_my_reivew", $user_num);
@@ -101,12 +103,12 @@
                         <div class="modal_content_header">
                             <!-- profile img : 세션에서 값 옴-->
                             <div class="small_img_box">
-                                <img src="./img/profile_image<?=$i?>.png" alt="프로필 이미지">
+                                <img src="../user/img/<?=$user_img?>" alt="프로필 이미지">
                             </div>
                                     
                             <!-- 닉네임 : 세션에서 값 옴 -->
                             <div>
-                                닉네임<?=$i?>
+                                <?=$user_nickname?>
                             </div>
                                     
                             <!-- 평점 -->
@@ -155,17 +157,18 @@
                                 $review_reply_num = $row_reply['review_reply_num'];
                                 $review_reply_contents = $row_reply['review_reply_contents'];
                                 $review_reply_regtime = $row_reply['review_reply_regtime'];
-                                $user_name = $row_reply['user_name'];
+                                $user_nickname = $row_reply['user_nickname'];
+                                $user_img = $row_reply['user_img'];
                         ?>
                             <div class="comments_item">
                                 <!-- profile image -->
                                 <div class="profile_box">
                                     <a href="#">
                                         <div class="small_img_box">
-                                            <img src="./img/profile_image.png" alt="프로필 이미지 수정">
+                                            <img src="../user/img/<?=$user_img?>" alt="프로필 이미지 수정">
                                         </div>
                                         <!-- 닉네임 -->
-                                        <p><?=$user_name?></p>
+                                        <p><?=$user_nickname?></p>
                                     </a>
                                 </div>
                                 <div class="comment_content">

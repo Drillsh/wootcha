@@ -12,14 +12,21 @@
     </head>
     <body>
     <?php
-        $image = "이미지";
-        $id = "hoonsa123";
-        $name = "임훈사";
-        $birth_day = "1995-12-12";
-        $regist_day = "2020-10-01";
-        $nickname = "후";
-        $phone = "010-1234-5678";
-        $password = "1234";
+        include_once "../common/database/db_connector.php";
+        $result = mysqli_query($con, "select * from user where user_num = 2;");
+        $row = mysqli_fetch_array($result);
+
+        $user_mail= $row['user_mail'];
+        $password= $row['password'];
+        $user_name= $row['user_name'];
+        $user_nickname = $row['user_nickname'];
+        $user_img = $row['user_img'];
+        $user_age= $row['user_age'];
+        $user_gender = $row['user_gender'];
+        $user_phone= $row['user_phone'];
+        $user_signup_day= $row['user_signup_day'];
+
+        
     ?>
         <!-- 헤더 -->
         <header>
@@ -47,7 +54,7 @@
                             <td>
                                 <a href="#">
                                     <div class="small_img_box">
-                                        <img src="./img/movie_poster.jpg" alt="프로필 이미지 수정">
+                                        <img src="../user/img/<?=$user_img?>" alt="프로필 이미지 수정">
                                         <img src="./img/black.png" alt="">
                                         <img src="./img/modify.png" alt="">
                                     </div>
@@ -56,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>아이디</td>
-                            <td><?=$id?></td>
+                            <td><?=$user_mail?></td>
                             <td>
                                 <a href="#">
                                     <div class="small_img_box">
@@ -67,7 +74,7 @@
                         </tr>
                         <tr>
                             <td>이름</td>
-                            <td><?=$name?></td>
+                            <td><?=$user_name?></td>
                             <td>
                                 <a href="#">
                                     <div class="small_img_box">
@@ -78,7 +85,7 @@
                         </tr>
                         <tr>
                             <td>생년월일</td>
-                            <td><?=$birth_day?></td>
+                            <td><?=$user_age?></td>
                             <td>
                                 <a href="#">
                                     <div class="small_img_box">
@@ -89,7 +96,7 @@
                         </tr>
                         <tr>
                             <td>가입일자</td>
-                            <td><?=$regist_day?></td>
+                            <td><?=$user_signup_day?></td>
                             <td>
                                 <a href="#">
                                     <div class="small_img_box">
@@ -100,7 +107,7 @@
                         </tr>
                         <tr>
                             <td>닉네임</td>
-                            <td><?=$nickname?></td>
+                            <td><?=$user_nickname?></td>
                             <td>
                                 <a href="#" class="trigger">
                                     <div class="small_img_box">
@@ -112,7 +119,7 @@
                         </tr>
                         <tr>
                             <td>전화번호</td>
-                            <td><?=$phone?></td>
+                            <td><?=$user_phone?></td>
                                 <td>
                                 <a href="#" class="trigger_phone">
                                     <div class="small_img_box">
@@ -171,7 +178,7 @@
                         <form action="#" method="POST"> 
                             <table>
                                 <tr>
-                                    <td><input type="tel" name="phone" placeholder="<?=$phone?>" required="required"></td>
+                                    <td><input type="tel" name="phone" placeholder="<?=$user_phone?>" required="required"></td>
                                     <td><input type="button" onclick="" class="button" value="인증하기"></td>
                                 </tr>
                                 <tr>
