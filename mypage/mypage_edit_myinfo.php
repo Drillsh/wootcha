@@ -126,7 +126,7 @@
                             <td>정기적으로 변경해주시는 것이 보안에 좋습니다.</td>
                             <td>
                                 <a href="#" class="trigger_password">
-                                    <div class="small_img_box" >
+                                    <div class="small_img_box">
                                         <img src="./img/edit.png" alt="">
                                     </div>
                                 </a>

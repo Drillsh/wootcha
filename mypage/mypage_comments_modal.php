@@ -1,19 +1,15 @@
-<button class="review_dialog_trigger" name="review_dialog_trigger">1영화 코멘트 클릭했을 때 화면</button>
-<button class="review_dialog_trigger" name="review_dialog_trigger">2영화 코멘트 클릭했을 때 화면</button>
-<button class="review_dialog_trigger" name="review_dialog_trigger">3영화 코멘트 클릭했을 때 화면</button>
+<!-- <button class="review_dialog_trigger" >1영화 코멘트 클릭했을 때 화면</button>
+<button class="review_dialog_trigger" >2영화 코멘트 클릭했을 때 화면</button>
+<button class="review_dialog_trigger" >3영화 코멘트 클릭했을 때 화면</button> -->
 
+<!-- ****************** -->
+<!-- css -->
+<!-- ****************** -->
 
 <style type="text/css"> 
     /* 빈공간을 어둡게 채우는 창 */
     .modal_container { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 1; 
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
-    /* .modal_container { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); 
-         opacity: 0;  visibility: hidden; transform: scale(1.1); transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; } 
-    .show-modal { opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } */
-
-    /* ckecked 됐을 때의 상태 */
-    /* .review_dialog_trigger:checked + .show-modal {visibility:visible;}
-    .review_dialog_trigger:checked + .modal_container  {visibility:visible;} */
 
     /* 흰 화면의 dialog 부분 */
     .modal_container .modal_content {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
@@ -23,7 +19,7 @@
     .modal_container .modal_content_header{height: 50px; width:95%; position:relative;}
 
     /* 프로필 이미지 */
-    .modal_container .small_img_box{ width: 45px; height: 45px; border-radius: 50%; overflow: hidden; position:absolute; }
+    .modal_container .small_img_box{ width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display:inline-block;}
     .modal_container .small_img_box img{width: 100%; height: 100%; object-fit: cover;}
     
     /* 닉네임 */
@@ -53,11 +49,41 @@
 
     /* 좋아요 및 댓글 icon */
     .modal_content_bottom {width:99%; height:30px;}
+    .modal_content_bottom input{display:none;}
+
     .modal_content_bottom img{width:20px; height:20px; display:inline-block; line-height:30px}
     .modal_content_bottom p{display:inline-block; line-height:30px; margin-right:20px}
     
     /* 등록일자 */
     .modal_content_bottom .review_regist_day{float:right;}
+
+    /* ************** */
+    /* 댓글 창 */
+    /* ************** */
+    .modal_container .comments_container{position: absolute;   top: 50%;  left: 80%;  transform: translate(-70%, -50%); background-color: white; 
+         padding: 1rem 1.5rem;   width: 400px;  height: 600px;   border-radius: 0.5rem;}
+    .modal_container .comments_container .comments_list{width: 100%;  height: 440px; overflow-y:auto }
+    .modal_container .comments_container .comments_register{width: 100%;  height: 140px; }
+    
+    /* comments item */
+    .modal_container .comments_container .comments_item{position:relative;}
+    
+    
+    /* profile image  및 닉네임*/
+    .modal_container .comments_container .profile_box{display:inline-block; margin-right:15px; width:100px;text-align:center;}
+    .modal_container .comments_container .profile_box p{font-size:13px; }
+    .modal_container .comments_container .profile_box a{text-decoration:none;}
+    
+    /* 댓글 내용 */
+    .modal_container .comments_container .comment_content p{word-break:break-all;}
+    .modal_container .comments_container .comment_content {display:inline-block; width:250px; vertical-align:middle;
+        position:absolute; top: 50%; left: 60%; transform:translate(-50%, -50%);}
+
+    /* 댓글 작성 창 */
+    .modal_container .comments_container .comments_register textarea{width:100%; height:100px; resize:none; margin-top:10px;}
+    .modal_container .comments_container .comments_register .submit_btn_box{margin-top:10px; float:right;}
+
+
 
     /* .modal_container label { display: block; margin-top: 20px; letter-spacing: 2px; } 
     .modal_container form {  margin: 0 auto; width: 459px; } 
@@ -73,8 +99,11 @@
     .modal_container #like, .modal_container #review{float:left; background-color:yellow; width:100px; height:40px;}  */
 </style>
 
+<!-- ****************** -->
+<!-- php -->
+<!-- ****************** -->
 <?php
-    for($i=0; $i < 3; $i++){
+    for($i=0; $i < $row_num; $i++){
 ?>
 <!-- 팝업 될 레이어 --> 
 <div class="modal_container" name="modal_container"> 
@@ -115,8 +144,10 @@
             </span>
             <!-- 댓글 -->
             <span>
-                <img src="./img/comments.png" alt="">
-                <p><?=$i?></p>
+                <input type="checkbox" id="checkbox<?=$i?>">
+                <label for="checkbox<?=$i?>"><img src="./img/comments.png" alt="">&nbsp;<p><?=$i?></p></label>
+                <!-- <img src="./img/comments.png" alt=""> -->
+                
             </span>
             <!-- 등록일자 -->
             <p class="review_regist_day">등록일자<?=$i?></p>
@@ -163,12 +194,111 @@
                <input type="button" id="cancel" value="나가기"> 
                <input type="submit" id="submit" value="보내기">
         </form>  -->
+    </div>
+    <div class="comments_container">
+        <div class="comments_list">
+
+            <!-- 여기서부터 db에서 가져올 내용 -->
+            <div class="comments_item">
+                <!-- profile image -->
+                <div class="profile_box">
+                    <a href="#">
+                        <div class="small_img_box">
+                            <img src="./img/profile_image.png" alt="프로필 이미지 수정">
+                        </div>
+                        <p>닉네임</p>
+                    </a>
+                </div>
+                <div class="comment_content">
+                    <!-- 댓글 내용 -->
+                    <p>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
+                </div>
+            </div><!-- 여기서부터 db에서 가져올 내용 -->
+            <div class="comments_item">
+                <!-- profile image -->
+                <div class="profile_box">
+                    <a href="#">
+                        <div class="small_img_box">
+                            <img src="./img/profile_image.png" alt="프로필 이미지 수정">
+                        </div>
+                        <p>닉네임</p>
+                    </a>
+                </div>
+                <div class="comment_content">
+                    <!-- 댓글 내용 -->
+                    <p>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
+                </div>
+            </div><!-- 여기서부터 db에서 가져올 내용 -->
+            <div class="comments_item">
+                <!-- profile image -->
+                <div class="profile_box">
+                    <a href="#">
+                        <div class="small_img_box">
+                            <img src="./img/profile_image.png" alt="프로필 이미지 수정">
+                        </div>
+                        <p>닉네임</p>
+                    </a>
+                </div>
+                <div class="comment_content">
+                    <!-- 댓글 내용 -->
+                    <p>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
+                </div>
+            </div><!-- 여기서부터 db에서 가져올 내용 -->
+            <div class="comments_item">
+                <!-- profile image -->
+                <div class="profile_box">
+                    <a href="#">
+                        <div class="small_img_box">
+                            <img src="./img/profile_image.png" alt="프로필 이미지 수정">
+                        </div>
+                        <p>닉네임</p>
+                    </a>
+                </div>
+                <div class="comment_content">
+                    <!-- 댓글 내용 -->
+                    <p>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
+                </div>
+            </div><!-- 여기서부터 db에서 가져올 내용 -->
+            <div class="comments_item">
+                <!-- profile image -->
+                <div class="profile_box">
+                    <a href="#">
+                        <div class="small_img_box">
+                            <img src="./img/profile_image.png" alt="프로필 이미지 수정">
+                        </div>
+                        <p>닉네임</p>
+                    </a>
+                </div>
+                <div class="comment_content">
+                    <!-- 댓글 내용 -->
+                    <p>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzㅋㅋㅋㅋ</p>
+                </div>
+            </div>
+
+
+
+        </div>
+        
+        <hr width="99%" color="#e2e2e2" noshade/>
+        <form action="#">
+            <div class="comments_register">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <div class="submit_btn_box">
+                    <input type="submit" value="보내기">
+                </div>
+            </div>
+        </form>
     </div> 
 </div>
 
 <?php
     }
 ?>
+
+
+<!-- ****************** -->
+<!-- javascript -->
+<!-- ****************** -->
     <script type="text/javascript"> 
         // Modal을 가져옵니다.
         var modal_container = document.getElementsByClassName("modal_container");
@@ -204,37 +334,6 @@
           funcs[j]();
         }
 
-        // Modal 영역 밖을 클릭하면 Modal을 닫습니다.
-        // window.onclick = function(event) {
-        //   if (event.target.className == "modal_container") {
-        //       event.target.style.display = "none";
-        //   }
-        // }; 
-
-
-
-        // //  var modal_container = document.querySelector(".modal_container"); 
-        //  var modal_container = document.getElementsByName("modal_container"); 
-        //  var trigger = document.getElementsByName("review_dialog_trigger"); 
-        //  var closeButton = document.querySelector(".modal_close_btn"); 
-        //  var cancelButton = document.querySelector("#cancel");
         
-        // for(var i = 0; i < trigger.length; i++){
-        //     function toggleModal() { 
-        //         modal_container.classList.toggle("show-modal"); 
-        //     }
-
-        //     function windowOnClick(event) { 
-        //         if (event.target === modal_container) { 
-        //             toggleModal(); 
-        //         } 
-        //     }
-       
-        
-        //     trigger[i].addEventListener("click", toggleModal); 
-        // }
-        // closeButton.addEventListener("click", toggleModal); 
-        // // cancel.addEventListener("click", toggleModal); 
-        // window.addEventListener("click", windowOnClick); 
      </script>
 
