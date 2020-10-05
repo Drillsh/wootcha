@@ -1,5 +1,14 @@
+<?php
+include_once "../common/database/db_connector.php";
+$result = mysqli_query($con, "select * from user where user_num = 2;");
+$row = mysqli_fetch_array($result);
+
+$user_img = $row['user_img'];
+?>
+
+
 <div class="profile_img_box">
-    <img src="./img/profile_image.png" alt="프로필 이미지">
+    <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$user_img?>" alt="프로필 이미지">
 </div>
 <ul>
     <li><a href="./mypage_index.php">내가 작성한 리뷰</a></li>
