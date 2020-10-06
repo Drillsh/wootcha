@@ -1,13 +1,9 @@
-
-<body onload="setSelectDis(); setSelectSort(); setSelectSear();">
+<body onload="setSelectSear();">
     <div class="body_wrap">
         <div class="follow_list_wrap">
             <div class="follow_list_background">
 
                 <?php
-
-                // 찜목록 test ============================================================
-                // $star = "시설 만족 순";
 
                 //페이지 수 체크한다.
                 if (isset($_GET["page"])) {
@@ -15,35 +11,37 @@
                 } else {
                     $page = 1;
                 }
-                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/test/movie_naver_api_test.php";
+
+                // 추후 따로 모아서 임포트
+                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";
 
                 //검색어 있을때
                 if ($search != "") {
+                    $result = search_movie_title($search);
                     $total_record = $result['display'];
 
-                    //검색어 없을때===============================
+                    //검색어 없을때
                 } else if ($search == "") {
-                    $total_record = $result['display'];
+                    $total_record = 0;
                 }
 
                 ?>
 
                 <!-- select box -------------------------------------------------------------------------------------->
                 <div class="follow_list_select">
-
                     <h2>
                         <!-- 검색 학원 정렬 -->
                         <span id="view_all_search"></span>
-                        <span id="view_all_review">학원 리스트 (전체)</span>
+                        <span id="view_all_review">영화 리스트 (전체)</span>
                         <span id="view_all_title"></span>
                     </h2>
 
-                    <span id="follow_total_span">총 <span id="follow_total_num"><?= $total_record ?></span> 개의 학원이 있습니다.</span>
+                    <span id="follow_total_span">총 <span id="follow_total_num"><?= $total_record ?></span> 개의 영화가 있습니다.</span>
 
                     <div class="follow_select">
                         <select name="follow_list_select_district" id="follow_list_select_district"
                                 onchange="selectOption();">
-                            <option value="전체" selected>시/군 선택</option>
+                            <option value="전체" selected>장르 선택</option>
                             <option value="가평군">가평군</option>
                             <option value="고양시">고양시</option>
                             <option value="과천시">과천시</option>
@@ -75,17 +73,12 @@
                             <option value="포천시">포천시</option>
                             <option value="하남시">하남시</option>
                             <option value="화성시">화성시</option>
-
                         </select>
 
                         <select name="follow_list_select_mode" id="follow_list_select_mode" onchange="selectOption();">
                             <option value="bace_max" selected>정렬/순서 선택</option>
-                            <option value="star_max">총 만족도 순</option>
-                            <option value="facility_max">시설 만족도 순</option>
-                            <option value="acsbl_max">교통 편의성 순</option>
-                            <option value="teacher_max">강사 만족도 순</option>
-                            <option value="cost_efct_max">수강료 만족 순</option>
-                            <option value="achievement_max">학업성취도 순</option>
+                            <option value="star_max">네이버 별점순</option>
+                            <option value="facility_max">웃챠 별점순</option>
                         </select>
                     </div>
                 </div>
@@ -93,9 +86,7 @@
                 <!-- start of ul ------------------------------------------------------------------------------------->
 
                 <ul class="follow_unorder_list">
-
                     <?php
-
                     $scale = 10;
 
                     if ($total_record % $scale == 0) {
@@ -121,51 +112,47 @@
                     $total_star = $no["userRating"]; //평점
                     $review_count = 0; // 리뷰 수
                     $story_count = 0; //스토리 수
+                    $naverLink = $no["link"];
 
                     $total_star = sprintf('%0.1f', $total_star);
 
 
-//                    if ($category == "ctg_star") {
-//                        $category = "총 만족도";
-//                    }
-//                    if ($category == "ctg_facility") {
-//                        $category = "시설 만족도";
-//                    }
-//                    if ($category == "ctg_acsbl") {
-//                        $category = "교통 편의성";
-//                    }
-//                    if ($category == "ctg_acsbl") {
-//                        $category = "강사 만족도";
-//                    }
-//                    if ($category == "ctg_cost_efct") {
-//                        $category = "수강료 만족도";
-//                    }
-//                    if ($category == "ctg_achievement") {
-//                        $category = "학업 성취도";
-//                    }
-//                    if ($category == "ctg_all") {
-//                        $category = "총 만족도";
-//                    }
+                    //                    if ($category == "ctg_star") {
+                    //                        $category = "총 만족도";
+                    //                    }
+                    //                    if ($category == "ctg_facility") {
+                    //                        $category = "시설 만족도";
+                    //                    }
+                    //                    if ($category == "ctg_acsbl") {
+                    //                        $category = "교통 편의성";
+                    //                    }
+                    //                    if ($category == "ctg_acsbl") {
+                    //                        $category = "강사 만족도";
+                    //                    }
+                    //                    if ($category == "ctg_cost_efct") {
+                    //                        $category = "수강료 만족도";
+                    //                    }
+                    //                    if ($category == "ctg_achievement") {
+                    //                        $category = "학업 성취도";
+                    //                    }
+                    //                    if ($category == "ctg_all") {
+                    //                        $category = "총 만족도";
+                    //                    }
 
                     ?>
 
                     <li>
-                        <!-- 하나의 학원목록 -->
                         <div class="follow_list_column">
-
-                            <!-- 왼쪽 학원 로고 및 정보  -->
-                            <!-- 클릭 시 href=학원페이지                           parent=<?= $parent ?>&acd_name=<?= $acd_name ?>     -->
-                            <a href="/eduplanet/academy/index.php?no=<?= $no ?>">
+                            <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?link=<?= $naverLink ?>">
                                 <div class="follow_list_column_img">
                                     <?php
                                     if ($file_copy == "") {
-
                                         ?>
-                                        <img src=<?=$file_copy?>>
+                                        <img src=<?= $file_copy ?>>
                                         <?php
                                     } else {
                                         ?>
-                                        <img src=<?=$file_copy?> alt="">
+                                        <img src=<?= $file_copy ?> alt="">
                                         <?php
                                     }
                                     ?>
@@ -193,39 +180,39 @@
                             <div class="follow_academy_heart">
                                 <span>학원 찜하기</span>
                                 <?php
-//                                if ($gm_no) {
-//
-//
-//                                    $sql7 = "select * from follow where user_no = $gm_no and acd_no = $no ";
-//                                    $result7 = mysqli_query($con, $sql7);
-//                                    $row7 = mysqli_fetch_array($result7);
-//
-//
-//                                    if ($row7) {
-//                                        echo "
-//
-//                                              <a href='/eduplanet/acd_story/unfollow.php?no=$no'><button type='button' id='button_academy_heart_on'>like</button></a>
-//                                            ";
-//                                    } else {
-//                                        echo "
-//                                              <a href='/eduplanet/acd_story/follow.php?no=$no'><button type='button' id='button_academy_heart_off'>like</button></a>
-//                                              ";
-//                                    }
-//
-//                                    ?>
+                                //                                if ($gm_no) {
+                                //
+                                //
+                                //                                    $sql7 = "select * from follow where user_no = $gm_no and acd_no = $no ";
+                                //                                    $result7 = mysqli_query($con, $sql7);
+                                //                                    $row7 = mysqli_fetch_array($result7);
+                                //
+                                //
+                                //                                    if ($row7) {
+                                //                                        echo "
+                                //
+                                //                                              <a href='/eduplanet/acd_story/unfollow.php?no=$no'><button type='button' id='button_academy_heart_on'>like</button></a>
+                                //                                            ";
+                                //                                    } else {
+                                //                                        echo "
+                                //                                              <a href='/eduplanet/acd_story/follow.php?no=$no'><button type='button' id='button_academy_heart_off'>like</button></a>
+                                //                                              ";
+                                //                                    }
+                                //
+                                //                                    ?>
 
-<!--                                    --><?php
-//                                } else {
-//                                    ?>
-<!---->
-<!---->
-<!--                                    <a href="javascript:alert('일반회원만 이용 가능합니다.')">-->
-<!--                                        <button type="button" id="button_academy_heart_off">like</button>-->
-<!--                                    </a>-->
-<!---->
-<!--                                    --><?php
-//                                }
-//                                ?>
+                                <!--                                    --><?php
+                                //                                } else {
+                                //                                    ?>
+                                <!---->
+                                <!---->
+                                <a href="javascript:alert('일반회원만 이용 가능합니다.')">
+                                    <button type="button" id="button_academy_heart_off">like</button>
+                                </a>
+                                <!---->
+                                <!--                                    --><?php
+                                //                                }
+                                //                                ?>
                             </div>
 
                             <div class="follow_academy_star_wrap">
