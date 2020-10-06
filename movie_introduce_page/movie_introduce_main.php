@@ -77,7 +77,7 @@
     </li>
 </ul>
 <div id="movie_introduce">
-<div id="movie_poster"><br><br><h2>영화 포스터</h2></div>
+<div id="movie_poster" onclick="window.open('./img/black_widow.jpg','poster','width=600, height=800, scrollbars=yes, top=2000, left=-1000');"><br><br><h2>영화 포스터</h2></div>
     <div id="movie_subject"><br><br><h2>영화 제목란</h2></div>
 
 <span><button type=button id="favorite_movie"></span>
