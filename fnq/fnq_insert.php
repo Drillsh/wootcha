@@ -24,8 +24,8 @@
 //         ");
 //                 exit;
 //     }
-	$subject = $_POST["notice_title"];
-    $content = $_POST["notice_contents"];
+	$subject = $_POST["faq_title"];
+    $content = $_POST["faq_contents"];
 
     $subject = test_input($subject);
     $content = test_input($content);
@@ -35,20 +35,20 @@
 
 	$regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
 
-	create_table($con, "notice_board");
+	create_table($con, "faq_board");
 	// $con = mysqli_connect("localhost", "user1", "12345", "sample");
-	$notice_file_name='';
-	$notice_file_copied='';
-	$notice_file_type='';
-	$sql = "insert into notice_board ";
-	$sql .= "values(null,'$subject','$content',0, '$regist_day','$notice_file_name','$notice_file_copied', '$notice_file_type');";
-	mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
-	
+	$faq_file_name='';
+	$faq_file_copied='';
+	$faq_file_type='';
+	$sql = "insert into faq_board ";
+	$sql .= "values(null, '$subject', '$content','0', '$regist_day', '$faq_file_name','$faq_file_copied','$faq_file_type');";
+	mysqli_query($con, $sql) or die(mysqli_error($con));  // $sql 에 저장된 명령 실행
+	// die(mysqli_error($con)); SQL문 에러 확인 
 	mysqli_close($con);                // DB 연결 끊기
 
 	echo "
 	   <script>
-	    location.href = 'notice_list.php';
+	    location.href = 'fnq_main.php';
 	   </script>
 	";
 ?>

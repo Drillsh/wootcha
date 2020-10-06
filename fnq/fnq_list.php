@@ -4,8 +4,12 @@
 <meta charset="utf-8">
 <title>PHP 프로그래밍 입문</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
-<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/board.css">
-
+<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/board.css">
+<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/js/board.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/js/vendor/jquery-1.10.2.min.js"></script>
+<!-- script는 웹페이지에 스크립트를 추가한다 -->
+<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/js/vendor/jquery-ui-1.10.3.custom.min.js?ver=3"></script>
+<!-- <script src="../js/main.js"></script> -->
 </head>
 <body> 
 <header>
@@ -17,13 +21,13 @@
 	
    	<div id="board_box">
 	    <h3>
-	    	공지사항 테스트 > 목록보기
+	    	FAQ > 목록보기
 		</h3>
 	    <ul id="board_list">
 				<li>
 					<span class="col1">번호</span>
 					<span class="col2">제목</span>
-					<span class="col3">글쓴이</span>
+					<span class="col3">내용</span>
 					<span class="col5">등록일</span>
 					<span class="col6">조회</span>
 				</li>
@@ -34,7 +38,7 @@
 		$page = 1;
 
 	// $con = mysqli_connect("localhost", "user1", "12345", "sample");
-	$sql = "select * from notice_board order by notice_num desc";
+	$sql = "select * from fnq_board order by fnq_num desc";
 	$result = mysqli_query($con, $sql);
 	$total_record = mysqli_num_rows($result); // 전체 글 수
 
@@ -57,16 +61,16 @@
       // 가져올 레코드로 위치(포인터) 이동
       $row = mysqli_fetch_array($result);
       // 하나의 레코드 가져오기
-	  $num         = $row["notice_num"];
-	  $title       = $row["notice_title"];
-	  $name        = $row["notice_contents"];
-	  $subject     = $row["notice_hit"];
-      $regist_day  = $row["notice_regtime"];
-      $hit         = $row["notice_file_name"];
+	  $num         = $row["fnq_num"];
+	  $id          = $row["fnq_title"];
+	  $name        = $row["fnq_contents"];
+	  $subject     = $row["fnq_file_name"];
+      $regist_day  = $row["fnq_regtime"];
+      $hit         = $row["fnq_hit"];
 ?>
 				<li>
 					<span class="col1"><?=$number?></span>
-					<span class="col2"><a href="notice_view.php?num=<?=$num?>&page=<?=$page?>"><?=$title?></a></span>
+					<span class="col2"><a href="fnq_view.php?num=<?=$num?>&page=<?=$page?>"><?=$id?></a></span>
 					<span class="col3"><?=$name?></span>
 					<span class="col5"><?=$regist_day?></span>
 					<span class="col6"><?=$hit?></span>
@@ -83,7 +87,7 @@
 	if ($total_page>=2 && $page >= 2)	
 	{
 		$new_page = $page-1;
-		echo "<li><a href='notice_list.php?page=$new_page'>◀ 이전</a> </li>";
+		echo "<li><a href='fnq_list.php?page=$new_page'>◀ 이전</a> </li>";
 	}		
 	else 
 		echo "<li>&nbsp;</li>";
@@ -97,25 +101,25 @@
 		}
 		else
 		{
-			echo "<li><a href='notice_list.php?page=$i'> $i </a><li>";
+			echo "<li><a href='fnq_list.php?page=$i'> $i </a><li>";
 		}
    	}
    	if ($total_page>=2 && $page != $total_page)		
    	{
 		$new_page = $page+1;	
-		echo "<li> <a href='notice_list.php?page=$new_page'>다음 ▶</a> </li>";
+		echo "<li> <a href='fnq_list.php?page=$new_page'>다음 ▶</a> </li>";
 	}
 	else 
 		echo "<li>&nbsp;</li>";
 ?>
 			</ul> <!-- page -->	    	
 			<ul class="buttons">
-				<li><button onclick="location.href='notice.php'">목록</button></li>
+				<li><button onclick="location.href='fnq_list.php'">목록</button></li>
 				<li>
 <?php 
     if($userlevel==1) {
 ?>
-					<button onclick="location.href='notice_form.php'">글쓰기</button>
+					<button onclick="location.href='fnq_form.php'">글쓰기</button>
 <?php
 	} 
 ?>
@@ -124,7 +128,7 @@
 	</div> <!-- board_box -->
 </section> 
 <footer>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
 </footer>
 </body>
 </html>
