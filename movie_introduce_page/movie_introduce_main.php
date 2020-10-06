@@ -76,28 +76,28 @@
       <label for="img-6" class="nav-dot" id="img-dot-6"></label>
     </li>
 </ul>
-    
 <div id="movie_introduce">
-    <div id="movie_subject"> 
-        
-        <h2>영화 제목란</h2>
-</div>
+<div id="movie_poster"><br><br><h2>영화 포스터</h2></div>
+    <div id="movie_subject"><br><br><h2>영화 제목란</h2></div>
 
-<span><input type=button id="favorite_movie"></span>
-<div id="movie_smail_introduce"><h3> 개봉 날짜 / 장르 / 국가 / 러닝 타임 </h3></div>
-<div id="movie_score"><h2>평점 박스</h2></div>
+<span><button type=button id="favorite_movie"></span>
+<span><button type=button id="playlist_movie"></span>
+<div id="movie_smail_introduce"><br><h2> 개봉 날짜 / 장르 / 국가 / 러닝 타임 </h2></div>
+<div id="movie_score"><br><h2>평점 박스</h2></div>
 
-    <div id="movie_content">
-        <h2>영화 줄거리란</h2>
-</div>
+    <div id="movie_content"><br><h2>영화 줄거리란</h2></div>
 
-<div id="movie_casting_container"><h2>영화 출연진 목록</h2>
+<div id="movie_casting_container">
+<br> 
+<h2>영화 출연진 목록</h2>
 <div id="movie_cast_1"></div>
 <div id="movie_cast_2"></div>
 <div id="movie_cast_3"></div>
 <div id="movie_cast_4"></div>
-<span><input type=button id="movie_casting_prev"></span>
-<span><input type=button id="movie_casting_next"></span>
+<div id="movie_cast_5"></div>
+<div id="movie_cast_6"></div>
+<span><input type=button id="movie_casting_prev" value="<"></span>
+<span><input type=button id="movie_casting_next" value=">"></span>
 </div>
 
 <div id="movie_comment_container">
@@ -114,7 +114,7 @@
                 </p>
             </div>
 
-            <div id="movie_comment_box"><h2>영화 코멘트 박스</h2>
+            <div id="movie_comment_box">
             
             <?php
                 define('SCALE', 10);
@@ -136,12 +136,9 @@
                     $first_num = 1;
                 }
 
-                // db 접속
-                $con = mysqli_connect("localhost", "root", "123456", "echelin");
-                
                 // review 테이블에서 모든 항목을 가져오되 seller_num 항목(칼럼)에서 $seller_num인 것을 가져오라.
                 $sql = "select * from review";
-                $result = mysqli_query($con, $sql);
+                $result = mysqli_query($con, $sql) or die(mysqli_error($con));
                 $total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
 
                 $scale = 3;
@@ -166,12 +163,14 @@
                     $row = mysqli_fetch_array($result);
                    
                     // 하나의 레코드 가져오기
-                    $num = $row["num"];
-                    $name = $row["user_name"];
-                    $regist_day = $row["regist_day"];
-                    $content = $row["content"];
-                    $chu_up = $row["chu_up"];
-                    $chu_down = $row["chu_down"];
+                    $review_num = $row["review_num"];
+                    $mv_num = $row["mv_num"];
+                    $review_date = $row["review_date"];
+                    $review_site = $row["review_site"];
+                    $review_rating = $row["review_rating"];
+                    $review_short = $row["review_short"];
+                    $review_like = $row["review_like"];
+                    $review_regtime = $row["review_regtime"];
 
                 ?>
             
@@ -184,7 +183,7 @@
 
 <!-- get 방식으로 이름, 등록날짜를 보낸다. -->
 <div class="comment_profile_name">
-    <a href="#"><span><strong><?= $name ?></strong> · &nbsp;<?= $regist_day ?></span></a>
+    <a href="#"><span><strong><?= $mv_num ?></strong> · &nbsp;<?= $review_date ?></span></a>
     <p class="star_rating_content">
         <a href="#" class="on">★</a>
         <a href="#" class="on">★</a>
@@ -195,21 +194,19 @@
 </div>
 
 <div class="comment_line">
-    <span><?= $content ?></span>
+    <span><?= $review_short ?></span>
 </div>
 
 <div class="div_chu_box">
 
     <div class="div_chu">
-<!-- <img src="./img/like.png" onclick="update_chu('up','<?= $num ?>')"> &nbsp; <?= $chu_up ?> &nbsp;
-<img src="./img/dislike.png" onclick="update_chu('down','<?= $num ?>')"> &nbsp; <?= $chu_down ?> &nbsp; -->
-        <div id="like_count" class="like_count<?php echo $num; ?>" onclick="update_like('up','<?= $num ?>')"><img src="./img/like.png"> &nbsp;<?= $chu_up ?></div>
-        <div id="dislike_count" class="dislike_count<?php echo $num; ?>" onclick="update_dislike('down','<?= $num ?>')"><img src="./img/dislike.png"> &nbsp;<?= $chu_down ?></div>
+<!-- <img src="./img/like.png" onclick="update_chu('up','<?= $review_rating ?>')"> &nbsp; <?= $review_like ?> &nbsp; -->
+        <div id="like_count" class="like_count<?php echo $num; ?>" onclick="update_like('up','<?= $num ?>')"><img src="./img/like.png"> &nbsp;<?= $review_like ?></div>
 
     </div>
 
 </div>
-
+                
 <?php
 $number--;
 }
@@ -234,15 +231,15 @@ mysqli_close($con);
                                 if ($page > 10) {
                                     $now_page_list_minas = $now_page_list - 10;
                                     $next_new_page = $now_page_list_minas - 1;
-                                    echo "<li><a href='restaurants_main.php?page=$next_new_page&nowpagelist=$now_page_list_minas'>◀◀&nbsp;</a> </li>";
+                                    echo "<li><a href='./movie_introduce_index.php?page=$next_new_page&nowpagelist=$now_page_list_minas'>◀◀&nbsp;</a> </li>";
                                 }
                                 if (($new_page) == ($now_page_list_add - 10)) {
 
                                     $new_page = $now_page_list_add - 11;
                                     $now_page_list_add -= 10;
-                                    echo "<li><a href='restaurants_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
+                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
                                 } else {
-                                    echo "<li><a href='restaurants_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
+                                    echo "<li><a href='./movie_introduce_index.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
                                 }
                             } else
                                 echo "<li>&nbsp;</li>";
@@ -253,7 +250,7 @@ mysqli_close($con);
                                 {
                                     echo "<li><b>&nbsp;$i&nbsp;</b></li>";
                                 } else {
-                                    echo "<li><a href='restaurants_main.php?page=$i&nowpagelist=$now_page_list'>&nbsp;$i&nbsp;</a><li>";
+                                    echo "<li><a href='./movie_introduce_index.php?page=$i&nowpagelist=$now_page_list'>&nbsp;$i&nbsp;</a><li>";
                                 }
                             }
                             if ($total_page >= 2 && $page != $total_page) {
@@ -265,9 +262,9 @@ mysqli_close($con);
                                 if (($now_page_list_add - 1) == $page) {
                                     $new_page = $now_page_list_add + 1;
                                     $now_page_list_add += 10;
-                                    echo "<li><a href='restaurants_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;▶</a> </li>";
+                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;▶</a> </li>";
                                 } else {
-                                    echo "<li><a href='restaurants_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;▶</a> </li>";
+                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;▶</a> </li>";
                                 }
 
 
@@ -276,7 +273,7 @@ mysqli_close($con);
                                 if ($now_page_list + 10 < floor($total_record / SCALE)) {
                                     $now_page_list_add = $now_page_list + 10;
                                     $next_new_page = $now_page_list + 1;
-                                    echo "<li> <a href='restaurants_main.php?page=$next_new_page&nowpagelist=$now_page_list_add'>&nbsp;▶▶</a> </li>";
+                                    echo "<li> <a href='./movie_introduce_main.php?page=$next_new_page&nowpagelist=$now_page_list_add'>&nbsp;▶▶</a> </li>";
                                 }
                             } else
                                 echo "<li>&nbsp;</li>";

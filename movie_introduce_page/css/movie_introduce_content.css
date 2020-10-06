@@ -46,7 +46,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 
 .nav label {
     width: 120px;
-    height: 500px;
+    height: 550px;
     display: none;
     position: absolute;
     opacity: 0;
@@ -121,70 +121,87 @@ input#img-6:checked ~ .nav-dots label#img-dot-6 {
     background: rgba(0, 0, 0, 0.8);
 }
 label.prev {
-    right: 20px;
+    right: 490px;
 }
 label.next {
-    left: 960px;
+    left: 1180px;
 }
 
 #movie_introduce {
  border: 5px;
  border-style: solid;  
- width: 1300px;
- height: 1500px; 
- margin-top: 30px;
+ width: 1290px;
+ height: 1530px;
+ margin-top: 50px; 
  position: relative;
+}
+ 
+#movie_poster {
+   border: 5px;
+    border-style: solid;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 150px;
 }
 
 #movie_subject {
-    border: 2px;
+    border: 5px;
     border-style: solid;
     width: 160px;
     height: 140px;
     text-align: center;
     position: absolute;
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 350px;
 }
 
 #movie_content {
     border: 5px;
     border-style: solid;
     width: 1000px;
-    height: 150px;
+    height: 180px;
     text-align: center;
+    margin-top: 170px;
+    margin-left: -550px;
     position: absolute;
-    margin-left: 150px;
-    margin-top: 210px;
 }
 
 #favorite_movie {
 width: 80px;
 height: 80px;
 margin-top: 30px;
-margin-left: 240px;
+margin-left: 580px;
 position: absolute;
-background: url("./img/add_button.jpg");
+}
 
+#playlist_movie {
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+  margin-left: 700px;
+  position: absolute;
 }
 
 #movie_smail_introduce {
-    width: 410px;
-    height: 50px;
-    margin-top: 120px;
-    margin-left: 240px;
-    border: 2px;
-    border-style: solid;
-    text-align: center;
-    position: absolute;
+  border: 5px;
+  border-style: solid;
+  width: 600px;
+  height: 50px;
+  text-align: center;
+  margin-top: 90px;
+  margin-left: -150px;
+  position: absolute;
 }
 
 #movie_score {
     width: 300px;
     height: 75px;
-    top: 30px;
-    margin-left: 350px;
-    border: 2px;
+    margin-top: -5px;
+    margin-left: 120px;
+    border: 5px;
     border-style: solid;
     text-align: center;
     position: absolute;
@@ -193,12 +210,12 @@ background: url("./img/add_button.jpg");
 #movie_casting_container {
     width: 1000px;
     height: 320px;
-    margin-top: 410px;
-    margin-left: 150px;
+    margin-top: 380px;
+    margin-left: -550px;
     border: 5px;
     border-style: solid;
     text-align: center;
-    position: relative;
+    position: absolute;
 }
 
 #movie_casting_prev {
@@ -206,7 +223,10 @@ background: url("./img/add_button.jpg");
     height: 180px;
     position: absolute;
     top: 100px;
-    left: 0px;
+    left: 50px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 60px;
+
 }
 
 #movie_casting_next {
@@ -214,7 +234,9 @@ width: 70px;
 height: 180px;
 position: absolute;
 top: 100px;
-right: 0px;
+right: 50px;
+font-family: "Varela Round", sans-serif;
+font-size: 60px;
 }
 
 #movie_cast_1 {
@@ -223,7 +245,7 @@ height: 130px;
 border: 2px;
 border-style: solid;
 top: 120px;
-left: 80px;
+margin-left: 150px;
 position: absolute;
 }
 
@@ -233,7 +255,7 @@ position: absolute;
     border: 2px;
     border-style: solid;
     top: 120px;
-    left: 195px;
+    margin-left: 270px;
     position: absolute;
     }
 
@@ -243,7 +265,7 @@ position: absolute;
         border: 2px;
         border-style: solid;
         top: 120px;
-        left: 305px;
+        margin-left: 390px;
         position: absolute;
         }
 
@@ -253,24 +275,44 @@ position: absolute;
             border: 2px;
             border-style: solid;
             top: 120px;
-            left: 415px;
+            margin-left: 510px;
             position: absolute;
             }
+
+            #movie_cast_5 {
+              width: 90px;
+              height: 130px;
+              border: 2px;
+              border-style: solid;
+              top: 120px;
+              margin-left: 630px;
+              position: absolute;
+              }
+
+              #movie_cast_6 {
+                width: 90px;
+                height: 130px;
+                border: 2px;
+                border-style: solid;
+                top: 120px;
+                margin-left: 750px;
+                position: absolute;
+                }
 
 #movie_comment_container {
     width: 1000px;
     height: 650px;
     border: 5px;
     border-style: solid;
-    margin-top: 50px;
-    margin-left: 150px;
+    margin-top: 750px;
+    margin-left: -550px;
     text-align: center;
     position: relative;
 } 
 
 #movie_comment_box {
     width: 650px;
-    height: 570px;
+    height: 580px;
     border: 2px;
     border-style: solid;
     text-align: center;

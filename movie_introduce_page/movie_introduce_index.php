@@ -11,6 +11,8 @@
 </head>
 
 <body>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/create_table.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
 <header>    
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 </header>
