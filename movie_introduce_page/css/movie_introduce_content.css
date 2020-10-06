@@ -24,7 +24,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 .slide-container { display: block; }
 
 .slide {
-    top: 0;
+    top: 15px;
     opacity: 0;
     width: 1300px;
     height: 500px;
@@ -134,6 +134,7 @@ label.next {
  height: 1530px;
  margin-top: 50px; 
  position: relative;
+ background-color: lightgray;
 }
  
 #movie_poster {
@@ -319,6 +320,7 @@ position: absolute;
     position: absolute;
     top: 30px;
     left: 240px;
+    background-color: white;
 } 
 
 .user_comment_title{
