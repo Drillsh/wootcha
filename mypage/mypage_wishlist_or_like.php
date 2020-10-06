@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="./css/mypage_wishlist_item.css?after">
         <?php include "../common/database/db_connector.php"?>
         <?php include "./mypage_db_helper.php"?>
-        <?php include "./test/movie_cgv_crawling.php"?>
+        <?php include "../common/crawling/movie_cgv_crawling.php"?>
     </head>
     <body>
         <!-- 헤더 -->
@@ -120,7 +120,7 @@
                         $mv_num = $row_review['mv_num'];
                         $mv_title = $row_review['mv_title'];
 
-                        $mv_big_img_link = get_cgv_movie_poster_url($mv_title);
+                        $mv_big_img_link = get_cgv_movie_middle_poster_url($mv_title);
                 ?>   
                     <li class='list_item'>
                         <a href='#'>
