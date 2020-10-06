@@ -6,9 +6,10 @@ if (isset($_POST['search_keyword'])) {
 
     echo "
           <script>
+            // 검색결과 타이틀 변경
             function setSelectSear() {
 
-              document.getElementById('view_all_search').innerHTML = '$deco$search 검색결과';
+              document.getElementById('view_all_search').innerHTML = '$deco$search$deco 검색결과';
               document.getElementById('view_all_review').innerHTML = '';
 
             }
