@@ -5,14 +5,11 @@
 <title>PHP 프로그래밍 입문</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/board.css">
-<script src="../js/vendor/jquery-1.10.2.min.js"></script>
-        <!-- script는 웹페이지에 스크립트를 추가한다 -->
-        <script src="../js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="../js/main.js"></script>
+
 </head>
 <body> 
 <header>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/database/db_connector.php";?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";?>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 
 </header>  
@@ -37,7 +34,7 @@
 		$page = 1;
 
 	// $con = mysqli_connect("localhost", "user1", "12345", "sample");
-	$sql = "select * from notice order by num desc";
+	$sql = "select * from notice_board order by notice_num desc";
 	$result = mysqli_query($con, $sql);
 	$total_record = mysqli_num_rows($result); // 전체 글 수
 
@@ -60,16 +57,16 @@
       // 가져올 레코드로 위치(포인터) 이동
       $row = mysqli_fetch_array($result);
       // 하나의 레코드 가져오기
-	  $num         = $row["num"];
-	  $id          = $row["id"];
-	  $name        = $row["name"];
-	  $subject     = $row["subject"];
-      $regist_day  = $row["regist_day"];
-      $hit         = $row["hit"];
+	  $num         = $row["notice_num"];
+	  $title       = $row["notice_title"];
+	  $name        = $row["notice_contents"];
+	  $subject     = $row["notice_hit"];
+      $regist_day  = $row["notice_regtime"];
+      $hit         = $row["notice_file_name"];
 ?>
 				<li>
 					<span class="col1"><?=$number?></span>
-					<span class="col2"><a href="notice_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></span>
+					<span class="col2"><a href="notice_view.php?num=<?=$num?>&page=<?=$page?>"><?=$title?></a></span>
 					<span class="col3"><?=$name?></span>
 					<span class="col5"><?=$regist_day?></span>
 					<span class="col6"><?=$hit?></span>

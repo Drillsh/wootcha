@@ -1,6 +1,6 @@
 <!-- 왼쪽 사이드 메뉴 -->
 <ul>
-    <div class="<?= COMMON::$css_side_left_icon; ?>">
+    <div class="<?= COMMON::$css_; ?>">
         <i class="fas fa-question-circle"></i>
     </div>
     <h1>도움말 센터</h1>

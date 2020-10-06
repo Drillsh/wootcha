@@ -51,7 +51,7 @@
       </div><!-- end of right_content -->
 
    </section>
-    Î<footer>
+    <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
     </footer>      
 </body>

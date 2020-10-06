@@ -10,7 +10,7 @@ class COMMON
     // my_info.php 에서 사용한 class tag
     public static $css_my_info_content = "my_info_content";
 
-    public static $css_side_left_icon = "side_left_icon";
+    public static $css_ = "";
 
     public static $css_card_menu_row = "card_menu_row";
     public static $css_card_menu_btn = "card_menu_btn";
