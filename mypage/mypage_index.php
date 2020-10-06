@@ -13,7 +13,7 @@
         
         <?php include "../common/database/db_connector.php"?>
         <?php include "./mypage_db_helper.php"?>
-        <?php include "./test/movie_cgv_crawling.php"?>
+        <?php include "../common/crawling/movie_cgv_crawling.php"?>
     </head>
     <body>
         
@@ -67,7 +67,7 @@
                         $review_regtime = $row_review['review_regtime'];
                         $mv_title = $row_review['mv_title'];
 
-                        $img_link = get_cgv_movie_poster_url($mv_title);
+                        $img_link = get_cgv_movie_big_poster_url($mv_title);
                         $result_review_and_reply = select_data($con, "select_my_reivew_reply", $review_num);
                         $result_review_and_reply_num = mysqli_num_rows($result_review_and_reply);
                 ?>
