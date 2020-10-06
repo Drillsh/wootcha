@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Wootcha</title>
-        <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
-        <link rel="stylesheet" type="text/css" href="http://< ?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/css/mypage_edit_myinfo.css">
-        <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/css/user.css">
-    </head>
-    <body>
-        <!-- 헤더 -->
-        <header>
-            <?php include "../common/page_form/header.php"?>
-        </header>
-        <section>
-            
-
-
-
-        </section><!-- section -->
-            
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
     
-        <!-- 푸터 -->
-        <footer>
-            <?php include "../common/page_form/footer.php"?>
-        </footer>
-    </body>
-</html>
+    $signup_email = $_POST['signup_email'];
+    $signup_password = $_POST['signup_password'];
+    $signup_name = $_POST['signup_name'];
+    $signup_nickname = $_POST['signup_nickname'];
+    $signup_birth_day = $_POST['signup_birth_day'];
+    $gender = $_POST['gender'];
+    $signup_phone = $_POST['signup_phone'];
+    $avatar = $_POST['avatar'];
+
+    
+    
+
+    // mysqli_query($con, "insert into user values(null, );") or die(mysqli_error($con));
+
+
+?>
+<script>
+alert($signup_email,$signup_password,$signup_name,$signup_email,$signup_nickname,$signup_birth_day,$signup_email);
+</script>
