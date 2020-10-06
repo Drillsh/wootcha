@@ -231,7 +231,7 @@ mysqli_close($con);
                                 if ($page > 10) {
                                     $now_page_list_minas = $now_page_list - 10;
                                     $next_new_page = $now_page_list_minas - 1;
-                                    echo "<li><a href='./movie_introduce_main.php?page=$next_new_page&nowpagelist=$now_page_list_minas'>◀◀&nbsp;</a> </li>";
+                                    echo "<li><a href='./movie_introduce_index.php?page=$next_new_page&nowpagelist=$now_page_list_minas'>◀◀&nbsp;</a> </li>";
                                 }
                                 if (($new_page) == ($now_page_list_add - 10)) {
 
@@ -239,7 +239,7 @@ mysqli_close($con);
                                     $now_page_list_add -= 10;
                                     echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
                                 } else {
-                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
+                                    echo "<li><a href='./movie_introduce_index.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
                                 }
                             } else
                                 echo "<li>&nbsp;</li>";
@@ -250,7 +250,7 @@ mysqli_close($con);
                                 {
                                     echo "<li><b>&nbsp;$i&nbsp;</b></li>";
                                 } else {
-                                    echo "<li><a href='./movie_introduce_main.php?page=$i&nowpagelist=$now_page_list'>&nbsp;$i&nbsp;</a><li>";
+                                    echo "<li><a href='./movie_introduce_index.php?page=$i&nowpagelist=$now_page_list'>&nbsp;$i&nbsp;</a><li>";
                                 }
                             }
                             if ($total_page >= 2 && $page != $total_page) {
