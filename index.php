@@ -6,6 +6,8 @@
 
     <title> Wootcha </title>
 
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main.css?after">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main_test.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
     <!-- 아이콘 폰트  https://fontawesome.com/  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
@@ -18,7 +20,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
     <section>
-        
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main.php"; ?>
     </section>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
