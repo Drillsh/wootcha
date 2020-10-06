@@ -122,7 +122,7 @@
 ?>
 			</ul> <!-- page -->	    	
 			<ul class="buttons">
-				<li><button onclick="location.href='fnq_list.php'">목록</button></li>
+				<li><button onclick="location.href='fnq_main.php'">목록</button></li>
 				<li>
 <?php 
     if($userlevel==1) {

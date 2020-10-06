@@ -51,7 +51,7 @@
 			</li>		
 	    </ul>
 	    <ul class="buttons">
-				<li><button onclick="location.href='notice_list.php?page=<?=$page?>'">목록</button></li>
+				<li><button onclick="location.href='notice.php?page=<?=$page?>'">목록</button></li>
 				<li><button onclick="location.href='notice_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정</button></li>
 				<li><button onclick="location.href='notice_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
 				<li><button onclick="location.href='notice_form.php'">글쓰기</button></li>

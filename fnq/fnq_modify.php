@@ -2,19 +2,19 @@
     $num = $_GET["num"];
     $page = $_GET["page"];
 
-    $subject = $_POST["notice_title"];
-    $content = $_POST["notice_contents"];
+    $subject = $_POST["faq_title"];
+    $content = $_POST["faq_contents"];
           
 	include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-    $sql = "update notice_board set notice_title='$subject', notice_contents='$content' ";
-    $sql .= " where notice_num=$num";
+    $sql = "update faq_board set faq_title='$subject', ``faq_contents``='$content' ";
+    $sql .= " where faq_num=$num";
     mysqli_query($con, $sql);
 
     mysqli_close($con);     
 
     echo "
 	      <script>
-	          location.href = 'notice_list.php?page=$page';
+	          location.href = 'fnq_list.php?page=$page';
 	      </script>
 	  ";
 ?>
