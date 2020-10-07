@@ -21,7 +21,7 @@ $(function(){
 
 function submitDelete(){
 
-    var conf = confirm('회원 데이터를 삭제하시겠습니까?');
+    var conf = confirm('공지사항 데이터를 삭제하시겠습니까?');
 
     if(conf){
         var formsForUpdate = new Array();
@@ -42,10 +42,10 @@ function submitDelete(){
         $.ajax({
             type: "post",
             data: serialize,
-            url : "lib/gm_members_delete.php",
+            url : "lib/notice_members_delete.php",
             success : function(data){
                 if(data==1){
-                    location.href='/wootcha/admin/admin_qna.php';
+                    location.href='/wootcha/admin/admin_notice.php';
                 }else{
                     alert('오류발생: '+data);
                 }

@@ -95,7 +95,7 @@
 	if ($total_page>=2 && $page >= 2)	
 	{
 		$new_page = $page-1;
-		echo "<li><a href='fnq_list.php?page=$new_page'>◀ 이전</a> </li>";
+		echo "<li><a href='fnq_main.php?page=$new_page'>◀ 이전</a> </li>";
 	}		
 	else 
 		echo "<li>&nbsp;</li>";
@@ -109,13 +109,13 @@
 		}
 		else
 		{
-			echo "<li><a href='fnq_list.php?page=$i'> $i </a><li>";
+			echo "<li><a href='fnq_main.php?page=$i'> $i </a><li>";
 		}
    	}
    	if ($total_page>=2 && $page != $total_page)		
    	{
 		$new_page = $page+1;	
-		echo "<li> <a href='fnq_list.php?page=$new_page'>다음 ▶</a> </li>";
+		echo "<li> <a href='fnq_main.php?page=$new_page'>다음 ▶</a> </li>";
 	}
 	else 
 		echo "<li>&nbsp;</li>";

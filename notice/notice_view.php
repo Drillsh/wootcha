@@ -52,6 +52,7 @@
 	    </ul>
 	    <ul class="buttons">
 				<li><button onclick="location.href='notice.php?page=<?=$page?>'">목록</button></li>
+				<!-- 여기 아래로는 관리자가 되면 나타나게 해야된다 -->
 				<li><button onclick="location.href='notice_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정</button></li>
 				<li><button onclick="location.href='notice_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
 				<li><button onclick="location.href='notice_form.php'">글쓰기</button></li>
