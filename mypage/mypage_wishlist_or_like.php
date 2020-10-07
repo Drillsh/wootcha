@@ -105,12 +105,12 @@
                 // 좋아요
                 // ******************
                 }elseif ($_GET['mode'] == 'like') {
-                    // mypage_db_helper 에 정의된 함수
-                    $result = select_data($con, "select_user", "myohoon95@gmail.com");
+                    // // mypage_db_helper 에 정의된 함수
+                    // $result = select_data($con, "select_user", "myohoon95@gmail.com");
 
-                    // 사용자의 pk를 확인
-                    $row = mysqli_fetch_array($result);
-                    $user_num = $row['user_num'];
+                    // // 사용자의 pk를 확인
+                    // $row = mysqli_fetch_array($result);
+                    // $user_num = $row['user_num'];
 
                     // 좋아하는 영화 리스트
                     $result = select_data($con, "select_my_favorite_movie", $user_num);

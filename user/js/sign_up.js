@@ -37,6 +37,7 @@ window.onload = function () {
 
 
 function checkEmail() {
+    // var emailArray = <?php ?>
     var email = signup_email.value;
     var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
     if (!emailReg.test(email)) {

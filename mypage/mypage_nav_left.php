@@ -1,11 +1,6 @@
 <?php
-include_once "../common/database/db_connector.php";
-$result = mysqli_query($con, "select * from user where user_num = 2;");
-$row = mysqli_fetch_array($result);
-
-$user_img = $row['user_img'];
+$user_img = $_SESSION['user_img'];
 ?>
-
 
 <div class="profile_img_box">
     <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$user_img?>" alt="프로필 이미지">
