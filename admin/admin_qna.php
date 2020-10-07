@@ -103,7 +103,7 @@
                             <div id="g_members_list_wrap">
                                 <div id="g_members_list">
                                     <h4>
-                                        <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Notice Management
+                                        <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;QnA Management
                                         <div class="selectbox">
                                             <select id="search_select">
                                                 <option>제목</option>
@@ -130,7 +130,7 @@
                                     <ul id="member_list">
                                         <li>
                                             <span class="col1">No</span>
-                                            <span class="col2">공지 제목</span>
+                                            <span class="col2">QnA 제목</span>
                                             <span class="col3">글쓴이</span>
                                             <span class="col4">내용</span>
                                             <!-- <span class="col5">댓글 위치</span> -->
@@ -139,27 +139,27 @@
                                         <?php
                                         if ($col != '') {
                                             $sql = "SELECT 
-                                                     notice_num,
-                                                     notice_title,
-                                                     notice_contents,
-                                                     notice_hit,
-                                                     notice_regtime
+                                                     qna_num,
+                                                     qna_title,
+                                                     qna_contents,
+                                                     qna_hit,
+                                                     qna_regtime
                                                     --  review_reply_regtime    
                                                  FROM
-                                                     notice_board
+                                                     qna_board
                                                  WHERE
                                                     --  $col LIKE '%$search%'
-                                                    ORDER BY notice_regtime DESC";
+                                                    ORDER BY qna_regtime DESC";
                                         } else {
                                             $sql = "SELECT
-                                                    notice_num,
-                                                     notice_title,
-                                                     notice_contents,
-                                                     notice_hit,
-                                                     notice_regtime
+                                                    qna_num,
+                                                     qna_title,
+                                                     qna_contents,
+                                                     qna_hit,
+                                                     qna_regtime
                                                   FROM
-                                                  notice_board
-                                                  ORDER BY notice_regtime DESC";
+                                                  qna_board
+                                                  ORDER BY qna_regtime DESC";
                                         }
 
                                         $result = mysqli_query($con, $sql);
@@ -186,11 +186,11 @@
                                                 // 가져올 레코드로 위치(포인터) 이동
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
-                                                $no = $row["notice_num"];
-                                                $mv_name = $row["notice_title"];
-                                                $id = $row["notice_contents"];
-                                                $reply_content = $row["notice_hit"];
-                                                $reply_parent = $row["notice_regtime"];
+                                                $no = $row["qna_num"];
+                                                $mv_name = $row["qna_title"];
+                                                $id = $row["qna_contents"];
+                                                $reply_content = $row["qna_hit"];
+                                                $reply_parent = $row["qna_regtime"];
                                                 // $regist_day = $row["review_reply_regtime"];
                                                 ?>
                                                 <li class="list_row">
