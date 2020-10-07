@@ -2,7 +2,6 @@
     <div class="body_wrap">
         <div class="follow_list_wrap">
             <div class="follow_list_background">
-
                 <?php
 
                 //페이지 수 체크한다.
@@ -17,7 +16,7 @@
 
                 //검색어 있을때
                 if ($search != "") {
-                    $result = search_movie_title($search);
+                    $result = search_movie_title($search, $country, $genre);
                     $total_record = $result['display'];
 
                     //검색어 없을때
@@ -30,7 +29,6 @@
                 <!-- select box -------------------------------------------------------------------------------------->
                 <div class="follow_list_select">
                     <h2>
-                        <!-- 검색 학원 정렬 -->
                         <span id="view_all_search"></span>
                         <span id="view_all_review">영화 리스트 (전체)</span>
                         <span id="view_all_title"></span>
@@ -38,47 +36,12 @@
 
                     <span id="follow_total_span">총 <span id="follow_total_num"><?= $total_record ?></span> 개의 영화가 있습니다.</span>
 
+                    <!--정렬 선택 박스-->
                     <div class="follow_select">
-                        <select name="follow_list_select_district" id="follow_list_select_district"
-                                onchange="selectOption();">
-                            <option value="전체" selected>장르 선택</option>
-                            <option value="가평군">가평군</option>
-                            <option value="고양시">고양시</option>
-                            <option value="과천시">과천시</option>
-                            <option value="광명시">광명시</option>
-                            <option value="광주시">광주시</option>
-                            <option value="구리시">구리시</option>
-                            <option value="군포시">군포시</option>
-                            <option value="김포시">김포시</option>
-                            <option value="남양주시">남양주시</option>
-                            <option value="동두천시">동두천시</option>
-                            <option value="부천시">부천시</option>
-                            <option value="성남시">성남시</option>
-                            <option value="수원시">수원시</option>
-                            <option value="시흥시">시흥시</option>
-                            <option value="안산시">안산시</option>
-                            <option value="안성시">안성시</option>
-                            <option value="안양시">안양시</option>
-                            <option value="양주시">양주시</option>
-                            <option value="양평군">양평군</option>
-                            <option value="여주시">여주시</option>
-                            <option value="연천군">연천군</option>
-                            <option value="오산시">오산시</option>
-                            <option value="용인시">용인시</option>
-                            <option value="의왕시">의왕시</option>
-                            <option value="의정부시">의정부시</option>
-                            <option value="이천시">이천시</option>
-                            <option value="파주시">파주시</option>
-                            <option value="평택시">평택시</option>
-                            <option value="포천시">포천시</option>
-                            <option value="하남시">하남시</option>
-                            <option value="화성시">화성시</option>
-                        </select>
-
                         <select name="follow_list_select_mode" id="follow_list_select_mode" onchange="selectOption();">
-                            <option value="bace_max" selected>정렬/순서 선택</option>
-                            <option value="star_max">네이버 별점순</option>
-                            <option value="facility_max">웃챠 별점순</option>
+                            <option value="default" selected>정렬/순서 선택</option>
+                            <option value="naver_star">네이버 별점순</option>
+                            <option value="wootcha_star">웃챠 별점순</option>
                         </select>
                     </div>
                 </div>
@@ -106,38 +69,38 @@
 
                     $row = $result['items'];
                     $no = $row[$i]; //넘
-                    $title = $no['title']; //학원명
-                    $subtitle = $no["subtitle"]; //주소
-                    $file_copy = $no["image"]; //학원로고
-                    $total_star = $no["userRating"]; //평점
+                    $title = $no['title']; // 영화 제목
+                    $subtitle = $no["subtitle"]; // 부제
+                    $file_copy = $no["image"]; // 포스터
+                    $total_star = $no["userRating"]; // 네이버 평점
                     $review_count = 0; // 리뷰 수
                     $story_count = 0; //스토리 수
-                    $naverLink = $no["link"];
+                    $naverLink = $no["link"];   //네이버 영화 링크
 
                     $total_star = sprintf('%0.1f', $total_star);
 
 
-                    //                    if ($category == "ctg_star") {
-                    //                        $category = "총 만족도";
-                    //                    }
-                    //                    if ($category == "ctg_facility") {
-                    //                        $category = "시설 만족도";
-                    //                    }
-                    //                    if ($category == "ctg_acsbl") {
-                    //                        $category = "교통 편의성";
-                    //                    }
-                    //                    if ($category == "ctg_acsbl") {
-                    //                        $category = "강사 만족도";
-                    //                    }
-                    //                    if ($category == "ctg_cost_efct") {
-                    //                        $category = "수강료 만족도";
-                    //                    }
-                    //                    if ($category == "ctg_achievement") {
-                    //                        $category = "학업 성취도";
-                    //                    }
-                    //                    if ($category == "ctg_all") {
-                    //                        $category = "총 만족도";
-                    //                    }
+//                    if ($category == "ctg_star") {
+//                        $category = "총 만족도";
+//                    }
+//                    if ($category == "ctg_facility") {
+//                        $category = "시설 만족도";
+//                    }
+//                    if ($category == "ctg_acsbl") {
+//                        $category = "교통 편의성";
+//                    }
+//                    if ($category == "ctg_acsbl") {
+//                        $category = "강사 만족도";
+//                    }
+//                    if ($category == "ctg_cost_efct") {
+//                        $category = "수강료 만족도";
+//                    }
+//                    if ($category == "ctg_achievement") {
+//                        $category = "학업 성취도";
+//                    }
+//                    if ($category == "ctg_all") {
+//                        $category = "총 만족도";
+//                    }
 
                     ?>
 
