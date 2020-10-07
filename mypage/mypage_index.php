@@ -10,21 +10,23 @@
         <!-- 모달  -->
         <link rel="stylesheet" type="text/css" href="./css/mypage_review_modal.css?after">
         <script src="./js/mypage_review_modal.js"></script>
-        
-        <?php include "../common/database/db_connector.php"?>
-        <?php include "./mypage_db_helper.php"?>
-        <?php include "../common/crawling/movie_cgv_crawling.php"?>
     </head>
     <body>
-        
         <!-- 헤더 -->
         <header>
-            <?php include "../common/page_form/header.php"?>
+            <?php include_once "../common/page_form/header.php"?>
         </header>
-
+            <?php   include_once "../common/database/db_connector.php";
+                    include_once "./mypage_db_helper.php";
+                    include_once "../common/crawling/movie_cgv_crawling.php";
+                    if(!isset($_SESSION['user_mail'])){
+                        echo "<script>alert('잘못된 접근입니다. 로그인 후 이용하세요.');
+                        history.go(-1);</script>";
+                        exit;
+            }?>
         <!-- 네비게이션 : 왼쪽 -->
         <nav class="nav_left">
-            <?php include "./mypage_nav_left.php"?>
+            <?php include_once "./mypage_nav_left.php"?>
         </nav>
 
         <!-- 섹션 -->
@@ -37,7 +39,7 @@
                 <?php
                     // mypage_db_helper 에 정의된 함수
                     $result = select_data($con, "select_user", "myohoon95@gmail.com");
-
+                    if($result->num_rows){
                     // 사용자의 pk를 확인
                     $row = mysqli_fetch_array($result);
                     $user_num = $row['user_num'];
@@ -117,7 +119,6 @@
                             </div>
                         </div>
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-                                    
                         <h3 class="title"><?=$mv_title?></h3>
                         <h3>한 줄 평</h3>
                         <p class="line_review"><?=$review_short?></p>
@@ -136,22 +137,17 @@
                             <span>
                                 <input type="checkbox" id="checkbox<?=$i?>">
                                 <label for="checkbox<?=$i?>"><img src="./img/comments.png" alt="">&nbsp;<p><?=$result_review_and_reply_num?></p>
-                                </label>
-                                    
+                                </label> 
                             </span>
                             <!-- 등록일자 -->
                             <p class="review_regist_day"><?=$review_regtime?></p>
-                        </div>
-                                    
+                        </div>    
                     </div>
-                   
                     <!-- ************* -->
                     <!-- 리뷰의 댓글 -->
                     <!-- ************* -->
                     <div class="comments_container">
                         <div class="comments_list">
-
-
                         <?php
                             while($row_reply = mysqli_fetch_array($result_review_and_reply)){
                                 $review_reply_num = $row_reply['review_reply_num'];
@@ -180,9 +176,7 @@
                             // review의 댓글 반복문 종료 
                             }                
                             ?>
-
-                        </div>
-                                    
+                        </div>     
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <form action="#">
                             <div class="comments_register">
@@ -193,27 +187,22 @@
                             </div>
                         </form>
                     </div>
-
-                    
                 </div><!-- modal_containder -->
                 <?php
                 $i++;
                 // while문 끝
-                } 
+                }
+            // if문 끝 
+            } else{
+                echo "<div>작성한 리뷰가 없습니다.</div>";
+            }
                 ?>
-
+                
             </div><!-- section_container -->
-                
-                
-                
-                
-                
-
-        </section><!-- section -->
-        
+            </section><!-- section -->
         <!-- 푸터 -->
         <footer>
-            <?php include "../common/page_form/footer.php"?>
+            <?php include_once "../common/page_form/footer.php"?>
         </footer>
     </body>
 </html>

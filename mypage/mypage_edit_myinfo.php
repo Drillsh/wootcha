@@ -11,9 +11,15 @@
 </style>
     </head>
     <body>
-    <?php
-        include_once "../common/database/db_connector.php";
-        $result = mysqli_query($con, "select * from user where user_num = 2;");
+        <!-- 헤더 -->
+        <header>
+            <?php include "../common/page_form/header.php"?>
+        </header>
+
+        <?php
+        // session값 확인을 header에서 했기 때문 $user_num 사용 가능
+        include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
+        $result = mysqli_query($con, "select * from user where user_num = $user_num");
         $row = mysqli_fetch_array($result);
 
         $user_mail= $row['user_mail'];
@@ -25,13 +31,7 @@
         $user_gender = $row['user_gender'];
         $user_phone= $row['user_phone'];
         $user_signup_day= $row['user_signup_day'];
-
-        
     ?>
-        <!-- 헤더 -->
-        <header>
-            <?php include "../common/page_form/header.php"?>
-        </header>
 
         <!-- 네비게이션 : 왼쪽 -->
         <nav class="nav_left">
