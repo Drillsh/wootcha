@@ -12,7 +12,7 @@
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="./js/gm_members.js"></script>
+    <script src="./js/board_function.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">
@@ -202,7 +202,9 @@
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
                                                         <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
-                                                    </form>
+                                                        <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$no?>">
+
+                                                   </form>
                                                 </li>
 
                                                 <?php
@@ -250,7 +252,7 @@
                                                 $next = $last_page + 1;// > 버튼 누를때 나올 페이지
                                                 $prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
-                                                $url = "/wootcha/admin/admin_review.php?y=$y&m=$m";
+                                                $url = "/wootcha/admin/admin_faq.php?y=$y&m=$m";
                                                 if ($search != '') {
                                                     $url .= "&col=$col&search=$search";
                                                 }

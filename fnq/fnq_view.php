@@ -52,6 +52,7 @@
 	    </ul>
 	    <ul class="buttons">
 				<li><button onclick="location.href='fnq_main.php?page=<?=$page?>'">목록</button></li>
+				<!-- 여기 아래로는 관리자로 로그인 해야 보이게 -->
 				<li><button onclick="location.href='fnq_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정</button></li>
 				<li><button onclick="location.href='notice_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
 				<li><button onclick="location.href='fnq_form.php'">글쓰기</button></li>
