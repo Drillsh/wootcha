@@ -19,7 +19,7 @@ json 기반으로 작성됐으며 뒤에 .json을 .xml로 변경해주면 코드
 */
 
 // 제목 검색으로 api에서 데이터 가져오는 함수
-function search_movie_title($search)
+function search_movie_title($search, $country, $genre)
 {
     // 한글깨짐 방지
     header("Content-Type: text/html; charset=UTF-8");
@@ -27,10 +27,14 @@ function search_movie_title($search)
     $client_id = "LJ1tkirwtG2udis4jmop";
 // 발급받은 클라이언트 시크릿 값
     $client_secret = "jJeNAwWXja";
+
 // 검색어 url 형식에 맞게 엔코딩
-    $encText = urlencode($search);
+    $encTitle = urlencode($search);
+    $encCountry = urlencode($country);
+    $encGenre = urlencode($genre);
+
 // JSON을 이용해서 검색
-    $url = "https://openapi.naver.com/v1/search/movie.json?query=" . $encText;
+    $url = "https://openapi.naver.com/v1/search/movie.json?query=" . $encTitle."&country=".$encCountry."&genre=".$encGenre;
 
     $is_post = false;
     $ch = curl_init();
@@ -88,5 +92,9 @@ function crawl_movie_detail($link)
     foreach ($data->find('div.people > ul > li') as $e) {
         $movie_actor[] = $e->innertext;
     }
+
+    $movie_detail = array('movie_info'=>$movie_info, 'movie_story'=>$movie_stroy, 'movie_actor'=>$movie_actor);
+
+    return $movie_detail;
 }
 ?>

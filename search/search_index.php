@@ -4,17 +4,24 @@ if (isset($_POST['search_keyword'])) {
     $search = $_POST['search_keyword'];
     $deco = '"';
 
+
+    if (isset($_POST['country'])) {
+        $country = $_POST['country'];
+    }
+    if (isset($_POST['genre'])) {
+        $genre = $_POST['genre'];
+    }
+
     echo "
           <script>
             // 검색결과 타이틀 변경
             function setSelectSear() {
-
               document.getElementById('view_all_search').innerHTML = '$deco$search$deco 검색결과';
               document.getElementById('view_all_review').innerHTML = '';
-
             }
           </script>
         ";
+
 } else {
     $search = "";
 }
