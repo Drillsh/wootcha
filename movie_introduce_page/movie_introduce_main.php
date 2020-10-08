@@ -1,5 +1,17 @@
-<table id="movie_introduce_container">
+<?php
+if (isset($_GET["link"])){
+$link = $_GET['link'];
 
+} else {
+    $link = "";
+}
+$movie_detail = crawl_movie_detail($link);
+?>
+
+
+<table id="movie_introduce_container">
+<img src="./img/flim.png" id="side_picture_left">
+<img src="./img/flim.png" id="side_picture_right">
 <ul class="slides">
     <input type="radio" name="radio-btn" id="img-1" checked />
     <li class="slide-container">
@@ -80,22 +92,59 @@
 <div id="movie_poster" onclick="window.open('./img/black_widow.jpg','poster','width=600, height=800, scrollbars=yes, top=2000, left=-1000');"><br><br><h2>영화 포스터</h2></div>
     <div id="movie_subject"><br><br><h2>영화 제목란</h2></div>
 
-<span><button type=button id="favorite_movie"></span>
-<span><button type=button id="playlist_movie"></span>
-<div id="movie_smail_introduce"><br><h2> 개봉 날짜 / 장르 / 국가 / 러닝 타임 </h2></div>
-<div id="movie_score"><br><h2>평점 박스</h2></div>
+<span><button type=button id="favorite_movie"><img src="./img/good_before.png"></span>
+<span><button type=button id="playlist_movie"><img src="./img/add_button.jpg"></span>
+<div id="movie_smail_introduce">
+    <h1>
+        <br>
+        <?php
+        print_r (implode($movie_detail['movie_info']));
+        ?>
+    </h1>
+</div>
+<div id="movie_score">
+    <br>
+    <h2>평점 박스</h2>
 
-    <div id="movie_content"><br><h2>영화 줄거리란</h2></div>
+<!--
+    
+        $sql = "select review_rating from review where review_num='$review_num'";
+        $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+        $total_record = mysqli_num_rows($result);
+
+        $row = mysqli_fetch_array($result);
+
+        $review_rating = $row["review_rating"];
+
+
+ -->
+
+</div>
+
+    <div id="movie_content">
+        <h1>
+
+    <?php 
+    if (isset($movie_detail["movie_story"])) {
+        print_r($movie_detail['movie_story']);
+    } else {
+        $movie_detail="";
+    };
+    ?>
+
+    </h1>  
+    </div>
 
 <div id="movie_casting_container">
-<br> 
+<br>
 <h2>영화 출연진 목록</h2>
-<div id="movie_cast_1"></div>
-<div id="movie_cast_2"></div>
-<div id="movie_cast_3"></div>
-<div id="movie_cast_4"></div>
-<div id="movie_cast_5"></div>
-<div id="movie_cast_6"></div>
+
+<div id="movie_cast_1"><?php print_r($movie_detail['movie_actor'][0]);?></div>
+<div id="movie_cast_2"><?php print_r($movie_detail['movie_actor'][1]);?></div>
+<div id="movie_cast_3"><?php print_r($movie_detail['movie_actor'][2]);?></div>
+<div id="movie_cast_4"><?php print_r($movie_detail['movie_actor'][3]);?></div>
+<div id="movie_cast_5"><?php print_r($movie_detail['movie_actor'][4]);?></div>
+<div id="movie_cast_6"><?php print_r($movie_detail['movie_actor'][5]);?></div>
 <span><input type=button id="movie_casting_prev" value="<"></span>
 <span><input type=button id="movie_casting_next" value=">"></span>
 </div>
@@ -289,3 +338,5 @@ mysqli_close($con);
 </div>
 
 </table>
+                        <!-- </div>
+                        </div> -->

@@ -130,67 +130,81 @@ label.next {
 #movie_introduce {
  border: 5px;
  border-style: solid;  
- width: 1290px;
- height: 1530px;
+ width: 1250px;
+ height: 1800px;
  margin-top: 50px; 
  position: relative;
  background-color: lightgray;
+ padding: 20px;
 }
  
 #movie_poster {
-   border: 5px;
+    border: 5px;
     border-style: solid;
     width: 160px;
-    height: 160px;
+    height: 205px;
     text-align: center;
     position: absolute;
     margin-top: 15px;
     margin-left: 150px;
+    box-sizing: content-box;
 }
 
 #movie_subject {
     border: 5px;
     border-style: solid;
     width: 160px;
-    height: 140px;
+    height: 150px;
     text-align: center;
     position: absolute;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-left: 350px;
 }
 
 #movie_content {
     border: 5px;
     border-style: solid;
-    width: 1000px;
-    height: 180px;
+    width: 930px;
+    height: 100% auto;
     text-align: center;
-    margin-top: 170px;
-    margin-left: -550px;
+    margin-top: 190px;
+    margin-left: -560px;
     position: absolute;
+    font-size: 20;
+    font-family: monospace fantasy;
+    line-height: 20px;
+    box-sizing: content-box;
+    padding: 30px;
 }
 
 #favorite_movie {
-width: 80px;
-height: 80px;
+border: 2px;
+border-style: groove;
+width: 100px;
+height: 100px;
 margin-top: 30px;
-margin-left: 580px;
+margin-left: 560px;
 position: absolute;
+background-color: whitesmoke
 }
 
 #playlist_movie {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin-top: 30px;
   margin-left: 700px;
   position: absolute;
+  background-color: whitesmoke;
+  border: 2px;
+  border-style: groove;
+
 }
 
 #movie_smail_introduce {
   border: 5px;
   border-style: solid;
-  width: 600px;
-  height: 50px;
+  width: 580px;
+  height: 70px;
   text-align: center;
   margin-top: 90px;
   margin-left: -150px;
@@ -199,8 +213,8 @@ position: absolute;
 
 #movie_score {
     width: 300px;
-    height: 75px;
-    margin-top: -5px;
+    height: 150px;
+    margin-top: -80px;
     margin-left: 120px;
     border: 5px;
     border-style: solid;
@@ -209,10 +223,10 @@ position: absolute;
 }
 
 #movie_casting_container {
-    width: 1000px;
+    width: 990px;
     height: 320px;
-    margin-top: 380px;
-    margin-left: -550px;
+    margin-top: -1330px;
+    margin-left: 165px;
     border: 5px;
     border-style: solid;
     text-align: center;
@@ -221,9 +235,9 @@ position: absolute;
 
 #movie_casting_prev {
     width: 70px;
-    height: 180px;
+    height: 250px;
     position: absolute;
-    top: 100px;
+    top: 30px;
     left: 50px;
     font-family: "Varela Round", sans-serif;
     font-size: 60px;
@@ -232,72 +246,87 @@ position: absolute;
 
 #movie_casting_next {
 width: 70px;
-height: 180px;
+height: 250px;
 position: absolute;
-top: 100px;
+top: 30px;
 right: 50px;
 font-family: "Varela Round", sans-serif;
 font-size: 60px;
 }
 
 #movie_cast_1 {
-width: 90px;
-height: 130px;
+width: 111px;
+height: 139px;
 border: 2px;
 border-style: solid;
-top: 120px;
+top: 80px;
 margin-left: 150px;
 position: absolute;
+font-size: 10px;
+font-family: fantasy;
+
 }
 
 #movie_cast_2 {
-    width: 90px;
-    height: 130px;
-    border: 2px;
+  width: 111px;
+  height: 139px;
+  border: 2px;
     border-style: solid;
-    top: 120px;
+    top: 80px;
     margin-left: 270px;
     position: absolute;
+    font-size: 10px;
+    font-family: fantasy;
+
     }
 
     #movie_cast_3 {
-        width: 90px;
-        height: 130px;
-        border: 2px;
+      width: 111px;
+      height: 139px;
+      border: 2px;
         border-style: solid;
-        top: 120px;
+        top: 80px;
         margin-left: 390px;
         position: absolute;
+        font-size: 10px;
+        font-family: fantasy;
+    
         }
 
         #movie_cast_4 {
-            width: 90px;
-            height: 130px;
-            border: 2px;
+          width: 111px;
+          height: 139px;
+          border: 2px;
             border-style: solid;
-            top: 120px;
+            top: 80px;
             margin-left: 510px;
             position: absolute;
+            font-size: 10px;
+            font-family: fantasy;
             }
 
             #movie_cast_5 {
-              width: 90px;
-              height: 130px;
+              width: 111px;
+              height: 139px;
               border: 2px;
               border-style: solid;
-              top: 120px;
+              top: 80px;
               margin-left: 630px;
               position: absolute;
+              font-size: 10px;
+              font-family: fantasy;
               }
 
               #movie_cast_6 {
-                width: 90px;
-                height: 130px;
+                width: 111px;
+                height: 139px;
                 border: 2px;
                 border-style: solid;
-                top: 120px;
+                top: 80px;
                 margin-left: 750px;
                 position: absolute;
+                font-size: 10px;
+                font-family: fantasy;
                 }
 
 #movie_comment_container {
@@ -305,8 +334,9 @@ position: absolute;
     height: 650px;
     border: 5px;
     border-style: solid;
-    margin-top: 750px;
-    margin-left: -550px;
+    margin-top: -750px;
+    margin-left: 160px;
+    margin-bottom: 50px;
     text-align: center;
     position: relative;
 } 
@@ -495,3 +525,23 @@ position: absolute;
     color: black;
   }
   
+#toggleMakingnoteButton{
+display: none;
+}
+
+#side_picture_left {
+  margin-left: 1320px;
+  width: 20%;
+  height: 2420px;
+  line-height: 3000px;
+  position: absolute;
+}
+
+#side_picture_right {
+  margin-left: -280px;
+  width: 20%;
+  height: 2420px;
+  line-height: 3000px;
+  position: absolute;
+  
+}
