@@ -23,7 +23,8 @@
                         echo "<script>alert('잘못된 접근입니다. 로그인 후 이용하세요.');
                         history.go(-1);</script>";
                         exit;
-            }?>
+                    }
+            ?>
         <!-- 네비게이션 : 왼쪽 -->
         <nav class="nav_left">
             <?php include_once "./mypage_nav_left.php"?>
@@ -37,42 +38,31 @@
             </header>
             <div class="section_container">
                 <?php
-                    // mypage_db_helper 에 정의된 함수
-                    $result = select_data($con, "select_user", "myohoon95@gmail.com");
-                    if($result->num_rows){
-                    // 사용자의 pk를 확인
-                    $row = mysqli_fetch_array($result);
-                    $user_num = $row['user_num'];
-                    $user_img = $row['user_img'];
-                    $user_nickname = $row['user_nickname'];
-
                     // pk로 review 리스트 검색함
                     $result = select_data($con, "select_my_reivew", $user_num);
-                    mysqli_data_seek($result,0);
-                    $row_review = mysqli_fetch_array($result);
-                    // 댓글 modal 창 만들 때 사용함
-                    $row_num = mysqli_num_rows($result);
-                    
-                    // list 뿌리기
-                    while($row_review = mysqli_fetch_array($result)){
-                        $i = 0;
-                        $review_num = $row_review['review_num'];
-                        $user_num = $row_review['user_num'];
-                        $mv_num = $row_review['mv_num'];
-                        $review_date = $row_review['review_date'];
-                        $review_site = $row_review['review_site'];
-                        $review_rating = $row_review['review_rating'];
-                        $review_short = $row_review['review_short'];
-                        $review_long = $row_review['review_long'];
-                        $review_like = $row_review['review_like'];
-                        $review_hit = $row_review['review_hit'];
-                        $review_regtime = $row_review['review_regtime'];
-                        $mv_title = $row_review['mv_title'];
-
-                        $img_link = get_cgv_movie_big_poster_url($mv_title);
-                        $result_review_and_reply = select_data($con, "select_my_reivew_reply", $review_num);
-                        $result_review_and_reply_num = mysqli_num_rows($result_review_and_reply);
-                ?>
+                    $row_num = $result->num_rows;
+                    if($row_num){
+                        mysqli_data_seek($result,0);
+                        $row_review = mysqli_fetch_array($result);
+                        
+                        // list 뿌리기
+                        for($i = 0; $i < $row_num; $i++){
+                            $review_num = $row_review['review_num'];
+                            $mv_num = $row_review['mv_num'];
+                            $review_date = $row_review['review_date'];
+                            $review_site = $row_review['review_site'];
+                            $review_rating = $row_review['review_rating'];
+                            $review_short = $row_review['review_short'];
+                            $review_long = $row_review['review_long'];
+                            $review_like = $row_review['review_like'];
+                            $review_hit = $row_review['review_hit'];
+                            $review_regtime = $row_review['review_regtime'];
+                            $mv_title = $row_review['mv_title'];
+                            
+                            $img_link = get_cgv_movie_big_poster_url($mv_title);
+                            $result_review_and_reply = select_data($con, "select_my_reivew_reply", $review_num);
+                            $result_review_and_reply_num = mysqli_num_rows($result_review_and_reply);
+                            ?>
 
                 <!-- db에서 가져온 값이 들어갈 것 -->
                 <div class="list_item review_dialog_trigger">
@@ -94,25 +84,25 @@
                         </span>
                     </div>
                 </div><!-- list_item -->
-
+                
                 <!-- *************** -->
                 <!-- 모달 팝업 -->
                 <!-- *************** -->
-                <div class="modal_container" name="modal_container">
-                    <div class="modal_content">
-                        <span class="modal_close_btn">&times;</span>
+                <div class="modal_container_review" name="modal_container_review">
+                    <div class="modal_content_reivew">
+                        <span class="modal_close_btn_review">&times;</span>
                         <!-- 상단 프로필 및 평점 -->
-                        <div class="modal_content_header">
+                        <div class="modal_content_review_header">
                             <!-- profile img : 세션에서 값 옴-->
                             <div class="small_img_box">
                                 <img src="../user/img/<?=$user_img?>" alt="프로필 이미지">
                             </div>
-                                    
+                            
                             <!-- 닉네임 : 세션에서 값 옴 -->
                             <div>
                                 <?=$user_nickname?>
                             </div>
-                                    
+                            
                             <!-- 평점 -->
                             <div>
                                 <?=$review_rating?>점
@@ -125,9 +115,9 @@
                         <h3>장 문 평</h3>
                         <p class="long_review"><?=$review_long?></p>
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-                                    
+                        
                         <!-- 좋아요 및 댓글 icon -->
-                        <div class="modal_content_bottom">
+                        <div class="modal_content_reivew_bottom">
                             <!-- 좋아요 -->
                             <span>
                                 <img src="./img/like.png" alt="">
@@ -155,7 +145,7 @@
                                 $review_reply_regtime = $row_reply['review_reply_regtime'];
                                 $user_nickname = $row_reply['user_nickname'];
                                 $user_img = $row_reply['user_img'];
-                        ?>
+                                ?>
                             <div class="comments_item">
                                 <!-- profile image -->
                                 <div class="profile_box">
@@ -174,8 +164,8 @@
                             </div>
                             <?php  
                             // review의 댓글 반복문 종료 
-                            }                
-                            ?>
+                        }                
+                        ?>
                         </div>     
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <form action="#">
@@ -191,18 +181,18 @@
                 <?php
                 $i++;
                 // while문 끝
-                }
+            }
             // if문 끝 
             } else{
                 echo "<div>작성한 리뷰가 없습니다.</div>";
             }
-                ?>
+            ?>
                 
             </div><!-- section_container -->
-            </section><!-- section -->
+        </section><!-- section -->
         <!-- 푸터 -->
         <footer>
             <?php include_once "../common/page_form/footer.php"?>
         </footer>
     </body>
-</html>
+    </html>

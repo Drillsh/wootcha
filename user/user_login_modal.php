@@ -31,8 +31,8 @@
  .small_img_box img{width: 100%; height: 100%; object-fit: cover;}
     
     /* 로그인 폼 */
-    .modal_content_login form{width:100%;text-align:center;}  
-    .modal_content_login form table{width:100%;}
+    .modal_content_login form{width:100%;text-align:center; margin-top:20px; margin-bottom:20px}  
+    .modal_content_login form table{width:100%;margin-bottom:20px}
     .modal_content_login form table tr{height:60px; margin-top:20px;}
     .modal_content_login form table tr td{width:100%; line-height:60px; text-align:center;}
 
@@ -41,9 +41,11 @@
     .modal_content_login form table td input{height:50px;}
     
     /* 로그인 버튼 */
-    .modal_content_login form input[type=button]{width:90%; height: 40px; background-color:#679b9b; border-style:none;
+    .modal_content_login form input[type=button]{width:90%; height: 50px; background-color:#679b9b; border-style:none;
         border-radius: 0.5rem;font-size:20px;font-weight: bold}
 
+    /* 하단 버튼 */
+    .modal_content_login button{width:40%; height:40px; font-size:15px;margin:10px }
 </style>
 <script src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/js/login.js?after"></script>
 <!-- ****************** -->
@@ -84,7 +86,8 @@
         </form>
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <button> api 로그인 </button>
-        <button> 회원가입하기 </button>
+        <button onclick="signupClick()"> 회원가입하기 </button>
+        <button onclick=""> 계정찾기 </button>
     </div>
 </div>
 
@@ -107,7 +110,6 @@
             // 해당 클래스의 내용을 클릭하면 Modal을 띄움
             trigger_user_login[num].onclick =  function() {
                 modal_container_login[num].style.visibility = "visible";
-                console.log(num);
             };
         
             // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
@@ -126,5 +128,12 @@
         for(var j = 0; j < trigger_user_login.length; j++) {
           funcs[j]();
         }
+
+        function signupClick() {
+            modal_close_btn_login[0].onclick();
+            (document.getElementsByClassName('trigger_user_signup'))[0].onclick();
+        }
+
+
      </script>
 

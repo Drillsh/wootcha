@@ -32,11 +32,7 @@
         }
 
         // 값 가져옴
-        $result = mysqli_query($con, $sql);
-
-        //db 객체 반납
-        // 여기서 닫으면 안됨 페이지 마지막에 닫아야함
-        // mysqli_close($con);
+        $result = mysqli_query($con, $sql) or die(mysqli_error($con));
         return $result;
     }
     
