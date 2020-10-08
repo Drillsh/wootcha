@@ -1,94 +1,4 @@
 body { margin: 0; padding: 0; }
-/* header { margin-bottom: 60px; } */
-
-.main_header {
-  position: relative;
-  background-image: url(../image/main_image.png);
-  max-width: 100%;
-  height: 600px;
-  background-size: cover;
-}
-
-.main_back_cover {
-  position: absolute;
-  width: 100%;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index:1;
-}
-
-.main_head_top img {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 10px;
-  left: 20px;
-}
-
-.main_head_top ul {
-  list-style: none;
-  float: right;
-  margin-top: 10px;
-  margin-right: 30px;
-}
-
-.main_head_top ul li {
-  display: inline-block;
-  margin-left: 20px;
-  margin-top: 5px;
-  padding-left: 5px;
-  font-weight: bold;
-  height: 36px;
-}
-
-.main_head_top ul li:hover{
-  border-bottom: 2px solid white;
-}
-
-.main_head_top ul li a {
-  text-decoration: none;
-  color: white;
-  letter-spacing: 5px;
-}
-
-.main_header_center {
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  width: 550px;
-  height: 450px;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index:1;
-  border-radius: 5px;
-}
-
-.main_header_center .center_first{
-  position: absolute;
-  background-color: #C7C7C7;
-  top: 10px;
-  left: 10px;
-  width: 200px;
-  height: 430px;
-}
-
-.main_header_center .center_second{
-  position: absolute;
-  background-color: #C7C7C7;
-  top: 10px;
-  left: 220px;
-  width: 320px;
-  height: 250px;
-}
-
-.main_header_center .center_third{
-  position: absolute;
-  background-color: #C7C7C7;
-  top: 270px;
-  left: 220px;
-  width: 320px;
-  height: 170px;
-}
-
 
 /* =================================  main */
 
@@ -96,305 +6,15 @@ body { margin: 0; padding: 0; }
 .main_center {
   width: 1010px;
   height: auto;
-  margin: 0 auto 0 190px;
-  /* margin-bottom: 30px; */
-}
-
-
-/* =================================  main_review */
-
-
-.main_comment {
-  width: 1010px;
-  height: 570px;
-  float: left;
   margin: 0 auto;
-}
-
-.main_comment .main_title{
-  width: 100%;
-  height: 30px;
-  font-weight: bold;
-  font-size: 20px;
-  float: left;
-  color: #585858;
-}
-
-.best_comment {
-  margin-top: 50px;
-}
-
-.best_comment .best_comment_first{
-  width: 325.5px;
-  height: 420px;
-  float: left;
-  border-radius: 5px;
-}
-
-.best_comment .best_comment_first:hover{
-  box-shadow: 4px 4px 20px #D1CFCF;
-}
-
-.best_comment .best_comment_first a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_comment .best_comment_first a>img{
-  width:325.5px;
-  height: 200px;
-  border-radius: 5px;
-}
-
-.best_comment .best_comment_first .comment_content{
-  width: 312px;
-  border-bottom: 1px solid lightgray;
-  margin-top: 10px;
-  padding: 0 5px 20px 8px;
-}
-
-.comment_content {
-  padding-left: 5px;
-  padding-top: 5px;
-}
-
-.content_profile{
-  float: left;
-  margin-top: 20px;
-  margin-left: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 70%;
-  overflow: hidden;
-}
-
-.content_profile>img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.content_profile_info {
-  float: left;
-  margin-left: 20px;
-  transform: translateY(60%);
-}
-
-.content_profile_info span {
-  font-weight: bold;
-}
-
-
-
-.best_comment .best_comment_second{
-  width: 325.5px;
-  height: 420px;
-  float: left;
-  margin-left: 15px;
-  border-radius: 5px;
-}
-
-.best_comment .best_comment_second a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_comment .best_comment_second a>img{
-  width:325.5px;
-  height: 200px;
-  border-radius: 5px;
-}
-
-.best_comment .best_comment_second .comment_content{
-  width: 312px;
-  border-bottom: 1px solid lightgray;
-  margin-top: 10px;
-  padding: 0 5px 20px 8px;
-}
-
-.best_comment .best_comment_second:hover{
-  box-shadow: 4px 4px 20px #D1CFCF;
-}
-
-
-
-
-
-
-.best_comment .best_comment_third{
-  width: 325.5px;
-  height: 420px;
-  float: left;
-  margin-left: 15px;
-  border-radius: 5px;
-}
-
-.best_comment .best_comment_third a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_comment .best_comment_third a>img{
-  width:325.5px;
-  height: 200px;
-  border-radius: 5px;
-}
-
-.best_comment .best_comment_third .comment_content{
-  width: 312px;
-  border-bottom: 1px solid lightgray;
-  margin-top: 10px;
-  padding: 0 5px 20px 8px;
-}
-
-.best_comment .best_comment_third:hover{
-  box-shadow: 4px 4px 20px #D1CFCF;
-}
-
-
-
-/*  테스트 ::: 최고의 평가를 받은 맛집 */
-
-.main_best_score{
-  width: auto;
-  height: auto;
-  float: left;
-  padding-bottom: 20px;
-  margin-bottom: 45px;
-  margin-top: 45px;
-  /* margin-left: -50px; */
-}
-
-.main_best_score .main_title{
-  color: #585858;
-}
-
-.main_best_score .main_title{
-  width: 100%;
-  height: 30px;
-  font-weight: bold;
-  font-size: 20px;
-  float: left;
-}
-
-
-.best_score_content {
-  margin-top: 20px;
-  float: left;
-}
-
-.best_score_content .score_content_first{
-  width: 240.5px;
-  height: 215px;
-  float: left;
-  border-radius: 5px;
-}
-
-.best_score_content .score_content_first a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_score_content .score_content_first a>img{
-  width: 240.5px;
-  height: 150px;
-  border-radius: 5px;
-}
-
-
-
-.best_score_content .score_content_second,.score_content_third,.score_content_fourth{
-  width: 240.5px;
-  height: 215px;
-  float: left;
-  margin-left: 15px;
-  border-radius: 5px;
-}
-
-.best_score_content .score_content_second a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_score_content .score_content_second a>img{
-  width: 240.5px;
-  height: 150px;
-  border-radius: 5px;
-}
-
-.best_score_content .score_content_third a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_score_content .score_content_third a>img{
-  width: 240.5px;
-  height: 150px;
-  border-radius: 5px;
-}
-
-.best_score_content .score_content_fourth a{
-  text-decoration: none;
-  color: black;
-}
-
-.best_score_content .score_content_fourth a>img{
-  width: 240.5px;
-  height: 150px;
-  border-radius: 5px;
-}
-
-.best_score_content .score_content_first:hover,.score_content_second:hover,.score_content_third:hover,.score_content_foruth:hover{
-  box-shadow: 4px 4px 20px #D1CFCF;
-}
-
-
-
-/* =================================  main_banner */
-
-/* .main_banner {
-  width: 100%;
-  height: 310px;
   margin-bottom: 30px;
 }
-
-.main_banner .main_title{
-  width: 100%;
-  height: 30px;
-  font-weight: bold;
-  font-size: 20px;
-  float: left;
-  padding: 10px 0 0 30px;
-}
-
-.main_banner .banner_content_first{
-  width: 150px;
-  height: 170px;
-  float: left;
-  margin-top: 30px;
-  margin-left: 50px;
-  border-radius: 5px;
-  box-shadow: 4px 4px 20px #D1CFCF;
-}
-
-.main_banner .banner_content{
-  width: 150px;
-  height: 170px;
-  float: left;
-  margin-top: 30px;
-  margin-left: 20px;
-  border-radius: 5px;
-  box-shadow: 4px 4px 20px #D1CFCF;
-} */
-
-
-
 
 /* =================================  main_all */
 
 .main_all {
-  width: 1450px;
-  height: 400px;
+  width: 1300px;
+  height: 430px;
   margin: 0 auto;
 }
 
@@ -407,21 +27,25 @@ body { margin: 0; padding: 0; }
   margin-bottom: 50px;
 }
 
+/* 영화 포스터 부분 */
 .search_member {
-  width: 1650px;
+  width: 1300px;
   height: 400px;
-  /* margin: 0 auto 0 auto; */
+  margin: 0 auto 0 auto;
   margin-top: 45px;
   margin-bottom: 45px;
 }
 
 .search_member p{
-  width: 237px;
-  height: 237px;
-  /* float: left; */
+  width: 185px;
+  height: 307px; /* 기존 237px */
   border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+.main_a_contentbox{
+  /* width: 185px; */
 }
 
 .search_member a{
@@ -438,26 +62,64 @@ body { margin: 0; padding: 0; }
 }
 
 .search_member img{
-  width: 237px;
-  height: 150px;
+  width: 185px;
+  height: 230px;  /* 기존 150px */
   border-radius: 10px 10px 0 0;
 }
 
-.summary_span_first{
+/* .main_div_contentbox{
+  position: relative;
+
+} */
+
+/* 영화 코멘트 내용부분 */
+.summary_span_title{
+  position: absolute;
+  top: 233px;
+  left: 5px;
   display: block;
-  width: 230px;
+  width: auto;
   height: 20px;
   margin-top: 5px;
   margin-left: 5px;
   color: #094255;
 }
 
-.summary_span_second{
+.summary_span_rating{
+  position: absolute;
+  top: 233px;
+  right: 10px;
+  display: block;
+  width: auto;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #094255;
+}
+
+.summary_span_short{
   display: -webkit-box;
   display: -ms-flexbox;
   display: box;
   margin-top:1px;
-  max-height:80px;
+  max-height:30px;
+  overflow:hidden;
+  vertical-align:top;
+  text-overflow: ellipsis;
+  word-break:break-all;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  position: absolute;
+  left: 10px;
+  top: 270px;
+}
+
+.summary_span_user{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  margin-top:1px;
+  max-height:30px;
   overflow:hidden;
   vertical-align:top;
   text-overflow: ellipsis;
@@ -466,5 +128,144 @@ body { margin: 0; padding: 0; }
   -webkit-line-clamp:2;
   position: absolute;
   left: 5px;
-  top: 185px;
+  top: 293px;
 }
+
+/* 리뷰 리스트 */
+.main_all_reviewlist {
+  width: 1300px;
+  height: 430px;
+  margin: 0 auto;
+}
+
+.main_all_reviewlist .main_title_reviewlist{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+  margin-bottom: 50px;
+}
+
+/* 영화 포스터 부분 */
+.search_member_reviewlist {
+  width: 1300px;
+  height: 400px;
+  margin: 0 auto 0 auto;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+.search_member_reviewlist p{
+  width: 185px;
+  height: 347px; /* 기존 237px */
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 4px 4px 20px #D1CFCF;
+}
+
+.main_a_contentbox{
+  /* width: 185px; */
+}
+
+.search_member_reviewlist a{
+  color: black;
+}
+
+.search_member_reviewlist p:hover{
+  box-shadow: 4px 4px 20px #9e9d9d;
+}
+
+.search_member_reviewlist .summary_first_reviewlist{
+  margin-left: 14px;
+  position: relative;
+}
+
+.search_member_reviewlist img{
+  width: 185px;
+  height: 230px;  /* 기존 150px */
+  border-radius: 10px 10px 0 0;
+}
+
+/* .main_div_contentbox{
+  position: relative;
+
+} */
+
+/* 영화 코멘트 내용부분 */
+.summary_span_title_reviewlist{
+  position: absolute;
+  top: 233px;
+  left: 5px;
+  display: block;
+  width: auto;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #094255;
+}
+
+.summary_span_rating_reviewlist{
+  position: absolute;
+  top: 233px;
+  right: 10px;
+  display: block;
+  width: auto;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #094255;
+}
+
+.search_member_reviewlist {
+  width: 1300px;
+  height: 440px;
+  margin: 0 auto 0 auto;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+.search_member .summary_first_reviewlist{
+  margin-left: 14px;
+  position: relative;
+}
+
+.summary_span_short_reviewlist{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  margin-top:1px;
+  max-height:30px;
+  overflow:hidden;
+  vertical-align:top;
+  text-overflow: ellipsis;
+  word-break:break-all;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  position: absolute;
+  left: 5px;
+  top: 270px;
+}
+
+.summary_span_long_reviewlist{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  margin-top:1px;
+  max-height:30px;
+  overflow:hidden;
+  vertical-align:top;
+  text-overflow: ellipsis;
+  word-break:break-all;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  position: absolute;
+  left: 5px;
+  top: 298px;
+}
+
+
+
+
+
+
