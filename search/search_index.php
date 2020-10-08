@@ -1,33 +1,3 @@
-<?php
-// 검색 결과 받음
-if (isset($_POST['search_keyword'])) {
-    $search = $_POST['search_keyword'];
-    $deco = '"';
-
-
-    if (isset($_POST['country'])) {
-        $country = $_POST['country'];
-    }
-    if (isset($_POST['genre'])) {
-        $genre = $_POST['genre'];
-    }
-
-    echo "
-          <script>
-            // 검색결과 타이틀 변경
-            function setSelectSear() {
-              document.getElementById('view_all_search').innerHTML = '$deco$search$deco 검색결과';
-              document.getElementById('view_all_review').innerHTML = '';
-            }
-          </script>
-        ";
-
-} else {
-    $search = "";
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,14 +10,48 @@ if (isset($_POST['search_keyword'])) {
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/search/css/view_all.css">
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./js/search_func.js"></script>
 
+    <!--    DB, Header-->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 </head>
 
 <body>
 
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
+        <?php
+        // 검색 결과 받음
+        if (isset($_GET['search_keyword'])) {
+            $search = $_GET['search_keyword'];
+
+            if (isset($_GET['country'])) {
+                $country = $_GET['country'];
+            }
+            if (isset($_GET['genre'])) {
+                $genre = $_GET['genre'];
+            }
+
+            echo "
+          <script>
+            // 검색결과 타이틀 변경
+            function setSelectSear() {
+              document.getElementById('view_all_search').innerHTML = '\"$search\" 검색결과';
+              document.getElementById('view_all_review').innerHTML = '';
+            }
+          </script>
+        ";
+
+        } else {
+            $search = "";
+        }
+        // 데이터 졍렬
+        if (isset($_GET['selected_option'])) {
+            $selected_option = $_GET["selected_option"];
+        }
+
+        ?>
+
     </header>
     <section>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/search_result.php"; ?>

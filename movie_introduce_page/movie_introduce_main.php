@@ -1,11 +1,20 @@
 <?php
-if (isset($_GET["link"])){
-$link = $_GET['link'];
+if (isset($_GET["item"])){
+$item = $_GET['item'];
+    $item = json_decode($item,true);
+
+    $title = $item['title']; // 영화 제목
+    $subtitle = $item["subtitle"]; // 부제
+    $file_copy = $item["image"]; // 포스터
+    $total_star = $item["userRating"]; // 네이버 평점
+    $naverLink = $item["link"];   //네이버 영화 링크
+
+    $total_star = sprintf('%0.1f', $total_star);
 
 } else {
-    $link = "";
+    $item = "";
 }
-$movie_detail = crawl_movie_detail($link);
+$movie_detail = crawl_movie_detail($naverLink);
 ?>
 
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce.js"></script>

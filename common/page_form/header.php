@@ -13,7 +13,7 @@ else $user_img = "";
 <div id="top">
     <h3><a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/index.php"> WOOTCHA </a></h3>
     <div id="top_menu">
-        <form class="search_form" method="post" action="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/search/search_index.php">
+        <form class="search_form" method="get" action="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/search/search_index.php">
             <input class="search_input" type="text" placeholder="영화 제목을 검색해보세요:)" name="search_keyword">
             <button class="search_result_btn" id="search">검색</button>
             <select class="search_result_btn" name="country">

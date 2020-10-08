@@ -21,8 +21,6 @@ json 기반으로 작성됐으며 뒤에 .json을 .xml로 변경해주면 코드
 // 제목 검색으로 api에서 데이터 가져오는 함수
 function search_movie_title($search, $country, $genre)
 {
-    // 한글깨짐 방지
-    header("Content-Type: text/html; charset=UTF-8");
 // 발급받은 클라이언트 아이디
     $client_id = "LJ1tkirwtG2udis4jmop";
 // 발급받은 클라이언트 시크릿 값
@@ -34,7 +32,7 @@ function search_movie_title($search, $country, $genre)
     $encGenre = urlencode($genre);
 
 // JSON을 이용해서 검색
-    $url = "https://openapi.naver.com/v1/search/movie.json?query=" . $encTitle."&country=".$encCountry."&genre=".$encGenre;
+    $url = "https://openapi.naver.com/v1/search/movie.json?query=" . $encTitle."&country=".$encCountry."&genre=".$encGenre."&display=100";
 
     $is_post = false;
     $ch = curl_init();
@@ -66,7 +64,7 @@ function crawl_movie_detail($link)
     ini_set("allow_url_fopen", 1);
 
 // 클롤링 라이브러리
-    include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/lib/simplehtmldom_1_9_1/simple_html_dom.php";
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/lib/simplehtmldom_1_9_1/simple_html_dom.php";
 
 // html을 url상에서 가져올 수 있는 함수 simple_html_dom.php 여기에 정의되어 있는 함수임
     $data = file_get_html("$link");
@@ -93,17 +91,18 @@ function crawl_movie_detail($link)
         $movie_actor[] = $e->innertext;
     }
 
-    // 기자, 평론가 평점
+    // 유저 평점
     foreach ($data->find('div.spc_score_area') as $e) {
         $user_rating[] = $e->innertext;
     }
 
-   
     $movie_detail = array('movie_info'=>$movie_info, 'movie_story'=>$movie_stroy, 
     'movie_actor'=>$movie_actor, 'user_rating'=>$user_rating);
 
     return $movie_detail;
 }
+
+
 ?>
 
 

@@ -3,7 +3,6 @@
         <div class="follow_list_wrap">
             <div class="follow_list_background">
                 <?php
-
                 //페이지 수 체크한다.
                 if (isset($_GET["page"])) {
                     $page = $_GET["page"];
@@ -17,13 +16,29 @@
                 //검색어 있을때
                 if ($search != "") {
                     $result = search_movie_title($search, $country, $genre);
-                    $total_record = $result['display'];
+                    $total_record = count($result['items']);
+
+                    //정렬 요청이 있을때
+                    if (isset($selected_option)) {
+                        switch ($selected_option) {
+                            case 'naver_star':
+                                foreach ($result['items'] as $key => $value) {
+                                    $sort[$key] = $value['userRating'];
+                                }
+                                array_multisort($sort, SORT_DESC, $result['items']);
+                                break;
+                            case 'wootcha_star':
+                                echo "<script>alert('웃챠 사용자 별점');</script>";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
 
                     //검색어 없을때
                 } else if ($search == "") {
                     $total_record = 0;
                 }
-
                 ?>
 
                 <!-- select box -------------------------------------------------------------------------------------->
@@ -38,7 +53,7 @@
 
                     <!--정렬 선택 박스-->
                     <div class="follow_select">
-                        <select name="follow_list_select_mode" id="follow_list_select_mode" onchange="selectOption();">
+                        <select name="follow_list_select_mode" id="follow_list_select_mode" onchange="selectOption('<?=$search;?>', '<?=$country;?>', '<?=$genre;?>');">
                             <option value="default" selected>정렬/순서 선택</option>
                             <option value="naver_star">네이버 별점순</option>
                             <option value="wootcha_star">웃챠 별점순</option>
@@ -62,51 +77,28 @@
 
                     $page_start = $total_record - $page_setting;
 
-
                     for ($i = $page_setting;
                     $i < $page_setting + $scale && $i < $total_record;
                     $i++) {
 
                     $row = $result['items'];
-                    $no = $row[$i]; //넘
-                    $title = $no['title']; // 영화 제목
-                    $subtitle = $no["subtitle"]; // 부제
-                    $file_copy = $no["image"]; // 포스터
-                    $total_star = $no["userRating"]; // 네이버 평점
+                    $item = $row[$i]; //인덱스
+                    $title = $item['title']; // 영화 제목
+                    $subtitle = $item["subtitle"]; // 부제
+                    $file_copy = $item["image"]; // 포스터
+                    $total_star = $item["userRating"]; // 네이버 평점
                     $review_count = 0; // 리뷰 수
                     $story_count = 0; //스토리 수
-                    $naverLink = $no["link"];   //네이버 영화 링크
+                    $naverLink = $item["link"];   //네이버 영화 링크
 
                     $total_star = sprintf('%0.1f', $total_star);
-
-
-//                    if ($category == "ctg_star") {
-//                        $category = "총 만족도";
-//                    }
-//                    if ($category == "ctg_facility") {
-//                        $category = "시설 만족도";
-//                    }
-//                    if ($category == "ctg_acsbl") {
-//                        $category = "교통 편의성";
-//                    }
-//                    if ($category == "ctg_acsbl") {
-//                        $category = "강사 만족도";
-//                    }
-//                    if ($category == "ctg_cost_efct") {
-//                        $category = "수강료 만족도";
-//                    }
-//                    if ($category == "ctg_achievement") {
-//                        $category = "학업 성취도";
-//                    }
-//                    if ($category == "ctg_all") {
-//                        $category = "총 만족도";
-//                    }
 
                     ?>
 
                     <li>
                         <div class="follow_list_column">
-                            <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?link=<?= $naverLink ?>">
+                            //json으로 영화 데이터 보냄
+                            <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?=urlencode(json_encode($item))?>">
                                 <div class="follow_list_column_img">
                                     <?php
                                     if ($file_copy == "") {
@@ -129,9 +121,9 @@
                             <p id="follow_text_district"><?= $subtitle ?></p>
 
                             <div class="follow_list_column_review">
-                                <a href="/eduplanet/academy/review.php?no=<?= $no ?>"><span id="academy_review_span">학원리뷰 <span
+                                <a href="/eduplanet/academy/review.php?no=<?= $item ?>"><span id="academy_review_span">학원리뷰 <span
                                                 id="academy_review_num"><?= $review_count ?></span></span></a>
-                                <a href="/eduplanet/academy/acd_story.php?no=<?= $no ?>"><span id="academy_review_span">스토리 <span
+                                <a href="/eduplanet/academy/acd_story.php?no=<?= $item ?>"><span id="academy_review_span">스토리 <span
                                                 id="academy_review_num"><?= $story_count ?></span></span></a>
 
                             </div>
