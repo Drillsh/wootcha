@@ -10,7 +10,7 @@
 
         if(!mysqli_query($con, $sql)){
             echo "0";
-            die;
+            die(mysqli.error($con));
         };
     
     }
