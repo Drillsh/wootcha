@@ -2,6 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
     
     // 값은 잘 넘어옴
+    
     $login_email = $_POST['login_email'];
     $login_password = $_POST['login_password'];
 

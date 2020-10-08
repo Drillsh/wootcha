@@ -186,7 +186,7 @@
                                                 // 가져올 레코드로 위치(포인터) 이동
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
-                                                $no = $row["faq_num"];
+                                                $num = $row["faq_num"];
                                                 $mv_name = $row["faq_title"];
                                                 $id = $row["faq_contents"];
                                                 $reply_content = $row["faq_hit"];
@@ -195,14 +195,14 @@
                                                 ?>
                                                 <li class="list_row">
                                                     <form method="post" action="#">
-                                                        <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
+                                                        <input type="hidden" name="no[]" value="<?= $num ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
-                                                        <span class="col2 left-align"><?= $mv_name ?></span>
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/fnq/fnq_view.php?num=<?=$num?>&page=<?=$page?>"><?=$title?><span class="col2 left-align"><?= $mv_name ?></span></a>                               
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
                                                         <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
-                                                        <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$no?>">
+                                                        <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$num?>">
 
                                                    </form>
                                                 </li>
