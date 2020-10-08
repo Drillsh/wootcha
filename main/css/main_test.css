@@ -1,7 +1,13 @@
-body { margin: 0; padding: 0; }
+/* ======================= css-89vjyi-MainSection ebeya3l11 */
+.css-89vjyi-MainSection {margin-top: 86px;}
+.css-89vjyi-MainSection {margin-top: 80px;}
+.css-89vjyi-MainSection {min-height: calc(100vh - 343px); margin-top: 74px;}
+.css-89vjyi-MainSection {min-height: calc(100vh - 136px); margin-top: 74px;}
+
+
+
 
 /* =================================  main */
-
 
 .main_center {
   width: 1010px;
@@ -164,10 +170,6 @@ body { margin: 0; padding: 0; }
   box-shadow: 4px 4px 20px #D1CFCF;
 }
 
-.main_a_contentbox{
-  /* width: 185px; */
-}
-
 .search_member_reviewlist a{
   color: black;
 }
@@ -186,11 +188,6 @@ body { margin: 0; padding: 0; }
   height: 230px;  /* 기존 150px */
   border-radius: 10px 10px 0 0;
 }
-
-/* .main_div_contentbox{
-  position: relative;
-
-} */
 
 /* 영화 코멘트 내용부분 */
 .summary_span_title_reviewlist{
@@ -213,13 +210,25 @@ body { margin: 0; padding: 0; }
   width: auto;
   height: 20px;
   margin-top: 5px;
-  margin-left: 5px;
+  margin-right: 5px;
+  color: #094255;
+}
+
+.summary_span_user_num_reviewlist{
+  position: absolute;
+  top: 270px;
+  right: 10px;
+  display: block;
+  width: auto;
+  height: 20px;
+  margin-right: 5px;
+  margin: 1px;
   color: #094255;
 }
 
 .search_member_reviewlist {
   width: 1300px;
-  height: 440px;
+  height: 460px;
   margin: 0 auto 0 auto;
   margin-top: 45px;
   margin-bottom: 45px;

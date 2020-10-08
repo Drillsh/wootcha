@@ -13,6 +13,14 @@ a:hover { text-decoration:none; color: #222222; }
 a:visited { text-decoration:none; color: #222222; }
 a:active { text-decoration:none; color: #222222; }
 
+/* 메인 <section> 태그 css */
+.css-xpk6f5-Main {padding-top: 54px; padding-bottom: unset;}
+.css-xpk6f5-Main {padding-top: 110px; padding-bottom: 56px; transition: padding-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;}
+
+/* 메인 <div> 태그 css */
+.css-7eleqt-Self {display: flex; flex-direction: column; min-height: calc(100vh - 54px);}
+.css-7eleqt-Self {position: relative;}
+
 /* 상단 헤더 */
 #top { position: relative; width: 1300px; height: 80px; margin: 0 auto; background-color: #679b9b;}
 #top h3 { position: absolute; top: 20px; left: 40px; font-size: 30px; }
