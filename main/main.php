@@ -17,6 +17,15 @@
         </div>
 </div>
 
+<!-- 총 리스트 -->
+<div class="css-89vjyi-MainSection ebeya3l11">
+  
+  <div class="css-gxko42-StyledHomeListContainer ebeya3l2">
+
+  </div>
+</div>
+
+
 <div class="main_center">
 <div class="main_all">
 
@@ -61,10 +70,10 @@
 
 <div class="main_all_reviewlist">
 
-    <span class="main_title_reviewlist" class="sub_title">테스트 &nbsp;:::&nbsp; REVIEW LIST</span>
+    <span class="main_title_reviewlist" class="sub_title">테스트 &nbsp;:::&nbsp; 최근 리뷰</span>
 
     <?php
-      $sql = "select * from review R inner join movie M on R.mv_num = M.mv_num order by review_short desc";
+      $sql = "select * from review R inner join movie M on R.mv_num = M.mv_num order by review_date desc";
       $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     ?>
 
@@ -83,9 +92,10 @@
 
             <a class="main_a_contentbox" href="#">
               <p class="summary_first_reviewlist">
-                <img src="<?=img_link?>">
-                  <span class="summary_span_title_reviewlist"><?=$user_num?></span>
+                <img src="<?=$img_link?>">
+                  <span class="summary_span_title_reviewlist"><?=$mv_num?></span>
                   <span class="summary_span_rating_reviewlist"><?=$review_rating?></span>
+                  <span class="summary_span_user_num_reviewlist"><?=$user_num?></span>
                   <span class="summary_span_short_reviewlist"><?=$review_short?></span>
                   <span class="summary_span_long_reviewlist"><?=$review_long?></span>
               </p>

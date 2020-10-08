@@ -19,8 +19,10 @@
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
-    <section>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main.php"; ?>
+    <section class="css-xpk6f5-Main ebsyszu1">
+        <div class="css-7eleqt-Self ebeya3l1">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main.php"; ?>
+        </div>
     </section>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
@@ -28,3 +30,4 @@
 </body>
 
 </html>
+
