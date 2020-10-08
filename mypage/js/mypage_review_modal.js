@@ -1,10 +1,10 @@
 window.onload = function(){
      // Modal을 가져옵니다.
-     var modal_container = document.getElementsByClassName("modal_container");
+     var modal_container_review = document.getElementsByClassName("modal_container_review");
      // Modal을 띄우는 클래스 이름을 가져옵니다.
      var review_dialog_trigger = document.getElementsByClassName("review_dialog_trigger");
      // Modal을 닫는 close 클래스를 가져옵니다.
-     var modal_close_btn = document.getElementsByClassName("modal_close_btn");
+     var modal_close_btn_review = document.getElementsByClassName("modal_close_btn_review");
      var funcs = [];
 
      // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
@@ -12,13 +12,12 @@ window.onload = function(){
        return function() {
          // 해당 클래스의 내용을 클릭하면 Modal을 띄움
          review_dialog_trigger[num].onclick =  function() {
-             modal_container[num].style.visibility = "visible";
-             console.log(num);
+          modal_container_review[num].style.visibility = "visible";
          };
      
          // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
-         modal_close_btn[num].onclick = function() {
-             modal_container[num].style.visibility = "hidden";
+         modal_close_btn_review[num].onclick = function() {
+          modal_container_review[num].style.visibility = "hidden";
          };
        };
      }

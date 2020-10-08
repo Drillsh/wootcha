@@ -23,25 +23,31 @@
     .modal_container .small_img_box img{width: 100%; height: 100%; object-fit: cover;}
     
     /* 회원가입 폼 */
-    .modal_content form{width:100%;text-align:center;}  
+    .modal_content form{width:100%;text-align:center; margin-top:20px; margin-bottom:20px}  
     .modal_content form table{width:100%;}
-    .modal_content form table tr:nth-child(odd){height:60px}
-    .modal_content form table tr:nth-child(odd) td{width:100%; line-height:60px; text-align:center;}
+    .modal_content form table tr:nth-child(odd){height:50px}
+    .modal_content form table tr:nth-child(odd) td{width:100%; line-height:50px; text-align:center;}
     .modal_content form table tr:nth-child(even){display:none; width:100%;height:20px;text-align:center;}
     .modal_content form table tr:nth-child(even) td{width:100%; line-height:20px; text-align:center;}
     .modal_content form table p{width:100%;height:15px; line-height:20px; text-align:center;}
     .modal_content form table td input[type=text],[type=password],[type=tel],[type=date]{width:300px;height:50px; font-size:15px;text-align:center;}
     .modal_content form table td input{height:50px;}
-    /* 전화번호 input */
+    /* 생년월일 input */
     .modal_content form table tr:nth-child(11) td{position:relative;}
     .modal_content form table tr:nth-child(11) label{position:absolute; top: 50%;  left: 50%;  transform: translate(-50%, -50%); color:gray;}
     .modal_content form table tr:nth-child(11) input:focus ~ label,
     .modal_content form table tr:nth-child(11) input:valid ~ label {display:none;}
     .modal_content form table tr:nth-child(11) input[type=date]{text-align:left;}
-    
+    /* gender */
+    .modal_content form table tr:nth-child(15) label{text-align:center; line-height:50px; font-size:20px}
+    .modal_content form table tr:nth-child(15) input{text-align:center; line-height:50px; font-size:20px}
+    /* user_img */
+    .modal_content form table tr:nth-child(17) img{width: 45px; height: 45px; margin-left:5px; margin-right:5px}
     /* 회원가입 버튼 */
     .modal_content form input[type=button]{width:90%; height: 40px; background-color:#679b9b; border-style:none;
         border-radius: 0.5rem;font-size:20px;font-weight: bold}
+        /* 하단 버튼 */
+    .modal_content button{width:40%; height:40px; font-size:15px;margin:10px }
 </style>
 
 <!-- ****************** -->
@@ -120,13 +126,13 @@
             <!-- 아바타 -->
             <tr><td>
                     <input type="radio" id="avatar_1" name="avatar" value="user_robot_avatar0.png" checked>
-                    <label for="avatar_1">1</label>
+                    <label for="avatar_1"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar0.png" alt=""></label>
                     <input type="radio" id="avatar_2" name="avatar" value="user_robot_avatar1.png">
-                    <label for="avatar_2">2</label>
+                    <label for="avatar_2"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar1.png" alt=""></label>
                     <input type="radio" id="avatar_3" name="avatar" value="user_robot_avatar2.png">
-                    <label for="avatar_3">3</label>
+                    <label for="avatar_3"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar2.png" alt=""></label>
                     <input type="radio" id="avatar_4" name="avatar" value="user_robot_avatar3.png">
-                    <label for="avatar_4">4</label>
+                    <label for="avatar_4"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar3.png" alt=""></label>
             </td></tr>
         </table>
         <input type="button" value="회원가입" onclick="allCheck()">
@@ -154,7 +160,6 @@
             // 해당 클래스의 내용을 클릭하면 Modal을 띄움
             trigger_user_signup[num].onclick =  function() {
                 modal_container[num].style.visibility = "visible";
-                console.log(num);
             };
         
             // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
