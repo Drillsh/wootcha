@@ -8,6 +8,8 @@ $link = $_GET['link'];
 $movie_detail = crawl_movie_detail($link);
 ?>
 
+<script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
 <table id="movie_introduce_container">
 <img src="./img/flim.png" id="side_picture_left">
@@ -89,12 +91,14 @@ $movie_detail = crawl_movie_detail($link);
     </li>
 </ul>
 <div id="movie_introduce">
-<div id="movie_poster" onclick="window.open('./img/black_widow.jpg','poster','width=600, height=800, scrollbars=yes, top=2000, left=-1000');"><br><br><h2>영화 포스터</h2></div>
-    <div id="movie_subject"><br><br><h2>영화 제목란</h2></div>
+<div id="movie_poster" onclick="window.open('./img/black_widow.jpg','poster','width=600, height=800, scrollbars=yes, top=2000, left=-1000');"></div>
+    <div id="movie_subject"> 
 
-<span><button type=button id="favorite_movie"><img src="./img/good_before.png"></span>
+</div>
+
+<span><button type=button id="favorite_movie" img src="./img/good_before.png"></span>
 <span><button type=button id="playlist_movie"><img src="./img/add_button.jpg"></span>
-<div id="movie_smail_introduce">
+<div id="movie_small_introduce">
     <h1>
         <br>
         <?php
@@ -103,22 +107,13 @@ $movie_detail = crawl_movie_detail($link);
     </h1>
 </div>
 <div id="movie_score">
-    <br>
-    <h2>평점 박스</h2>
+    <br><br>
+<h2>
+    <?php
+    print_r (implode($movie_detail['user_rating']));
 
-<!--
-    
-        $sql = "select review_rating from review where review_num='$review_num'";
-        $result = mysqli_query($con, $sql) or die(mysqli_error($con));
-        $total_record = mysqli_num_rows($result);
-
-        $row = mysqli_fetch_array($result);
-
-        $review_rating = $row["review_rating"];
-
-
- -->
-
+    ?>
+</h2>
 </div>
 
     <div id="movie_content">
@@ -145,11 +140,12 @@ $movie_detail = crawl_movie_detail($link);
 <div id="movie_cast_4"><?php print_r($movie_detail['movie_actor'][3]);?></div>
 <div id="movie_cast_5"><?php print_r($movie_detail['movie_actor'][4]);?></div>
 <div id="movie_cast_6"><?php print_r($movie_detail['movie_actor'][5]);?></div>
-<span><input type=button id="movie_casting_prev" value="<"></span>
-<span><input type=button id="movie_casting_next" value=">"></span>
 </div>
 
 <div id="movie_comment_container">
+
+<div id="movie_trailer_container"><h2>영화 트레일러 모음</h2><div>
+
 
 <div class="user_comment_title">
                 <span>게스트 후기</span>
@@ -186,7 +182,7 @@ $movie_detail = crawl_movie_detail($link);
                 }
 
                 // review 테이블에서 모든 항목을 가져오되 seller_num 항목(칼럼)에서 $seller_num인 것을 가져오라.
-                $sql = "select * from review";
+                $sql = "select * from review left join user on review.user_num and user.user_img;";
                 $result = mysqli_query($con, $sql) or die(mysqli_error($con));
                 $total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
 
@@ -212,6 +208,7 @@ $movie_detail = crawl_movie_detail($link);
                     $row = mysqli_fetch_array($result);
                    
                     // 하나의 레코드 가져오기
+                    // 유저 프로필 이미지 삽입
                     $review_num = $row["review_num"];
                     $mv_num = $row["mv_num"];
                     $review_date = $row["review_date"];
@@ -227,7 +224,7 @@ $movie_detail = crawl_movie_detail($link);
 <div class="user_comment_content">
 
 <div class="comment_profile_img">
-    <img src="./img/2020_02_27_07_32_34.jpg">
+         
 </div>
 
 <!-- get 방식으로 이름, 등록날짜를 보낸다. -->
@@ -263,9 +260,6 @@ mysqli_close($con);
 
 ?>
 </div>
-
-
-
 
 <div class="page_line">
 
@@ -334,9 +328,10 @@ mysqli_close($con);
 
 </div>
 
-
 </div>
 
+<span><img src="./img/theater_chair.png" id="under_picture"></span>
+
 </table>
-                        <!-- </div>
-                        </div> -->
+
+                        

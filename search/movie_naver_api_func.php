@@ -93,8 +93,18 @@ function crawl_movie_detail($link)
         $movie_actor[] = $e->innertext;
     }
 
-    $movie_detail = array('movie_info'=>$movie_info, 'movie_story'=>$movie_stroy, 'movie_actor'=>$movie_actor);
+    // 기자, 평론가 평점
+    foreach ($data->find('div.spc_score_area') as $e) {
+        $user_rating[] = $e->innertext;
+    }
+
+   
+    $movie_detail = array('movie_info'=>$movie_info, 'movie_story'=>$movie_stroy, 
+    'movie_actor'=>$movie_actor, 'user_rating'=>$user_rating);
 
     return $movie_detail;
 }
 ?>
+
+
+    
