@@ -33,7 +33,7 @@
       <div class="right_content">
 
         <!-- 도움말 json 기사를 css_card_menu_row로 자동 작업 -->
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php";
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/question/helpcenter/json_parsing_help_center.php";
         helpCenterArticlePage("help_page_recommendation");
         ?>
 

@@ -22,32 +22,33 @@
       <div class="right_content">
         <h1>안녕하세요. 무엇을 도와드릴까요?</h1>
         <div class="<?= COMMON::$css_card_menu_row; ?>">
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/index.php'">
             <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
               <i class="fas fa-user-cog"></i>
             </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">식당 예약</div>
-            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">식당 예약 변경, 식당에 연락하기 등에 도움을 받으세요.</div>
+            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">메인화면가기</div>
+            <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">.........</div>
           </button>
 
-          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/echelin/index.php'">
+          <button class="<?= COMMON::$css_card_menu_btn; ?>" type="button" onclick="location.href='http\://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/fnq/fnq_main.php'">
             <div class="<?= COMMON::$css_card_menu_btn_icon; ?>">
               <i class="far fa-id-card"></i>
             </div>
-            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">예약 관리</div>
+            <div class="<?= COMMON::$css_card_menu_btn_name; ?>">자주 묻는 질문에서 도움을 받으세요.</div>
             <div class="<?= COMMON::$css_card_menu_btn_disc; ?>">식당 관리와 손님과의 의사소통 등에 도움을 받으세요.</div>
           </button>
 
-        </div> <!-- end of css_card_menu_row -->
+        </div> 
+            <!-- end of css_card_menu_row -->
 
 
-        <h1>읏차에 처음 오셨나요?</h1>
+        <h3>읏차에 처음 오셨나요?</h3>
         <h2>도움이 될 만한 게시글을 확인해보세요.</h2>
 
         <!-- 도움말 json 기사를 css_card_menu_row로 자동 작업 -->
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php";
+        <!-- < ?php include $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json_parsing_help_center.php";
         helpCenterMainButton();
-        ?>
+        ?> -->
       </div><!-- end of right_content -->
 
    </section>

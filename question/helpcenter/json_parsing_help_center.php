@@ -25,7 +25,7 @@ function helpCenterMainButton()
 
 function helpCenterArticlePage($article_file_name)
 {
-    $dir = $_SERVER['DOCUMENT_ROOT'] . "/echelin/help_center/json";
+    $dir = $_SERVER['DOCUMENT_ROOT'] . "/wootcha/question/json";
     $json_file_dir = $dir . "/" . $article_file_name . ".json";
     $json_string = file_get_contents($json_file_dir);
     getJsonDataMakeArticle($json_string);

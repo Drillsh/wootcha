@@ -1,8 +1,23 @@
+<?php
+// 세션을 사용하기 위해서는 세션 스타트를 써야한다
+session_start();    //클라이언트의 정보를 서버에 저장하는 것을 session 이라한다.
+// 세션에 유저 아이디가 세팅 됐다면 userid에 그 값을 저장한다
+if (isset($_SESSION["user_mail"])) $userid = $_SESSION["user_mail"];
+else $userid = "";
+if (isset($_SESSION["user_nickname"])) $username = $_SESSION["user_nickname"];
+else $username = "";
+if (isset($_SESSION["user_num"])) $userlevel = $_SESSION["user_num"];
+else $userlevel = "";
+if (isset($_SESSION["user_img"])) $userpoint = $_SESSION["user_img"];
+else $userpoint = "";
+echo $_SERVER['HTTP_HOST'];//localhost
+echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
+?>
 <!DOCTYPE html>
 <html>
 <head> 
 <meta charset="utf-8">
-<title>읒차공지</title>
+<title>FAQ화면</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/board.css">
 
@@ -51,11 +66,21 @@
 			</li>		
 	    </ul>
 	    <ul class="buttons">
+				<?php
+					if($user_nickname=='admin'){
+				?>
 				<li><button onclick="location.href='fnq_main.php?page=<?=$page?>'">목록</button></li>
-				<!-- 여기 아래로는 관리자로 로그인 해야 보이게 -->
 				<li><button onclick="location.href='fnq_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정</button></li>
 				<li><button onclick="location.href='notice_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
 				<li><button onclick="location.href='fnq_form.php'">글쓰기</button></li>
+				<!-- 여기 아래로는 관리자로 로그인 해야 보이게 -->
+				<?php
+        		} else {	
+				?>
+				<li><button onclick="location.href='fnq_main.php?page=<?=$page?>'">목록</button></li>
+				<?php
+        		} 	
+				?>
 		</ul>
 	</div> <!-- board_box -->
 </section> 
