@@ -39,12 +39,33 @@
     }
 
     // 중간화질 이미지 url
-    function get_cgv_movie_middle_poster_url($movie_name){
-        $data = file_get_html("http://www.cgv.co.kr/search/movie.aspx?query=".$movie_name);
-        $a = $data->find('span.thumb-image>img');
-        $anchor = $a[0]->attr;
-        $img_link = $anchor['src'];
-        return $img_link;
+    function get_cgv_movie_middle_poster_url($movie_name, $con){
+
+        //영화제목으로 DB 검색해서 이미지 주소 있는지 체크
+        $sql = "select mv_img_path from movie where mv_title='$movie_name'";
+        $result = mysqli_query($con, $sql) or die("Movie img load Error".mysqli_error($con));
+        $row = mysqli_fetch_array($result);
+
+        //있다면 뽑아서 리턴
+        if (!empty($row)){
+            $img_link = $row['mv_img_path'];
+            return $img_link;
+        }else{
+            //없다면 크롤링
+            $data = file_get_html("http://www.cgv.co.kr/search/movie.aspx?query=".$movie_name);
+            $a = $data->find('span.thumb-image>img');
+            $anchor = $a[0]->attr;
+            $img_link = $anchor['src'];
+
+            //이미지 링크 저장
+            $sql = "update movie set mv_img_path = '$img_link' where mv_title='$movie_name';";
+            mysqli_query($con, $sql) or die("Movie img insert Error".mysqli_error($con));
+
+            return $img_link;
+        }
+
+
+
     }
     
     // 개봉일

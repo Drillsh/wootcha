@@ -36,10 +36,13 @@
     </header>
     <section>
         <div class="my_info_content">
+
+            <!--내비게이션-->
             <div class="left_menu">
-                <!-- 순서대로쭉쭉 -->
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/admin/admin_side_left_menu.php"; ?>
             </div>
+
+            <!--컨텐츠 화면-->
             <div class="right_content">
                 <main>
                     <?php
@@ -52,6 +55,7 @@
                     $search = isset($_GET["search"]) ? $_GET["search"] : '';
 
                     ?>
+
                     <!-- php 변수를 자바스크립트로 넘겨줌 -->
                     <script>
                         var y = <?=$y?>;
@@ -62,6 +66,7 @@
                     </script>
 
                     <section>
+                        <!--날짜 선택바 -->
                         <div class="sec_top">
                             <span onclick="prevDateChange('gm_members')"><i class="fas fa-angle-left"></i></span>
                             <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('gm_members')">
@@ -83,8 +88,8 @@
                             <span>월 </span>
                             <span onclick="nextDateChange('gm_members')"><i class="fas fa-angle-right"></i></span>
                         </div>
-                        <!--end of 년 월 선택바 -->
 
+                        <!-- 특정 기간 회원수 가져오기 -->
                         <?php
                         $m2 = $m;
                         if ($m2 < 10) {
@@ -98,21 +103,21 @@
                         //            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
 
                         $result = mysqli_query($con, $sql);
-                        $row = mysqli_fetch_array($result);
-                        $total_m = mysqli_num_rows($result);
+                        $total_m = mysqli_fetch_array($result);
 
                         ?>
-                        <!-- 총 회원수 가져오기 -->
+
+                        <!--상단 회원수 변화-->
                         <div class="sec_content">
                             <div id="dash_topline">
                                 <div>
-                                    <span>전체 일반회원</span><br>
+                                    <span>전체 회원</span><br>
                                     <span class="dash_topline_i"><i class="fas fa-user-friends"></i>&nbsp;<span
-                                                id="total_m"><?= $total_m ?></span></span>
+                                                id="total_m"><?= $total_m[0] ?></span></span>
                                     <span class="caret up">   </i></span>
                                 </div>
                                 <div>
-                                    <span>신규회원</span><br>
+                                    <span>신규 회원</span><br>
                                     <span class="dash_topline_i"><i class="fas fa-user-plus"></i>&nbsp;<span
                                                 id="join_m">0</span></span>
                                     <span class="caret up">   </i></span>
@@ -124,8 +129,8 @@
                                     <span class="caret down">   </i></span>
                                 </div>
                             </div>
-                            <!--end of 상단 회원수 변화-->
 
+                            <!--그래프-->
                             <div id="g_members_totalGraph_wrap">
                                 <div id="g_members_totalGraph_cell1">
                                     <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;General member Graph<span>단위: 명</span>
@@ -134,20 +139,25 @@
 
                                 </div>
                             </div>
-                            <!-- end of 회원수 변화 그래프 -->
 
+                            <!-- 정보 그래프 파트 -->
                             <div style="display:flex; width:960px; margin-bottom: 50px;">
+                                <!-- 회원 연령 그래프-->
                                 <div id="dash_age_range_wrap">
                                     <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Age range</h4>
                                     <canvas id="dash_age_range"></canvas>
                                 </div>
+
+                                <!-- 남녀 비율로 변경 -->
                                 <div id="dash_pm_ratio_wrap">
                                     <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Premium membership Ratio</h4>
                                     <canvas id="dash_pm_ratio"></canvas>
                                 </div>
+
+                                <!-- 관심사 단어 순위 -->
                                 <div id="dash_postGraph_wrap">
                                     <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Interest words</h4>
-                                    <!-- 관심사 단어 순위 -->
+
                                     <div id="dash_intres_world_wrap">
                                         <?php
                                         for ($i = 1; $i <= 5; $i++) {
@@ -164,21 +174,24 @@
                             </div>
                             <!-- end of 그래프 3개 -->
 
+                            <!-- 회원 리스트 -->
                             <div id="g_members_list_wrap">
                                 <div id="g_members_list">
+                                    <!-- 리스트 상단 -->
                                     <h4>
                                         <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;General member Management
                                         <div class="selectbox">
                                             <select id="search_select">
                                                 <option>회원번호</option>
-                                                <option>아이디</option>
+                                                <option>이름</option>
+                                                <option>닉네임</option>
+                                                <option>이메일</option>
                                                 <option>연락처</option>
-                                                <option>출생년도</option>
-                                                <option>관심사</option>
-                                                <option>유료만료일</option>
+                                                <option>생년월일</option>
                                                 <option>가입일</option>
                                             </select>
                                         </div>
+
                                         <div class='search-box'>
                                             <div class='search-form'>
                                                 <input class='form-control' placeholder='검색어를 입력하세요' type='text'>
@@ -188,26 +201,31 @@
                                             </div>
                                         </div>
                                     </h4>
-                                    <!-- end of 검색창 -->
+                                    <!-- end of 리스트 상단 -->
 
+                                    <!-- 수정, 삭제 -->
                                     <div class="list_edit_delete_wrap">
                                         <button onclick="submitUpdate()">수정</button>
                                         <button onclick="submitDelete()">삭제</button>
                                     </div>
+
+                                    <!-- 리스트 -->
                                     <ul id="member_list">
                                         <li>
                                             <span class="col1">No</span>
-                                            <span class="col2">이메일</span>
-                                            <span class="col3">패스워드</span>
-                                            <span class="col5">이름</span>
-                                            <span class="col6">나이</span>
+                                            <span class="col2">회원 번호</span>
+                                            <span class="col3">이름</span>
+                                            <span class="col4">닉네임</span>
+                                            <span class="col5">메일</span>
+                                            <span class="col6">연락처</span>
                                             <span class="col7">성별</span>
-                                            <span class="col8">연락처</span>
+                                            <span class="col8">생년월일</span>
                                             <span class="col9">가입일</span>
                                         </li>
                                         <?php
                                         $sql = '';
 
+                                        //검색 조건 셀렉트 박스
                                         if ($col != '' && $search != '') {
                                             if ($col == 'no') {
                                                 $sql = "SELECT * FROM g_members WHERE no = '$search' ORDER BY regist_day DESC";
@@ -215,7 +233,7 @@
                                                 $sql = "SELECT * FROM g_members WHERE $col LIKE '%$search%' ORDER BY regist_day DESC";
                                             }
                                         } else {
-                                            $sql = "SELECT * FROM user ORDER BY user_signup_day DESC";
+                                            $sql = "SELECT * FROM `user` ORDER BY user_signup_day DESC";
                                         }
 
                                         $result = mysqli_query($con, $sql);
@@ -242,10 +260,12 @@
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
                                                 $no = $row["user_num"];
-                                                $id = $row["user_mail"];
+                                                $name = $row['user_name'];
+                                                $nickName = $row['user_nickname'];
+                                                $mail = $row["user_mail"];
                                                 $phone = $row["user_phone"];
-                                                $age = $row["user_age"];
                                                 $gender = $row["user_gender"];
+                                                $age = $row["user_age"];
                                                 $regist_day = $row["user_signup_day"];
                                                 ?>
                                                 <li class="list_row">
@@ -253,20 +273,12 @@
                                                         <span class="col1"><?= $number ?></span>
                                                         <span class="col2"><input type="text" name="no[]"
                                                                                   value="<?= $no ?>" readonly></span>
-                                                        <span class="col3"><?= $id ?></span>
-                                                        <span class="col5"><input type="number" name="phone[]"
-                                                                                  value="<?= $phone ?>" disabled
-                                                                                  maxlength="12"
-                                                                                  oninput="limitMaxLength(this)"/></span>
-                                                        <span class="col6"><?= $age ?></span>
-                                                        <span class="col7"><input type="text" name="intres[]"
-                                                                                  value="<?= $intres ?>" disabled
-                                                                                  maxlength="10"
-                                                                                  oninput="limitMaxLength(this)"/></span>
-                                                        <span class="col8"><input class="date_field" type="text"
-                                                                                  name="expiry_day[]"
-                                                                                  value="<?= $expiry_day ?>" disabled
-                                                                                  readonly></span>
+                                                        <span class="col3"><?= $name ?></span>
+                                                        <span class="col4"><?= $nickName ?></span>
+                                                        <span class="col5"><?= $mail ?></span>
+                                                        <span class="col6"><?= $phone ?></span>
+                                                        <span class="col7"><?= $gender ?></span>
+                                                        <span class="col8"><?= $age ?></span>
                                                         <span class="col9"><?= $regist_day ?></span>
                                                     </form>
                                                 </li>
@@ -316,7 +328,7 @@
                                                 $next = $last_page + 1;// > 버튼 누를때 나올 페이지
                                                 $prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
-                                                $url = "/eduplanet/admin/gm_members.php?y=$y&m=$m";
+                                                $url = "/wootcha/admin/admin_edit_user.php?y=$y&m=$m";
                                                 if ($search != '') {
                                                     $url .= "&col=$col&search=$search";
                                                 }
