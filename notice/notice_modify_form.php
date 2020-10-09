@@ -25,7 +25,7 @@
 	$sql = "select * from notice_board where notice_num=$num";
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_array($result);
-	$name       = $row["notice_name"];
+	// $name       = $row["notice_name"];
 	$subject    = $row["notice_title"];
 	$content    = $row["notice_contents"];
 ?>
@@ -33,7 +33,7 @@
 	    	 <ul id="board_form">
 				<li>
 					<span class="col1">이름 : </span>
-					<span class="col2"><?=$name?></span>
+					<span class="col2">관리자</span>
 				</li>		
 	    		<li>
 	    			<span class="col1">제목 : </span>

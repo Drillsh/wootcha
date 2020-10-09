@@ -59,15 +59,15 @@
       // 하나의 레코드 가져오기
 	  $num         = $row["notice_num"];
 	  $title       = $row["notice_title"];
-	  $name        = $row["notice_contents"];
-	  $subject     = $row["notice_hit"];
+
+	//   $subject     = $row["notice_hit"];
       $regist_day  = $row["notice_regtime"];
-      $hit         = $row["notice_file_name"];
+      $hit         = $row["notice_hit"];
 ?>
 				<li>
 					<span class="col1"><?=$number?></span>
 					<span class="col2"><a href="notice_view.php?num=<?=$num?>&page=<?=$page?>"><?=$title?></a></span>
-					<span class="col3"><?=$name?></span>
+					<span class="col3">관리자</span>
 					<span class="col5"><?=$regist_day?></span>
 					<span class="col6"><?=$hit?></span>
 				</li>	
