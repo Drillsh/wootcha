@@ -1,4 +1,4 @@
-function check_input()
+function check_input_login()
 {
     if (!document.login_form.login_email.value)
     {

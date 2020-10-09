@@ -82,7 +82,7 @@
                 </td>
             </tr>
         </table>
-        <input type="button" value="로그인" onclick="check_input()">
+        <input type="button" value="로그인" onclick="check_input_login()">
         </form>
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <button> api 로그인 </button>

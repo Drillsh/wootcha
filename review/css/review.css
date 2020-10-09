@@ -1,0 +1,59 @@
+
+/* section */
+section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: lightslategrey;}
+
+/* section 안에 header 제목 부분 */
+.section_header { margin: 50px; background-color: gray;}
+.section_header .title_sub{color: black;}
+.section_header .title_main{color: black; font-size: x-large;}
+
+/* 빈공간을 어둡게 채우는 창 */
+.container_review { }
+/* 흰 화면의 dialog 부분 */
+.container_review .content_review{ margin: 0 auto; background-color: white; 
+     padding: 1rem 1.5rem;  width: 700px;  border-radius: 0.5rem; box-shadow: 5px 5px 10px #000808;} 
+/* 상단 닉네임 및 평점 부분 */
+.container_review .content_header_review{height: 50px; width:95%; position:relative;}
+/* 프로필 이미지 */
+.container_review .small_img_box{ width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display:inline-block;}
+.container_review .small_img_box img{width: 100%; height: 100%; object-fit: cover;}
+
+/* 닉네임 */
+.container_review .content_header_review div:nth-child(2){display:inline; margin-left:20px; margin-right:300px; 
+    position:absolute; left:40px; top:15px}
+
+/* 평점 */
+.container_review .content_header_review div:nth-child(3){display:inline; margin-right:50px;position:absolute; right:60px; top:15px}
+/* 닫기 버튼 */
+.container_review .close_btn_review { float: right; width: 1.5rem; line-height: 1.5rem; text-align: center; cursor: pointer; 
+     border-radius: 0.25rem;  background-color: lightgray;  } 
+.container_review .close_btn_review:hover { background-color: darkgray; } 
+/* 영화제목 */
+.container_review .title{ font-family: 'Oswald', sans-serif; color: #216182; margin-top:30px; margin-bottom:50px} 
+/* 한줄평 및 장문평 제목 */
+.container_review h3{margin-top:20px; font-family: 'Oswald', sans-serif; color: #216182;}
+
+/* form 태그 */
+.content_review form{width: 100%;margin: 0 auto;}
+
+.content_review form input[type=submit]{width: 30%; height: 30px; margin: 30px auto; display: block; background-color:#679b9b;
+    border: none;}
+
+/* 한줄평 */
+.line_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto; 
+    margin-bottom:30px; display:block;}
+
+/* 장문평 */
+.long_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto;
+    margin-bottom:30px;height:200px; overflow-y:auto; display:block;}
+#long_view_box{display:none;}
+
+/* 별점 */
+.blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
+.startRadio { display: inline-block; overflow: hidden; height: 40px;} 
+.startRadio:after {content: "";  display: block; position: relative; z-index: 10; height: 40px;
+     background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
+.startRadio__box { position: relative; z-index: 1; float: left; width: 20px; height: 40px; cursor: pointer; }
+.startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
+.startRadio__box input:checked + .startRadio__img {background-color: yellow; }
+.startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }
