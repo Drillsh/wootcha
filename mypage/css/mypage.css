@@ -9,7 +9,7 @@
 /* 네비게이션 앵커 */
 .nav_left ul { margin: 50px}
 .nav_left li{ font-family: 'NanumSquare', sans-serif; font-size: 1rem; padding: 10px 0; list-style: none; }
-.nav_left li a:link, .nav_left li a:visited, .nav_left li a:hover  { color: black; text-decoration: none;}
+.nav_left li a:link, .nav_left li a:visited, .nav_left li a:hover{ color: black; text-decoration: none;}
 
 /* section 안에 header 제목 부분 */
 .section_header { margin: 50px;}
