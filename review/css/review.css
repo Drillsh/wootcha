@@ -40,13 +40,13 @@ section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: l
     border: none;}
 
 /* 한줄평 */
-.line_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto; 
+.review_short{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto; 
     margin-bottom:30px; display:block;}
 
 /* 장문평 */
-.long_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto;
+.review_long{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto;
     margin-bottom:30px;height:200px; overflow-y:auto; display:block;}
-#long_view_box{display:none;}
+#long_view_box{display:block;}
 
 /* 별점 */
 .blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }

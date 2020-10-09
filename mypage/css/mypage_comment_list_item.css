@@ -9,5 +9,5 @@
 .list_item .center li:nth-child(1){font-size: large; margin-bottom: 30px;}
 .list_item .center li:nth-child(2){font-size: x-large; margin-bottom: 30px;}
 .list_item .right{display: inline-block; position: absolute;  left: 630px; top: 0px; width: 100px; }
-.list_item .right button{display: block; margin: 20px;}
+.list_item .right input[type=submit]{display: block; margin: 20px;}
 .list_item .right>span{margin: 0 auto; line-height: 150px;}

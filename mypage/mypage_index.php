@@ -37,20 +37,19 @@
                 <span class="title_main">내가 작성한 리뷰</span>
             </header>
             <div class="section_container">
+                
                 <?php
                     // pk로 review 리스트 검색함
-                    $result = select_data($con, "select_my_reivew", $user_num);
+                    $result = select_data($con, "select_my_review", $user_num);
                     $row_num = $result->num_rows;
                     if($row_num){
-                        mysqli_data_seek($result,0);
-                        $row_review = mysqli_fetch_array($result);
-                        
                         // list 뿌리기
                         for($i = 0; $i < $row_num; $i++){
+                            mysqli_data_seek($result,$i);
+                            $row_review = mysqli_fetch_array($result);
+
                             $review_num = $row_review['review_num'];
                             $mv_num = $row_review['mv_num'];
-                            $review_date = $row_review['review_date'];
-                            $review_site = $row_review['review_site'];
                             $review_rating = $row_review['review_rating'];
                             $review_short = $row_review['review_short'];
                             $review_long = $row_review['review_long'];
@@ -58,18 +57,18 @@
                             $review_hit = $row_review['review_hit'];
                             $review_regtime = $row_review['review_regtime'];
                             $mv_title = $row_review['mv_title'];
+                            $mv_img_path = $row_review['mv_img_path'];
                             
-                            $img_link = get_cgv_movie_big_poster_url($mv_title);
-                            $result_review_and_reply = select_data($con, "select_my_reivew_reply", $review_num);
+                            $result_review_and_reply = select_data($con, "select_my_review_reply", $review_num);
                             $result_review_and_reply_num = mysqli_num_rows($result_review_and_reply);
                             ?>
 
                 <!-- db에서 가져온 값이 들어갈 것 -->
-                <div class="list_item review_dialog_trigger">
+                <div class="list_item">
                     <div class="left">
-                        <li><img src="<?=$img_link?>" alt=""></li>
+                        <li><img src="<?=$mv_img_path?>" alt=""></li>
                     </div>
-                    <div class="center">
+                    <div class="center review_dialog_trigger">
                         <img src="" alt="">
                         <ul>
                             <li><?=$mv_title?></li>
@@ -78,7 +77,15 @@
                         </ul>
                     </div>
                     <div class="right">
-                        <button>수정 및 삭제</button>
+                        <form action="../review/review_modify_form.php" method="post">
+                            <?php
+                            // 리스트를 만들 때 얻었던 데이터를 그대로 보냄
+                            foreach($row_review as $key => $value){
+                                echo "<input type='hidden' name='$key' value='$value'>";
+                            }
+                            ?>
+                            <input type="submit" value="수정 및 삭제">
+                        </form>
                         <span>
                             <span><?=$review_rating?>점</span>
                         </span>
@@ -170,7 +177,7 @@
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <form action="#">
                             <div class="comments_register">
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                <textarea name="" cols="30" rows="10"></textarea>
                                 <div class="submit_btn_box">
                                     <input type="submit" value="보내기">
                                 </div>
@@ -178,9 +185,8 @@
                         </form>
                     </div>
                 </div><!-- modal_containder -->
-                <?php
-                $i++;
-                // while문 끝
+            <?php
+                // for 문 끝
             }
             // if문 끝 
             } else{
