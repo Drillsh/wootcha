@@ -47,7 +47,7 @@
         $review_rating = $row['review_rating'];
         $review_short = $row['review_short'];
         $mv_title = $row['mv_title'];
-        $img_link = get_cgv_movie_middle_poster_url($mv_title);
+        $img_link = get_cgv_movie_middle_poster_url($mv_title, $con);
       ?>
 
             <a class="main_a_contentbox" href="#">
@@ -87,7 +87,7 @@
         $review_short = $row['review_short'];
         $review_long = $row['review_long'];
         $mv_title = $row['mv_title'];
-        $img_link = get_cgv_movie_middle_poster_url($mv_title);
+        $img_link = get_cgv_movie_middle_poster_url($mv_title, $con);
       ?>
 
             <a class="main_a_contentbox" href="#">
