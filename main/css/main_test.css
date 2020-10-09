@@ -1,8 +1,270 @@
-/* ======================= css-89vjyi-MainSection ebeya3l11 */
+/* ================= 총 리스트 ================= */
 .css-89vjyi-MainSection {margin-top: 86px;}
 .css-89vjyi-MainSection {margin-top: 80px;}
 .css-89vjyi-MainSection {min-height: calc(100vh - 343px); margin-top: 74px;}
 .css-89vjyi-MainSection {min-height: calc(100vh - 136px); margin-top: 74px;}
+
+/* ================= 타이틀과 영화항목 리스트 ================= */
+.css-gxko42-StyledHomeListContainer {margin-bottom: 30px; margin-bottom: 20px;}
+
+/* ================= 타이틀 ================= */
+.css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {margin: 0 3.5%; margin-right: 20px; margin-left: 20px;}
+.css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {
+  white-space: nowrap;
+  max-width: 1320px;
+  padding: 12px 0 14px;
+  margin-right: 15px;
+  margin-left: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 60px;
+  line-height: 30px;
+}
+/* ================= 타이틀 설정 ================= */
+.css-1e8eq80-StyledHomeListTitle {
+  color: #292a32;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 30px;
+  -webkit-letter-spacing: -0.4px;
+  -moz-letter-spacing: -0.4px;
+  -ms-letter-spacing: -0.4px;
+}
+
+/* ================= 영화항목 ================= */
+.css-gc1vu8-StyledHorizontalScrollOuterContainer {margin: 0 3.5%;}
+.css-gc1vu8-StyledHorizontalScrollOuterContainer {max-width: 1320px;}
+/* ================= 영화 로비 ================= */
+.css-cjxm4v-ScrollBarContainer {position: relative; transform: translate3d(0px, 0px, 0px); margin: 0px -6px;}
+/* ================= 영화 1층 ================= */
+.css-chidac-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
+/* ================= 영화 2층 ================= */
+.css-150y45-ScrollingInner {-webkit-transition: 500ms; transition: 500ms;}
+/* ================= 영화 3층 ================= */
+.css-6kwoq4-StyledHorizontalScrollInnerContainer {
+  margin-right: 0;
+  margin-left: 0;
+  margin-right: 28px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-left: 15px;
+}
+/* ================= 영화 4층 ul ================= */
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList {
+  list-style: none;
+  padding: 0px;
+  white-space: nowrap;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList::after {content: none !important;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList::after {content: ""; display: inline-block; width: 20px; height: 100%;}
+/* ================= 영화 5층 li ================= */
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 25%; padding: 0px 5px; box-shadow: 0px 0px 8px 5px #D1CFCF;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 33.3333%;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 33.3333%; padding: 0px 5px; margin-bottom: 0px;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 16.6667%;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 20%;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 25%;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {padding: 0px 6px !important;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover{box-shadow: 0px 0px 8px 5px #9e9d9d;}
+.css-106b4k6-Self {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  margin: 0 0 24px;
+  width: 33.333333333333336%;
+  padding: 0 5px;
+}
+/* ================= 영화 6층 a ================= */
+.css-106b4k6-Self > a {
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: 100%;
+  background-color: transparent;
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* ================= 6층 영화 포스터 ================= */
+.css-wg9zzb-ContentPosterBlock {position: relative; width: 100%; height: 0; padding-bottom: 145.37037037037038%;}
+/* ================= 영화 포스터 ================= */
+.css-1hdc5d8-Self-LazyLoadingImg {
+  position: relative;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #eae9e8;
+  border-radius: 5px;
+  background: #f8f8f8;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+/* ================= 영화 포스터 랭크 ================= */
+.css-13ot87v-RankBadge {top: 6px; left: 6px; width: 28px; height: 28px; line-height: 27px;}
+.css-13ot87v-RankBadge {bottom: 6px; left: 6px;}
+.css-13ot87v-RankBadge {font-size: 16px;}
+.css-13ot87v-RankBadge {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  background-color: rgba(0, 0, 0, 0.77);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: normal;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  opacity: 1;
+  transition: opacity 300ms ease 0s;
+}
+
+/* ================= 6층 영화 설명 ================= */
+.css-dmreg0-ContentInfo {text-align: left; width: calc(100% - 10px); margin: 5px 10px 0 0;}
+/* ================= 영화설명_제목 ================= */
+.css-1teivyt-ContentTitle {
+  color: #292a32;
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-letter-spacing: -0.5px;
+  -moz-letter-spacing: -0.5px;
+  -ms-letter-spacing: -0.5px;
+  letter-spacing: -0.5px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-letter-spacing: -0.3px;
+  -moz-letter-spacing: -0.3px;
+  -ms-letter-spacing: -0.3px;
+  letter-spacing: -0.3px;
+  line-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+/* ================= 영화설명_출시년도 ================= */
+.css-6t186m-StyledContentYearAndNation {display: block !important;}
+.css-6t186m-StyledContentYearAndNation {
+  display: none;
+  color: #292a32;
+  padding-bottom: 1px;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  line-height: 21px;
+}
+/* ================= 영화설명_평점 ================= */
+.css-uaqea0-ContentRating-StyledContentRating.average {color: #555765;}
+.css-uaqea0-ContentRating-StyledContentRating {margin-top: 2px;}
+.css-uaqea0-ContentRating-StyledContentRating {
+  color: #787878;
+  font-size: 13px;
+  font-weight: 400;
+  -webkit-letter-spacing: -0.2px;
+  -moz-letter-spacing: -0.2px;
+  -ms-letter-spacing: -0.2px;
+  letter-spacing: -0.2px;
+  line-height: 18px;
+  white-space: nowrap;
+  height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 14px;
+  height: 15px;
+}
+/* ================= 영화설명_평점단어 ================= */
+.css-uaqea0-ContentRating-StyledContentRating > span {height: 15px;}
+/* ================= 영화설명_SVG ================= */
+.css-uaqea0-ContentRating-StyledContentRating > svg {margin-top: 2px;}
+.css-a4gmui-IcRatingStarSvg {
+  vertical-align: middle;
+  width: 13px;
+  height: 13px;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+/* ================ 영화로비 왼쪽 오른쪽 틈 ================= */
+.css-7lqh27-CheatBlock {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  left: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 6px;
+  height: 100%;
+}
+.css-xypm4l-CheatBlock {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  right: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 6px;
+  height: 100%;
+}
+
+/* ================ 영화로비 왼쪽 방향버튼 ================= */
+.css-gc1vu8-StyledHorizontalScrollOuterContainer .arrow_button {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+.css-gxko42-StyledHomeListContainer .arrow_button {opacity: 1 !important;}
+.css-19lj8ig-ArrowButtonBlock {
+  display: none;
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  left: -11px;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 100%;
+  opacity: 0;
+  transition: all 300ms ease 0s;
+}
+.css-gc1vu8-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 4 - 17px);}
+.css-1o4i6uc-BackwardButton {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
+  box-sizing: border-box;
+  border: 1px solid rgb(249, 249, 249);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  transition: opacity 300ms ease 0s;
+}
+/* ================ 영화로비 오른쪽 방향버튼 ================= */
+
+
 
 
 
