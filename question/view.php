@@ -46,7 +46,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
       echo "<script>alert()</script>";
       die('Error: ' . mysqli_error($con));
     }
-    echo "<script>alert($result->num_rows)</script>";
+    
     $row=mysqli_fetch_array($result);
     $id=$row['user_nickname'];
     // $name=$row['name'];
@@ -84,7 +84,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
   <section>
 
   <!-- <div id="main_img_bar">
-		<img src= "http://<?php echo $_SERVER['HTTP_HOST'];?>/myhome/img/main_img.png">
+		<img src= "http://<?php echo $_SERVER['HTTP_HOST'];?>/wootcha/question/img/main_img.png">
   </div>  -->
     <div id="wrap">
       <div id="content">
@@ -136,14 +136,14 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
   <div id="ripple1">덧글</div>
   <div id="ripple2">
     <?php
-      $sql="select * from `qna_reply` where parent='$q_num' ";
+      $sql="select * from `qna_reply` where qna_num='$q_num' ";
       $ripple_result= mysqli_query($con,$sql);
       while($ripple_row=mysqli_fetch_array($ripple_result)){
-        $ripple_num=$ripple_row['num'];
-        $ripple_id=$ripple_row['id'];
-        $ripple_nick =$ripple_row['nick'];
-        $ripple_date=$ripple_row['regist_day'];
-        $ripple_content=$ripple_row['qna_reply_contents'];
+        $ripple_num=$ripple_row['qna_reply_num'];
+        $ripple_id=$ripple_row['user_num'];
+        $ripple_nick =$ripple_row['qna_reply_contnents'];
+        $ripple_date=$ripple_row['qna_reply_regtime'];
+        $ripple_content=$ripple_row['qna_num'];
         $ripple_content=str_replace("\n", "<br>",$ripple_content);
         $ripple_content=str_replace(" ", "&nbsp;",$ripple_content);
     ?>

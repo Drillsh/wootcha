@@ -1,24 +1,24 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT']."/myhome/db/db_connector.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
 
-if(!isset($_SESSION['userid'])){
+if(!isset($_SESSION['user_mail'])){
   echo "<script>alert('권한없음!12');history.go(-1);</script>";
   exit;
 }
-
-$userid = $_SESSION['userid'];
-$username = $_SESSION['username'];
+$usernum=$_SESSION['user_num'];
+$userid = $_SESSION['user_mail'];
+$username = $_SESSION['user_nickname'];
 //$usernick = $_SESSION['usernick'];
 
 if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
-    $content = trim($_POST["content"]);
-    $subject = trim($_POST["subject"]);
+    $content = trim($_POST["qna"]);
+    $subject = trim($_POST["qna_title"]);
     if(empty($content)||empty($subject)){
       alert_back('1. 내용이나제목입력요망!');
     }
-    $subject = test_input($_POST["subject"]);
-    $content = test_input($_POST["content"]);
+    $subject = test_input($_POST["qna_contents"]);
+    $content = test_input($_POST["qna_title"]);
     $userid = test_input($userid);
     $hit = 0;
     $is_html=(!isset($_POST["is_html"]))?('n'):('y');
@@ -80,7 +80,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
     }
 
         //8 파일의 실제명과 저장되는 명을 삽입한다.
-    $sql="INSERT INTO `free` VALUES (null,'$q_userid','$username','$usernick','$q_subject','$q_content','$regist_day',0,'$is_html','$upfile_name','$copied_file_name','$type[0]');";
+    $sql="INSERT INTO `` VALUES (null,'$q_userid','$username','$usernick','$q_subject','$q_content','$regist_day',0,'$is_html','$upfile_name','$copied_file_name','$type[0]');";
     $result = mysqli_query($con,$sql);
     if (!$result) {
       alert_back('Error:5 ' . mysqli_error($conn));
@@ -195,44 +195,30 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
       }
 
       echo "<script>location.href='./view.php?num=$num&page=1&hit=$hit';</script>";
-
+// 겟방식으로 
     }else if(isset($_GET["mode"])&&$_GET["mode"]=="insert_ripple"){
       if(empty($_POST["ripple_content"])){
         echo "<script>alert('내용입력요망!');history.go(-1);</script>";
         exit;
       }
-      //"덧글을 다는사람은 로그인을 해야한다." 말한것이다.
-      $userid=$_SESSION['userid'];
-      $q_userid = mysqli_real_escape_string($con, $userid);
-      $sql="select * from members where id = '$q_userid'";
-      $result = mysqli_query($con,$sql);
-      if (!$result) {
-        die('Error: ' . mysqli_error($con));
-      }
-      $rowcount=mysqli_num_rows($result);
-
-      if(!$rowcount){
-        echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
-        exit;
-      }else{
         $content = test_input($_POST["ripple_content"]);
         $page = test_input($_POST["page"]);
         $parent = test_input($_POST["parent"]);
         $hit = test_input($_POST["hit"]);
-        $q_usernick = mysqli_real_escape_string($con, $_SESSION['usernick']);
-        $q_username = mysqli_real_escape_string($con, $_SESSION['username']);
+        // $q_usernick = mysqli_real_escape_string($con, $_SESSION['user_nickname']);
+        // $q_username = mysqli_real_escape_string($con, $_SESSION['user_mail']);
         $q_content = mysqli_real_escape_string($con, $content);
         $q_parent = mysqli_real_escape_string($con, $parent);
         $regist_day=date("Y-m-d (H:i)");
 
-        $sql="INSERT INTO `free_ripple` VALUES (null,'$q_parent','$q_userid','$q_username', '$q_usernick','$q_content','$regist_day')";
+        $sql="INSERT INTO `qna_reply` VALUES (null,'$usernum','$parent','$content','$regist_day')";
         $result = mysqli_query($con,$sql);
         if (!$result) {
           die('Error: ' . mysqli_error($con));
         }
         mysqli_close($conn);
         echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
-      }//end of if rowcount
+      //end of if rowcount
     }else if(isset($_GET["mode"])&&$_GET["mode"]=="delete_ripple"){
       $page= test_input($_GET["page"]);
       $hit= test_input($_GET["hit"]);
