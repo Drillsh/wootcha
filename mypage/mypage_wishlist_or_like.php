@@ -119,12 +119,11 @@
                         $fav_num = $row_review['fav_num'];
                         $mv_num = $row_review['mv_num'];
                         $mv_title = $row_review['mv_title'];
-
-                        $mv_big_img_link = get_cgv_movie_middle_poster_url($mv_title);
+                        $mv_img_path = $row_review['mv_img_path'];
                 ?>   
                     <li class='list_item'>
                         <a href='#'>
-                            <img src='<?=$mv_big_img_link?>' alt="">
+                            <img src='<?=$mv_img_path?>' alt="">
                             <h3><?=$mv_title?></h3>
                         </a>
                     </li> 
