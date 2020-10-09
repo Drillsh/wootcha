@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET["item"])){
-$item = $_GET['item'];
+    $item = $_GET['item'];
     $item = json_decode($item,true);
 
     $title = $item['title']; // 영화 제목
@@ -100,9 +100,21 @@ $movie_detail = crawl_movie_detail($naverLink);
     </li>
 </ul>
 <div id="movie_introduce">
-<div id="movie_poster" onclick="window.open('./img/black_widow.jpg','poster','width=600, height=800, scrollbars=yes, top=2000, left=-1000');"></div>
-    <div id="movie_subject"> 
-
+<div id="movie_poster">
+     <img src='<?=$file_copy?> id'>
+</div>
+    <div id="movie_subject" onclick="window.open('location.href=$naverLink', 'movielink', 'width=500, height=500 location=yes, status=no, scrollbars=yes');"> 
+    <h3>
+    
+    <?php
+    print_r ($title);
+    ?>
+    <br>
+    <br>
+    <?php
+    print_r ($subtitle);
+    ?>
+    </h3>
 </div>
 
 <span><button type=button id="favorite_movie" img src="./img/good_before.png"></span>
@@ -116,13 +128,22 @@ $movie_detail = crawl_movie_detail($naverLink);
     </h1>
 </div>
 <div id="movie_score">
-    <br><br>
-<h2>
+    <br>
+<h3>
+네이버 평점
+
+<br>
+네티즌 평점
+
+    <?php
+    print_r (json_decode ($total_star));
+    ?> //  
+    
     <?php
     print_r (implode($movie_detail['user_rating']));
-
     ?>
-</h2>
+    <br>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+</h3>
 </div>
 
     <div id="movie_content">
@@ -190,8 +211,14 @@ $movie_detail = crawl_movie_detail($naverLink);
                     $first_num = 1;
                 }
 
-                // review 테이블에서 모든 항목을 가져오되 seller_num 항목(칼럼)에서 $seller_num인 것을 가져오라.
-                $sql = "select * from review left join user on review.user_num and user.user_img;";
+                // review 테이블에 user 테이블을 조인시켜 모든 항목을 가져오되 (O)
+                // review 테이블의 user_num 항목의 값과 user 테이블의 user_num 항목의 값이 같은 것을 가져온다.(O)
+                // 그 조건으로... movie 테이블에서 mv_
+                $sql = "select * from review 
+                left join user
+                on review.user_num = user.user_num
+                where mv_num = (select mv_num from movie where mv_title ='$title')";
+
                 $result = mysqli_query($con, $sql) or die(mysqli_error($con));
                 $total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
 
@@ -217,8 +244,8 @@ $movie_detail = crawl_movie_detail($naverLink);
                     $row = mysqli_fetch_array($result);
                    
                     // 하나의 레코드 가져오기
-                    // 유저 프로필 이미지 삽입
-                    $review_num = $row["review_num"];
+                    $user_img = $row["user_img"];
+                    $user_nickname = $row["user_nickname"];
                     $mv_num = $row["mv_num"];
                     $review_date = $row["review_date"];
                     $review_site = $row["review_site"];
@@ -233,12 +260,12 @@ $movie_detail = crawl_movie_detail($naverLink);
 <div class="user_comment_content">
 
 <div class="comment_profile_img">
-         
+<a href="#"><span><strong><?=$user_img?></strong></span></a>
 </div>
 
 <!-- get 방식으로 이름, 등록날짜를 보낸다. -->
 <div class="comment_profile_name">
-    <a href="#"><span><strong><?= $mv_num ?></strong> · &nbsp;<?= $review_date ?></span></a>
+    <a href="#"><span><strong><?= $user_nickname?></strong> · &nbsp;<?= $review_date?></span></a>
     <p class="star_rating_content">
         <a href="#" class="on">★</a>
         <a href="#" class="on">★</a>
