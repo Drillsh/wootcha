@@ -97,7 +97,7 @@
 
                     <li>
                         <div class="follow_list_column">
-                            //json으로 영화 데이터 보냄
+                            // json으로 영화 데이터 보냄
                             <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?=urlencode(json_encode($item))?>">
                                 <div class="follow_list_column_img">
                                     <?php

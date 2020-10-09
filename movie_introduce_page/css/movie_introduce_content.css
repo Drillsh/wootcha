@@ -144,12 +144,13 @@ label.next {
     width: 360px;
     height: 205px;
     text-align: center;
-    position: absolute;
+    position: relative;
     margin-top: 10px;
     margin-left: 150px;
     box-sizing: content-box;
     background-color: white;
     border-color: slategray;
+    
 }
 
 #movie_subject {
@@ -163,6 +164,7 @@ label.next {
     margin-left: 150px;
     background-color: white;
     border-color: slategray;
+    
 }
 
 #movie_content {
@@ -266,21 +268,21 @@ background-color: whitesmoke;
 #movie_cast_1 {
 width: 111px;
 height: 139px;
-border: 2px;
-border-style: solid;
-top: 80px;
+top: 35px;
 margin-left: 150px;
-position: absolute;
+position: relative;
 font-size: 13px;
 font-family: fantasy;
 font-weight: bold;
+overflow : hidden;
+border-radius: 50%;
 }
 
 #movie_cast_2 {
   width: 111px;
   height: 139px;
-  border: 2px;
-    border-style: solid;
+  overflow : hidden;
+  border-radius: 50%;
     top: 80px;
     margin-left: 270px;
     position: absolute;
@@ -294,8 +296,8 @@ font-weight: bold;
     #movie_cast_3 {
       width: 111px;
       height: 139px;
-      border: 2px;
-        border-style: solid;
+      overflow : hidden;
+      border-radius: 50%;
         top: 80px;
         margin-left: 390px;
         position: absolute;
@@ -308,8 +310,8 @@ font-weight: bold;
         #movie_cast_4 {
           width: 111px;
           height: 139px;
-          border: 2px;
-            border-style: solid;
+          overflow : hidden;
+          border-radius: 50%;
             top: 80px;
             margin-left: 510px;
             position: absolute;
@@ -321,8 +323,8 @@ font-weight: bold;
             #movie_cast_5 {
               width: 111px;
               height: 139px;
-              border: 2px;
-              border-style: solid;
+              overflow : hidden;
+              border-radius: 50%;
               top: 80px;
               margin-left: 630px;
               position: absolute;
@@ -334,8 +336,8 @@ font-weight: bold;
               #movie_cast_6 {
                 width: 111px;
                 height: 139px;
-                border: 2px;
-                border-style: solid;
+                overflow : hidden;
+                border-radius: 50%;
                 top: 80px;
                 margin-left: 750px;
                 position: absolute;
