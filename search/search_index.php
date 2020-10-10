@@ -15,6 +15,8 @@
     <!--    DB, Header-->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
+
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php";?>
 </head>
 
 <body>
