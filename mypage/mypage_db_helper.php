@@ -8,9 +8,11 @@
             case 'select_user':
                 $sql = "select * from user where user_mail = '$var'";
                 break;
+
             case 'select_my_review':
                 $sql = "select * from review R inner join movie M on R.mv_num = M.mv_num where R.user_num = $var;";
                 break;
+
             case 'select_my_review_reply':
                 $sql = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img 
                 from review_reply RR
@@ -19,6 +21,7 @@
                 where RR.review_num = $var 
                 order by RR.review_reply_regtime DESC;";
                 break;
+
             case 'select_my_favorite_movie':
                 $sql = "select * from fav_movie F 
                 inner join movie M 

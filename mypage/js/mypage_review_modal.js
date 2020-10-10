@@ -5,6 +5,12 @@ window.onload = function(){
      var review_dialog_trigger = document.getElementsByClassName("review_dialog_trigger");
      // Modal을 닫는 close 클래스를 가져옵니다.
      var modal_close_btn_review = document.getElementsByClassName("modal_close_btn_review");
+     // 댓글창을 가져온다.
+     var comments_container = document.getElementsByClassName("comments_container");
+     // 좋아요 버튼 가져온다
+     var like_ckeckbox_class = document.getElementsByClassName("like_ckeckbox_class");
+     // 좋아요 form 태그를 가져온다
+     var review_like_form = document.getElementsByClassName("review_like_form");
      var funcs = [];
 
      // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
@@ -19,6 +25,28 @@ window.onload = function(){
          modal_close_btn_review[num].onclick = function() {
           modal_container_review[num].style.visibility = "hidden";
          };
+
+        //  댓글 icon 클릭시 댓글 리스트 창 노출
+        var checkbox = document.getElementById("checkbox" + num);
+        checkbox.onclick = function () {
+          if(checkbox.checked == true){
+            comments_container[num].style.display = "inline-block";
+          }else{
+            comments_container[num].style.display = "none";
+          }
+        };
+
+        // 좋아요 icon 클릭 시 폼 전송 및 icon 변경
+        var like_checkbox = document.getElementById("like_checkbox" + num);
+        like_checkbox.onclick = function () {
+          // icon 변경 함수
+          if(like_checkbox.checked == true){
+            like_ckeckbox_class[num].src = "./img/like_color.png";
+          }else{
+            like_ckeckbox_class[num].src = "./img/like.png";
+          }
+          review_like_form[num].submit();
+        };
        };
      }
 

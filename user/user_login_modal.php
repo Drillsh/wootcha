@@ -7,7 +7,7 @@
 <style type="text/css"> 
     /* 빈공간을 어둡게 채우는 창 */
     .modal_container_login
- { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 1; 
+ { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 3; 
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */

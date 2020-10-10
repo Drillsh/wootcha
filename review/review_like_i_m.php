@@ -1,0 +1,31 @@
+<?php
+    $review_num = $_POST['review_num'];
+
+    session_start();
+    $user_num = $_SESSION['user_num'];
+
+    // 먼저 review_like 테이블에서 insert 한게 있는지 확인
+    include_once "../common/database/db_connector.php";
+    $query = "select * from review_like where review_num = $review_num and user_num = $user_num";
+    $result = mysqli_query($con, $query);
+    
+    // insert 된 데이터가 없을 때
+    if ($result->num_rows == 0) {
+        $query = "insert into review_like values($review_num, $user_num, 1);";
+
+    // insert 데이터 있을 때
+    }elseif ($result->num_rows == 1) {
+        $row = mysqli_fetch_array($result);
+        
+        // select 한 데이터가 0 이냐 1이냐
+        if ($row['like_state'] == 0) {
+            $query = "update review_like set like_state = 1 where review_num = $review_num and user_num = $user_num;";
+        }elseif ($row['like_state'] == 1) {
+            $query = "update review_like set like_state = 0 where review_num = $review_num and user_num = $user_num;";
+        }
+    }
+    $result = mysqli_query($con, $query) or die(mysqli_error($con));
+    mysqli_close($con);
+    
+    echo "<script>history.go(-1);</script>";
+?>

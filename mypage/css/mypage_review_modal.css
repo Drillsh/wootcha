@@ -1,14 +1,17 @@
  
     /* 빈공간을 어둡게 채우는 창 */
-    .modal_container_review { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 1; 
+    .modal_container_review { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 3; 
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */
-    .modal_container_review .modal_content_reivew{ position: absolute;  top: 50%;  left: 50%;  transform: translate(-75%, -50%); background-color: white; 
-         padding: 1rem 1.5rem;  width: 700px;  height: 600px;   border-radius: 0.5rem; } 
+    .modal_container_review .modal_content_review{ position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+         padding: 1rem 1.5rem; height: 600px;  border-radius: 0.5rem; display: flex;} 
+
+    /* content_left_review */
+    .modal_container_review .modal_content_review .content_left_review{display:inline-block; width:500px; height: 100%; flex: auto;}
 
     /* 상단 닉네임 및 평점 부분 */
-    .modal_container_review .modal_content_review_header{height: 50px; width:95%; position:relative;}
+    .modal_container_review .modal_content_review_header{height: 50px; width:95%; position:relative; margin: 0 auto;}
 
     /* 프로필 이미지 */
     .modal_container_review .small_img_box{ width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display:inline-block;}
@@ -19,10 +22,10 @@
         position:absolute; left:40px; top:15px}
     
     /* 평점 */
-    .modal_container_review .modal_content_review_header div:nth-child(3){display:inline; margin-right:50px;position:absolute; right:60px; top:15px}
+    .modal_container_review .modal_content_review_header div:nth-child(3){display:inline; position:absolute; right:0px; top:0px; }
 
     /* 닫기 버튼 */
-    .modal_container_review .modal_close_btn_reivew { float: right; width: 1.5rem; line-height: 1.5rem; text-align: center; cursor: pointer; 
+    .modal_container_review .modal_close_btn_review { float: right; width: 1.5rem; height: 1.5rem; line-height: 1.5rem; text-align: center; cursor: pointer; 
          border-radius: 0.25rem;  background-color: lightgray;  } 
     .modal_container_review .modal_close_btn:hover { background-color: darkgray; } 
 
@@ -40,21 +43,21 @@
         max-height:200px; overflow-y:auto; }
 
     /* 좋아요 및 댓글 icon */
-    .modal_content_reivew_bottom {width:99%; height:30px;}
-    .modal_content_reivew_bottom input{display:none;}
-
-    .modal_content_reivew_bottom img{width:20px; height:20px; display:inline-block; line-height:30px}
-    .modal_content_reivew_bottom p{display:inline-block; line-height:30px; margin-right:20px}
+    .modal_content_review_bottom {width:99%; height:30px;}
+    .modal_content_review_bottom input{display:none;}
+    .modal_content_review_bottom .review_like_form {display: inline-block;}
+    .modal_content_review_bottom img{width:20px; height:20px; display:inline-block; line-height:30px}
+    .modal_content_review_bottom p{display:inline-block; line-height:30px; margin-right:20px}
     
     /* 등록일자 */
-    .modal_content_reivew_bottom .review_regist_day{float:right;}
+    .modal_content_review_bottom .review_regist_day{float:right;}
 
     /* ************** */
     /* 댓글 창 */
     /* ************** */
-    .modal_container_review .comments_container{position: absolute;   top: 50%;  left: 80%;  transform: translate(-70%, -50%); background-color: white; 
-         padding: 1rem 1.5rem;   width: 400px;  height: 600px;   border-radius: 0.5rem;}
-    .modal_container_review .comments_container .comments_list{width: 100%;  height: 440px; overflow-y:auto }
+    .modal_container_review .comments_container{background-color: white; 
+        width: 300px;  border-radius: 0.5rem; margin: auto; display: none; flex: auto; margin-left: 40px; }
+    .modal_container_review .comments_container .comments_list{width: 100%;  height: 400px; overflow-y:auto }
     .modal_container_review .comments_container .comments_register{width: 100%;  height: 140px; }
     
     /* comments item */
