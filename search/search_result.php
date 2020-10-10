@@ -11,12 +11,13 @@
                 }
 
                 // 추후 따로 모아서 임포트
-                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";
+//                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";
 
                 //검색어 있을때
                 if ($search != "") {
-                    $result = search_movie_title($search, $country, $genre);
-                    $total_record = count($result['items']);
+                    //네이버 검색 함수
+                    $result = Movie_info::search_movie_title($search, $country, $genre);
+                    $total_record = count($result);
 
                     //정렬 요청이 있을때
                     if (isset($selected_option)) {
@@ -81,18 +82,20 @@
                     $i < $page_setting + $scale && $i < $total_record;
                     $i++) {
 
-                    $row = $result['items'];
-                    $item = $row[$i]; //인덱스
-                    $title = $item['title']; // 영화 제목
-                    $subtitle = $item["subtitle"]; // 부제
-                    $file_copy = $item["image"]; // 포스터
-                    $total_star = $item["userRating"]; // 네이버 평점
+                    $item = $result[$i]; //인덱스
+
+                    $selec_movie = Movie_info::create();
+                    $selec_movie->setMovie_API_Info($item);
+
+//                    $title = $item['title']; // 영화 제목
+//                    $subtitle = $item["subtitle"]; // 부제
+//                    $file_copy = $item["image"]; // 포스터
+//                    $naver_star = $item["userRating"]; // 네이버 평점
+//                    $naver_star = sprintf('%0.1f', $naver_star);
+//                    $naverLink = $item["link"];   //네이버 영화 링크
+//
                     $review_count = 0; // 리뷰 수
                     $story_count = 0; //스토리 수
-                    $naverLink = $item["link"];   //네이버 영화 링크
-
-                    $total_star = sprintf('%0.1f', $total_star);
-
                     ?>
 
                     <li>
@@ -102,24 +105,24 @@
                             <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?=urlencode(json_encode($item))?>">
                                 <div class="follow_list_column_img">
                                     <?php
-                                    if ($file_copy == "") {
+                                    if ($selec_movie->small_poster_img == "") {
                                         ?>
-                                        <img src=<?= $file_copy ?>>
+                                        <img src=<?= $selec_movie->small_poster_img ?>>
                                         <?php
                                     } else {
                                         ?>
-                                        <img src=<?= $file_copy ?> alt="">
+                                        <img src=<?= $selec_movie->small_poster_img ?> alt="">
                                         <?php
                                     }
                                     ?>
                                 </div>
 
                                 <div class="follow_list_column_text">
-                                    <h1 id="follow_text_academy"><?= $title ?>
+                                    <h1 id="follow_text_academy"><?= $selec_movie->title ?>
                             </a>
 
                             </h1>
-                            <p id="follow_text_district"><?= $subtitle ?></p>
+                            <p id="follow_text_district"><?= $selec_movie->subTitle ?></p>
 
                             <div class="follow_list_column_review">
                                 <a href="/eduplanet/academy/review.php?no=<?= $item ?>"><span id="academy_review_span">학원리뷰 <span
@@ -178,7 +181,7 @@
                                     // 총 만족도 평균에 따라 별 보여주기
                                     for ($j = 1; $j <= 5; $j++) {
 
-                                        if ($j <= round($total_star)) {
+                                        if ($j <= round($selec_movie->naver_star)) {
                                             echo "<img class='acd_star_class' src='/wootcha/common/img/yellow_star.png' alt='follow_academy_star'>";
                                         } else {
                                             echo "<img class='acd_star_class' src='/wootcha/common/img/yellow_star_empty.png' alt='follow_academy_star'>";
@@ -187,7 +190,7 @@
                                     ?>
                                 </div>
 
-                                <span class="follow_academy_star_num"><?= $total_star ?></span>
+                                <span class="follow_academy_star_num"><?= $selec_movie->naver_star ?></span>
                             </div>
                         </div>
             </div>

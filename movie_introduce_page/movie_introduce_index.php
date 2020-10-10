@@ -17,6 +17,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/create_table.php"; ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php";?>
 
 <header>    
 
