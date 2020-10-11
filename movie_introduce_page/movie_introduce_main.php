@@ -3,18 +3,26 @@ if (isset($_GET["item"])){
     $item = $_GET['item'];
     $item = json_decode($item,true);
 
-    $title = $item['title']; // 영화 제목
-    $subtitle = $item["subtitle"]; // 부제
-    $file_copy = $item["image"]; // 포스터
-    $total_star = $item["userRating"]; // 네이버 평점
-    $naverLink = $item["link"];   //네이버 영화 링크
+    $movie_info = new Movie_info($item, $con);
 
-    $total_star = sprintf('%0.1f', $total_star);
+    $title = $movie_info->title;                        // 영화 제목
+    $subtitle = $movie_info->subTitle;                  // 부제
+    $file_copy = $movie_info->poster_img;               // 포스터
+    $total_star = $movie_info->naver_star;              // 네이버 평점
+    $total_star = sprintf('%0.1f', $total_star);        // 형식 수정
+    $naverLink = $movie_info->naver_link;               // 네이버 영화 링크
+
+    $genre = $movie_info->genre;                        // 장르
+    $nation = $movie_info->nation;                      // 국가
+    $running_time = $movie_info->running_time;          // 러닝타임
+    $release_date = $movie_info->release_date;          // 개봉일
+    $actor = $movie_info->actor;                        // 배우
+    $synopsis = $movie_info->synopsis;                  // 시놉시스
 
 } else {
     $item = "";
 }
-$movie_detail = crawl_movie_detail($naverLink);
+
 ?>
 
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce.js"></script>

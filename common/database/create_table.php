@@ -33,10 +33,14 @@ function create_table($con, $table_name)
 
             case 'movie':
                 $sql = "CREATE TABLE `movie` (
-                         `mv_num`       INT            NOT NULL    AUTO_INCREMENT   COMMENT '영화 등록번호', 
-                         `mv_title`     VARCHAR(45)    NOT NULL                     COMMENT '제목', 
-                         `mv_rating`    FLOAT(2,1)     NULL                         COMMENT '영화 별점', 
-                         `mv_img_path`  VARCHAR(100)   NULL        DEFAULT null     COMMENT '이미지 경로', 
+                         `mv_num`           INT            NOT NULL                     COMMENT '영화 등록번호', 
+                         `mv_title`         VARCHAR(45)    NOT NULL                     COMMENT '제목', 
+                         `mv_rating`        FLOAT(2,1)     NULL                         COMMENT '웃챠 영화 별점', 
+                         `mv_img_path`      VARCHAR(200)   NULL        DEFAULT null     COMMENT '이미지 경로', 
+                         `mv_genre`         VARCHAR(100)   NULL        DEFAULT null     COMMENT '장르', 
+                         `mv_nation`        VARCHAR(45)    NULL        DEFAULT null     COMMENT '국가', 
+                         `mv_release_date`  VARCHAR(45)    NULL        DEFAULT null     COMMENT '개봉일', 
+                         `mv_running_time`  VARCHAR(45)    NULL        DEFAULT null     COMMENT '러닝타임', 
                          PRIMARY KEY (mv_num)
                         ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8";
                 break;
