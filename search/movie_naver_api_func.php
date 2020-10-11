@@ -81,10 +81,9 @@ function crawl_movie_detail($link)
     $movie_info['running_time'] = $items[2];
     $movie_info['release_date'] = $items[3];
 
-
 // 스토리
     foreach ($data->find('div.story_area') as $e) {
-        $movie_stroy = $e->innertext;
+        $movie_story = $e->innertext;
     }
 
 // 출연 배우
@@ -98,8 +97,6 @@ function crawl_movie_detail($link)
 
     return $movie_detail;
 }
-
-
 ?>
 
 
