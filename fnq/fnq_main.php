@@ -79,7 +79,7 @@
 				<li>
 					<span class="col1"><?=$number?></span>
 					<span class="col2"><a href="fnq_view.php?num=<?=$num?>&page=<?=$page?>"><?=$id?></a></span>
-					<span class="col3"><?=$subject?></span>
+					<span class="col3">관리자</span>
 					<span class="col5"><?=$regist_day?></span>
 					<span class="col6"><?=$hit?></span>
 				</li>	
