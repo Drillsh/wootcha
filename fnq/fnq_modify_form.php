@@ -16,7 +16,7 @@
 	
    	<div id="board_box">
 	    <h3 id="board_title">
-	    		fnq > 글 쓰기
+	    		FaQ > 글 쓰기
 		</h3>
 <?php
 	$num  = $_GET["num"];
@@ -26,14 +26,15 @@
 	$sql = "select * from faq_board where faq_num=$num";
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_array($result);
-	$name       = $row["faq_num"];
+	// $name       = $row["faq_num"];
+	// $page 		=$row("faq_regtime");
 	$subject    = $row["faq_title"];
 	$content    = $row["faq_contents"];
 ?>
 	    <form  name="board_form" method="post" action="fnq_modify.php?num=<?=$num?>&page=<?=$page?>" enctype="multipart/form-data">
 	    	 <ul id="board_form">
 				<li>
-					<span class="col1">이름 : </span>
+					<span class="col1">이름 : 관리자 </span>
 					<span class="col2"><?=$name?></span>
 				</li>		
 	    		<li>

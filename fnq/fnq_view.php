@@ -36,6 +36,16 @@ echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
 	$num  = $_GET["num"];
 	$page  = $_GET["page"];
 
+	if(isset($_GET["num"])&&!empty($_GET["num"])){
+		$num = test_input($_GET["num"]);
+		$hit = test_input($_GET["hit"]);
+		$q_num = mysqli_real_escape_string($con, $num);
+		$sql="UPDATE `faq_board` SET `faq_hit`=$hit+1 WHERE `faq_num`=$q_num;";
+		$result = mysqli_query($con,$sql);
+		if (!$result) {
+			die('Error: ' . mysqli_error($con));
+		}
+	}	
 	//$con = mysqli_connect("localhost", "user1", "12345", "sample");
 	$sql = "select * from faq_board where faq_num=$num";
 	$result = mysqli_query($con, $sql);
@@ -71,7 +81,7 @@ echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
 				?>
 				<li><button onclick="location.href='fnq_main.php?page=<?=$page?>'">목록</button></li>
 				<li><button onclick="location.href='fnq_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정</button></li>
-				<li><button onclick="location.href='notice_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
+				<li><button onclick="location.href='fnq_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
 				<li><button onclick="location.href='fnq_form.php'">글쓰기</button></li>
 				<!-- 여기 아래로는 관리자로 로그인 해야 보이게 -->
 				<?php

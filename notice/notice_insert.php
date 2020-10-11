@@ -48,7 +48,7 @@
 
 	echo "
 	   <script>
-	    location.href = 'notice_list.php';
+	    location.href = 'notice.php';
 	   </script>
 	";
 ?>

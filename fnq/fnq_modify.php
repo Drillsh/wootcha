@@ -6,7 +6,7 @@
     $content = $_POST["faq_contents"];
           
 	include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-    $sql = "update faq_board set faq_title='$subject', ``faq_contents``='$content' ";
+    $sql = "update faq_board set faq_title='$subject', faq_contents='$content' ";
     $sql .= " where faq_num=$num";
     mysqli_query($con, $sql);
 
@@ -14,7 +14,7 @@
 
     echo "
 	      <script>
-	          location.href = 'fnq_list.php?page=$page';
+	          location.href = 'fnq_main.php?page=$page';
 	      </script>
 	  ";
 ?>

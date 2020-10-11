@@ -33,8 +33,36 @@ echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
 			공지사항 > 내용보기
 		</h3>
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-	$num  = $_GET["num"];
-	$page  = $_GET["page"];
+	if(empty($_GET['page'])){
+		$page=1;
+	  }else{
+		$page=$_GET['page'];
+	  }
+	  
+	  if(isset($_GET["num"])&&!empty($_GET["num"])){
+		  $num = test_input($_GET["num"]);
+		  $hit = test_input($_GET["hit"]);
+		  $q_num = mysqli_real_escape_string($con, $num);
+	  
+		  $sql="UPDATE `notice_board` SET `notice_hit`=$hit WHERE `notice_num`=$q_num;";
+		  $result = mysqli_query($con,$sql);
+		  if (!$result) {
+			die('Error: ' . mysqli_error($con));
+		  }
+		}
+	
+	
+	
+	// $num  = $_GET["num"];
+	// $page  = $_GET["page"];
+	// $hit =$_GET["hit"];
+
+	// $sql="UPDATE `notice_board` SET `notice_hit`=$hit WHERE `notice_num`=$q_num;";
+    // $result = mysqli_query($con,$sql);
+    // if (!$result) {
+    //   die('Error: ' . mysqli_error($con));
+    // }
+
 
 	//$con = mysqli_connect("localhost", "user1", "12345", "sample");
 	$sql = "select * from notice_board where notice_num=$num";
@@ -44,21 +72,22 @@ echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
 	$id      = $row["notice_num"];
 	$name      = $row["notice_title"];
 	$regist_day = $row["notice_regtime"];
-	$subject    = $row["notice_hit"];
+	$subject    = $row["notice_file_name"];
 	$content    = $row["notice_contents"];
-	$hit          = $row["notice_file_name"];
+	$hit          = $row["notice_hit"];
+    echo "<script>alert($hit)</script>";
 
 	$content = str_replace(" ", "&nbsp;", $content);
 	$content = str_replace("\n", "<br>", $content);
 
 	$new_hit = $hit + 1;
-	$sql = "update notice_board set hit=$new_hit where num=$num";   
+	$sql = "update notice_board set notice_hit=$new_hit where num=$num";   
 	mysqli_query($con, $sql);
 ?>		
 	    <ul id="view_content">
 			<li>
 				<span class="col1"><b>제목 :</b> <?=$name?></span>
-				<span class="col2"><?=$subject?> | <?=$regist_day?></span>
+				<span class="col2">조회수 &nbsp;<?=$hit?> | <?=$regist_day?></span>
 			</li>
 			<li>
 			<!-- $content db에 저장할 때 필요함  -->

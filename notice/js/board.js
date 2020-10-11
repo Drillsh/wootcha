@@ -1,4 +1,4 @@
-function check_input_notice() {
+function check_input() {
     if (!document.board_form.notice_title.value)
     {
         alert("제목을 입력하세요!");

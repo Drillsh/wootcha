@@ -4,7 +4,7 @@
     $page   = $_GET["page"];
 
     include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-    $sql = "select * from notice_board where notice_num = $num";
+    $sql = "select * from faq_board where faq_num = $num";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
 
@@ -16,13 +16,13 @@
 		unlink($file_path);
     }
 
-    $sql = "delete from notice_board where notice_num = $num";
+    $sql = "delete from faq_board where faq_num = $num";
     mysqli_query($con, $sql);
     mysqli_close($con);
 
     echo "
 	     <script>
-	         location.href = 'notice.php?page=$page';
+	         location.href = 'fnq_main.php?page=$page';
 	     </script>
 	   ";
 ?>
