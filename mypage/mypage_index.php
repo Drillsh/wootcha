@@ -182,22 +182,33 @@
                                     // 각 리뷰별 session의 user가 좋아요를 눌렀었는지 조회한 데이터를 기준으로 icon 변경
                                     if (mysqli_fetch_array($result_like)['like_state'] == 1) {
                                         $like_img = "like_color";
+                                        $ckeckbox_checked = "checked";
                                     }else{
                                         $like_img = "like";
+                                        $ckeckbox_checked = "";
                                     }
                                 ?>
                                 <span>
-                                    <form action="../review/review_like_i_m.php" method="post" class="review_like_form">
-                                        <input type="hidden" name="review_num" value="<?=$review_num?>">
-                                        <input type="checkbox" id="like_checkbox<?=$i?>">
-                                        <label for="like_checkbox<?=$i?>"><img src="./img/<?=$like_img?>.png" alt="" class="like_ckeckbox_class"><p><?=$review_like?></p>
+                                    <form action="#" method="post" class="review_like_form">
+                                        <input type="hidden" name="review_num" id="review_num<?=$i?>" value="<?=$review_num?>">
+                                        <input type="checkbox" id="like_checkbox<?=$i?>" <?=$ckeckbox_checked?>>
+                                        <label for="like_checkbox<?=$i?>">
+                                            <img src="./img/<?=$like_img?>.png" alt="" class="like_ckeckbox_class">
+                                            <span id="like_checkbox_label<?=$i?>">
+                                                <p><?=$review_like?></p>
+                                            </span>
+                                        </label>
                                     </form>
-                                </label>    
+                                    
                                 </span>
                                 <!-- 댓글 -->
                                 <span>
                                     <input type="checkbox" id="checkbox<?=$i?>">
-                                    <label for="checkbox<?=$i?>"><img src="./img/comments.png" alt="">&nbsp;<p><?=$result_review_and_reply_num?></p>
+                                    <label for="checkbox<?=$i?>">
+                                        <img src="./img/comments.png" alt="">&nbsp;
+                                        <span id="reply_count<?=$i?>">    
+                                            <p><?=$result_review_and_reply_num?></p>
+                                        </span>    
                                     </label> 
                                 </span>
                                 <!-- 등록일자 -->
@@ -210,47 +221,46 @@
                         <!-- ************* -->
                         <div class="comments_container">
                             <div class="comments_list">
-                            <?php
-                                while($row_reply = mysqli_fetch_array($result_review_and_reply)){
-                                    $review_reply_num = $row_reply['review_reply_num'];
-                                    $review_reply_contents = $row_reply['review_reply_contents'];
-                                    $review_reply_regtime = $row_reply['review_reply_regtime'];
-                                    $reply_user_num = $row_reply['user_num'];
-                                    $reply_user_nickname = $row_reply['user_nickname'];
-                                    $reply_user_img = $row_reply['user_img'];
-                                    ?>
-                                <div class="comments_item">
-                                    <!-- profile image -->
-                                    <div class="profile_box">
-                                        <!-- 댓글 을 쓴 사람의 num을 받아서 a로 넘겨야함 -->
-                                        <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
-                                        <a href="mypage_index.php?userpage_user_num=<?=$reply_user_num?>">
-                                            <div class="small_img_box">
-                                                <img src="../user/img/<?=$reply_user_img?>" alt="프로필 이미지 수정">
-                                            </div>
-                                            <!-- 닉네임 -->
-                                            <p><?=$reply_user_nickname?></p>
-                                        </a>
+                                <?php
+                                    while($row_reply = mysqli_fetch_array($result_review_and_reply)){
+                                        $review_reply_num = $row_reply['review_reply_num'];
+                                        $review_reply_contents = $row_reply['review_reply_contents'];
+                                        $review_reply_regtime = $row_reply['review_reply_regtime'];
+                                        $reply_user_num = $row_reply['user_num'];
+                                        $reply_user_nickname = $row_reply['user_nickname'];
+                                        $reply_user_img = $row_reply['user_img'];
+                                ?>
+                                    <div class="comments_item">
+                                        <!-- profile image -->
+                                        <div class="profile_box">
+                                            <!-- 댓글 을 쓴 사람의 num을 받아서 a로 넘겨야함 -->
+                                            <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
+                                            <a href="mypage_index.php?userpage_user_num=<?=$reply_user_num?>">
+                                                <div class="small_img_box">
+                                                    <img src="../user/img/<?=$reply_user_img?>" alt="프로필 이미지 수정">
+                                                </div>
+                                                <!-- 닉네임 -->
+                                                <p><?=$reply_user_nickname?></p>
+                                            </a>
+                                        </div>
+                                        <div class="comment_content">
+                                            <!-- 댓글 내용 -->
+                                            <p><?=$review_reply_contents?></p>
+                                        </div>
                                     </div>
-                                    <div class="comment_content">
-                                        <!-- 댓글 내용 -->
-                                        <p><?=$review_reply_contents?></p>
-                                    </div>
-                                </div>
-                                <?php  
-                                // review의 댓글 반복문 종료 
-                            }                
-                            ?>
+                                    <?php  
+                                    // review의 댓글 반복문 종료 
+                                }                
+                                ?>
                             </div>     
                             <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-                            <form action="../review/review_d_m_i.php" method="post">
+                            <form action="#" method="post">
                                 <div class="comments_register">
-                                    <input type="hidden" name="mode" value="insert_reply">
-                                    <input type="hidden" name="review_num" value="<?=$review_num?>">
-                                    <input type="hidden" name="userpage_user_num" value="<?=$userpage_user_num?>">
-                                    <textarea name="review_reply_contents" cols="30" rows="10"></textarea>
+                                    <input type="hidden" name="mode" id="mode<?=$i?>" value="insert_reply">
+                                    <input type="hidden" name="userpage_user_num" id="userpage_user_num<?=$i?>" value="<?=$userpage_user_num?>">
+                                    <textarea name="review_reply_contents" id="review_reply_contents<?=$i?>" cols="30" rows="10" placeholder="댓글을 입력하세요 ^.^"></textarea>
                                     <div class="submit_btn_box">
-                                        <input type="submit" value="보내기">
+                                        <input type="button" value="보내기" id="reply_input_button<?=$i?>">
                                     </div>
                                 </div>
                             </form>

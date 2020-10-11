@@ -19,7 +19,7 @@
                 inner join user U
                 on RR.user_num = U.user_num
                 where RR.review_num = $var 
-                order by RR.review_reply_regtime ASC;";
+                order by RR.review_reply_regtime DESC;";
                 break;
 
             case 'select_my_favorite_movie':

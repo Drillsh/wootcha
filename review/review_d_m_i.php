@@ -123,6 +123,9 @@
             $review_reply_contents = $_POST['review_reply_contents'];
             $review_reply_regtime = date("Y-m-d (H:i)");
 
+            $review_reply_contents = mysqli_real_escape_string($con, $review_reply_contents);
+            $review_reply_contents = test_input($review_reply_contents);
+
             $query = "insert into review_reply ";
             $query .= " values(null, $review_num, $user_num, '$review_reply_contents', '$review_reply_regtime');";
 
@@ -134,8 +137,48 @@
                         history.go(-1);</script>";
                         exit;
             }
-            $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$userpage_user_num";
-            echo "<script>location.href = '$url';</script>";
+            
+            $query = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img, U.user_num  
+            from review_reply RR
+            inner join user U
+            on RR.user_num = U.user_num
+            where RR.review_num = $review_num 
+            order by RR.review_reply_regtime DESC;";
+
+            $result = mysqli_query($con, $query);
+            
+            header("replycount: $result->num_rows");
+
+            for ($i=0; $i < $result->num_rows; $i++) { 
+                mysqli_data_seek($result,$i);
+                $row = mysqli_fetch_array($result);
+            
+                $review_reply_num = $row['review_reply_num'];
+                $review_reply_contents = $row['review_reply_contents'];
+                $review_reply_regtime = $row['review_reply_regtime'];
+                $user_nickname = $row['user_nickname'];
+                $user_img = $row['user_img'];
+                $user_num = $row['user_num'];
+
+                echo "<div class='comments_item'>
+                        <!-- profile image -->
+                        <div class='profile_box'>
+                            <!-- 댓글 을 쓴 사람의 num을 받아서 a로 넘겨야함 -->
+                            <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
+                            <a href='mypage_index.php?userpage_user_num=$user_num'>
+                                <div class='small_img_box'>
+                                    <img src='../user/img/$user_img' alt='프로필 이미지 수정'>
+                                </div>
+                                <!-- 닉네임 -->
+                                <p>$user_nickname</p>
+                            </a>
+                        </div>
+                        <div class='comment_content'>
+                            <!-- 댓글 내용 -->
+                            <p>$review_reply_contents</p>
+                        </div>
+                    </div>";
+            }
             break;
         
         default:

@@ -25,7 +25,14 @@
         }
     }
     $result = mysqli_query($con, $query) or die(mysqli_error($con));
+    
+    // 수정 및 삽입 후 해당 리뷰의 total 좋아요를 가져옴
+    $result = mysqli_query($con, "select review_like from review where review_num=$review_num") or die(mysqli_error($con));
+    $row = mysqli_fetch_array($result);
+    $review_like = $row['review_like'];
+
+    // 반납
     mysqli_close($con);
     
-    echo "<script>history.go(-1);</script>";
+    echo "<p>$review_like</p>";
 ?>

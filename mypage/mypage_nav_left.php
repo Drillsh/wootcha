@@ -55,11 +55,10 @@ include_once "../common/crawling/movie_cgv_crawling.php";
 <h3><?=$nickname?> 님</h3>
 <ul>
     <li><a href="./mypage_index.php?userpage_user_num=<?=$userpage_user_num?>">작성한 리뷰</a></li>
-    <li><a href="./mypage_wishlist_or_like.php?mode=wish&userpage_user_num=<?=$userpage_user_num?>">보고싶은 영화</a></li>
-    <li><a href="./mypage_wishlist_or_like.php?mode=like&userpage_user_num=<?=$userpage_user_num?>">좋아요</a></li>
+    <li><a href="./mypage_like_movie.php?userpage_user_num=<?=$userpage_user_num?>">좋아요</a></li>
     <li><a href="./mypage_follow.php?userpage_user_num=<?=$userpage_user_num?>">팔로우</a></li>
 <?php
-    if ($userpage_user_num == $user_num) echo "<li><a href='./mypage_edit_myinfo.php'>내 정보</a></li>";
+    if ($userpage_user_num == $user_num) echo "<li><a href='./mypage_edit_myinfo.php?userpage_user_num=$userpage_user_num'>내 정보</a></li>";
 ?>
   
 </ul>
