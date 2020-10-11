@@ -87,7 +87,7 @@
 	if ($total_page>=2 && $page >= 2)	
 	{
 		$new_page = $page-1;
-		echo "<li><a href='notice_list.php?page=$new_page'>◀ 이전</a> </li>";
+		echo "<li><a href='notice.php?page=$new_page'>◀ 이전</a> </li>";
 	}		
 	else 
 		echo "<li>&nbsp;</li>";
@@ -101,20 +101,20 @@
 		}
 		else
 		{
-			echo "<li><a href='notice_list.php?page=$i'> $i </a><li>";
+			echo "<li><a href='notice.php?page=$i'> $i </a><li>";
 		}
    	}
    	if ($total_page>=2 && $page != $total_page)		
    	{
 		$new_page = $page+1;	
-		echo "<li> <a href='notice_list.php?page=$new_page'>다음 ▶</a> </li>";
+		echo "<li> <a href='notice.php?page=$new_page'>다음 ▶</a> </li>";
 	}
 	else 
 		echo "<li>&nbsp;</li>";
 ?>
 			</ul> <!-- page -->	    	
 			<ul class="buttons">
-				<li><button onclick="location.href='notice_list.php'">목록</button></li>
+				<li><button onclick="location.href='notice.php'">목록</button></li>
 				<li>
 <?php 
     if($userlevel==1) {

@@ -33,21 +33,23 @@
             <button>로그인/계정 </button>
             <button>컨텐츠 </button>
         </div>             -->
-
-
-
-
-
-
 <?php
 	if (isset($_GET["page"]))
 		$page = $_GET["page"];
 	else
 		$page = 1;
+	
+	
+	
+
 
 	// $con = mysqli_connect("localhost", "user1", "12345", "sample");
 	$sql = "select * from faq_board order by faq_num desc";
 	$result = mysqli_query($con, $sql);
+	if (!$result) {
+		echo "<script>alert()</script>";
+		die('Error: ' . mysqli_error($con));
+	  }
 	$total_record = mysqli_num_rows($result); // 전체 글 수
 
 	$scale = 10;
@@ -74,11 +76,13 @@
 	//   $name        = $row["faq_hit"];
 	  $subject     = $row["faq_contents"];
       $regist_day  = $row["faq_regtime"];
-      $hit         = $row["faq_hit"];
+	  $hit         = $row["faq_hit"];
+	//   echo "<script>alert($hit)</script>";
+
 ?>
 				<li>
 					<span class="col1"><?=$number?></span>
-					<span class="col2"><a href="fnq_view.php?num=<?=$num?>&page=<?=$page?>"><?=$id?></a></span>
+					<span class="col2"><a href="fnq_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$hit?>"><?=$id?></a></span>
 					<span class="col3">관리자</span>
 					<span class="col5"><?=$regist_day?></span>
 					<span class="col6"><?=$hit?></span>
@@ -125,7 +129,7 @@
 				<li><button onclick="location.href='fnq_main.php'">목록</button></li>
 				<li>
 <?php 
-    if($userlevel==1) {
+    if($user_nickname=='admin') {
 ?>
 					<button onclick="location.href='fnq_form.php'">글쓰기</button>
 <?php

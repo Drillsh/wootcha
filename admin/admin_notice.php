@@ -198,7 +198,7 @@
                                                         <input type="hidden" name="no[]" value="<?= $num ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
                                                         <!-- 절대경로 설정 -->
-                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/notice/notice_view.php?num=<?=$num?>&page=<?=$page?>"><?=$title?><span class="col2 left-align"><?= $mv_name ?></span></a> 
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/notice/notice_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $mv_name ?></span></a> 
                                                         <!-- 왜 안 될까???? -->
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>

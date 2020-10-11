@@ -12,13 +12,13 @@ $username = $_SESSION['user_nickname'];
 //$usernick = $_SESSION['usernick'];
 
 if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
-    $content = trim($_POST["qna"]);
-    $subject = trim($_POST["qna_title"]);
+    $content = trim($_POST["content"]);
+    $subject = trim($_POST["subject"]);
     if(empty($content)||empty($subject)){
       alert_back('1. 내용이나제목입력요망!');
     }
-    $subject = test_input($_POST["qna_contents"]);
-    $content = test_input($_POST["qna_title"]);
+    $subject = test_input($_POST["content"]);
+    $content = test_input($_POST["subject"]);
     $userid = test_input($userid);
     $hit = 0;
     $is_html=(!isset($_POST["is_html"]))?('n'):('y');

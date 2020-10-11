@@ -197,7 +197,7 @@
                                                     <form method="post" action="#">
                                                         <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
-                                                        <span class="col2 left-align"><?= $mv_name ?></span>
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/view.php?num=<?=$no?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $mv_name ?></span></a>                               
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
                                                         <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>

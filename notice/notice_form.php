@@ -54,7 +54,7 @@
 	    	    </ul>
 	    	<ul class="buttons">
 				<li><button type="button" onclick="check_input()">완료</button></li>
-				<li><button type="button" onclick="location.href='notice_list.php'">목록</button></li>
+				<li><button type="button" onclick="location.href='notice.php'">목록</button></li>
 			</ul>
 	    </form>
 	</div> <!-- board_box -->

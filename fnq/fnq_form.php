@@ -39,7 +39,7 @@
 	    	 <ul id="board_form">
 				<li>
 					<span class="col1">이름 : </span>
-					<span class="col2"><?=$username?></span>
+					<span class="col2">관리자</span>
 				</li>		
 	    		<li>
 	    			<span class="col1">제목 : </span>
@@ -54,7 +54,7 @@
 	    	    </ul>
 	    	<ul class="buttons">
 				<li><button type="button" onclick="check_input()">완료</button></li>
-				<li><button type="button" onclick="location.href='fnq_list.php'">목록</button></li>
+				<li><button type="button" onclick="location.href='fnq_main.php'">목록</button></li>
 			</ul>
 	    </form>
 	</div> <!-- board_box -->

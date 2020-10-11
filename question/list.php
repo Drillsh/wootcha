@@ -23,7 +23,8 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="search"){
   $q_search = mysqli_real_escape_string($con, $search);
   $sql="SELECT * from `qna_board` where $find like '%$q_search%' order by qna_num desc;";
 }else{
-  $sql="SELECT * from `qna_board` order by qna_num desc";
+  // $sql="SELECT * from `qna_board` order by qna_num desc";
+  $sql = "SElECT * from `qna_board` a join `user` b on a.user_num=b.user_num order by qna_num desc";
 }
 
 $result=mysqli_query($con,$sql);
@@ -113,7 +114,7 @@ $number = $total_record - $start;
             $row=mysqli_fetch_array($result);
             $num=$row['qna_num'];
             $id=$row['qna_title'];
-            $name=$row['user_num'];
+            $name=$row['user_nickname'];
             // $nick=$row['nick'];
             $hit=$row['qna_hit'];
             //등록일자를 date에 저장하는데 0번째숫자부터 10자리의 숫자를 저장한다

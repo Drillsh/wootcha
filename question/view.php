@@ -40,7 +40,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
     }
 
     // $sql="SELECT * from `qna_board` where qna_num ='$q_num';";
-    $sql = "SElECT * from `qna_board` a join `user` b on a.user_num=b.user_num";
+    $sql = "SElECT * from `qna_board` a join `user` b on a.user_num=b.user_num where qna_num=$q_num";
     $result = mysqli_query($con,$sql);
     if (!$result) {
       echo "<script>alert()</script>";
@@ -51,7 +51,8 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
     $id=$row['user_nickname'];
     // $name=$row['name'];
     // $nick=$row['nick'];
-    $hit=$row['qna_hit'];
+    $hit=$row['qna_hit']; 
+    echo "<script>alert($hit)</script>";
     $subject= htmlspecialchars($row['qna_title']);
     $content= htmlspecialchars($row['qna_contents']);
     $subject=str_replace("\n", "<br>",$subject);
@@ -179,7 +180,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
 </div><!--end of ripple  -->
 
 <div id="write_button">
-    <a href="./list.php?page=<?=$page?>"><img src="./img/list.png"></a>
+    <a href="./question_main.php?page=<?=$page?>"><img src="./img/list.png"></a>
 
   <?php
     //관리자이거나 해당된 작성자일경우 수정, 삭제가 가능하도록 설정
