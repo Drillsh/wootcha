@@ -26,13 +26,13 @@
             <header class="section_header">
                 <!-- mode에 따라 제목 변경 -->
                 <?php
-                if($_GET['mode'] == 'wish') $title = '내가 보고 싶은 영화';
-                elseif($_GET['mode'] == 'like') $title = '좋아요';
+                if($_GET['mode'] == 'wish') $title = '보고 싶은 영화';
+                elseif($_GET['mode'] == 'like') $title = '좋아요 누른 영화';
                 // ***************************************************
                 // 나중에 url에 get방식으로 이상한 값 넘겨왔을 때 방지
                 // ***************************************************
                 ?>
-                <span class="title_sub">마이 페이지 &nbsp&nbsp > &nbsp&nbsp <?=$title?></span><br><br>
+                <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp <?=$title?></span><br><br>
                 <span class="title_main"><?=$title?></span>
             </header>
             <div class="section_container">
@@ -113,42 +113,35 @@
                     // $user_num = $row['user_num'];
 
                     // 좋아하는 영화 리스트
-                    $result = select_data($con, "select_my_favorite_movie", $user_num);
-                    
-                    while($row_review = mysqli_fetch_array($result)){
-                        $fav_num = $row_review['fav_num'];
-                        $mv_num = $row_review['mv_num'];
-                        $mv_title = $row_review['mv_title'];
-                        $mv_img_path = $row_review['mv_img_path'];
-                ?>   
-                    <li class='list_item'>
-                        <a href='#'>
-                            <img src='<?=$mv_img_path?>' alt="">
-                            <h3><?=$mv_title?></h3>
-                        </a>
-                    </li> 
-                <?php
-                    // while문 끝
+                    $result = select_data($con, "select_my_favorite_movie", $userpage_user_num);
+                    if($result->num_rows >= 1){
+                        while($row_review = mysqli_fetch_array($result)){
+                            $fav_num = $row_review['fav_num'];
+                            $mv_num = $row_review['mv_num'];
+                            $mv_title = $row_review['mv_title'];
+                            $mv_img_path = $row_review['mv_img_path'];
+                    ?>
+                        <li class='list_item'>
+                            <a href='#'>
+                                <img src='<?=$mv_img_path?>' alt="">
+                                <h3><?=$mv_title?></h3>
+                            </a>
+                        </li>
+                    <?php
+                        // while문 끝
+                        }
+                    }else{
+                    ?>       
+                        
+                            <div>좋아요 표시한 영화가 없습니다.</div>
+                        
+                    <?php
                     }
-                ?>
-                    
-
-                    
-
-
-
-
-
+                    ?>   
                 <?php
                 // mode로 like 와 wish 분기용 if문
                 }
                 ?>
-
-
-
-
-
-
                 </ul>
             </div><!-- section_container -->
         </section><!-- section -->

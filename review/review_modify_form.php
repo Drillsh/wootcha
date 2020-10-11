@@ -77,7 +77,7 @@
                             <input type="text" class="review_short" name="review_short" value="<?=$review_short?>">
                         <div id="long_view_box">
                             <h3>장 문 평</h3>
-                            <textarea name="review_long" id="review_long" cols="30" rows="10" value="<?=$review_long?>" class="review_long" wrap="physical"></textarea>
+                            <textarea name="review_long" id="review_long" cols="30" rows="10" class="review_long"><?=$review_long?></textarea>
                         </div>
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <input type="submit" value="수정하기">

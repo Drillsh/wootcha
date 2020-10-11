@@ -64,37 +64,6 @@
                 <img src="./img/profile_image< ?=$i?>.png" alt="프로필 이미지">
             </div>  -->
         </div>
-        <!-- <hr width="99%" color="#e2e2e2" noshade/> -->
-        
-        <!-- css 수정량을 줄이기 우해 폼 양식을 그대로 사용 -->
-        <!-- <form>
-         <table>
-            
-            <tr><td>
-                    <input type="text" id="modify_email" name="modify_email" disabled="disabled" placeholder="이메일 : <?=$user_mail?>" onblur="checkEmail()">
-            </td></tr>
-            <tr id="hidden_bar_email"><td><p id="modify_email_ck"></p></td></tr>
-
-            
-            <tr><td>
-                    <input type="text" id="modify_name" name="modify_name" placeholder="성함 : <?=$user_name?>" disabled="disabled" onblur="checkName()">
-            </td></tr>
-            <tr id="hidden_bar_name"><td><p id="modify_name_ck"></p></td></tr>
-            
-            
-            <tr><td>
-                    <input type="date" id="modify_birth_day" name="modify_birth_day" value="<?=$user_age?>" disabled="disabled" required aria-required="true">
-                    
-            </td></tr>
-            <tr><td><p id="modify_birth_day_ck"></p></td></tr>
-            
-            
-            <tr><td>
-                    <input type="text" id="modify_nickname" name="modify_nickname" placeholder="닉네임 : <?=$user_nickname?>" disabled="disabled" onblur="checkNickName()">
-            </td></tr>
-            <tr id="hidden_bar_nickname"><td><p id="modify_nickname_ck"></p></td></tr>
-        </table>
-    </form> -->
     
         <!-- ***************** -->
         <!-- 수정하는 데이터 -->
@@ -119,20 +88,6 @@
                     <input type="tel" id="modify_phone" name="modify_phone" placeholder="휴대전화 : <?=$user_phone?>" onblur="checkPhone()">
             </td></tr>
             <tr id="hidden_bar_phone"><td><p id="modify_phone_ck"></p></td></tr>
-            
-            <!-- 성별 -->
-            <!-- <tr><td>  
-            < ?php
-                if ($user_gender == 0) {
-                   echo "<input type='radio' id='user_radio_male' name='user_gender' value='0' checked>
-                   <label for='user_radio_male'>male</label>";
-                }elseif($user_gender == 1){
-                   echo "<input type='radio' id='user_radio_female' name='user_gender' value='1' checked>
-                   <label for='user_radio_female'>female</label>";
-                }
-            ?>      
-            </td></tr>
-            <tr><td><p></p></td></tr> -->
 
             <!-- 아바타 -->
             <?php

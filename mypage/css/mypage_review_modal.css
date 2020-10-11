@@ -65,13 +65,13 @@
     
     
     /* profile image  및 닉네임*/
-    .modal_container_review .comments_container .profile_box{display:inline-block; margin-right:15px; width:100px;text-align:center;}
+    .modal_container_review .comments_container .profile_box{display:inline-block; margin-right:15px; width:80px;text-align:center;}
     .modal_container_review .comments_container .profile_box p{font-size:13px; }
     .modal_container_review .comments_container .profile_box a{text-decoration:none;}
     
     /* 댓글 내용 */
     .modal_container_review .comments_container .comment_content p{word-break:break-all;}
-    .modal_container_review .comments_container .comment_content {display:inline-block; width:250px; vertical-align:middle;
+    .modal_container_review .comments_container .comment_content {display:inline-block; width:220px; vertical-align:middle;
         position:absolute; top: 50%; left: 60%; transform:translate(-50%, -50%);}
 
     /* 댓글 작성 창 */
