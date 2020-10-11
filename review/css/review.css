@@ -1,9 +1,9 @@
 
 /* section */
-section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: lightslategrey;}
+section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: white;}
 
 /* section 안에 header 제목 부분 */
-.section_header { margin: 50px; background-color: gray;}
+.section_header { margin: 50px; background-color: white;}
 .section_header .title_sub{color: black;}
 .section_header .title_main{color: black; font-size: x-large;}
 

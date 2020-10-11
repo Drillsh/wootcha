@@ -14,12 +14,12 @@
                 break;
 
             case 'select_my_review_reply':
-                $sql = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img 
+                $sql = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img, U.user_num  
                 from review_reply RR
                 inner join user U
                 on RR.user_num = U.user_num
                 where RR.review_num = $var 
-                order by RR.review_reply_regtime DESC;";
+                order by RR.review_reply_regtime ASC;";
                 break;
 
             case 'select_my_favorite_movie':

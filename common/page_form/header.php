@@ -63,7 +63,7 @@ else $user_img = "";
         if($user_img != ""){
     ?>
         <div class="search_profile">
-            <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/mypage/mypage_index.php">          
+            <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/mypage/mypage_index.php?userpage_user_num=<?=$user_num?>">          
             <img src="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/user/img/<?=$user_img?>"></a>
         </div>
     <?php

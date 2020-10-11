@@ -47,7 +47,8 @@
                 exit;
             }
             // 영화 상세 페이지로 이동하는 문장 필요
-            
+            // $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$user_num";
+            // echo "<script>alert('리뷰 삭제를 성공했습니다.');location.href = '$url';</script>";
         break;
         
         // ****************
@@ -86,7 +87,8 @@
                         history.go(-1);</script>";
                         exit;
             }
-            echo "<script>history.go(-2);</script>";
+            $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$user_num";
+            echo "<script>alert('리뷰 수정을 성공했습니다.');location.href = '$url';</script>";
             break;
 
         // ****************
@@ -107,7 +109,33 @@
                         history.go(-1);</script>";
                         exit;
             }
-            echo "<script>alert('리뷰 삭제를 성공했습니다.');history.go(-2);</script>";
+            $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$user_num";
+            echo "<script>alert('리뷰 삭제를 성공했습니다.');location.href = '$url';</script>";
+            break;
+        
+        // ****************
+        // insert_reply
+        // ****************
+        case 'insert_reply':
+            // 리뷰 pk
+            $review_num = $_POST['review_num'];
+            $userpage_user_num = $_POST['userpage_user_num'];
+            $review_reply_contents = $_POST['review_reply_contents'];
+            $review_reply_regtime = date("Y-m-d (H:i)");
+
+            $query = "insert into review_reply ";
+            $query .= " values(null, $review_num, $user_num, '$review_reply_contents', '$review_reply_regtime');";
+
+            $result = mysqli_query($con, $query);
+            if($result == false){
+                $error = mysqli_error($con);
+                mysqli_close($con);
+                echo "<script>alert('댓글 작성을 실패했습니다. : $error');
+                        history.go(-1);</script>";
+                        exit;
+            }
+            $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$userpage_user_num";
+            echo "<script>location.href = '$url';</script>";
             break;
         
         default:
