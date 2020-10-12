@@ -281,6 +281,7 @@ onclick="location.href='../review/review_insert_form.php'"><img src="./img/revie
                 $review_rating = $row["review_rating"];
                 $review_like = $row["review_like"];
                 $review_num = $row['review_num'];
+                $review_regtime = $row['review_regtime'];
 
                 // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
                 $sql = "select like_state from review_like where review_num = $review_num and user_num = $user_num;";
@@ -416,7 +417,7 @@ onclick="location.href='../review/review_insert_form.php'"><img src="./img/revie
                         <div class="comments_container">
                             <div class="comments_list">
                                 <?php
-                                    while($row_reply = mysqli_fetch_array($result_review_and_reply)){
+                                    while($row_reply = mysqli_fetch_array($res)){
                                         $review_reply_num = $row_reply['review_reply_num'];
                                         $review_reply_contents = $row_reply['review_reply_contents'];
                                         $review_reply_regtime = $row_reply['review_reply_regtime'];
@@ -460,7 +461,7 @@ onclick="location.href='../review/review_insert_form.php'"><img src="./img/revie
                             </form>
                         </div>
                         <!-- 닫기 버튼 -->
-                        <span class="modal_close_btn_review">&times;</span>
+                        <span class="modal_close_btn_review" onclick="console.log(1)">&times;</span>
                     </div><!-- modal_content_review -->
                 </div><!-- modal_containder -->
             </div>

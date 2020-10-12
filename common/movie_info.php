@@ -53,8 +53,8 @@ class Movie_info
             $this->running_time = $this->trim_array($data['movie_info']['running_time']);
             $this->release_date = str_replace(" ", "",$data['movie_info']['release_date']);    //공백제거
 
-            $sql = "INSERT INTO `movie`(mv_num, mv_title, mv_img_path, mv_genre, mv_nation, mv_release_date, mv_running_time) 
-                VALUES({$this->movie_code}, '{$this->title}', '{$this->poster_img}', '{$this->genre}', '{$this->nation}', '{$this->release_date}', '{$this->running_time}');";
+            $sql = "INSERT INTO `movie`(mv_num, mv_title, mv_rating, mv_img_path, mv_genre, mv_nation, mv_release_date, mv_running_time) 
+                VALUES({$this->movie_code}, '{$this->title}', 0.0, '{$this->poster_img}', '{$this->genre}', '{$this->nation}', '{$this->release_date}', '{$this->running_time}');";
             mysqli_query($con, $sql) or die("Movie Insert Error: " . mysqli_error($con));
         }
 

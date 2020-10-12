@@ -3,5 +3,7 @@
     float: left; text-align: center; background-color: white; box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;}
 
 .list_item .img_box{width: 120px; height: 120px; margin: 20px auto; border-radius: 50%; overflow: hidden;}
-.list_item img{width: 100%; height: 250px;}
+.list_item img{width: 100%; height: 100%; object-fit: cover;}
 .list_item a{text-decoration: none;}
+
+#row_count{display: inline-block;}

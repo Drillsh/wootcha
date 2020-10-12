@@ -18,10 +18,8 @@
                         history.go(-1);</script>";
                         exit;
                     }
-                    // $_GET['mv_title'];
-                    // $_GET['mv_num'];
-                    $mv_title = "인셉션";
-                    $mv_num = 10;
+                    $mv_title = $_GET['mv_title'];
+                    $mv_num = $_GET['mv_num'];
             ?>
 
         <!-- 섹션 -->
