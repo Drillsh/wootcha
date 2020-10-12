@@ -7,9 +7,18 @@
         <link rel="stylesheet" type="text/css" href="./css/mypage.css?after">
         <link rel="stylesheet" type="text/css" href="./css/mypage_comment_list_item.css?after">
         
+        <!-- 무한 스크롤 -->
+        <script src="http://code.jquery.com/jquery-1.7.js"></script>
+        <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/mypage/js/infi.js"></script>
+
         <!-- 모달  -->
         <link rel="stylesheet" type="text/css" href="./css/mypage_review_modal.css?after">
         <script src="./js/mypage_review_modal.js"></script>
+
+        <!-- db -->
+        <?php include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php"; ?>
+
+          
     </head>
     <body>
         <!-- 헤더 -->
@@ -24,14 +33,34 @@
 
         <!-- 섹션 -->
         <section>
+            <?php
+                $sql = "select * from review where user_num = $write_review_user_num;";
+                $result_total_review_count = mysqli_query($con, $sql);
+            ?>
             <header class="section_header">
                 <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp <?=$title_main?> 작성한 리뷰</span><br><br>
-                <span class="title_main"><?=$title_main?> 작성한 리뷰</span>
+                <span class="title_main"><?=$title_main?> 작성한 리뷰 <h5 id="review_total_count"> <?=$result_total_review_count->num_rows?> 개</h5></span>
             </header>
+            <!-- 키워드 테스트 -->
+            <link rel="stylesheet" href="/wootcha/mypage/css/jqcloud.min.css">
+            <script src="/wootcha/mypage/js/jqcloud.min.js" charset="utf-8"></script>
+            <div id="content_mid" class="content">
+                <h2 class="txt_title">장단점 키워드</h2>
+                <div>
+                    <div id="good_key"></div><div id="bad_key"></div>
+                    <div id="not_found_keyword"></div>
+                </div>
+            </div>
+
+
+
+
+
+
             <div class="section_container">
-                
+            <input type="hidden" value="<?=$userpage_user_num?>" id="userpage_user_num">
+            <input type="hidden" value="" id="review_total_count">
                 <?php
-                // $user_num = 5;
                     // pk로 review 리스트 검색함
                     $result = select_data($con, "select_my_review", $write_review_user_num);
                     $row_num = $result->num_rows;
@@ -281,6 +310,8 @@
             ?>
                 
             </div><!-- section_container -->
+            <div id="loading_box"><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt=""></div>
+            <a href="#" id="btn_top"><img src="../common/img/page_up.png" alt=""></a>
         </section><!-- section -->
         <!-- 푸터 -->
         <footer>

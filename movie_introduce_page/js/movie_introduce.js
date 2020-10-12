@@ -1,18 +1,14 @@
-    function good_click() {
+    var cnt = 1;
     
-    $(document).ready(function(){
-            
- 
-            /*img1을 클릭했을 때 img2를 보여줌*/
-            $("#favorite_movie").click(function(){
-                $("#favorite_movie").hide();
-                $("#img2").show();
-            });
- 
-            /*img2를 클릭했을 때 img1을 보여줌*/
-            $("#img2").click(function(){
-                $("#favorite_movie").show();
-                $("#img2").hide();
-            });
-        });
-};
+    function imgToggle() {
+    var img1 = document.getElementById("img1");
+    var img= document.getElementById("img2");
+    if(cnt%2==1){
+        img1.src="./img/good_after.png";
+        img2.src="./img/good_before.png";
+    } else {
+        img1.src="./img/good_before.png";
+        img2.src="./img/good_after.png";
+    }
+cnt++;
+    }
