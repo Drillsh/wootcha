@@ -11,7 +11,7 @@
                 }
 
                 // 추후 따로 모아서 임포트
-//                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";
+                //                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";
 
                 //검색어 있을때
                 if ($search != "") {
@@ -54,7 +54,8 @@
 
                     <!--정렬 선택 박스-->
                     <div class="follow_select">
-                        <select name="follow_list_select_mode" id="follow_list_select_mode" onchange="selectOption('<?=$search;?>', '<?=$country;?>', '<?=$genre;?>');">
+                        <select name="follow_list_select_mode" id="follow_list_select_mode"
+                                onchange="selectOption('<?= $search; ?>', '<?= $country; ?>', '<?= $genre; ?>');">
                             <option value="default" selected>정렬/순서 선택</option>
                             <option value="naver_star">네이버 별점순</option>
                             <option value="wootcha_star">웃챠 별점순</option>
@@ -84,28 +85,44 @@
 
                     // 영화 정보 가져오기
                     $item = $result[$i]; //인덱스
+
                     $title = $item['title']; // 영화 제목
                     $subTitle = $item["subtitle"]; // 부제
                     $small_poster_img = $item["image"]; // 포스터
                     $naver_star = $item["userRating"]; // 네이버 평점
                     $naver_star = sprintf('%0.1f', $naver_star);
                     $naverLink = $item["link"];   //네이버 영화 링크
+                    $movie_code = Movie_info::explode_code($naverLink);
 
-                    $review_count = 0; // 리뷰 수
-                    $story_count = 0; //스토리 수
+                    // 리뷰수
+                    $sql = "select count(mv_num) as `count` from review where mv_num = {$movie_code};";
+                    $res = mysqli_query($con, $sql);
+                    $row = mysqli_fetch_array($res);
+
+                    $review_count = $row['count']; // 리뷰 수
+
+                    $sql = "select mv_num, count(mv_num) as count from fav_movie where mv_num = {$movie_code} group by mv_num";
+                    $res = mysqli_query($con, $sql);
+                    $row = mysqli_fetch_array($res);
+
+                    if ($row['count']) {
+                        $like_count = $row['count'];              // 좋아요 수
+                    } else {
+                        $like_count = 0;
+                    }
                     ?>
 
                     <li>
                         <div class="follow_list_column">
 
-                            <!--json으로 영화 데이터 보냄-->
-                            <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?=urlencode(json_encode($item))?>">
+                            <!--json으로 영화 데이터 보냄 => 영화 상세페이지 -->
+                            <a href="/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?= urlencode(json_encode($item)) ?>">
                                 <div class="follow_list_column_img">
                                     <?php
                                     if ($small_poster_img == "") {
                                         ?>
                                         <!--엑박 방지 디폴트 이미지-->
-                                        <img src=<?= $small_poster_img ?>>
+                                        <img src="img/defualt_poster.jpg">
                                         <?php
                                     } else {
                                         ?>
@@ -116,78 +133,71 @@
                                 </div>
 
                                 <div class="follow_list_column_text">
-                                    <h1 id="follow_text_academy"><?= $title ?>
+                                    <h1 id="follow_text_movie"><?= $title ?>
                             </a>
 
                             </h1>
                             <p id="follow_text_district"><?= $subTitle ?></p>
 
                             <div class="follow_list_column_review">
-                                <a href="/eduplanet/academy/review.php?no=<?= $item ?>"><span id="academy_review_span">학원리뷰 <span
-                                                id="academy_review_num"><?= $review_count ?></span></span></a>
-                                <a href="/eduplanet/academy/acd_story.php?no=<?= $item ?>"><span id="academy_review_span">스토리 <span
-                                                id="academy_review_num"><?= $story_count ?></span></span></a>
-
+                                <span id="movie_review_span"> 웃챠 리뷰 <span
+                                            id="movie_review_num"><?= $review_count ?></span></span>
+                                <span id="movie_review_span"> 좋아요 <span id="movie_review_num"><?= $like_count ?></span></span>
                             </div>
                         </div>
 
                         <!-- 오른쪽 별점 & 삭제버튼 -->
                         <div class="follow_list_column_sub">
 
-                            <div class="follow_academy_heart">
-                                <span>학원 찜하기</span>
+                            <!--하트-->
+                            <div class="follow_movie_like">
                                 <?php
-                                //                                if ($gm_no) {
-                                //
-                                //
-                                //                                    $sql7 = "select * from follow where user_no = $gm_no and acd_no = $no ";
-                                //                                    $result7 = mysqli_query($con, $sql7);
-                                //                                    $row7 = mysqli_fetch_array($result7);
-                                //
-                                //
-                                //                                    if ($row7) {
-                                //                                        echo "
-                                //
-                                //                                              <a href='/eduplanet/acd_story/unfollow.php?no=$no'><button type='button' id='button_academy_heart_on'>like</button></a>
-                                //                                            ";
-                                //                                    } else {
-                                //                                        echo "
-                                //                                              <a href='/eduplanet/acd_story/follow.php?no=$no'><button type='button' id='button_academy_heart_off'>like</button></a>
-                                //                                              ";
-                                //                                    }
-                                //
-                                //                                    ?>
+//                                if ($user_num) {
+//
+//                                    $sql7 = "select * from fav_movie where user_no = $user_num;";
+//                                    $result7 = mysqli_query($con, $sql7);
+//                                    $row7 = mysqli_fetch_array($result7);
+//
+//                                    if ($row7) {
+//                                        echo "<a href='/eduplanet/acd_story/unfollow.php?no=$no'><button type='button' id='button_academy_heart_on'>like</button></a>";
+//                                    } else {
+//                                        echo "<a href='/eduplanet/acd_story/follow.php?no=$no'><button type='button' id='button_academy_heart_off'>like</button></a>";
+//                                    }
+                                    ?>
 
-                                <!--                                    --><?php
-                                //                                } else {
-                                //                                    ?>
-                                <!---->
-                                <!---->
-                                <a href="javascript:alert('일반회원만 이용 가능합니다.')">
-                                    <button type="button" id="button_academy_heart_off">like</button>
-                                </a>
-                                <!---->
-                                <!--                                    --><?php
-                                //                                }
-                                //                                ?>
+                                    <?php
+//                                } else {
+//                                    ?>
+<!--                                    <a href="javascript:alert('일반회원만 이용 가능합니다.')">-->
+<!--                                        <button type="button" id="button_movie_like_off">like</button>-->
+<!--                                    </a>-->
+<!--                                    --><?php
+//                                }
+                                ?>
                             </div>
 
-                            <div class="follow_academy_star_wrap">
-
-                                <div class="follow_academy_star">
+                            <div class="follow_movie_star_wrap">
+                                <div class="startRadio">
                                     <?php
-                                    // 총 만족도 평균에 따라 별 보여주기
-                                    for ($j = 1; $j <= 5; $j++) {
+                                    $find_rating = 0.5;
 
-                                        if ($j <= round($naver_star)) {
-                                            echo "<img class='acd_star_class' src='/wootcha/common/img/yellow_star.png' alt='follow_academy_star'>";
+                                    while ($find_rating <= 5) {
+                                        // 반복문으로 rating bar 생성 및 checked 설정
+                                        if ($find_rating <= ($naver_star / 2)) {
+                                            $rating_checked = "checked";
                                         } else {
-                                            echo "<img class='acd_star_class' src='/wootcha/common/img/yellow_star_empty.png' alt='follow_academy_star'>";
+                                            $rating_checked = "";
                                         }
+                                        echo "
+                                                <label class='startRadio__box'>
+                                                    <input type='radio' name='review_rating_$i' value='$find_rating' $rating_checked disabled='disabled'>
+                                                    <span class='startRadio__img'><span class='blind'></span></span>
+                                                </label>";
+                                        $find_rating += 0.5;
                                     }
                                     ?>
                                 </div>
-                                <span class="follow_academy_star_num"><?= $naver_star ?></span>
+                                <div class="follow_movie_star_num"><?= $naver_star ?></div>
                             </div>
                         </div>
             </div>
@@ -205,19 +215,11 @@
             <div class="page_num_wrap">
                 <div class="page_num">
                     <ul class="page_num_ul">
-
                         <?php
-
                         $url = '/eduplanet/acd_list/view_all.php?';
 
                         if (isset($_GET["sort"])) {
                             $url .= "&sort=$selectSort";
-                        }
-                        if (isset($_GET["district"])) {
-                            $url .= "&district=$selectDis";
-                        }
-                        if (isset($_GET["search"])) {
-                            $url .= "&search=$search";
                         }
 
                         // 페이지 쪽수 표시 량 (5 페이지씩 표기)

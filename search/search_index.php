@@ -15,7 +15,6 @@
     <!--    DB, Header-->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
-
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php";?>
 </head>
 
@@ -23,6 +22,9 @@
 
     <header>
         <?php
+        // 세션
+        $user_num = $_SESSION['user_num'];
+
         // 검색 결과 받음
         if (isset($_GET['search_keyword'])) {
             $search = $_GET['search_keyword'];
@@ -51,7 +53,6 @@
         if (isset($_GET['selected_option'])) {
             $selected_option = $_GET["selected_option"];
         }
-
         ?>
 
     </header>
