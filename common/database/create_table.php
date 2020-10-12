@@ -33,9 +33,14 @@ function create_table($con, $table_name)
 
             case 'movie':
                 $sql = "CREATE TABLE `movie` (
-                         `mv_num`       INT            NOT NULL    AUTO_INCREMENT   COMMENT '영화 등록번호', 
-                         `mv_title`     VARCHAR(45)    NOT NULL                     COMMENT '제목', 
-                         `mv_img_path`  VARCHAR(100)   NULL        DEFAULT null     COMMENT '이미지 경로', 
+                         `mv_num`           INT            NOT NULL                     COMMENT '영화 등록번호', 
+                         `mv_title`         VARCHAR(45)    NOT NULL                     COMMENT '제목', 
+                         `mv_rating`        FLOAT(2,1)     NULL                         COMMENT '웃챠 영화 별점', 
+                         `mv_img_path`      VARCHAR(200)   NULL        DEFAULT null     COMMENT '이미지 경로', 
+                         `mv_genre`         VARCHAR(100)   NULL        DEFAULT null     COMMENT '장르', 
+                         `mv_nation`        VARCHAR(45)    NULL        DEFAULT null     COMMENT '국가', 
+                         `mv_release_date`  VARCHAR(45)    NULL        DEFAULT null     COMMENT '개봉일', 
+                         `mv_running_time`  VARCHAR(45)    NULL        DEFAULT null     COMMENT '러닝타임', 
                          PRIMARY KEY (mv_num)
                         ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8";
                 break;
@@ -54,8 +59,6 @@ function create_table($con, $table_name)
                          `review_num`      INT            NOT NULL    AUTO_INCREMENT COMMENT '리뷰 등록번호', 
                          `user_num`        INT            NOT NULL    COMMENT '작성자', 
                          `mv_num`          INT            NOT NULL    COMMENT '영화 등록번호', 
-                         `review_date`     VARCHAR(45)    NULL        DEFAULT null COMMENT '관람날짜', 
-                         `review_site`     VARCHAR(45)    NULL        DEFAULT null COMMENT '관람 장소', 
                          `review_rating`   FLOAT(2,1)     NOT NULL    COMMENT '별점', 
                          `review_short`    VARCHAR(45)    NOT NULL    COMMENT '한줄평', 
                          `review_long`     TEXT           NULL        DEFAULT null COMMENT '장문 리뷰', 
@@ -130,7 +133,14 @@ function create_table($con, $table_name)
                          PRIMARY KEY (faq_num)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
-
+                
+            case 'review_like' :
+                $sql = "CREATE TABLE `review_like` (
+                        `review_num`        int(11)         NOT NULL    COMMENT '좋아요를 누른 리뷰 등록번호',
+                        `user_num`          int(11)         NOT NULL    COMMENT '좋아요를 누른 유저 번호',
+                        `like_state`        int(11)         NOT NULL    COMMENT '좋아요 상태 0 또는 1'
+                      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                    break;
             default:
                 echo "<script>alert('해당 테이블명이 없습니다. 점검요청');</script>";
         }

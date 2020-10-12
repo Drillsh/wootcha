@@ -21,7 +21,7 @@
         <!-- 섹션 -->
         <section id="section">
             <header class="section_header">
-                <span class="title_sub">마이 페이지 &nbsp&nbsp > &nbsp&nbsp 팔로우</span><br><br>
+                <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp 팔로우</span><br><br>
                 <span class="title_main">팔로우</span>
             </header>
             <div class="section_container">

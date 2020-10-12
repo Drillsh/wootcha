@@ -48,10 +48,13 @@ $number = $total_record - $start;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QnA</title>
   <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/css/greet.css">
-
+  <script src="../js/vendor/jquery-1.10.2.min.js"></script>
+    <!-- script는 웹페이지에 스크립트를 추가한다 -->
+    <script src="../js/vendor/jquery-ui-1.10.3.custom.min.js?ver=3"></script>
+    <script src="../js/main.js"></script>
+  <title>QnA</title>
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/common_class_value.php"; ?>
 
 </head>
@@ -60,7 +63,6 @@ $number = $total_record - $start;
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
    <section>
-   <div class="my_info_content">
       <div class="right_content">
         
         <div id="wrap">
@@ -114,6 +116,7 @@ $number = $total_record - $start;
             $name=$row['user_nickname'];
             // $nick=$row['user_num'];
             $hit=$row['qna_hit'];
+
             //등록일자를 date에 저장하는데 0번째숫자부터 10자리의 숫자를 저장한다
             $date= substr($row['qna_regtime'],0,10);
             $subject=$row['qna_title'];
@@ -150,7 +153,7 @@ $number = $total_record - $start;
               if($page==$i){
                 echo "<b>&nbsp;$i&nbsp;</b>";
               }else{
-                echo "<a href='./list.php?page=$i'>&nbsp;$i&nbsp;</a>";
+                echo "<a href='./question_main.php?page=$i'>&nbsp;$i&nbsp;</a>";
               }
             }
           ?>
@@ -158,9 +161,9 @@ $number = $total_record - $start;
           <br><br><br><br><br><br><br>
         </div><!--end of page num -->
         <div id="button">
-          <a href="./list.php?page=<?=$page?>"> <img src="./img/list.png" alt="">&nbsp;</a>
+          <a href="./question_main.php?page=<?=$page?>"> <img src="./img/list.png" alt="">&nbsp;</a>
           <?php //세션에 아이디가 있으면 글쓰기 버튼을 보여줌.
-            if(!empty($_SESSION['userid'])){
+            if(!empty($_SESSION['user_nickname'])){
             echo '<a href="write_edit_form.php"><img src="./img/write.png"></a>';
             }
           ?>

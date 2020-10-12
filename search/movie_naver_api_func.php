@@ -19,6 +19,7 @@ json 기반으로 작성됐으며 뒤에 .json을 .xml로 변경해주면 코드
 */
 
 // 제목 검색으로 api에서 데이터 가져오는 함수
+// 동명 영화 다가져옴
 function search_movie_title($search, $country, $genre)
 {
 // 발급받은 클라이언트 아이디
@@ -80,10 +81,9 @@ function crawl_movie_detail($link)
     $movie_info['running_time'] = $items[2];
     $movie_info['release_date'] = $items[3];
 
-
 // 스토리
     foreach ($data->find('div.story_area') as $e) {
-        $movie_stroy = $e->innertext;
+        $movie_story = $e->innertext;
     }
 
 // 출연 배우
@@ -91,18 +91,12 @@ function crawl_movie_detail($link)
         $movie_actor[] = $e->innertext;
     }
 
-    // 유저 평점
-    foreach ($data->find('div.spc_score_area') as $e) {
-        $user_rating[] = $e->innertext;
-    }
-
-    $movie_detail = array('movie_info'=>$movie_info, 'movie_story'=>$movie_stroy, 
-    'movie_actor'=>$movie_actor, 'user_rating'=>$user_rating);
+    // 한곳에 담아 리턴
+    $movie_detail = array('movie_info'=>$movie_info, 'movie_story'=>$movie_stroy,
+    'movie_actor'=>$movie_actor);
 
     return $movie_detail;
 }
-
-
 ?>
 
 

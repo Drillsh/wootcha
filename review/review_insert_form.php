@@ -18,9 +18,10 @@
                         history.go(-1);</script>";
                         exit;
                     }
-                    // $_POST['mv_title'];
-                    $_mv_title = "post로 받아온 영화제목이 들어감";
-
+                    // $_GET['mv_title'];
+                    // $_GET['mv_num'];
+                    $mv_title = "인셉션";
+                    $mv_num = 10;
             ?>
 
         <!-- 섹션 -->
@@ -37,61 +38,38 @@
                         <div class="small_img_box"><img src="../user/img/<?=$user_img?>" alt="프로필 이미지"></div>
                         <!-- 닉네임 : 세션에서 값 옴 -->
                         <div><?=$user_nickname?></div>
-                        <!-- 평점 -->
-                        <div>
-                            <div class="startRadio">
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 1개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 1.5개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 2개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 2.5개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 3개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 3.5개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 4개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 4.5개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 5개</span></span>
-                                </label>
-                                <label class="startRadio__box">
-                                    <input type="radio" name="star" id="">
-                                    <span class="startRadio__img"><span class="blind">별 5.5개</span></span>
-                                </label>
-                            </div>
-                        </div>
+                        
                     </div>
                     <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                     <!-- 영화 제목 : post로 받아온 영화 제목-->
-                    <h3 class="title"><?=$_mv_title?></h3>
-                    <form action="#">
+                    <h3 class="title"><?=$mv_title?></h3>
+                    <form action="./review_d_m_i.php" method="post" id="review_insert_form">
+                        <input type="hidden" name="mode" value="insert">
+                        <input type="hidden" name="mv_num" value="<?=$mv_num?>">
+
+                        <!-- 평점 -->
+                        <div>
+                            <div class="startRadio">
+                            <?php
+                            $find_rating=0.5;
+                            while ($find_rating <= 5) {
+                                // 반복문으로 rating bar 생성
+                                echo "
+                                    <label class='startRadio__box'>
+                                        <input type='radio' name='review_rating' value='$find_rating'>
+                                        <span class='startRadio__img'><span class='blind'></span></span>
+                                    </label>";
+                                $find_rating += 0.5;
+                            }
+                            ?>
+                            </div>
+                        </div>
+
                         <h3>한 줄 평</h3>
-                            <input type="text" class="line_review">
+                            <input type="text" class="review_short" name="review_short">
                         <div id="long_view_box">
                             <h3>장 문 평</h3>
-                            <textarea name="" id="" cols="30" rows="10" class="long_review" wrap="physical"></textarea>
+                            <textarea name="review_long" id="review_long" cols="30" rows="10" class="review_long" wrap="physical"></textarea>
                         </div>
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <input type="submit" value="작성하기">

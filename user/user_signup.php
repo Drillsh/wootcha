@@ -25,9 +25,11 @@
     $result = mysqli_query($con, $query) or die($error = mysqli_error($con));
 
     if($result == true){
+        mysqli_close($con);
         echo "<script>alert('회원가입을 성공했습니다.');
         location.href = 'http://".$_SERVER['HTTP_HOST']."/wootcha/index.php';</script>";
     }else{
+        mysqli_close($con);
         echo "<script>alert('회원가입을 실패했습니다. : $error');
         history.go(-1);</script>"; 
     }
