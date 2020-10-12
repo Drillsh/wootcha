@@ -170,7 +170,7 @@ a {
     /* border: 1px solid black; */
 }
 
-#follow_text_academy {
+#follow_text_movie {
     font-size: 16px;
     font-weight: bold;
     padding-bottom: 2px;
@@ -182,15 +182,15 @@ a {
     font-size: 13px;
 }
 
-#academy_review_span {
+#movie_review_span {
    margin-right: 10px;
 }
 
-#academy_review_span:hover {
+#movie_review_span:hover {
     text-decoration: underline;
 }
 
-#academy_review_num {
+#movie_review_num {
     color: #2E89FF;
     font-weight: bold;
 }
@@ -228,13 +228,13 @@ a {
     height: 20px;
 }
 
-.follow_academy_heart {
+.follow_movie_like {
     float: right;
     font-size: 13px;
     font-weight: 300;
 }
 
-#button_academy_heart_on {
+#button_movie_like_on {
     float: right;
     margin-left: 5px;
     background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2680px;
@@ -246,12 +246,12 @@ a {
     cursor: pointer;
 }
 
-#button_academy_heart_on:hover {
+#button_movie_like_on:hover {
     background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2661px;
     width: 20px;
     height: 18px;
 }
-#button_academy_heart_off {
+#button_movie_like_off {
     float: right;
     margin-left: 5px;
     background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2661px;
@@ -263,7 +263,7 @@ a {
     cursor: pointer;
 }
 
-#button_academy_heart_off:hover {
+#button_movie_like_off:hover {
     background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2680px;
     width: 20px;
     height: 18px;
@@ -276,51 +276,51 @@ ul {
 /* right text */
 .follow_list_column_sub {
     /* border: 1px solid black; */
-    float: left;
-    width: 190px;
+    float: right;
+    width: 100px;
     height: 90px;
 }
 
-.follow_academy_star_wrap {
+/* 별점 */
+.follow_movie_star_wrap {
     /* border: 1px solid black; */
-    width: 200px;
+    width: 100px;
     height: 90px;
-    text-align: center;
+    text-align: right;
     box-sizing: border-box;
     padding-top: 35px;
 }
 
-.follow_academy_star_span {
+.follow_movie_star_span {
     display: block;
     position: relative;
     left: -8px;
     padding-bottom: 10px;
 }
 
-.follow_academy_star {
+.follow_movie_star {
     /* border: 1px solid black; */
     display: inline-block;
     padding-top: 20px;
     padding-left: 70px;
 }
 
-/* 별점이미지 */
-/* 별점바꿀때는 id로 식별하기 */
-.acd_star_class {
-    background: url('/eduplanet/img/common_sprite.png') no-repeat 0 -4039px;
-    width: 15px;
-	height: 14px;
-}
-
-.follow_academy_star_num {
+.follow_movie_star_num {
     font-size: 14px;
+    height: 50px;
     position: relative;
-    top: -1px;
-    left: 5px;
+    top: 15px;
     font-weight: bold;
 }
 
-
+.blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
+.startRadio { display: block; float: right; overflow: hidden; height: 20px;}
+.startRadio:after {content: "";  display: block; position: relative; z-index: 2; width: 100px; height: 20px;
+    background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
+.startRadio__box { position: relative; z-index: 1; float: left; width: 10px; height: 40px; cursor: pointer; }
+.startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
+.startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
+.startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }
 
 /* page */
 .page_num_wrap {

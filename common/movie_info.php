@@ -67,6 +67,8 @@ class Movie_info
         $this->synopsis = $data['movie_story'];
         $this->actor = $data['movie_actor'];
     }
+
+
     //DB에 저장돼있는지 체크
     public function check_exist_movie($movie_code, $con)
     {
@@ -84,12 +86,14 @@ class Movie_info
         return true;
     }
 
+
     // 영화 코드 따기
-    public function explode_code($link)
+    public static function explode_code($link)
     {
         list(, $code) = explode('code=', $link);
         return $code;
     }
+
 
     // 공백제거
     function trim_array($text)
@@ -103,7 +107,8 @@ class Movie_info
         return implode(",", $text);
     }
 
-// --------------제목 검색으로 api에서 데이터 가져오는 함수---------------
+
+//*************************** 제목 검색으로 api에서 데이터 가져오는 함수 ****************************************
     // 동명 영화 다가져옴
     public static function search_movie_title($search, $country, $genre)
     {
@@ -143,7 +148,7 @@ class Movie_info
     }
 
 
-    //------------ 영화 상세정보 가져오는 함수------------------
+    //*************************** 영화 상세정보 가져오는 함수 ****************************************
     public function crawl_movie_detail($link)
     {
         // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
