@@ -10,7 +10,7 @@
                 break;
 
             case 'select_my_review':
-                $sql = "select * from review R inner join movie M on R.mv_num = M.mv_num where R.user_num = $var;";
+                $sql = "select * from review R inner join movie M on R.mv_num = M.mv_num where R.user_num = $var order by R.review_num DESC limit 4;";
                 break;
 
             case 'select_my_review_reply':
@@ -19,7 +19,7 @@
                 inner join user U
                 on RR.user_num = U.user_num
                 where RR.review_num = $var 
-                order by RR.review_reply_regtime DESC;";
+                order by RR.review_reply_num DESC;";
                 break;
 
             case 'select_my_favorite_movie':

@@ -23,6 +23,16 @@
 
         <!-- 섹션 -->
         <section id="section">
+            
+
+
+
+
+
+
+
+
+
             <header class="section_header">
                 <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp 좋아요 누른 영화</span><br><br>
                 <span class="title_main">좋아요 누른 영화</span>
@@ -47,7 +57,7 @@
                             $mv_img_path = $row_review['mv_img_path'];
                     ?>
                         <li class='list_item'>
-                            <a href='#'>
+                            <a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?=urlencode(json_encode($item))?>'>
                                 <img src='<?=$mv_img_path?>' alt="">
                                 <h3><?=$mv_title?></h3>
                             </a>

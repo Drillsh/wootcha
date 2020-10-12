@@ -20,6 +20,6 @@
 /* section */
 section{width: 800px; min-height: 800px;  margin: 50px; float: left; background-color: white;}
 
-
+#review_total_count{display: inline-block;}
 /* footer */
 /* footer{position: absolute; bottom: 0px; background-color: midnightblue; float: left; width: 100%;} */

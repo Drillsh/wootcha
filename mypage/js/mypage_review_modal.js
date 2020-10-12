@@ -1,4 +1,5 @@
-window.onload = function(){
+
+function init_modal_script(){
      // Modal을 가져옵니다.
      var modal_container_review = document.getElementsByClassName("modal_container_review");
      // Modal을 띄우는 클래스 이름을 가져옵니다.
@@ -123,4 +124,23 @@ window.onload = function(){
        funcs[j]();
      }
 
+    //  페이지 상단으로 올리기
+    $(function() {
+      $(window).scroll(function() {
+          if ($(this).scrollTop() > 200) {
+              $('#btn_top').fadeIn();
+          } else {
+              $('#btn_top').fadeOut();
+          }
+      });
+      
+      $("#btn_top").click(function() {
+          $('html, body').animate({
+              scrollTop : 0
+          }, 400);
+          return false;
+      });
+  });
 }
+
+window.onload = init_modal_script();
