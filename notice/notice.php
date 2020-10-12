@@ -74,7 +74,7 @@
 				</li>	
 <?php
    	   $number++;
-   }
+   }//end of for
    mysqli_close($con);
 
 ?>

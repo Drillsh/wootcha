@@ -52,7 +52,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
     // $name=$row['name'];
     // $nick=$row['nick'];
     $hit=$row['qna_hit']; 
-    echo "<script>alert($hit)</script>";
+    // echo "<script>alert($hit)</script>";
     $subject= htmlspecialchars($row['qna_title']);
     $content= htmlspecialchars($row['qna_contents']);
     $subject=str_replace("\n", "<br>",$subject);

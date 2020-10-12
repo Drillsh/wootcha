@@ -64,8 +64,8 @@ $number = $total_record - $start;
     </header>
    <section>
       <div class="right_content">
-        
-        <div id="wrap">
+
+      <div id="wrap">
       <div id="content">
       <div id="col2">
          <div id="title">
@@ -141,45 +141,61 @@ $number = $total_record - $start;
             </div><!--end of list_item -->
             <div id="memo_content"><?=$memo_content?></div>
         <?php
-            $number--;
+            $number++;
          }//end of for
+         mysqli_close($con);
         ?>
+</ul>
+			<ul id="page_num"> 	
+<?php
+	if ($total_page>=2 && $page >= 2)	
+	{
+		$new_page = $page-1;
+		echo "<li><a href='question_main.php?page=$new_page'>◀ 이전</a> </li>";
+	}		
+	else 
+		echo "<li>&nbsp;</li>";
 
-        <div id="page_button">
-          <div id="page_num">이전◀ &nbsp;&nbsp;&nbsp;&nbsp;
-          <?php
-            // 페이지 숫자를 보여줌
-            for ($i=1; $i <= $total_page ; $i++) {
-              if($page==$i){
-                echo "<b>&nbsp;$i&nbsp;</b>";
-              }else{
-                echo "<a href='./question_main.php?page=$i'>&nbsp;$i&nbsp;</a>";
-              }
-            }
-          ?>
-          &nbsp;&nbsp;&nbsp;&nbsp;▶ 다음
-          <br><br><br><br><br><br><br>
-        </div><!--end of page num -->
-        <div id="button">
-          <a href="./question_main.php?page=<?=$page?>"> <img src="./img/list.png" alt="">&nbsp;</a>
-          <?php //세션에 아이디가 있으면 글쓰기 버튼을 보여줌.
-            if(!empty($_SESSION['user_nickname'])){
-            echo '<a href="write_edit_form.php"><img src="./img/write.png"></a>';
-            }
-          ?>
-        </div><!--end of button -->
-      </div><!--end of page button -->
+   	// 게시판 목록 하단에 페이지 링크 번호 출력
+   	for ($i=1; $i<=$total_page; $i++)
+   	{
+		if ($page == $i)     // 현재 페이지 번호 링크 안함
+		{
+			echo "<li><b> $i </b></li>";
+		}
+		else
+		{
+			echo "<li><a href='question_main.php?page=$i'> $i </a><li>";
+		}
+   	}
+   	if ($total_page>=2 && $page != $total_page)		
+   	{
+		$new_page = $page+1;	
+		echo "<li> <a href='question_main.php?page=$new_page'>다음 ▶</a> </li>";
+	}
+	else 
+		echo "<li>&nbsp;</li>";
+?>
+			</ul> <!-- page -->	    	
+			<ul class="buttons">
+				<li> <input type="image" src="./img/list.png" onclick="location.href='question_main.php'"></li>
+           
+				<li>
+        <!-- < ?php 
+         if($user_nickname=='admin') {
+        ?> -->
+          <input type="image" src="./img/write.png" onclick="location.href='write_edit_form.php'">
+					
+        <?php 
+	      
+        ?>
+				</li>
+			</ul>
       </div><!--end of list content -->
 
       </div><!--end of col2  -->
       </div><!--end of content -->
     </div><!--end of wrap  -->
-
-      
-
-
-
-
 
       </div><!-- end of right_content -->
 
