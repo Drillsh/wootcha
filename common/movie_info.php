@@ -33,7 +33,6 @@ class Movie_info
             $res = mysqli_query($con, $sql) or die("Select movie Error: " . mysqli_error($con));
             $row = mysqli_fetch_array($res);
 
-            $this->movie_code = $row['mv_num'];
             $this->title = $row['mv_title'];
             $this->poster_img = $row['mv_img_path'];
             $this->genre = $row['mv_genre'];
