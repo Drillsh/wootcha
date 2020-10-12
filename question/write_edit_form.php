@@ -2,18 +2,14 @@
 <html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
+    <link rel="stylesheet" type="text/css" href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/common/css/common.css">
     <link rel="stylesheet" type="text/css" href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/css/greet.css">
-    <script type="text/javascript" src="./js/member_form.js"></script>
-    <script src="../js/vendor/jquery-1.10.2.min.js"></script>
-    <!-- script는 웹페이지에 스크립트를 추가한다 -->
-    <script src="../js/vendor/jquery-ui-1.10.3.custom.min.js?ver=3"></script>
-    <script src="../js/main.js"></script>
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/css/help_center_page.css">
+    <title>QnA게시판</title>
   </head>
   <body>
   <header>
-  <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
+	  <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/common/page_form/header.php";?>
   </header> 
   <!-- <div id="main_img_bar">
 		<img src= "http://<?php echo $_SERVER['HTTP_HOST'];?>/myhome/img/main_img.png">
@@ -30,20 +26,20 @@ $mode="insert";
 $checked="";
 $subject="";
 $content="";
-$id= $_SESSION['user_mail'];
+$id= $_SESSION['user_nickname'];
 
 if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
     $mode="update";
     $num = test_input($_GET["num"]);
     $q_num = mysqli_real_escape_string($con, $num);
 
-    $sql="SELECT * from `user` where user_num ='$q_num';";
+    $sql="SELECT * from `qna_board` where qna_num ='$q_num';";
     $result = mysqli_query($con,$sql);
 
     if (!$result) alert_back("Error: " . mysqli_error($con));
 
     $row=mysqli_fetch_array($result);
-    $id=$row['user_name'];
+    $id=$row['id'];
     $subject= htmlspecialchars($row['subject']);
     $content= htmlspecialchars($row['content']);
     $subject=str_replace("\n", "<br>",$subject);
@@ -73,7 +69,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
               <div class="write_line"></div>
               <div id="write_row1">
                 <div class="col1">아이디</div>
-                <div class="col2"><?=$user_mail?></div>
+                <div class="col2"><?=$id?></div>
                 <div class="col3">
                   <input type="checkbox" name="is_html" value="y" <?=$checked?>>HTML 쓰기</div>
               </div><!--end of write_row1  -->
@@ -125,8 +121,5 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
       </div><!--end of col2  -->
       </div><!--end of content -->
     </div><!--end of wrap  -->
-    <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
-    </footer> 
   </body>
 </html>

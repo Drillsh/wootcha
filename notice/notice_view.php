@@ -75,7 +75,7 @@ echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
 	$subject    = $row["notice_file_name"];
 	$content    = $row["notice_contents"];
 	$hit          = $row["notice_hit"];
-    echo "<script>alert($hit)</script>";
+    // echo "<script>alert($hit)</script>";
 
 	$content = str_replace(" ", "&nbsp;", $content);
 	$content = str_replace("\n", "<br>", $content);
