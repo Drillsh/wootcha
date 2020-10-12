@@ -15,7 +15,7 @@ a:active { text-decoration:none; color: #222222; }
 
 /* 메인 <section> 태그 css */
 .css-xpk6f5-Main {padding-top: 54px; padding-bottom: unset;}
-.css-xpk6f5-Main {padding-top: 110px; padding-bottom: 56px; transition: padding-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;}
+.css-xpk6f5-Main {transition: padding-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;}
 
 /* 메인 <div> 태그 css */
 .css-7eleqt-Self {display: flex; flex-direction: column; min-height: calc(100vh - 54px);}

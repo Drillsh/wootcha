@@ -1,11 +1,9 @@
 /* ================= 총 리스트 ================= */
-.css-89vjyi-MainSection {margin-top: 86px;}
-.css-89vjyi-MainSection {margin-top: 80px;}
-.css-89vjyi-MainSection {min-height: calc(100vh - 343px); margin-top: 74px;}
-.css-89vjyi-MainSection {min-height: calc(100vh - 136px); margin-top: 74px;}
+.css-89vjyi-MainSection {padding: 6px;}
+/* .css-89vjyi-MainSection {min-height: calc(100vh - 343px);} */
 
 /* ================= 타이틀과 영화항목 리스트 ================= */
-.css-gxko42-StyledHomeListContainer {margin-bottom: 30px; margin-bottom: 20px;}
+.css-gxko42-StyledHomeListContainer {margin-bottom: 42px;}
 
 /* ================= 타이틀 ================= */
 .css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {margin: 0 3.5%;}
@@ -68,8 +66,8 @@
 .css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 33.3333%;}
 .css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 33.3333%; padding: 0px 5px; margin-bottom: 0px; margin-right: 10px;}
 .css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 16.6667%;}
-.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 20%;}
-.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {padding: 0px 6px !important;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 19.2%;}
+.css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {padding: 0px 7px !important;}
 .css-wvdjot-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover{box-shadow: 0px 0px 8px 5px #a7a6a6;}
 .css-106b4k6-Self {
   display: inline-block;
@@ -86,9 +84,9 @@
   text-decoration: none;
   width: 100%;
   background-color: transparent;
-  color: -webkit-link;
-  cursor: pointer;
-  text-decoration: underline;
+  /* color: -webkit-link; */
+  /* cursor: pointer;
+  text-decoration: underline; */
 }
 /* ================= 6층 영화 포스터 ================= */
 .css-wg9zzb-ContentPosterBlock {position: relative; width: 100%; height: 0; padding-bottom: 145.37037037037038%;}
@@ -107,6 +105,15 @@
   background: #f8f8f8;
   -webkit-transition: 300ms;
   transition: 300ms;
+}
+.css-1onlrbk-Img-LazyLoadingImg {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  object-fit: cover;
+  background: rgb(248, 248, 248);
+  transition: all 300ms ease 0s;
 }
 /* ================= 영화 포스터 랭크 ================= */
 .css-13ot87v-RankBadge {top: 6px; left: 6px; width: 28px; height: 28px; line-height: 27px;}
@@ -132,6 +139,7 @@
 
 /* ================= 6층 영화 설명 ================= */
 .css-dmreg0-ContentInfo {text-align: left; width: calc(100% - 10px); margin: 5px 10px 0 0;}
+
 /* ================= 영화설명_제목 ================= */
 .css-1teivyt-ContentTitle {
   color: #292a32;
@@ -250,7 +258,7 @@
   opacity: 0;
   transition: all 300ms ease 0s;
 }
-.css-gc1vu8-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 4 - 17px);}
+.css-gc1vu8-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
 .css-1o4i6uc-BackwardButton {
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
   box-sizing: border-box;
@@ -263,7 +271,7 @@
   transition: opacity 300ms ease 0s;
 }
 /* ================ 영화로비 오른쪽 방향버튼 ================= */
-.css-gc1vu8-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 4 - 17px);}
+.css-gc1vu8-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
 .css-kb0601-ForwardButton {
   display: flex;
   -webkit-box-pack: center;
@@ -296,6 +304,30 @@
 
 /* ================ 영화로비 오른쪽 방향버튼 img ================= */
 .css-kb0601-ForwardButton > img {opacity: 0.4; border-style: none;}
+
+
+
+
+/* ================ 장르별리스트 div 로비 ================= */
+.css-1pik52h-StyledHorizontalScrollOuterContainer {margin: 0px 60px;}
+.css-1pik52h-StyledHorizontalScrollOuterContainer {max-width: 1320px;}
+
+/* ================ 장르별리스트 div 1층 ================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
