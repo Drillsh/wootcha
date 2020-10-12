@@ -237,7 +237,7 @@ a {
 #button_movie_like_on {
     float: right;
     margin-left: 5px;
-    background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2680px;
+    background : url('../../common/img/common_sprite.png') no-repeat 0 -2680px;
     background-color: transparent;
     border: 1px solid transparent;
     width: 20px;
@@ -247,14 +247,14 @@ a {
 }
 
 #button_movie_like_on:hover {
-    background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2661px;
+    background : url('../../common/img/common_sprite.png') no-repeat 0 -2661px;
     width: 20px;
     height: 18px;
 }
 #button_movie_like_off {
     float: right;
     margin-left: 5px;
-    background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2661px;
+    background : url('../../common/img/common_sprite.png') no-repeat 0 -2661px;
     background-color: transparent;
     border: 1px solid transparent;
     width: 20px;
@@ -264,7 +264,7 @@ a {
 }
 
 #button_movie_like_off:hover {
-    background : url('/eduplanet/img/common_sprite.png') no-repeat 0 -2680px;
+    background : url('../../common/img/common_sprite.png') no-repeat 0 -2680px;
     width: 20px;
     height: 18px;
 }

@@ -23,7 +23,9 @@
     <header>
         <?php
         // 세션
-        $user_num = $_SESSION['user_num'];
+        if (isset($_SESSION['user_num'])) {
+            $user_num = $_SESSION['user_num'];
+        }
 
         // 검색 결과 받음
         if (isset($_GET['search_keyword'])) {

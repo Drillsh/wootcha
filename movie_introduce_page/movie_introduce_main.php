@@ -3,7 +3,8 @@ if (isset($_GET["item"])){
     $item = $_GET['item'];
     $item = json_decode($item,true);
 
-    $movie_info = new Movie_info($item, $con);
+    $movie_info = new Movie_info();
+    $movie_info->setMovieInfo($item, $con);
 
     $mv_code = $movie_info->movie_code;                 // 영화 코드
     $title = $movie_info->title;                        // 영화 제목
@@ -20,8 +21,6 @@ if (isset($_GET["item"])){
     $actor = $movie_info->actor;                        // 배우
     $synopsis = $movie_info->synopsis;                  // 시놉시스
 
-} else {
-    $item = "";
 }
 
 ?>
