@@ -33,32 +33,33 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
     $num = test_input($_GET["num"]);
     $q_num = mysqli_real_escape_string($con, $num);
 
-    $sql="SELECT * from `qna_board` where qna_num ='$q_num';";
+    // $sql="SELECT * from `qna_board` where qna_num ='$q_num';";
+    $sql="SELECT * from qna_board INNER JOIN `user` on qna_board.user_num = user.user_num where qna_board.qna_num=$q_num";
     $result = mysqli_query($con,$sql);
 
     if (!$result) alert_back("Error: " . mysqli_error($con));
 
     $row=mysqli_fetch_array($result);
-    $id=$row['id'];
-    $subject= htmlspecialchars($row['subject']);
-    $content= htmlspecialchars($row['content']);
+    $id=$row['user_nickname'];
+    $subject= htmlspecialchars($row['qna_title']);
+    $content= htmlspecialchars($row['qna_contents']);
     $subject=str_replace("\n", "<br>",$subject);
     $subject=str_replace(" ", "&nbsp;",$subject);
     $content=str_replace("\n", "<br>",$content);
     $content=str_replace(" ", "&nbsp;",$content);
     $file_name_0=$row['file_name_0'];
     $file_copied_0=$row['file_copied_0'];
-    $day=$row['regist_day'];
+    $day=$row['qna_regtime'];
     $is_html=$row['is_html'];
     $checked=($is_html=="y")? ("checked"):("");
-    $hit=$row['hit'];
+    $hit=$row['qna_hit'];
     mysqli_close($con);
 }
 ?>
 
   <div id="wrap">
        <div id="col2">
-         <div id="title"><h3>답변형 게시판 > 가입인사</h3></div>
+         <div id="title"><h3>답변형 게시판 > 글쓰기</h3></div>
          <div class="clear"></div>
          <div id="write_form_title"><img src="./img/write_form_title.gif"></div>
          <div class="clear"></div>
@@ -114,7 +115,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
 
             <div id="write_button">
               <input type="image" onclick='document.getElementById("del_file").disabled=false' src="./img/ok.png">&nbsp;
-              <a href="./list.php"><img src="./img/list.png"></a>
+              <a href="./question_main.php"><img src="./img/list.png"></a>
             </div><!--end of write_button-->
          </form>
 

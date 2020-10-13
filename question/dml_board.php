@@ -9,7 +9,7 @@ if(!isset($_SESSION['user_mail'])){
 
 $user_mail = $_SESSION['user_mail'];
 $usernick = $_SESSION['user_nickname'];
-
+$user_num =$_SESSION['user_num'];
 if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
     $content = trim($_POST["content"]);
     $subject = trim($_POST["subject"]);
@@ -83,7 +83,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
     // }
 
     //8 파일의 실제명과 저장되는 명을 삽입한다.
-    $sql="INSERT INTO `qna_board` VALUES (null, 111,'$q_subject','$q_content',111,'$regist_day',null,null,null);";
+    $sql="INSERT INTO `qna_board` VALUES (null, $user_num,'$q_subject','$q_content',$hit+1,'$regist_day',null,null,null);";
     $result = mysqli_query($con,$sql);
     if (!$result) {
         alert_back('Error:5 ' . mysqli_error($con));
@@ -105,57 +105,58 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
 
 
 
-    // }else if(isset($_GET["mode"])&&$_GET["mode"]=="delete"){
-    //     $num = test_input($_GET["num"]);
-    //     $q_num = mysqli_real_escape_string($con, $num);
+    }else if(isset($_GET["mode"])&&$_GET["mode"]=="delete"){
+        $num = test_input($_GET["num"]);
+        $q_num = mysqli_real_escape_string($con, $num);
 
-    //     //삭제할 게시물의 이미지파일명을 가져와서 삭제한다.
-    //     $sql="SELECT `file_copied_0` from `free` where num ='$q_num';";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       alert_back('Error: 6' . mysqli_error($conn));
-    //       // die('Error: ' . mysqli_error($conn));
-    //     }
-    //     $row=mysqli_fetch_array($result);
-    //     $file_copied_0=$row['file_copied_0'];
+        //삭제할 게시물의 이미지파일명을 가져와서 삭제한다.
+        $sql="SELECT `qna_file_copied` from `qna_board` where qna_num ='$q_num';";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          alert_back('Error: 6' . mysqli_error($con));
+          // die('Error: ' . mysqli_error($conn));
+        }
+        $row=mysqli_fetch_array($result);
+        $qna_file_copied=$row['qna_file_copied'];
 
-    //     if(!empty($file_copied_0)){
-    //       unlink("./data/".$file_copied_0);
-    //     }
+        if(!empty($qna_file_copied)){
+          unlink("./data/".$qna_file_copied);
+        }
 
-    //     $sql ="DELETE FROM `free` WHERE num=$q_num";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       die('Error: ' . mysqli_error($conn));
-    //     }
+        $sql ="DELETE FROM `qna_board` WHERE qna_num=$q_num";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          die('Error: ' . mysqli_error($conn));
+        }
 
-    //     $sql ="DELETE FROM `free_ripple` WHERE parent=$q_num";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       die('Error: ' . mysqli_error($conn));
-    //     }
-    //     mysqli_close($conn);
+        $sql ="DELETE FROM `qna_reply` WHERE qna_num=$q_num";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          die('Error: ' . mysqli_error($con));
+        }
+        mysqli_close($con);
 
-    //     echo "<script>location.href='./list.php';</script>";
+        echo "<script>location.href='./question_main.php';</script>";
 
-    // }else if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
-    //   $content = trim($_POST["content"]);
-    //   $subject = trim($_POST["subject"]);
-    //   if(empty($content)||empty($subject)){
-    //     echo "<script>alert('내용이나제목입력요망!');history.go(-1);</script>";
-    //     exit;
-    //   }
-    //   $subject = test_input($_POST["subject"]);
-    //   $content = test_input($_POST["content"]);
-    //   $userid = test_input($userid);
-    //   $num = test_input($_POST["num"]);
-    //   $hit = test_input($_POST["hit"]);
-    //   $is_html=(isset($_POST["is_html"]))?('y'):('n');
-    //   $q_subject = mysqli_real_escape_string($con, $subject);
-    //   $q_content = mysqli_real_escape_string($con, $content);
-    //   $q_userid = mysqli_real_escape_string($con, $userid);
-    //   $q_num = mysqli_real_escape_string($con, $num);
-    //   $regist_day=date("Y-m-d (H:i)");
+    }else if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
+      $usernick=$_SESSION['user_nickname'];
+      $content = trim($_POST["content"]);
+      $subject = trim($_POST["subject"]);
+      if(empty($content)||empty($subject)){
+        echo "<script>alert('내용이나제목입력요망!');history.go(-1);</script>";
+        exit;
+      }
+      $subject = test_input($_POST["subject"]);
+      $content = test_input($_POST["content"]);
+      $usernick = test_input($usernick);
+      $num = test_input($_POST["num"]);
+      $hit = test_input($_POST["hit"]);
+      $is_html=(isset($_POST["is_html"]))?('y'):('n');
+      $q_subject = mysqli_real_escape_string($con, $subject);
+      $q_content = mysqli_real_escape_string($con, $content);
+      $q_userid = mysqli_real_escape_string($con, $usernick);
+      $q_num = mysqli_real_escape_string($con, $num);
+      $regist_day=date("Y-m-d (H:i)");
 
     //   //1번과 2번이 해당이 된다. 파일삭제만 체크한다..
     //   if(isset($_POST['del_file']) && $_POST['del_file'] =='1'){
@@ -192,14 +193,14 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
     //     }
     //   }
 
-    //   //3번 파일과 상관없이 무조건 내용중심으로 update한다.
-    //   $sql="UPDATE `free` SET `subject`='$q_subject',`content`='$q_content',`regist_day`='$regist_day',`is_html` ='$is_html'  WHERE `num`=$q_num;";
-    //   $result = mysqli_query($con,$sql);
-    //   if (!$result) {
-    //     die('Error: ' . mysqli_error($con));
-    //   }
+      //3번 파일과 상관없이 무조건 내용중심으로 update한다.
+      $sql="UPDATE `qna_board` SET `qna_title`='$q_subject',`qna_contents`='$q_content',`qna_regtime`='$regist_day' WHERE `qna_num`=$q_num;";
+      $result = mysqli_query($con,$sql);
+      if (!$result) {
+        die('Error: ' . mysqli_error($con));
+      }
 
-    //   echo "<script>location.href='./view.php?num=$num&page=1&hit=$hit';</script>";
+      echo "<script>location.href='./view.php?num=$num&page=1&hit=$hit';</script>";
 
 
     }else if(isset($_GET["mode"])&&$_GET["mode"]=="insert_ripple"){
@@ -247,14 +248,17 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
       $parent = test_input($_POST["parent"]);
       $num = test_input($_POST["num"]);
       $q_num = mysqli_real_escape_string($con, $num);
+      
 
-      $sql ="DELETE FROM `qna_reply` WHERE qna_num=$q_num";
+      $sql ="DELETE FROM `qna_reply` WHERE qna_reply_num=$q_num";
       $result = mysqli_query($con,$sql);
       if (!$result) {
-        die('Error: ' . mysqli_error($con));
+        die('Error: ' .$m= mysqli_error($con));
+        
+        echo "<script>alert($m)</script>";
       }
       mysqli_close($con);
-      echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
+     echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
 
 }//end of if insert 
     
