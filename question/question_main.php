@@ -115,7 +115,7 @@ $number = $total_record - $start;
             $row=mysqli_fetch_array($result);
             $num=$row['qna_num'];
             $id=$row['user_num'];
-            $name=$row['qna_contents'];
+            $name=$row['user_nickname'];
             // $nick=$row['user_num'];
             $hit=$row['qna_hit'];
 

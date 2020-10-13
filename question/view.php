@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -153,7 +152,8 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
             <li><?=$ripple_nick."&nbsp;&nbsp;".$ripple_date?></li>
             <li id="mdi_del">
             <?php
-            $message =free_ripple_delete($ripple_id,$ripple_num,'dml_board.php',$page,$hit,$q_num);
+            $message =free_ripple_delete($id,$ripple_num,'dml_board.php',$page,$hit,$q_num);
+            echo "<script>alert($id,$ripple_id,,$page,$hit,$q_num)</script>";
             echo $message;
             ?>
             </li>
@@ -184,12 +184,12 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
 
   <?php
     //관리자이거나 해당된 작성자일경우 수정, 삭제가 가능하도록 설정
-    if($_SESSION['userid']=="admin" || $_SESSION['userid']==$id){
+    if($_SESSION['user_nickname']=="admin" || $_SESSION['user_nickname']==$id){
       echo('<a href="./write_edit_form.php?mode=update&num='.$num.'"><img src="./img/modify.png"></a>&nbsp;');
       echo('<img src="./img/delete.png" onclick="check_delete('.$num.')">&nbsp;');
     }
     //로그인하는 유저에게 글쓰기 기능을 부여함.
-    if(!empty($_SESSION['userid'])){
+    if(!empty($_SESSION['user_nickname'])){
     echo '<a href="write_edit_form.php"><img src="./img/write.png"></a>';
     }
   ?>

@@ -12,7 +12,7 @@ function free_delete($id1,$num1,$page1,$page){
 
 function free_ripple_delete($id1,$num1,$page1,$page,$hit,$parent){
   $message="";
-  if($_SESSION['userid']=="admin"||$_SESSION['userid']==$id1){
+  if($_SESSION['user_nickname']=="admin"||$_SESSION['user_nickname']==$id1){
     $message='<form style="display:inline" action="'.$page1.'?mode=delete_ripple&page='.$page.'&hit='.$hit.'" method="post">
     <input type="hidden" name="num" value="'.$num1.'">
     <input type="hidden" name="parent" value="'.$parent.'">
