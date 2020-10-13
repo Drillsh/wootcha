@@ -10,31 +10,17 @@
                     $page = 1;
                 }
 
-                // 추후 따로 모아서 임포트
-                //                include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/movie_naver_api_func.php";
-
                 //검색어 있을때
                 if ($search != "") {
                     //네이버 검색 함수
                     $result = Movie_info::search_movie_title($search, $country, $genre);
                     $total_record = count($result);
 
-                    //정렬 요청이 있을때
-                    if (isset($selected_option)) {
-                        switch ($selected_option) {
-                            case 'naver_star':
-                                foreach ($result as $key => $value) {
-                                    $sort[$key] = $value['userRating'];
-                                }
-                                array_multisort($sort, SORT_DESC, $result);
-                                break;
-                            case 'wootcha_star':
-                                echo "<script>alert('웃챠 사용자 별점');</script>";
-                                break;
-                            default:
-                                break;
-                        }
+                    // 네이버 별점순 정렬
+                    foreach ($result as $key => $value) {
+                        $sort[$key] = $value['userRating'];
                     }
+                    array_multisort($sort, SORT_DESC, $result);
 
                     //검색어 없을때
                 } else if ($search == "") {
@@ -51,16 +37,6 @@
                     </h2>
 
                     <span id="follow_total_span">총 <span id="follow_total_num"><?= $total_record ?></span> 개의 영화가 있습니다.</span>
-
-                    <!--정렬 선택 박스-->
-                    <div class="follow_select">
-                        <select name="follow_list_select_mode" id="follow_list_select_mode"
-                                onchange="selectOption('<?= $search; ?>', '<?= $country; ?>', '<?= $genre; ?>');">
-                            <option value="default" selected>정렬/순서 선택</option>
-                            <option value="naver_star">네이버 별점순</option>
-                            <option value="wootcha_star">웃챠 별점순</option>
-                        </select>
-                    </div>
                 </div>
 
                 <!-- start of ul ------------------------------------------------------------------------------------->
@@ -152,27 +128,27 @@
                             <!--하트-->
                             <div class="follow_movie_like">
                                 <?php
-//                                if ($user_num) {
-//
-//                                    $sql7 = "select * from fav_movie where user_no = $user_num;";
-//                                    $result7 = mysqli_query($con, $sql7);
-//                                    $row7 = mysqli_fetch_array($result7);
-//
-//                                    if ($row7) {
-//                                        echo "<a href='/eduplanet/acd_story/unfollow.php?no=$no'><button type='button' id='button_academy_heart_on'>like</button></a>";
-//                                    } else {
-//                                        echo "<a href='/eduplanet/acd_story/follow.php?no=$no'><button type='button' id='button_academy_heart_off'>like</button></a>";
-//                                    }
+                                if ($user_num) {
+
+                                    $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$movie_code}) as exist;";
+                                    $res = mysqli_query($con, $sql);
+                                    $row = mysqli_fetch_array($res);
+
+                                    if ($row['exist']) {
+                                        echo "<a href='unfollow.php?no={$movie_code}'><button type='button' id='button_movie_like_on'>like</button></a>";
+                                    } else {
+                                        echo "<a href='follow.php?no={$movie_code}'><button type='button' id='button_movie_like_off'>like</button></a>";
+                                    }
                                     ?>
 
                                     <?php
-//                                } else {
-//                                    ?>
-<!--                                    <a href="javascript:alert('일반회원만 이용 가능합니다.')">-->
-<!--                                        <button type="button" id="button_movie_like_off">like</button>-->
-<!--                                    </a>-->
-<!--                                    --><?php
-//                                }
+                                } else {
+                                    ?>
+                                    <a href="javascript:alert('로그인 후 이용 가능합니다.')">
+                                        <button type="button" id="button_movie_like_off">like</button>
+                                    </a>
+                                    <?php
+                                }
                                 ?>
                             </div>
 

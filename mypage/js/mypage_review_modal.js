@@ -143,4 +143,7 @@ function init_modal_script(){
   });
 }
 
-window.onload = init_modal_script();
+window.onload = function () {
+  init_modal_script();
+}
+

@@ -22,7 +22,10 @@ class Movie_info
     public $actor;              //출연배우
 
     // 생성자
-    public function __construct($selected_movie, $con)
+    public function __construct(){}
+
+    //영화 정보 세팅 with API
+    public function setMovieInfo($selected_movie, $con)
     {
         $this->naver_link = $selected_movie['link'];
         $this->movie_code = $this->explode_code($this->naver_link);
@@ -39,10 +42,12 @@ class Movie_info
             $this->nation = $row['mv_nation'];
             $this->running_time = $row['mv_running_time'];
             $this->release_date = $row['mv_release_date'];
+            $this->subTitle = $selected_movie['subtitle'];
 
         } else {
-            $this->title = str_replace("<b>", "", $selected_movie['title']);            //태그제거
+            $this->title = str_replace("<b>", "", $selected_movie['title']);    //태그제거
             $this->title = str_replace("</b>", "", $this->title);
+            $this->subTitle = $selected_movie['subtitle'];
 
             // 네이버 영화 크롤링
             $data = $this->crawl_movie_detail($this->naver_link);
@@ -51,10 +56,10 @@ class Movie_info
             $this->genre = $this->trim_array($data['movie_info']['genre']);
             $this->nation = $this->trim_array($data['movie_info']['nation']);
             $this->running_time = $this->trim_array($data['movie_info']['running_time']);
-            $this->release_date = str_replace(" ", "",$data['movie_info']['release_date']);    //공백제거
+            $this->release_date = str_replace(" ", "",$data['movie_info']['release_date']);     //공백제거
 
-            $sql = "INSERT INTO `movie`(mv_num, mv_title, mv_img_path, mv_genre, mv_nation, mv_release_date, mv_running_time) 
-                VALUES({$this->movie_code}, '{$this->title}', '{$this->poster_img}', '{$this->genre}', '{$this->nation}', '{$this->release_date}', '{$this->running_time}');";
+            $sql = "INSERT INTO `movie`(mv_num, mv_title, mv_rating, mv_img_path, mv_genre, mv_nation, mv_release_date, mv_running_time, mv_subtitle) 
+                VALUES({$this->movie_code}, '{$this->title}', 0.0, '{$this->poster_img}', '{$this->genre}', '{$this->nation}', '{$this->release_date}', '{$this->running_time}','{$this->subTitle}');";
             mysqli_query($con, $sql) or die("Movie Insert Error: " . mysqli_error($con));
         }
 
@@ -62,7 +67,7 @@ class Movie_info
         $data = $this->crawl_movie_detail($this->naver_link);
 
         $this->subTitle = $selected_movie['subtitle'];
-        $this->naver_star = $selected_movie['userRating'];
+        $this->naver_star = sprintf('%0.1f', $selected_movie['userRating']);
         $this->synopsis = $data['movie_story'];
         $this->actor = $data['movie_actor'];
     }
@@ -84,7 +89,6 @@ class Movie_info
 
         return true;
     }
-
 
     // 영화 코드 따기
     public static function explode_code($link)
@@ -147,12 +151,11 @@ class Movie_info
     }
 
 
-    //*************************** 영화 상세정보 가져오는 함수 ****************************************
+    //*************************** 네이버 영화 크롤링 함수 ****************************************
     public function crawl_movie_detail($link)
     {
         // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
         ini_set("allow_url_fopen", 1);
-
 
         // html을 url상에서 가져올 수 있는 함수 simple_html_dom.php 여기에 정의되어 있는 함수임
         $data = file_get_html("$link");
@@ -178,13 +181,50 @@ class Movie_info
             $movie_actor[] = $e->innertext;
         }
 
+        //포스터
         $res = $data->find('#content > div.article > div.mv_info_area > div.poster > a > img');
         $poster_img = $res[0]->src;
 
+        //별점
+        $score = $data->find('#pointNetizenPersentBasic > em');
+        foreach ($score as $e) {
+            $rating[] = $e->plaintext;
+        }
+        $rating = implode("", $rating);
+
         // 한곳에 담아 리턴
         $movie_detail = array('movie_info' => $movie_info, 'movie_story' => $movie_story,
-            'movie_actor' => $movie_actor, 'poster_img' => $poster_img);
+            'movie_actor' => $movie_actor, 'poster_img' => $poster_img, 'rating'=>$rating);
 
         return $movie_detail;
+    }
+
+    //코드로 정보 가져오는 함수
+    public static function getMovieInfo_ByCode($mv_code, $con)
+    {
+        $sql = "SELECT * FROM movie WHERE mv_num={$mv_code}";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+
+        $instance = new Movie_info();
+
+        $instance->movie_code = $mv_code;
+        $instance->title = $row['mv_title'];
+        $instance->subTitle = $row['mv_subtitle'];
+        $instance->poster_img = $row['mv_img_path'];
+        $instance->genre = $row['mv_genre'];
+        $instance->nation = $row['mv_nation'];
+        $instance->running_time = $row['mv_running_time'];
+        $instance->release_date = $row['mv_release_date'];
+
+        $link = "https://movie.naver.com/movie/bi/mi/basic.nhn?code={$mv_code}";
+
+        $data = $instance->crawl_movie_detail($link);
+
+        $instance->naver_star = sprintf('%0.1f', $data['rating']);
+        $instance->synopsis = $data['movie_story'];
+        $instance->actor = $data['movie_actor'];
+
+        return $instance;
     }
 }

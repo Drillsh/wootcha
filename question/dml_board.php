@@ -202,58 +202,59 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
     //   echo "<script>location.href='./view.php?num=$num&page=1&hit=$hit';</script>";
 
 
-    // }else if(isset($_GET["mode"])&&$_GET["mode"]=="insert_ripple"){
-    //   if(empty($_POST["ripple_content"])){
-    //     echo "<script>alert('내용입력요망!');history.go(-1);</script>";
-    //     exit;
-    //   }
-    //   //"덧글을 다는사람은 로그인을 해야한다." 말한것이다.
-    //   $userid=$_SESSION['userid'];
-    //   $q_userid = mysqli_real_escape_string($con, $userid);
-    //   $sql="select * from members where id = '$q_userid'";
-    //   $result = mysqli_query($con,$sql);
-    //   if (!$result) {
-    //     die('Error: ' . mysqli_error($con));
-    //   }
-    //   $rowcount=mysqli_num_rows($result);
+    }else if(isset($_GET["mode"])&&$_GET["mode"]=="insert_ripple"){
+      if(empty($_POST["ripple_content"])){
+        echo "<script>alert('내용입력요망!');history.go(-1);</script>";
+        exit;
+      }
+      // echo "<script>alert($userid)</script>";
+      //"덧글을 다는사람은 로그인을 해야한다." 말한것이다.
+      $userid=$_SESSION['user_nickname'];
+      $q_userid = mysqli_real_escape_string($con, $userid);
+      $sql="SELECT * from qna_reply INNER JOIN `user` on qna_reply.user_num = user.user_num where user.user_num";
+      $result = mysqli_query($con,$sql);
+      if (!$result) {
+        die('Error: ' . mysqli_error($con));
+      }
+      $rowcount=mysqli_num_rows($result);
 
-    //   if(!$rowcount){
-    //     echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
-    //     exit;
-    //   }else{
-    //     $content = test_input($_POST["ripple_content"]);
-    //     $page = test_input($_POST["page"]);
-    //     $parent = test_input($_POST["parent"]);
-    //     $hit = test_input($_POST["hit"]);
-    //     $q_usernick = mysqli_real_escape_string($con, $_SESSION['usernick']);
-    //     $q_username = mysqli_real_escape_string($con, $_SESSION['username']);
-    //     $q_content = mysqli_real_escape_string($con, $content);
-    //     $q_parent = mysqli_real_escape_string($con, $parent);
-    //     $regist_day=date("Y-m-d (H:i)");
+      if(!$rowcount){
+        echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
+        exit;
+      }else{
+        $content = test_input($_POST["ripple_content"]);
+        $page = test_input($_POST["page"]);
+        $parent = test_input($_POST["parent"]);
+        $hit = test_input($_POST["hit"]);
+        $q_usernum = mysqli_real_escape_string($con, $_SESSION['user_num']);
+        $q_qnanum = mysqli_real_escape_string($con, $_SESSION['qna_num']);
+        $q_content = mysqli_real_escape_string($con, $content);
+        $q_parent = mysqli_real_escape_string($con, $parent);
+        $regist_day=date("Y-m-d (H:i)");
 
-    //     $sql="INSERT INTO `free_ripple` VALUES (null,'$q_parent','$q_userid','$q_username', '$q_usernick','$q_content','$regist_day')";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       die('Error: ' . mysqli_error($con));
-    //     }
-    //     mysqli_close($conn);
-    //     echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
-    //   }//end of if rowcount
-    // }else if(isset($_GET["mode"])&&$_GET["mode"]=="delete_ripple"){
-    //   $page= test_input($_GET["page"]);
-    //   $hit= test_input($_GET["hit"]);
-    //   $num = test_input($_POST["num"]);
-    //   $parent = test_input($_POST["parent"]);
-    //   $q_num = mysqli_real_escape_string($con, $num);
+        $sql="INSERT INTO qna_reply VALUES (null,$q_usernum,$q_parent,'$q_content','$regist_day')";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          die('Error: ' . mysqli_error($con));
+        }
+        mysqli_close($con);
 
-    //   $sql ="DELETE FROM `free_ripple` WHERE num=$q_num";
-    //   $result = mysqli_query($con,$sql);
-    //   if (!$result) {
-    //     die('Error: ' . mysqli_error($con));
-    //   }
-    //   mysqli_close($con);
-    //   echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
+        echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
+      }//end of if rowcount
+    }else if(isset($_GET["mode"])&&$_GET["mode"]=="delete_ripple"){
+      $page= test_input($_GET["page"]);
+      $hit= test_input($_GET["hit"]);
+      $parent = test_input($_POST["parent"]);
+      $num = test_input($_POST["num"]);
+      $q_num = mysqli_real_escape_string($con, $num);
 
-}//end of if insert
+      $sql ="DELETE FROM `qna_reply` WHERE qna_num=$q_num";
+      $result = mysqli_query($con,$sql);
+      if (!$result) {
+        die('Error: ' . mysqli_error($con));
+      }
+      mysqli_close($con);
+      echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
 
-?>
+}//end of if insert 
+    

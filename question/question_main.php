@@ -29,6 +29,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="search"){
 $result=mysqli_query($con,$sql);
 // 행의 개수를 구해서 total_recorde에 저장한다
 $total_record=mysqli_num_rows($result);
+
 //total_page를 scale로 나눴을 때 0인가? 그려면 1 아니면 반올림한다
 $total_page=($total_record % SCALE == 0 )?($total_record/SCALE):(ceil($total_record/SCALE));
 
@@ -71,19 +72,20 @@ $number = $total_record - $start;
          <div id="title">
             <h3>답변형 게시판 > 목록보기</h3>
          </div>
-         <form name="board_form" action="list.php?mode=search" method="post">
+         <form name="board_form" action="question_main.php?mode=search" method="post">
            <div id="list_search">
              <div id="list_search1">총 <?=$total_record?>개의 게시물이 있습니다.</div>
              <div id="list_search2"> <img src="./img/select_search.gif"></div>
              <div id="list_search3">
                <select  name="find">
-                 <option value="subject">제목</option>
-                 <option value="content">내용</option>
-                 <option value="nick">별명</option>
+                 <option value="qna_title">제목</option>
+                 <option value="qna_contents">내용</option>
+                 <!-- <option value="nick">별명</option>
                  <option value="name">이름</option>
-                 <option value="id">아이디</option>
+                 <option value="id">아이디</option> -->
                </select>
              </div><!--end of list_search3  -->
+             <!-- 검색기능 -->
              <div id="list_search4"><input type="text" name="search"></div>
              <div id="list_search5"> <input type="image" src="./img/list_search_button.gif"></div>
            </div><!--end of list_search  -->
@@ -112,8 +114,8 @@ $number = $total_record - $start;
             //리코드 셋을 배열로 만든다
             $row=mysqli_fetch_array($result);
             $num=$row['qna_num'];
-            $id=$row['qna_title'];
-            $name=$row['user_nickname'];
+            $id=$row['user_num'];
+            $name=$row['qna_contents'];
             // $nick=$row['user_num'];
             $hit=$row['qna_hit'];
 
