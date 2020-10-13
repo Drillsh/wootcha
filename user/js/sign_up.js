@@ -35,7 +35,6 @@ window.onload = function () {
 
 }
 
-
 function checkEmail() {
     // var emailArray = <?php ?>
     var email = signup_email.value;

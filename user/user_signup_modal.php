@@ -138,7 +138,7 @@
         <input type="button" value="회원가입" onclick="allCheck()">
         </form>
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
-        <button> api 가입하기 </button>
+        <div id="kakao_login_button" onclick="kakaoConn();"><img src="/eduplanet/img/kakao_login_button.png" alt="kakao_login_button"></div>
     </div>
 </div>
 
@@ -212,48 +212,38 @@
         var email = signup_email.value;
         var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
         
-        // php에서 사용하기 위한 mail 값
-        // document.cookie = 'email' + '=' + email;
-        // setCookie("email", email);
+        if (!emailReg.test(email)) {
+            var text = " &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 올바른 E-mail주소 형식으로 입력하세요. &nbsp&nbsp&nbsp ";
+            notifyText_back(signup_email_ck, text, hidden_bar_email);
+            return false;
+        } else {
 
-        // 아디이 중복확인을 위한 쿼리 
-        <?php
-            // include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
-            // if (isset($_COOKIE['email'])) {
-            //     $email_value = $_COOKIE['email'];
-            // }else{
-            //     $email_value = "";
-            // }
-            // echo "<script>alert('$email_value');</script>";
-            // $query = "select user_mail from user where user_mail = '$email_value';";
-            // $result = mysqli_query($con, $query) or die(mysqli_error($con));
-            
-            // // php 내장 함수
-            // setcookie('email_boolean', $result, time() + 3600);
-        ?>
+            // 패턴 맞으면 중복확인 ajax 사용함
+            var httpRequest = new XMLHttpRequest();
+            var data = "";
+            httpRequest.onreadystatechange = function() {
+                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+                    if (httpRequest.responseText != "") {
+                        notifyText_back(signup_email_ck, httpRequest.responseText, hidden_bar_email);
+                    }else{
+                        notifyText_ok(hidden_bar_email);
+                    }
+			    }
+            };
         
-        // if (getCookie("email_boolean") == true) {
-        //     var text = "이미 등록된 이메일 입니다.";
-        //     notifyText_back(signup_email_ck, text, hidden_bar_email);
-        //     return false;
-        // }
-        // else{
-            if (!emailReg.test(email)) {
-                var text = "올바른 E-mail주소를 입력하세요.";
-                notifyText_back(signup_email_ck, text, hidden_bar_email);
-                return false;
-            } else {
-                notifyText_ok(hidden_bar_email);
-                return true;
-            }
-        // }   
+        data = "mode=email&value=" + email;
+        httpRequest.open("POST", "./user/user_signup_check.php", true);
+        httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpRequest.send(data);
+        return true;
+        }  
     }
 
     function checkPass() {
         var pass = signup_password.value;
         var passReg = /^.*(?=^.{4,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@$%^&*]).*$/;
         if (!passReg.test(pass)) {
-            var text = "4~12자리의 영문,숫자,특수문자(!, @, $, %, ^,&,*)로 구성해야합니다.";
+            var text = "&nbsp&nbsp 4~12자리의 영문,숫자,특수문자(!, @, $, %, ^,&,*)로 구성 &nbsp&nbsp&nbsp";
             notifyText_back(signup_password_ck, text, hidden_bar_password);
             return false;
         } else {
@@ -265,9 +255,8 @@
     function checkPass_re() {
         var pass = signup_password.value;
         var pass2 = signup_password_re.value;
-
             if (pass !== pass2) {
-                var text = "비밀번호가 일치하지 않습니다.";
+                var text = "&nbsp&nbsp 비밀번호가 일치하지 않습니다. 상위 비밀번호와 일치 요망 &nbsp&nbsp&nbsp";
                 notifyText_back(signup_password_re_ck, text, hidden_bar_password_re);
                 return false;
             } else {
@@ -281,7 +270,7 @@
         var name = signup_name.value;
         var nameReg = /^[가-힣a-zA-Z]+$/;
         if (!nameReg.test(name)) {
-            var text = "올바른 성명을 입력하세요.";
+            var text = " &nbsp&nbsp 올바른 성명을 입력하세요. 특수문자 및 숫자는 입력 불가";
             notifyText_back(signup_name_ck, text, hidden_bar_name);
             return false;
         } else {
@@ -294,11 +283,27 @@
         var name = signup_nickname.value;
         var nameReg = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,10}$/;
         if (!nameReg.test(name)) {
-            var text = "2~10자리, 특수문자 제외";
+            var text = "&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp 2~10자리, 한글, 영문, 숫자 사용 가능합니다. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
             notifyText_back(signup_nickname_ck, text, hidden_bar_nickname);
             return false;
         } else {
-            notifyText_ok(hidden_bar_nickname);
+            // 패턴 맞으면 중복확인 ajax 사용함
+            var httpRequest = new XMLHttpRequest();
+            var data = "";
+            httpRequest.onreadystatechange = function() {
+                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+                    if (httpRequest.responseText != "") {
+                        notifyText_back(signup_nickname_ck, httpRequest.responseText, hidden_bar_nickname);
+                    }else{
+                        notifyText_ok(hidden_bar_nickname);
+                    }
+			    }
+            };
+        
+            data = "mode=nickname&value=" + name;
+            httpRequest.open("POST", "./user/user_signup_check.php", true);
+            httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            httpRequest.send(data);
             return true;
         }
     }
@@ -307,7 +312,7 @@
         var name = signup_phone.value;
         var nameReg = /^\d{3}-\d{3,4}-\d{4}$/;
         if (!nameReg.test(name)) {
-            var text = "휴대전화가 올바르지 않습니다.";
+            var text = "휴대전화 번호를 확인해주세요. 형식이 올바르지 않습니다.";
             notifyText_back(signup_phone_ck, text, hidden_bar_phone);
             return false;
         } else {
@@ -338,25 +343,5 @@
         if (!checkPhone()) return;
         document.signup_form.submit();
     }
-
-    // 쿠키 저장
-    var setCookie = function(name, value) {
-        var date = new Date();
-        date.setTime(date.getTime() + 1 * 60 * 24 * 1000);
-        document.cookie = name + '=' + value;
-        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-    };
-
-    // 쿠키 가져오기
-    // var getCookie = function(name) {
-    //     var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-    //     return value? value[2] : null;
-    // };
-
-    // 쿠키 삭제
-    // var deleteCookie = function(name) {
-    //     var date = new Date();
-    //     document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
-    // };
 </script>
 

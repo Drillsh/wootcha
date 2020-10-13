@@ -87,7 +87,10 @@
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <button> api 로그인 </button>
         <button onclick="signupClick()"> 회원가입하기 </button>
-        <button onclick=""> 계정찾기 </button>
+        <?php
+        $link = "http://".$_SERVER['HTTP_HOST']."/wootcha/user/user_find_account.php";
+        ?>
+        <button onclick="location.href = '<?=$link?>'"> 계정찾기 </button>
     </div>
 </div>
 
