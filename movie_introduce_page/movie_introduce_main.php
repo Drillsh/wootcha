@@ -9,7 +9,7 @@ if (isset($_GET["item"])){
     $mv_code = $movie_info->movie_code;                 // 영화 코드
     $title = $movie_info->title;                        // 영화 제목
     $subtitle = $movie_info->subTitle;                  // 부제
-    $poster_img = $movie_info->poster_img;               // 포스터
+    $poster_img = $movie_info->poster_img;              // 포스터
     $naver_star = $movie_info->naver_star;              // 네이버 평점
     $naver_star = sprintf('%0.1f', $naver_star);        // 형식 수정
     $naverLink = $movie_info->naver_link;               // 네이버 영화 링크
