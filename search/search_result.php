@@ -192,11 +192,7 @@
                 <div class="page_num">
                     <ul class="page_num_ul">
                         <?php
-                        $url = '/eduplanet/acd_list/view_all.php?';
-
-                        if (isset($_GET["sort"])) {
-                            $url .= "&sort=$selectSort";
-                        }
+                        $url = '/wootcha/search/search_index.php?search_keyword='.$search.'&country='.$country.'&genre='.$genre;
 
                         // 페이지 쪽수 표시 량 (5 페이지씩 표기)
                         $page_scale = 5;
@@ -234,7 +230,6 @@
                         $next = $last_page + 1; // > 버튼 누를때 나올 페이지
                         $prev = $first_page - 1; // < 버튼 누를때 나올 페이지
 
-                        // $url = "/eduplanet/acd_list/view_all.php?"; 바꾸기 귀찮으니까 써라 나중에
                         // 첫번째 페이지일 때 앵커 비활성화
                         if ($first_page == 1) {
 
@@ -243,8 +238,8 @@
                             } else {
                                 echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
                             }
-
                             echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-left'></i></span></a></li>";
+
                         } else {
                             echo "<li><a href='$url&page=1'><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
                             echo "<li><a href='$url&page=$prev'><span class='page_num_direction'><i class='fas fa-angle-left'></i></span></a></li>";
@@ -270,7 +265,7 @@
                                 echo "<li><a><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
                             }
                         } else {
-                            echo "<li><a href='$url&?page=$next'><span class='page_num_direction'><i class='fas fa-angle-right'></i></span></a></li>";
+                            echo "<li><a href='$url&page=$next'><span class='page_num_direction'><i class='fas fa-angle-right'></i></span></a></li>";
                             echo "<li><a href='$url&page=$total_page'><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
                         }
                         ?>

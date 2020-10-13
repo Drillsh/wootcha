@@ -61,7 +61,7 @@ function topSelect_init_Setting(name){
         $("#top_select_month").html(monthOpt);
     }
 
-    location.href ='/eduplanet/admin/'+name+'.php?y='+slctYearVal+'&m='+1;
+    location.href ='/wootcha/admin/'+name+'.php?y='+slctYearVal+'&m='+1;
 }
 
 
@@ -69,7 +69,7 @@ function hrefDateChange(name){
     var year = $('#top_select_year option:selected').val();
     var month = $('#top_select_month option:selected').val();
 
-    location.href ='/eduplanet/admin/'+name+'.php?y='+year+'&m='+month;
+    location.href ='/wootcha/admin/'+name+'.php?y='+year+'&m='+month;
 
 }
 
@@ -87,7 +87,7 @@ function prevDateChange(name){
         month--;
     }
 
-    location.href ='/eduplanet/admin/'+name+'.php?y='+year+'&m='+month;
+    location.href ='/wootcha/admin/'+name+'.php?y='+year+'&m='+month;
 }
 
 function nextDateChange(name){
@@ -104,7 +104,7 @@ function nextDateChange(name){
         month++;
     }
 
-    location.href ='/eduplanet/admin/'+name+'.php?y='+year+'&m='+month;
+    location.href ='/wootcha/admin/'+name+'.php?y='+year+'&m='+month;
 }
 
 function dayArray(year, month){

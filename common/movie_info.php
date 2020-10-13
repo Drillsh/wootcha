@@ -9,7 +9,7 @@ class Movie_info
 {
     public $title;              //제목
     public $subTitle;           //영제
-    public $poster_img;   //포스터 경로
+    public $poster_img;         //포스터 경로
     public $naver_star;         //네이버 별점
     public $naver_link;         //네이버 영화 페이지 링크
 
@@ -151,7 +151,7 @@ class Movie_info
     }
 
 
-    //*************************** 네이버 영화 크롤링 함수 ****************************************
+    //*************************** 네이버 영화 크롤링 ***************************************
     public function crawl_movie_detail($link)
     {
         // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
@@ -199,7 +199,7 @@ class Movie_info
         return $movie_detail;
     }
 
-    //코드로 정보 가져오는 함수
+    //*************************** 영화코드로 세팅 ****************************************
     public static function getMovieInfo_ByCode($mv_code, $con)
     {
         $sql = "SELECT * FROM movie WHERE mv_num={$mv_code}";

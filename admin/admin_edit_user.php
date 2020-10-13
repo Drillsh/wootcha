@@ -68,8 +68,8 @@
                     <section>
                         <!--날짜 선택바 -->
                         <div class="sec_top">
-                            <span onclick="prevDateChange('gm_members')"><i class="fas fa-angle-left"></i></span>
-                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('gm_members')">
+                            <span onclick="prevDateChange('admin_edit_user')"><i class="fas fa-angle-left"></i></span>
+                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('admin_edit_user')">
                                 <?php
                                 for ($i = 2018; $i <= date("Y"); $i++) {
                                     echo "<option>$i</option>";
@@ -77,7 +77,7 @@
                                 ?>
                             </select>
                             <span>년 </span>
-                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('gm_members')">
+                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('admin_edit_user')">
                                 <?php
                                 $last_m = $y == date("Y") ? date("n") : 12;
                                 for ($i = 1; $i <= $last_m; $i++) {
@@ -86,7 +86,7 @@
                                 ?>
                             </select>
                             <span>월 </span>
-                            <span onclick="nextDateChange('gm_members')"><i class="fas fa-angle-right"></i></span>
+                            <span onclick="nextDateChange('admin_edit_user')"><i class="fas fa-angle-right"></i></span>
                         </div>
 
                         <!-- 특정 기간 회원수 가져오기 -->
@@ -98,9 +98,9 @@
                         $sql = "SELECT 
                                 COUNT(*) AS count 
                                 FROM
-                                user;";
-                        //          WHERE
-                        //            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
+                                `user`
+                                WHERE
+                                user_signup_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
 
                         $result = mysqli_query($con, $sql);
                         $total_m = mysqli_fetch_array($result);
