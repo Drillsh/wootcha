@@ -87,10 +87,7 @@
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <button> api 로그인 </button>
         <button onclick="signupClick()"> 회원가입하기 </button>
-        <?php
-        $link = "http://".$_SERVER['HTTP_HOST']."/wootcha/user/user_find_account.php";
-        ?>
-        <button onclick="location.href = '<?=$link?>'"> 계정찾기 </button>
+        <button class="trigger_user_find_account" onclick="closeLogin()"> 계정찾기 </button>
     </div>
 </div>
 
@@ -99,44 +96,38 @@
 <!-- javascript -->
 <!-- ****************** -->
     <script type="text/javascript"> 
+    
         // Modal을 가져옵니다.
         var modal_container_login = document.getElementsByClassName("modal_container_login");
         // Modal을 띄우는 클래스 이름을 가져옵니다.
         var trigger_user_login = document.getElementsByClassName("trigger_user_login");
         // Modal을 닫는 close 클래스를 가져옵니다.
         var modal_close_btn_login = document.getElementsByClassName("modal_close_btn_login");
-        var funcs = [];
+         
+        // 해당 클래스의 내용을 클릭하면 Modal을 띄움
+        trigger_user_login[0].onclick =  function() {
+            modal_container_login[0].style.visibility = "visible";
+        };
+    
+        // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
+        modal_close_btn_login[0].onclick = function() {
+            document.getElementById('login_email').value = "";
+            document.getElementById('login_password').value = "";
 
-        // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
-        function Modal(num) {
-          return function() {
-            // 해당 클래스의 내용을 클릭하면 Modal을 띄움
-            trigger_user_login[num].onclick =  function() {
-                modal_container_login[num].style.visibility = "visible";
-            };
-        
-            // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
-            modal_close_btn_login[num].onclick = function() {
-                modal_container_login[num].style.visibility = "hidden";
-            };
-          };
-        }
-
-        // 원하는 Modal 수만큼 Modal 함수를 호출해서 funcs 함수에 정의합니다.
-        for(var i = 0; i < trigger_user_login.length; i++) {
-          funcs[i] = Modal(i);
-        }
-
-        // 원하는 Modal 수만큼 funcs 함수를 호출합니다.초기화 하는 역할
-        for(var j = 0; j < trigger_user_login.length; j++) {
-          funcs[j]();
-        }
+            modal_container_login[0].style.visibility = "hidden";
+        };
 
         function signupClick() {
             modal_close_btn_login[0].onclick();
             (document.getElementsByClassName('trigger_user_signup'))[0].onclick();
         }
 
-
+        function closeLogin() {
+            modal_close_btn_login[0].onclick();
+        }
+    
+        
+        
+        
      </script>
 
