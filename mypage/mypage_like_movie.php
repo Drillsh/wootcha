@@ -57,7 +57,7 @@
                             $mv_img_path = $row_review['mv_img_path'];
                     ?>
                         <li class='list_item'>
-                            <a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=<?=urlencode(json_encode($item))?>'>
+                            <a href='/wootcha/movie_introduce_page/movie_introduce_index.php?mv_num=<?=$mv_num?>'>
                                 <img src='<?=$mv_img_path?>' alt="">
                                 <h3><?=$mv_title?></h3>
                             </a>
