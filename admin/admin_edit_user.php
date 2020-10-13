@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/common_class_value.php"; ?>
     <title> WOOTCHA </title>
-
     <!-- CSS, JS 파일 링크 시, -->
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/common/css/common.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/css/admin_page.css">
     <link rel="stylesheet" href="./css/gm_members.css">
     <link rel="stylesheet" href="./css/nav.css">
     <!-- jquery -->
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="./js/gm_members.js"></script>
+    <script src="js/members.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">
@@ -323,7 +322,6 @@
                                                         $first_page = $total_page - ($total_page % $page_scale) + 1;
                                                     }
                                                 }
-                                                echo "<script>console.log($first_page, $last_page)</script>";
 
                                                 $next = $last_page + 1;// > 버튼 누를때 나올 페이지
                                                 $prev = $first_page - 1;// < 버튼 누를때 나올 페이지

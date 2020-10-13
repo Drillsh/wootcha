@@ -12,7 +12,7 @@
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="./js/gm_members.js"></script>
+    <script src="js/members.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">

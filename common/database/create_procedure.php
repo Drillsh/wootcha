@@ -117,11 +117,11 @@ function create_procedure($conn, $prcd_name){
                 a.date BETWEEN start_date AND last_date) AS temp
                 LEFT JOIN
               (SELECT 
-                `wthd_date` AS `date`, COUNT(*) AS `count`
+                `wd_date` AS `date`, COUNT(*) AS `count`
               FROM
                 withdrawal
               WHERE
-                DATE(`wthd_date`) >= STR_TO_DATE(start_date, '%Y-%m-%d') AND DATE(`wthd_date`) <= STR_TO_DATE(last_date, '%Y-%m-%d') AND type='G' 
+                DATE(`wd_date`) >= STR_TO_DATE(start_date, '%Y-%m-%d') AND DATE(`wd_date`) <= STR_TO_DATE(last_date, '%Y-%m-%d')
               GROUP BY date) AS data 
                   ON temp.date = data.date
               ORDER BY temp.date;

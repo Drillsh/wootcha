@@ -70,7 +70,6 @@ function hrefDateChange(name){
     var month = $('#top_select_month option:selected').val();
 
     location.href ='/wootcha/admin/'+name+'.php?y='+year+'&m='+month;
-
 }
 
 function prevDateChange(name){

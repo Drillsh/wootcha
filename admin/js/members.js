@@ -3,11 +3,10 @@ var url;
 
 $(function(){
     url = "/wootcha/admin/admin_edit_user.php?y="+y+"&m="+m;
-
     importJoinData();
     importAgeData();
-    importPrimiumData();
-    importIntresData();
+    // importPrimiumData();
+    // importIntresData();
 
     listItemPicker();
 });
@@ -131,7 +130,7 @@ function onclickSearch(){
 function importJoinData(){
 
     $.ajax({
-        url : "/eduplanet/admin/lib/gm_members_graph.php",
+        url : "/wootcha/admin/lib/members_graph.php",
         type : "post",
         dataType: "json",
         data: { y: y,
@@ -246,7 +245,7 @@ function g_membersGraph(join, wthdr, sbtr){
 }
 
 
-function dash_age_range(child, elmnt, middle, high, adult){
+function dash_age_range(teen, twenty, thirty, forty, senior){
     var ctx = document.getElementById('dash_age_range').getContext('2d');
     ctx.canvas.width = 240;
     ctx.canvas.height = 160;
@@ -259,10 +258,10 @@ function dash_age_range(child, elmnt, middle, high, adult){
             datasets: [{
                 backgroundColor: [yellow, orange, green, blue, red],
                 borderColor:  [yellow, orange, green, blue, red],
-                data: [child,elmnt,middle,high,adult],
+                data: [teen,twenty,thirty,forty,senior],
                 borderWidth: 1
             }],
-            labels: ['아동', '초등', '중등', '고등', '성인'
+            labels: ['10대', '20대', '30대', '40대', '50대+'
             ]
         },
 
@@ -313,12 +312,10 @@ function dash_pm_ratio(none, primium){
     });
 }
 
-
-
 function importAgeData(){
 
     $.ajax({
-        url : "/eduplanet/admin/lib/gm_members_age_graph.php",
+        url : "/wootcha/admin/lib/members_age_graph.php",
         type : "post",
         dataType: "json",
         data: { y: y,

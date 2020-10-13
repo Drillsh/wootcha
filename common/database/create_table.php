@@ -141,6 +141,15 @@ function create_table($con, $table_name)
                         `like_state`        int(11)         NOT NULL    COMMENT '좋아요 상태 0 또는 1'
                       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                     break;
+
+            case 'withdrawal' : //회원탈퇴 테이블
+                $sql = "CREATE TABLE `withdrawal` (
+                        `wd_num`                  INT   NOT NULL AUTO_INCREMENT,
+	                    `wd_member_num`           INT   NOT NULL,
+	                    `wd_signup_date`          VARCHAR(20)  NOT NULL,
+	                    `wd_date`                 VARCHAR(20)  NOT NULL,
+                      PRIMARY KEY(`wd_num`)
+                    );";
             default:
                 echo "<script>alert('해당 테이블명이 없습니다. 점검요청');</script>";
         }

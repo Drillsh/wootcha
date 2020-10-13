@@ -28,7 +28,6 @@ mysqli_close($con);
 
 echo json_encode($total_arr);
 
-
 function execute_multi($conn, $sql_arr){
     $total_arr = array();
     $join_arr = array();
@@ -67,9 +66,6 @@ function execute_multi($conn, $sql_arr){
         array_push($total_arr, $join_arr);
         array_push($total_arr, $wthdr_arr);
         return $total_arr;
-
-    
-        
     }
 
 }

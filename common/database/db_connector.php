@@ -39,6 +39,12 @@ if (!$dbCon) {
     echo "<script> alert('DB가 선택되었습니다');</script>";
 }
 
+include_once 'create_procedure.php';
+$prcd_name = array('get_join_g_members', 'get_wthdr_g_members', 'get_wthdr_a_members');
+for($i=0; $i<sizeof($prcd_name); $i++){
+    create_procedure($con, $prcd_name[$i]);
+}
+
 //alert 메시지와 함께 이전 페이지로 돌아가는 함수
 function alert_back($message){
     echo("
