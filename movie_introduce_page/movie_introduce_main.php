@@ -26,7 +26,6 @@ if (isset($_GET["item"])){
 ?>
 
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce.js"></script>
-<script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/trailer_api.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
@@ -109,7 +108,8 @@ if (isset($_GET["item"])){
     </li>
 </ul>
 <div id="movie_introduce">
-<div id="movie_poster_border">
+
+<div id="movie_poster_border" onclick="window.open('<?=$poster_img?>', 'poster', 'width=100px', 'height=800', 'top=500', 'location=yes', 'menubar=yes','toolbar=yes')">
      <img src='<?=$poster_img?>' id="movie_poster">
 </div>
     <div id="movie_subject"> 
@@ -130,19 +130,33 @@ if (isset($_GET["item"])){
 
 </div>
 
-<span><input type=button id="favorite_movie" onclick="imgToggle()<?=$user_num?>">
-<!-- <img src="./img/good_before.png" id="img1"> <img src="./img/good_after.png" id="img2"> -->
+<span>
+    <!-- <button type=button id="favorite_movie_button"> -->
+<!-- <img src="./img/good_before.png"> -->
+    <?php
+        if ($user_num) {
 
-<?php
-            //  $sql = "select user_num from fav_movie 
-            //          left join user on fav_movie.user_num = user.user_num";
-            
-            // $result = mysqli_query($con, $sql) or die("review select error: " . mysqli_error($con));
-            // $total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
-            
-            // $user_num = $row["user_num"];
-?>
-</span>
+            // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
+            $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$mv_code}) as exist;";
+            $res = mysqli_query($con, $sql); 
+            $row = mysqli_fetch_array($res);
+
+            if ($row['exist']) {
+                echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on'>like</button></a>";
+            } else {
+                echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'>like</button></a>";
+            }
+        } else {
+            ?>
+                <a href="javascript:alert('로그인 후 이용 가능합니다.')">
+                <button type="button" id="favorite_movie_like_off">like</button>
+                </a>
+        <?php
+        }
+        ?>
+    
+        </span>
+
 <span><button type=button id="review_write" 
 onclick="location.href='../review/review_insert_form.php'"><img src="./img/review_write.png"></span>
 <div id="movie_small_introduce">
@@ -281,10 +295,6 @@ onclick="location.href='../review/review_insert_form.php'"><img src="./img/revie
                 $review_like = $row["review_like"];
                 $review_num = $row['review_num'];
                 $review_regtime = $row['review_regtime'];
-
-                // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
-                $sql = "select like_state from review_like where review_num = $review_num and user_num = $user_num;";
-                $result_like = mysqli_query($con, $sql);
 
                 $sql = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img, U.user_num  
                 from review_reply RR
@@ -484,64 +494,39 @@ onclick="location.href='../review/review_insert_form.php'"><img src="./img/revie
 
 <div class="page_line">
 
-                        <ul class="page_num">
+    <ul class="page_num">
 
+    <?php
+    
+	if ($total_page>=2 && $page >= 2)	
+	{
+		$new_page = $page-1;
+		echo "<li><a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=".urlencode(json_encode($item))."&page=$new_page'>◀&nbsp</a> </li>";
+	}		
+	else 
+		echo "<li>&nbsp;</li>";
 
-                            <?php
-                            $now_page_list_add = $now_page_list;
-                            if ($total_page >= 2 && $page >= 2) {
-                                $new_page = $page - 1;
+   	// 게시판 목록 하단에 페이지 링크 번호 출력
+   	for ($i=1; $i<=$total_page; $i++)
+   	{
+		if ($page == $i)     // 현재 페이지 번호 링크 안함
+		{
+			echo "<li><b>&nbsp$i&nbsp</b></li>";
+		}
+		else
+		{
+			echo "<li><a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=".urlencode(json_encode($item))."&page=$i'> $i </a><li>";
+		}
+   	}
+   	if ($total_page>=2 && $page != $total_page)		
+   	{
+		$new_page = $page+1;	
+		echo "<li> <a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=".urlencode(json_encode($item))."&page=$new_page'>&nbsp▶</a> </li>";
+	}
+	else 
+        echo "<li>&nbsp;</li>";
 
-                                if ($page > 10) {
-                                    $now_page_list_minas = $now_page_list - 10;
-                                    $next_new_page = $now_page_list_minas - 1;
-                                    echo "<li><a href='./movie_introduce_index.php?page=$next_new_page&nowpagelist=$now_page_list_minas'>◀◀&nbsp;</a> </li>";
-                                }
-                                if (($new_page) == ($now_page_list_add - 10)) {
-
-                                    $new_page = $now_page_list_add - 11;
-                                    $now_page_list_add -= 10;
-                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
-                                } else {
-                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;◀&nbsp;</a> </li>";
-                                }
-                            } else
-                                echo "<li>&nbsp;</li>";
-
-                            // 게시판 목록 하단에 페이지 링크 번호 출력
-                            for ($i = $first_num; $i < $now_page_list; $i++) {
-                                if ($page == $i)     // 현재 페이지 번호 링크 안함
-                                {
-                                    echo "<li><b>&nbsp;$i&nbsp;</b></li>";
-                                } else {
-                                    echo "<li><a href='./movie_introduce_main.php?page=$i&nowpagelist=$now_page_list'>&nbsp;$i&nbsp;</a><li>";
-                                }
-                            }
-                            if ($total_page >= 2 && $page != $total_page) {
-                                $new_page = $page + 1;
-
-
-
-
-                                if (($now_page_list_add - 1) == $page) {
-                                    $new_page = $now_page_list_add + 1;
-                                    $now_page_list_add += 10;
-                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;▶</a> </li>";
-                                } else {
-                                    echo "<li><a href='./movie_introduce_main.php?page=$new_page&nowpagelist=$now_page_list_add'>&nbsp;▶</a> </li>";
-                                }
-
-
-                                // echo "<li> <a href='comment_list.php?page=$new_page&nowpagelist=$now_page_list'>▶&nbsp;</a> </li>";
-
-                                if ($now_page_list + 10 < floor($total_record / SCALE)) {
-                                    $now_page_list_add = $now_page_list + 10;
-                                    $next_new_page = $now_page_list + 1;
-                                    echo "<li> <a href='./movie_introduce_main.php?page=$next_new_page&nowpagelist=$now_page_list_add'>&nbsp;▶▶</a> </li>";
-                                }
-                            } else
-                                echo "<li>&nbsp;</li>";
-                            ?>
+?>
                         </ul> <!-- page num -->
 
                     </div> <!-- end of user_comment -->

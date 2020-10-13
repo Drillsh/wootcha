@@ -202,16 +202,71 @@ label.next {
   border-color: slategray;
 }
 
-#favorite_movie {
+#favorite_movie_button {
+  border: 1px;
+  border-color: black;
+  border-style: groove;
+  width: 100px;
+  height: 100px;
+  margin-top: 60px;
+  margin-left: -700px;
+  position: absolute;
+  background-color: white;
+  background-image: url('../img/good_before.png');
+  }  
+
+#favorite_movie_like_on {
 border: 1px;
 border-color: black;
 border-style: groove;
 width: 100px;
 height: 100px;
 margin-top: 60px;
-margin-left: 500px;
+margin-left: 700px;
 position: absolute;
 background-color: white;
+background-image : url('../img/good_after.png');
+background-color: transparent;
+cursor: pointer;
+
+}
+
+#favorite_movie_like_on:hover {
+  background-image : url('../img/good_before.png');
+  width: 100px;
+  height: 100px;
+  background-size: contain;  
+  overflow: hidden;
+  max-width: initial;
+}
+
+
+#favorite_movie_like_off {
+  margin-left: 5px;
+  background : url('../img/good_before.png') ;
+  background-color: white;
+  border: 15px solid transparent;
+  width: 100px;
+  height: 100px;
+  color: transparent;
+  cursor: pointer;
+  margin-left: 500px;
+  margin-top: 60px;
+  background-size: contain;  
+  overflow: hidden;
+  max-width: initial;
+  
+
+
+}
+
+#favorite_movie_like_off:hover {
+  background-image : url('../img/good_after.png');
+  width: 100px;
+  height: 100px;
+  background-size: contain;  
+  overflow: hidden;
+  max-width: initial;
 }
 
 #review_write {
@@ -562,3 +617,4 @@ font-weight: bold;
 #toggleMakingnoteButton{
 display: none;
 }
+

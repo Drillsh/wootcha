@@ -131,7 +131,7 @@
                                 if ($user_num) {
 
                                     $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$movie_code}) as exist;";
-                                    $res = mysqli_query($con, $sql);
+                                    $res = mysqli_query($con, $sql); 
                                     $row = mysqli_fetch_array($res);
 
                                     if ($row['exist']) {
