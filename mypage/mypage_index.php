@@ -11,10 +11,10 @@
         <script src="http://code.jquery.com/jquery-1.7.js"></script>
         <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/mypage/js/infi_scroll.js"></script>
 
-        <!-- 형태소 분석 -->
+        <!-- 형태소 분석
         <script src="./js/review_mng.js"></script>
         <link rel="stylesheet" href="/wootcha/mypage/css/jqcloud.min.css">
-        <script src="/wootcha/mypage/js/jqcloud.min.js" charset="utf-8"></script>
+        <script src="/wootcha/mypage/js/jqcloud.min.js" charset="utf-8"></script> -->
 
         <!-- 모달  -->
         <link rel="stylesheet" type="text/css" href="./css/mypage_review_modal.css?after">

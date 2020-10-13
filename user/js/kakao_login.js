@@ -1,91 +1,86 @@
 
-//   <?php
-//   include_once $_SERVER["DOCUMENT_ROOT"] . "/eduplanet/lib/db_connector.php";
 
-//   $mode = isset($_GET['mode']) ? $_GET['mode'] : "gm";
-//   $action = "/eduplanet/login_join/join_form.php?mode=" . $mode;
-//   ?>
+// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+Kakao.init('2b6afa1b53bec9c5c3161feff6ce8026');
 
-//   <!-- 카카오 로그인 정보를 담는 form (회원가입)-->
-//   <form name="kakao_form" action=<?= $action ?> method="POST">
-//     <input id="kakao_id" name="kakao_id" type="hidden">
-//     <input id="kakao_email" name="kakao_email" type="hidden">
-//   </form>
+// SDK 초기화 여부를 판단합니다.
+console.log(Kakao.isInitialized());
 
-//   <!-- 카카오 로그인 정보를 담는 form (로그인)-->
-//   <form name="kakao_login_form" action="/eduplanet/login_join/kakao_login.php?mode=<?= $mode ?>" method="POST">
-//     <input id="kakao_id_login" name="kakao_id_login" type="hidden">
-//     <input id="kakao_email_login" name="kakao_email_login" type="hidden">
-//   </form>
 
-//   <script>
-    // 사용할 앱의 JavaScript 키 설정
-    Kakao.init('2b6afa1b53bec9c5c3161feff6ce8026');
+// function kakaoConn(){
+//   Kakao.Auth.logout();
+//   Kakao.Auth.authorize({
+//     redirectUri: 'http://localhost:8080/wootcha/'
+//   });
 
-    function kakaoConn() {
 
-      Kakao.Auth.logout();
+}
 
-    // 카카오 로그인 버튼 생성
-    Kakao.Auth.loginForm({
 
-      success: function(authObj) {
+function kakaoConn() {
 
-        // 로그인 성공 시, API 호출
-        Kakao.API.request({
+  Kakao.Auth.logout();
 
-          url: '/v2/user/me',
+// 카카오 로그인 버튼 생성
+Kakao.Auth.loginForm({
 
-          success: function(res) {
+  success: function(authObj) {
 
-            //alert(JSON.stringify(res)); // kakao.api.request 에서 불러온 결과값 json형태로 출력
-            //alert(JSON.stringify(authObj)); // Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
-            console.log(res.id); // id 정보 출력
-            console.log(res.kakao_account.email); // 이메일 정보 출력
-            console.log(authObj.access_token); // 토큰 값 출력
+    // 로그인 성공 시, API 호출
+    Kakao.API.request({
 
-            // 카카오 로그인해서 가져온 값 변수에 저장
-            var kakao_no = res.id;
-            var kakao_email = res.kakao_account.email;
+      url: '/v2/user/me',
 
-            // DB에 같은 아이디가 있는지 검사
-            var url = "members_checkId.php?id=" + kakao_email + "&mode=" + mode;
+      success: function(res) {
 
-            $.ajax({
+        //alert(JSON.stringify(res)); // kakao.api.request 에서 불러온 결과값 json형태로 출력
+        //alert(JSON.stringify(authObj)); // Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
+        console.log(res.id); // id 정보 출력
+        console.log(res.kakao_account.email); // 이메일 정보 출력
+        console.log(authObj.access_token); // 토큰 값 출력
 
-              url: url,
-              type: "GET",
-              success: function(data) {
+        // 카카오 로그인해서 가져온 값 변수에 저장
+        var kakao_no = res.id;
+        var kakao_email = res.kakao_account.email;
 
-                // 이미 이메일이 가입되어 있을 때 --> 카카오 로그인
-                if (data == 1) {
+        // DB에 같은 아이디가 있는지 검사
+        var url = "members_checkId.php?id=" + kakao_email + "&mode=" + mode;
 
-                  document.getElementById("kakao_id_login").value = kakao_no;
-                  document.getElementById("kakao_email_login").value = kakao_email;
+        $.ajax({
 
-                  document.kakao_login_form.submit();
+          url: url,
+          type: "GET",
+          success: function(data) {
 
-                  // 이메일이 가입되어 있지 않을 때 --> form 으로 이메일을 넘겨서 회원가입
-                } else {
-                  document.getElementById("kakao_id").value = kakao_no;
-                  document.getElementById("kakao_email").value = kakao_email;
+            // 이미 이메일이 가입되어 있을 때 --> 카카오 로그인
+            if (data == 1) {
 
-                  document.kakao_form.submit();
-                  alert("아이디가 등록되어 있지 않아, 회원가입 페이지로 이동합니다.");
-                }
-              },
-              error: function() {
-                console.log("이메일 가입확인 ajax 실패");
-              }
-            });
+              document.getElementById("kakao_id_login").value = kakao_no;
+              document.getElementById("kakao_email_login").value = kakao_email;
+
+              document.kakao_login_form.submit();
+
+              // 이메일이 가입되어 있지 않을 때 --> form 으로 이메일을 넘겨서 회원가입
+            } else {
+              document.getElementById("kakao_id").value = kakao_no;
+              document.getElementById("kakao_email").value = kakao_email;
+
+              document.kakao_form.submit();
+              alert("아이디가 등록되어 있지 않아, 회원가입 페이지로 이동합니다.");
+            }
           },
-          fail: function(error) {
-            alert(JSON.stringify(error));
+          error: function() {
+            console.log("이메일 가입확인 ajax 실패");
           }
         });
       },
-      fail: function(err) {
-        alert(JSON.stringify(err));
+      fail: function(error) {
+        alert(JSON.stringify(error));
       }
     });
-  } // end of kakaoConn();
+  },
+  fail: function(err) {
+    alert(JSON.stringify(err));
+  }
+});
+} // end of kakaoConn();

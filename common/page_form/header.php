@@ -97,5 +97,6 @@ else $user_img = "";
     ?>
         <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_signup_modal.php"?>
         <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_login_modal.php"?>
+        <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_find_account.php"?>
     </div>
 </div>
