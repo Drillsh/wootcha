@@ -6,6 +6,11 @@
     $login_email = $_POST['login_email'];
     $login_password = $_POST['login_password'];
 
+    $login_password = test_input($login_password);
+    $login_password = mysqli_real_escape_string($con, $login_password);
+    $login_email = test_input($login_email);
+    $login_email = mysqli_real_escape_string($con, $login_email);
+
     $sql = "select * from user where user_mail='$login_email'";
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
         

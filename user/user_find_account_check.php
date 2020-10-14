@@ -21,8 +21,10 @@
             $row = mysqli_fetch_array($result);
             $user_name = $row['user_name'];
             $user_mail = $row['user_mail'];
-
-            echo "$user_name 고객님의 이메일(ID)은 $user_mail 입니다.";
+            // ajax request로 넘겼을 때 문자열 가장 앞에 코드 1 정상 작동한 것.
+            echo "1$user_name 고객님의 이메일(ID)은 $user_mail 입니다.";
+        }else{
+            echo "일치하는 데이터가 존재하지 않습니다.";
         }
     }elseif ($find_mode == "password") {
         $find_account_email = $_POST['find_account_email'];
@@ -36,8 +38,10 @@
             $row = mysqli_fetch_array($result);
             $user_name = $row['user_name'];
             $password = $row['password'];
-
-            echo "$user_name 고객님의 비밀번호는 $password 입니다.";
+            // ajax request로 넘겼을 때 문자열 가장 앞에 코드 1 정상 작동한 것.
+            echo "1$user_name 고객님의 비밀번호는 $password 입니다.";
+        }else{
+            echo "일치하는 데이터가 존재하지 않습니다.";
         }
     }
     

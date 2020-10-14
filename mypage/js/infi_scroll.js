@@ -9,6 +9,7 @@ $(document).ready(function() {
      let windowHeight = $window.height();
      let documentHeight = $(document).height();
      var user_num = document.getElementById('userpage_user_num');
+    //  로딩 박스
       var loading_box = document.getElementById('loading_box');
        if (scrollTop + windowHeight + 10 > documentHeight) {
          if(check){

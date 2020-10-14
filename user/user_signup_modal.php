@@ -142,6 +142,15 @@
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <!-- kakaoConn()는 mypage_index에 있음  -->
         <div id="kakao_login_button" onclick="kakaoConn();"><img src="/wootcha/user/img/kakao_login_button.png" alt="kakao_login_button"></div>
+
+        <!-- 카카오 로그인 정보를 담는 form (로그인)-->
+        <form name="kakao_login_form" action="/user/kakao_login.php?mode=" method="POST">
+            <input id="kakao_id_login" name="kakao_id_login" type="hidden">
+            <input id="kakao_email_login" name="kakao_email_login" type="hidden">
+            <input id="kakao_nickname_login" name="kakao_nickname_login" type="hidden">
+            <input id="kakao_img_login" name="kakao_img_login" type="hidden">
+        </form>
+
     </div>
 </div>
 
@@ -151,6 +160,7 @@
 
 <!-- 카카오 api -->
 <script src = "https://developers.kakao.com/sdk/js/kakao.js" > </script>
+<script src="https://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script>
 <script src="/wootcha/user/js/kakao_login.js"></script>
 
 

@@ -24,7 +24,29 @@
             echo "중복된 닉네임이 존재합니다. 다른 닉네임을 사용해주세요";
         }
     }elseif (isset($_POST['mode']) && $_POST['mode'] == "kakao") {
-        $kakao_email = $_POST['value'];
+        $kakao_email_login = $_POST['kakao_email_login'];
+        $kakao_nickname_login = $_POST['kakao_nickname_login'];
+        $kakao_img_login = $_POST['kakao_img_login'];
+
+        $kakao_email_login = test_input($kakao_email_login);
+        $kakao_email_login = mysqli_real_escape_string($con, $kakao_email_login);
+
+        $query = "select * from user where user_mail = '$kakao_email_login'";
+        $result = mysqli_query($con, $query) or die($error = mysqli_error($con));
+
+        if ($result->num_rows <= 0) {
+            // 카카오 계정이 db에 없으니 회원가입으로 ~
+            
+
+
+
+        }elseif ($result->num_rows == 1) {
+           // session으로 넣음
+
+
+
+        }
+
         $signup_nickname = test_input($signup_nickname);
         $signup_nickname = mysqli_real_escape_string($con, $signup_nickname);
 

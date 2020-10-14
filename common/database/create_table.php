@@ -150,11 +150,12 @@ function create_table($con, $table_name)
 	                    `wd_date`                 VARCHAR(20)  NOT NULL,
                       PRIMARY KEY(`wd_num`)
                     );";
+                    break;
             default:
                 echo "<script>alert('해당 테이블명이 없습니다. 점검요청');</script>";
         }
         if (mysqli_query($con, $sql)) {
-            echo "<script>alert('{$table_name}테이블이 생성되었습니다.');</script>";
+            echo "<script>alert('{$table_name} 테이블이 생성되었습니다.');</script>";
         } else {
             echo "테이블 생성 실패원인" . mysqli_error($con);
         }
