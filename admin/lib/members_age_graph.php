@@ -38,7 +38,7 @@ $sql = "SELECT
             1,
             0)) AS senior
         FROM
-        user
+        `user`
         WHERE
         user_signup_day BETWEEN '$y-$m-01' AND LAST_DAY('$y-$m-01');";
 

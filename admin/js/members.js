@@ -5,8 +5,8 @@ $(function(){
     url = "/wootcha/admin/admin_edit_user.php?y="+y+"&m="+m;
     importJoinData();
     importAgeData();
-    // importPrimiumData();
-    // importIntresData();
+    importGenderData();
+    importReviewData();
 
     listItemPicker();
 });
@@ -127,38 +127,38 @@ function onclickSearch(){
 }
 
 
-function importJoinData(){
+function importJoinData() {
 
     $.ajax({
-        url : "/wootcha/admin/lib/members_graph.php",
-        type : "post",
+        url: "/wootcha/admin/lib/members_graph.php",
+        type: "post",
         dataType: "json",
-        data: { y: y,
+        data: {
+            y: y,
             y2: y,
             m: m,
-            m2: m},
-        success : function(data) {
-            console.log(data[0]);
-            console.log(data[1]);
+            m2: m
+        },
+        success: function (data) {
 
             var join_arr = data[0];
             var wthdr_arr = data[1];
 
             var sbtr_arr = new Array();
-            for(i = 0; i<join_arr.length ; i++){
-                sbtr_arr[i] = join_arr[i]-wthdr_arr[i];
+            for (i = 0; i < join_arr.length; i++) {
+                sbtr_arr[i] = join_arr[i] - wthdr_arr[i];
             }
 
-            g_membersGraph(join_arr,wthdr_arr,sbtr_arr);
+            membersGraph(join_arr, wthdr_arr, sbtr_arr);
 
             //이번달 가입회원수 구하기
             var join_sum = 0;
-            for (var i=0; i < join_arr.length; i++ ) {
+            for (var i = 0; i < join_arr.length; i++) {
                 join_sum += parseInt(join_arr[i]);
             }
             //이번달 탈퇴회원수 구하기
             var wthdr_sum = 0;
-            for (var i=0; i < wthdr_arr.length; i++ ) {
+            for (var i = 0; i < wthdr_arr.length; i++) {
                 wthdr_sum += parseInt(wthdr_arr[i]);
             }
 
@@ -166,14 +166,13 @@ function importJoinData(){
             $('#wthdr_m').text(wthdr_sum);
 
         },
-        error : function() {
+        error: function () {
             console.log("회원그래프 가져오기 ajax 실패");
         }
     });
 }
 
-
-function g_membersGraph(join, wthdr, sbtr){
+function membersGraph(join, wthdr, sbtr){
 
     var ctx = document.getElementById('g_members_totalGraph').getContext('2d');
     ctx.canvas.width = 880;
@@ -279,8 +278,8 @@ function dash_age_range(teen, twenty, thirty, forty, senior){
 }
 
 
-function dash_pm_ratio(none, primium){
-    var ctx = document.getElementById('dash_pm_ratio').getContext('2d');
+function dash_gender_ratio(male, female){
+    var ctx = document.getElementById('dash_gender_ratio').getContext('2d');
     ctx.canvas.width = 240;
     ctx.canvas.height = 160;
     var chart = new Chart(ctx, {
@@ -290,13 +289,12 @@ function dash_pm_ratio(none, primium){
         // The data for our dataset
         data: {
             datasets: [{
-                backgroundColor: [purple, grey],
-                borderColor:  [purple, grey],
-                data: [primium,none],
+                backgroundColor: [blue, red],
+                borderColor:  [blue, red],
+                data: [male,female],
                 borderWidth: 1
             }],
-            labels: ['프리미엄', '일반'
-            ]
+            labels: ['남성', '여성']
         },
 
         options: {
@@ -319,8 +317,8 @@ function importAgeData(){
         type : "post",
         dataType: "json",
         data: { y: y,
-            m: m,
-            mode: "DATE"},
+                m: m,
+                mode: "DATE"},
         success : function(data) {
             dash_age_range(data[0], data[1], data[2], data[3], data[4]);
 
@@ -331,33 +329,32 @@ function importAgeData(){
     });
 }
 
-function importPrimiumData(){
+function importGenderData(){
 
     $.ajax({
-        url : "/eduplanet/admin/lib/gm_members_primium_graph.php",
+        url : "/wootcha/admin/lib/members_gender_graph.php",
         type : "post",
         dataType: "json",
         data: { y: y,
-            m: m},
+                m: m},
         success : function(data) {
-            dash_pm_ratio(data[0], data[1]);
-
+            dash_gender_ratio(data[0], data[1]);
         },
         error : function() {
-            console.log("프리미엄그래프 가져오기 ajax 실패");
+            console.log("나이 그래프 가져오기 ajax 실패");
         }
     });
 }
 
-function importIntresData(){
+function importReviewData(){
 
     $.ajax({
-        url : "/eduplanet/admin/lib/gm_members_intres_graph.php",
+        url : "/wootcha/admin/lib/members_review_graph.php",
         type : "post",
         dataType: "json",
         data: { y: y,
-            m: m,
-            mode: "DATE"},
+                m: m,
+                mode: "DATE"},
         success : function(data) {
 
             if(data[0][0]==null)
@@ -368,16 +365,15 @@ function importIntresData(){
             for(var i =0; i<5; i++){
 
                 if(data[1][i]==temp){
-                    document.getElementsByClassName('dasn_intres_label')[i].innerHTML = rank;
+                    document.getElementsByClassName('dash_review_rank_label')[i].innerHTML = rank;
                 }else{
-                    document.getElementsByClassName('dasn_intres_label')[i].innerHTML = ++rank;
+                    document.getElementsByClassName('dash_review_rank_label')[i].innerHTML = ++rank;
                 }
                 if(data[0][i]==null){
-                    document.getElementsByClassName('dasn_intres_data')[i].innerHTML = '-';
-                    document.getElementsByClassName('dasn_intres_label')[i].innerHTML = '-';
+                    document.getElementsByClassName('dash_review_rank_data')[i].innerHTML = '-';
+                    document.getElementsByClassName('dash_review_rank_data')[i].innerHTML = '-';
                 }else{
-                    document.getElementsByClassName('dasn_intres_data')[i].innerHTML =data[0][i]+'<span>('+data[1][i]+')</span>';
-
+                    document.getElementsByClassName('dash_review_rank_data')[i].innerHTML =data[0][i]+'<span>('+data[1][i]+')</span>';
                 }
 
                 temp = data[1][i];
@@ -385,7 +381,7 @@ function importIntresData(){
 
         },
         error : function() {
-            console.log("프리미엄그래프 가져오기 ajax 실패");
+            console.log("리뷰 랭크 가져오기 ajax 실패");
         }
     });
 }

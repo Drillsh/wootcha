@@ -7,11 +7,11 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
     for($i = 0; $i < count($no); $i++){
 
-        $ph = $phone[$i];
+        $un = $user_num[$i];
         $exp = $expiry_day[$i];
         $n = $no[$i];
 
-        $sql = "update g_members set phone='$ph', expiry_day='$exp' where no=$n";
+        $sql = "update `user` set user_num = {$n} where no={$n}";
 
         $result = mysqli_query($con, $sql);
         if(!$result){

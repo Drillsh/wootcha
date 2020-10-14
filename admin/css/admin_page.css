@@ -4,7 +4,7 @@
 #member_list span { display: inline-block; text-align: center;}
 #member_list input {  text-align: center;}
 #member_list button { padding: 3px 10px;}
-#member_list span {width: 10%; font-size: 0.8rem;}
+#member_list span {font-size: 0.8rem;}
 ul{
   list-style: none;
 }

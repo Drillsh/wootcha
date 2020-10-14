@@ -149,21 +149,21 @@
 
                                 <!-- 남녀 비율로 변경 -->
                                 <div id="dash_pm_ratio_wrap">
-                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Premium membership Ratio</h4>
-                                    <canvas id="dash_pm_ratio"></canvas>
+                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Gender Ratio</h4>
+                                    <canvas id="dash_gender_ratio"></canvas>
                                 </div>
 
                                 <!-- 관심사 단어 순위 -->
                                 <div id="dash_postGraph_wrap">
-                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Interest words</h4>
+                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Review Rank</h4>
 
-                                    <div id="dash_intres_world_wrap">
+                                    <div id="dash_review_rank_wrap">
                                         <?php
                                         for ($i = 1; $i <= 5; $i++) {
                                             ?>
-                                            <div class="dasn_intres_detail">
-                                                <span class="dasn_intres_label">0</span>
-                                                <span class="dasn_intres_data"></span>
+                                            <div class="dash_review_rank_detail">
+                                                <span class="dash_review_rank_label">0</span>
+                                                <span class="dash_review_rank_data"></span>
                                             </div>
                                             <?php
                                         }
@@ -270,8 +270,7 @@
                                                 <li class="list_row">
                                                     <form method="post" action="#">
                                                         <span class="col1"><?= $number ?></span>
-                                                        <span class="col2"><input type="text" name="no[]"
-                                                                                  value="<?= $no ?>" readonly></span>
+                                                        <span class="col2"><input type="text" name="no[]" value="<?=$no?>" maxlength="12" oninput="limitMaxLength(this)"></span>
                                                         <span class="col3"><?= $name ?></span>
                                                         <span class="col4"><?= $nickName ?></span>
                                                         <span class="col5"><?= $mail ?></span>

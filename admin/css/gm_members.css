@@ -218,7 +218,7 @@
     cursor: pointer;
 }
 
-.list_row > form > span > input:disabled, .list_row > form > span > input:read-only{
+.list_row > form > span > input{
     background-color:transparent;
     border: none;
 }
@@ -231,22 +231,22 @@
     width: 60px;
 }
 .col3 {
-    width: 190px;
+    width: 90px;
 }
 .col4{
-    width: 190px;
+    width: 90px;
 }
 .col2 input, .col4 input, .col5 input, .col7 input, .col8 input  {
     width: 90%;
 }
 .col5{
-    width: 130px;
+    width: 180px;
 }
 .col6 {
-    width: 80px;
+    width: 100px;
 }
 .col7{
-    width: 120px;
+    width: 50px;
 }
 .col8  {
     width: 100px;
@@ -499,19 +499,19 @@
     margin-right: 0px;
 }
 
-/* 단어순위 */
+/* 리뷰 작성 순위 */
 
-#dash_intres_world_wrap{
+#dash_review_rank_wrap{
     display: block;
 }
 
-.dasn_intres_detail{
+.dash_review_rank_detail{
     display: table;
     width: 100%;
     margin: 3px 0px;
 }
 
-.dasn_intres_label{
+.dash_review_rank_label{
     width: 10%;
     display: table-cell;
     padding: 5px 10px;
@@ -522,7 +522,7 @@
     font-weight: bold;
 }
 
-.dasn_intres_data{
+.dash_review_rank_data{
     display: table-cell;
     font-size: 14px;
     padding: 5px 10px;
@@ -532,7 +532,7 @@
     background-color: #fafafa;
 }
 
-.dasn_intres_data span{
+.dash_review_rank_data span{
     font-size: 11px;
     padding: 5px 10px;
     color: #666;
