@@ -9,11 +9,6 @@
     $user_num = $_SESSION["user_num"];
     $user_img = $_SESSION["user_img"];
 
-
-
-
-
-
     // 같을 경우
     if ($userpage_user_num == $user_num) {
         $title_sub = "마이";

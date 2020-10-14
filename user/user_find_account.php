@@ -292,10 +292,17 @@
 
           // 데이터 받아왔을 때 실행되는 함수
 		httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
-            alert(httpRequest.responseText);
-            modal_close_btn_find_account[0].onclick();
-            document.getElementsByClassName("trigger_user_login")[0].onclick();
+            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+                if (httpRequest.responseText == "일치하는 데이터가 존재하지 않습니다.") {
+                    alert(httpRequest.responseText);
+                }else if(httpRequest.responseText.substring(0,1) == 1){
+                    var v = httpRequest.responseText.length;
+                    alert(httpRequest.responseText.substring(1,v-1));
+                    modal_close_btn_find_account[0].onclick();
+                    document.getElementsByClassName("trigger_user_login")[0].onclick();
+                }else{
+                    alert("Error : "+httpRequest.responseText);
+                }
 			}
         };
 

@@ -116,6 +116,7 @@
         </form>
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <!-- <button> api 가입하기 </button> -->
+        <a href="#" onclick="withdrawal()">회원탈퇴</a>
     </div>
 </div>
 
@@ -232,6 +233,36 @@
         if (!checkPass_modify_re()) return;
         if (!checkPhone()) return;
         document.modify_form.submit();
+    }
+    function withdrawal(){
+        var userInput = prompt("정말 탈퇴하시겠습니까? \n탈퇴를 원하시면 비밀번호를 입력하세요.");
+        if (userInput != "") {
+            // 패턴 맞으면 중복확인 ajax 사용함
+            var httpRequest = new XMLHttpRequest();
+            var data = "";
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+                    alert(httpRequest.responseText);
+                    location.href = "../index.php";
+                }
+            };
+
+            data = "ps=" + userInput;
+            httpRequest.open("POST", "../user/user_withdrawal.php", true);
+            httpRequest.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            httpRequest.send(data);
+        }
+
+
+        
+
+
+
+
+        
     }
 </script>
 

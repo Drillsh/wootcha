@@ -87,7 +87,7 @@
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <button> api 로그인 </button>
         <button onclick="signupClick()"> 회원가입하기 </button>
-        <button class="trigger_user_find_account" onclick="closeLogin()"> 계정찾기 </button>
+        <button class="trigger_user_find_account"> 계정찾기 </button>
     </div>
 </div>
 
@@ -121,13 +121,5 @@
             modal_close_btn_login[0].onclick();
             (document.getElementsByClassName('trigger_user_signup'))[0].onclick();
         }
-
-        function closeLogin() {
-            modal_close_btn_login[0].onclick();
-        }
-    
-        
-        
-        
      </script>
 
