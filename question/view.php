@@ -59,9 +59,9 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
     $content=str_replace("\n", "<br>",$content);
     $content=str_replace(" ", "&nbsp;",$content);
     // $is_html=$row['is_html'];
-    // $file_name_0=$row['file_name_0'];
-    // $file_copied_0=$row['file_copied_0'];
-    // $file_type_0=$row['file_type_0'];
+    $file_name_0=$row['qna_file_name'];
+    $file_copied_0=$row['qna_file_copied'];
+    $file_type_0=$row['qna_file_type'];
     $day=$row['qna_regtime'];
 
     //숫자 0 " " '0' null 0.0   $a = array()
@@ -115,7 +115,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
                   <?php
                     if($file_type_0 =="image"){
                       echo "<img src='./data/$file_copied_0' width='$image_width'><br>";
-                    }elseif(!empty($_SESSION['userid'])&&!empty($file_copied_0)){
+                    }elseif(!empty($_SESSION['user_nickname'])&&!empty($file_copied_0)){
                       $file_path = "./data/".$file_copied_0;
                       $file_size = filesize($file_path);
                       //2. 업로드된 이름을 보여주고 [저장] 할것인지 선택한다.

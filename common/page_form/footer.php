@@ -16,6 +16,7 @@
                 <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/notice/notice.php">공지 사항</a></li>
                 <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/question/question_main.php">Q&A 게시판</a></li>
                 <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/fnq/fnq_main.php">FAQ 게시판</a></li>
+                
             </ul>
         </div>
 
