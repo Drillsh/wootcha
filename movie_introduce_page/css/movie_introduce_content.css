@@ -3,42 +3,39 @@
 html, body { background: white url("https://codepen.io/images/classy_fabric.png"); }
 
 .slides {
-    padding: 0;
-    width: 609px;
-    height: 520px;
+    
+  padding: 0;
+    width: 100%;
+    height: 250px;
     display: block;
     position: relative;
-}
+    margin-top: 20px;
+ }
 
-.slides * {
+/* .slides * {
     user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-}
+} */
 
 .slides input { display: none; }
 
-.slide-container { display: block; }
+/* .slide-container { display: block; } */
 
-.slide {
-    top: 15px;
-    opacity: 0;
-    width: 1300px;
-    height: 500px;
-    display: block;
-    position: absolute;
-    
-    margin-top: 20px;
+/* .slide {
+  background-image: linear-gradient( -180deg,rgba(0,0,0,0.35) 2%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0.5) 100% );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+} */
 
-    transform: scale(0);
-
-    transition: all .7s ease-in-out;
-}
-
-.slide img {
+/* .slide img {
     width: 100%;
     height: 100%;
     
@@ -125,12 +122,11 @@ label.prev {
 }
 label.next {
     left: 1180px;
-}
+} */
 
 #movie_introduce {
- border: 5px;
- border-style: solid;  
- width: 1250px;
+ 
+ width: 1260px;
  height: 2350px;
  margin-top: 50px; 
  position: relative;
@@ -139,31 +135,56 @@ label.next {
 }
 
 
-#movie_poster {
-  border: 5px;
-  border-style: solid;
-  width: 300px;
-  height: 350px;
-  text-align: center;
-  margin-top: 30px;
-  left: 820px;
-  position: absolute;
-  box-sizing: content-box;
-  background-color: white;
-  border-color: black;  
+.css-16l0ojz-MaxWidthGrid {
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-#movie_subject {
-    border: 5px;
-    border-style: solid;
-    width: 295px;
-    height: 120px;
-    text-align: center;
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 150px;
-    background-color: white;
-    border-color: slategray;
+.css-ds7f62-PosterWithRankingInfoBlock {
+  padding: 0 0 0 153px;
+  position: relative;
+}
+.css-m21fst-Self-LazyLoadingImg {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 153px;
+  height: 221px;
+  border-width: 2px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  overflow: hidden;
+  display: block;
+  box-sizing: border-box;
+  border: solid 1px #fff;
+  border-radius: 3px;
+  margin: 0 auto;
+  background: #f8f8f8;
+  transition: 300ms;
+}
+.css-1onlrbk-Img-LazyLoadingImg {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  object-fit: cover;
+  background: rgb(248, 248, 248);
+  transition: all 300ms ease 0s;
+}
+
+img {
+  border-style: none;
+}
+
+
+
+.css-1wnjyf4-Title {
+  width: 520px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.9px;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #movie_content {
@@ -172,12 +193,12 @@ label.next {
     width: 900px;
     height: 100% auto;
     text-align: center;
-    margin-top: 300px;
-    margin-left: -490px;
+    margin-top: 150px;
+    margin-left: -890px;
     position: absolute;
     font-size: 20;
     font-family: monospace fantasy;
-    line-height: 20px;
+    line-height: 40px;
     box-sizing: content-box;
     padding: 30px;
     background-color: white;
@@ -202,7 +223,7 @@ label.next {
   border-color: slategray;
 }
 
-#favorite_movie_button {
+/* #favorite_movie_button {
   border: 1px;
   border-color: black;
   border-style: groove;
@@ -213,45 +234,44 @@ label.next {
   position: absolute;
   background-color: white;
   background-image: url('../img/good_before.png');
-  }  
+  }   */
 
 #favorite_movie_like_on {
 border: 1px;
 border-color: black;
 border-style: groove;
-width: 100px;
-height: 100px;
-margin-top: 60px;
-margin-left: 700px;
+width: 80px;
+height: 80px;
+margin-top: 90px;
+margin-left: 900px;
 position: absolute;
 background-color: white;
-background-image : url('../img/good_after.png');
+background-image : url('../img/good_after.png') no-repeat 0 0;
 background-color: transparent;
 cursor: pointer;
 
 }
 
 #favorite_movie_like_on:hover {
-  background-image : url('../img/good_before.png');
-  width: 100px;
-  height: 100px;
+  background-image : url('../img/good_before.png') no-repeat 0 0;
+  width: 80px;
+  height: 80px;
   background-size: contain;  
   overflow: hidden;
-  max-width: initial;
 }
 
 
 #favorite_movie_like_off {
   margin-left: 5px;
-  background : url('../img/good_before.png') ;
+  background : url('../img/good_before.png') no-repeat 0 0 ;
   background-color: white;
   border: 15px solid transparent;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   color: transparent;
   cursor: pointer;
-  margin-left: 500px;
-  margin-top: 60px;
+  margin-left: 900px;
+  margin-top: 90px;
   background-size: contain;  
   overflow: hidden;
   max-width: initial;
@@ -262,8 +282,8 @@ cursor: pointer;
 
 #favorite_movie_like_off:hover {
   background-image : url('../img/good_after.png');
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-size: contain;  
   overflow: hidden;
   max-width: initial;
@@ -273,46 +293,58 @@ cursor: pointer;
   width: 100px;
   height: 100px;
   margin-top: 60px;
-  left: 650px;
+  left: 1050px;
   position: absolute;
   background-color: white;
   border: 2px;
   border-color: black;
   border-style: groove;
-  float:right;
+  float: right;
 }
 
-#movie_small_introduce {
-  border: 5px;
-  border-style: solid;
-  width: 280px;
-  height: 160px;
-  text-align: center;
-  margin-top: 70px;
-  right: -35px;
-  position: absolute;
-  background-color: white;
-  border-color: slategray;
-  font-size: 12px;
+.css-zv7ww6-Detail {
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 20px;
+  box-sizing: border-box;
+  margin-top: 3px;
+}
+
+.css-1xlr4il-ContentRatings {
+  color: #282828;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  padding: 7px 0;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  margin-top: 14px;
 }
 
 #movie_score {
-    width: 300px;
-    height: 160px;
-    margin-top: 70px;
-    right: 270px;
-    border: 5px;
+    width: 400px;
+    height: 60px;
+    margin-top: 25px;
+    right: 330px;
+    border: 1px;
     border-style: solid;
     background-color: white;
-    border-color: slategray;
+    border-color: black;
     position: absolute;
     float: left;
+    text-align: left;
+    padding-left: 30px;
 }
 
 #movie_casting_container {
     width: 960px;
     height: 320px;
-    margin-top: -1600px;
+    margin-top: -1700px;
     margin-left: 170px;
     border: 5px;
     border-style: solid;
@@ -618,3 +650,99 @@ font-weight: bold;
 display: none;
 }
 
+
+
+.starR1{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 60px;
+  float:left;
+  text-indent: -9999px;
+  cursor: pointer;
+  position: absolute;
+}
+.starR2{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 60px;
+  float:left;
+  text-indent: -9999px;
+  cursor: pointer;
+  position: absolute;
+}
+.starR1.on{background-position:0 0;}
+.starR2.on{background-position:-15px 0;}
+
+.css-m4wuz0-PosterContainer {
+  padding: 300px 0 0;
+  position: relative;
+}
+.css-oqg1df-BlurPosterBlock {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background: black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.css-tyue43-LeftBackground {
+  flex: 1;
+  background: #211C38;
+}
+.css-1qkjnu8-BlurPoster {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 825px;
+  height: 100%;
+  filter: none;
+  background: url(https://movie-phinf.pstatic.net/20190423_41/1555994321935RJdum_JPEG/movie_image.jpg?type=m886_590_2) no-repeat center;
+  background-size: cover;
+}
+.css-1rtfe1i-LeftGradient {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient( -90deg,rgba(33,28,56,0) 0%,#211C38 100% );
+  width: 100px;
+}
+.css-ml7z2y-RightGradient {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient( 90deg,rgba(48,53,57,0) 0%,#303539 100% );
+  width: 100px;
+}
+.css-1ctk406-RightBackground {
+  flex: 1;
+  background: #303539;
+}
+
+.css-1rpwc4r-DimmedLayer {
+  background-image: linear-gradient( -180deg,rgba(0,0,0,0.35) 2%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0.5) 100% );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.css-p3jnjc-Pane {
+  text-align: center;
+  padding: 14px 16px 22px;
+}
+
+h1, h3, p, hr {
+  margin: 0px;
+}
