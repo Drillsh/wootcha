@@ -40,7 +40,14 @@
                     <!-- 상단 프로필 및 평점 -->
                     <div class="content_header_review">
                         <!-- profile img : 세션에서 값 옴-->
-                        <div class="small_img_box"><img src="../user/img/<?=$user_img?>" alt="프로필 이미지"></div>
+                        <!-- profile img : 세션에서 값 옴-->
+                        <?php
+                            if (strlen($user_img) > 22) {
+                                echo "<div class='small_img_box'><img src='$user_img' alt=''></div>";
+                            }else{ 
+                                echo "<div class='small_img_box'><img src='../user/img/$user_img' alt='프로필 이미지 수정'></div>";
+                            }
+                        ?>
                         <!-- 닉네임 : 세션에서 값 옴 -->
                         <div><?=$user_nickname?></div>
                         

@@ -49,7 +49,17 @@ include_once "../common/crawling/movie_cgv_crawling.php";
 ?>
 
 <div class="profile_img_box">
-    <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$img?>" alt="프로필 이미지">
+    <?php
+        // 선택 이미지의 파일명이 22자리, api 이미지는 22자리 이상
+        if (strlen($img) > 22) {
+            echo "<img src='$img' alt='프로필 이미지'>";
+        }else{
+    ?>
+            <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$img?>" alt="프로필 이미지">
+    <?php
+        }
+    ?>
+    
 </div>
 <!-- 닉네임 -->
 <h3><?=$nickname?> 님</h3>
