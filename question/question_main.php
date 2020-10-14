@@ -134,6 +134,7 @@ $number = $total_record - $start;
             <div id="list_item">
               <div id="list_item1"><?=$number?></div>
               <div id="list_item2">
+                  <!-- <img src="./img/nopicture.png" style="width=40px; height=40px; object-fit: cover;"> -->
                   <a href="./view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$hit+1?>"><?=$subject?></a>
                   
               </div>

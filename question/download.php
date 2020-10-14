@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT']."/myhome/db/db_connector.php";
-if(!isset($_SESSION['userid'])){
+include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
+if(!isset($_SESSION['user_nickname'])){
   echo "<script>alert('권한없음!');history.go(-1);</script>";
   exit;
 }
@@ -13,7 +13,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="download"){
     $q_num = mysqli_real_escape_string($con, $num);
 
     //등록된사용자가 최근 입력한 다운로드게시판을 보여주기 위하여 num 찾아서 전달하기 위함이다.
-    $sql="SELECT * from `free` where num ='$q_num';";
+    $sql="SELECT * from `qna_board` where qna_num ='$q_num';";
     $result = mysqli_query($con,$sql);
     if (!$result) {
       alert_back('Error: 1' . mysqli_error($con));
@@ -21,11 +21,11 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="download"){
     }
     $row=mysqli_fetch_array($result);
     //파일 이름 
-    $file_name_0=$row['file_name_0'];
+    $file_name_0=$row['qna_file_name'];
     //파일이 올라온 날짜 데이터 폴더에 저장된다
-    $file_copied_0=$row['file_copied_0'];
+    $file_copied_0=$row['qna_file_copied'];
     //파일의 타입
-    $file_type_0=$row['file_type_0'];
+    $file_type_0=$row['qna_file_type'];
     mysqli_close($con);
 }
 

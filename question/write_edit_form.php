@@ -47,11 +47,11 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
     $subject=str_replace(" ", "&nbsp;",$subject);
     $content=str_replace("\n", "<br>",$content);
     $content=str_replace(" ", "&nbsp;",$content);
-    $file_name_0=$row['file_name_0'];
-    $file_copied_0=$row['file_copied_0'];
+    $file_name_0=$row['qna_file_name'];
+    $file_copied_0=$row['qna_file_copied'];
     $day=$row['qna_regtime'];
-    $is_html=$row['is_html'];
-    $checked=($is_html=="y")? ("checked"):("");
+    // $is_html=$row['is_html'];
+    // $checked=($is_html=="y")? ("checked"):("");
     $hit=$row['qna_hit'];
     mysqli_close($con);
 }
@@ -71,8 +71,8 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
               <div id="write_row1">
                 <div class="col1">아이디</div>
                 <div class="col2"><?=$id?></div>
-                <div class="col3">
-                  <input type="checkbox" name="is_html" value="y" <?=$checked?>>HTML 쓰기</div>
+                <!-- <div class="col3">
+                  <input type="checkbox" name="is_html" value="y" <?=$checked?>>HTML 쓰기</div> -->
               </div><!--end of write_row1  -->
               <div class="write_line"></div>
               <div id="write_row2">
@@ -90,6 +90,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
                 <div class="col1">파일업로드</div>
                 <div class="col2">
                   <?php
+                  //업데이트 할지 삽입 할지
                     if($mode=="insert"){
                       echo '<input type="file" name="upfile" >이미지(2MB)파일(0.5MB)';
                     }else{
@@ -122,5 +123,8 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
       </div><!--end of col2  -->
       </div><!--end of content -->
     </div><!--end of wrap  -->
+    <footer>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
+    </footer> 
   </body>
 </html>
