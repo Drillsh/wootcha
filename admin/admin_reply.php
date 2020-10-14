@@ -12,7 +12,7 @@
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="js/members.js"></script>
+    <script src="./js/reply.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">
@@ -59,8 +59,8 @@
                     </script>
                     <section>
                         <div class="sec_top">
-                            <span onclick="prevDateChange('gm_members')"><i class="fas fa-angle-left"></i></span>
-                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('gm_members')">
+                            <span onclick="prevDateChange('admin_reply')"><i class="fas fa-angle-left"></i></span>
+                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('admin_reply')">
                                 <?php
                                 for ($i = 2018; $i <= date("Y"); $i++) {
                                     echo "<option>$i</option>";
@@ -68,7 +68,7 @@
                                 ?>
                             </select>
                             <span>년 </span>
-                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('gm_members')">
+                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('admin_reply')">
                                 <?php
                                 $last_m = $y == date("Y") ? date("n") : 12;
                                 for ($i = 1; $i <= $last_m; $i++) {
@@ -77,7 +77,7 @@
                                 ?>
                             </select>
                             <span>월 </span>
-                            <span onclick="nextDateChange('gm_members')"><i class="fas fa-angle-right"></i></span>
+                            <span onclick="nextDateChange('admin_reply')"><i class="fas fa-angle-right"></i></span>
                         </div>
                         <!--end of 년 월 선택바 -->
 
@@ -87,23 +87,22 @@
                             $m2 = "0" . $m2;
                         }
                         $sql = "SELECT 
-                                COUNT(*) AS count 
+                                    COUNT(*) AS count 
                                 FROM
-                                user;";
-                        //          WHERE
-                        //            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
+                                    review_reply
+                                WHERE
+                                    review_reply_regtime BETWEEN '20-01-01' AND LAST_DAY('$y-$m2-01');";
 
                         $result = mysqli_query($con, $sql);
-                        $row = mysqli_fetch_array($result);
-                        $total_m = mysqli_num_rows($result);
+                        $total_m = mysqli_fetch_array($result);
+                        $total_record = $total_m[0];
 
                         ?>
-                        <!-- 총 리뷰수 가져오기 -->
                         <div class="sec_content">
                             <div id="g_members_list_wrap">
                                 <div id="g_members_list">
                                     <h4>
-                                        <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Review Management
+                                        <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Reply Management
                                         <div class="selectbox">
                                             <select id="search_select">
                                                 <option>영화 제목</option>
@@ -127,7 +126,7 @@
                                     <div class="list_edit_delete_wrap">
                                         <button onclick="submitDelete()">삭제</button>
                                     </div>
-                                    <ul id="member_list">
+                                    <ul id="reply_list">
                                         <li>
                                             <span class="col1">No</span>
                                             <span class="col2">영화 제목</span>
@@ -140,26 +139,50 @@
                                         if ($col != '' && $search != '') {
                                             $sql = "SELECT 
                                                      review_reply_num,
-                                                     review_num,
-                                                     user_num,
+                                                     M.mv_title,
+                                                     U.user_nickname,
                                                      review_reply_contents,
-                                                     review_num,
-                                                     review_reply_regtime    
-                                                 FROM
-                                                     review_reply
+                                                     REPLY.review_num,
+                                                     review_reply_regtime 
+                                                  FROM
+                                                     review_reply REPLY
+                                                  LEFT JOIN
+                                                     review R
+                                                  ON
+                                                     REPLY.review_num = R.review_num
+                                                  LEFT JOIN
+                                                     movie M
+                                                  ON
+                                                     R.mv_num = M.mv_num
+                                                  LEFT JOIN
+                                                     user U
+                                                  ON
+                                                     R.user_num = U.user_num
                                                  WHERE
                                                      $col LIKE '%$search%'
-                                                    ORDER BY regist_day DESC";
+                                                    ORDER BY review_reply_regtime DESC";
                                         } else {
                                             $sql = "SELECT
                                                      review_reply_num,
-                                                     review_num,
-                                                     user_num,
+                                                     M.mv_title,
+                                                     U.user_nickname,
                                                      review_reply_contents,
-                                                     review_num,
+                                                     REPLY.review_num,
                                                      review_reply_regtime 
                                                   FROM
-                                                      review_reply
+                                                     review_reply REPLY
+                                                  LEFT JOIN
+                                                     review R
+                                                  ON
+                                                     REPLY.review_num = R.review_num
+                                                  LEFT JOIN
+                                                     movie M
+                                                  ON
+                                                     R.mv_num = M.mv_num
+                                                  LEFT JOIN
+                                                     user U
+                                                  ON
+                                                     R.user_num = U.user_num    
                                                   ORDER BY review_reply_regtime DESC";
                                         }
 
@@ -188,8 +211,8 @@
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
                                                 $no = $row["review_reply_num"];
-                                                $mv_name = $row["review_num"];
-                                                $id = $row["user_num"];
+                                                $mv_name = $row["mv_title"];
+                                                $nickname = $row["user_nickname"];
                                                 $reply_content = $row["review_reply_contents"];
                                                 $reply_parent = $row["review_num"];
                                                 $regist_day = $row["review_reply_regtime"];
@@ -199,9 +222,9 @@
                                                         <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
                                                         <span class="col2 left-align"><?= $mv_name ?></span>
-                                                        <span class="col3"><?= $id ?></span>
+                                                        <span class="col3"><?= $nickname ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
-                                                        <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>
+                                                        <span class="col5"><?= $reply_parent ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
                                                     </form>
                                                 </li>
@@ -246,15 +269,15 @@
                                                         $first_page = $total_page - ($total_page % $page_scale) + 1;
                                                     }
                                                 }
-                                                echo "<script>console.log($first_page, $last_page)</script>";
 
                                                 $next = $last_page + 1;// > 버튼 누를때 나올 페이지
                                                 $prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
-                                                $url = "/wootcha/admin/admin_review.php?y=$y&m=$m";
+                                                $url = "/wootcha/admin/admin_reply.php?y=$y&m=$m";
                                                 if ($search != '') {
                                                     $url .= "&col=$col&search=$search";
                                                 }
+
                                                 // 첫번째 페이지일 때 앵커 비활성화
                                                 if ($first_page == 1) {
                                                     if ($page != 1)
@@ -267,7 +290,6 @@
                                                     echo "<li><a href='$url&page=1'><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
                                                     echo "<li><a href='$url&page=$prev'><span class='page_num_direction'><i class='fas fa-angle-left'></i></span></a></li>";
                                                 }
-
 
                                                 //페이지 번호 매기기
                                                 for ($i = $first_page; $i <= $last_page; $i++) {

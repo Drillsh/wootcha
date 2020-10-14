@@ -132,7 +132,7 @@
                             <!--그래프-->
                             <div id="g_members_totalGraph_wrap">
                                 <div id="g_members_totalGraph_cell1">
-                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;General member Graph<span>단위: 명</span>
+                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Member Graph<span>단위: 명</span>
                                     </h4>
                                     <canvas id="g_members_totalGraph"></canvas>
 
@@ -178,7 +178,7 @@
                                 <div id="g_members_list">
                                     <!-- 리스트 상단 -->
                                     <h4>
-                                        <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;General member Management
+                                        <i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Member Management
                                         <div class="selectbox">
                                             <select id="search_select">
                                                 <option>회원번호</option>
@@ -226,11 +226,7 @@
 
                                         //검색 조건 셀렉트 박스
                                         if ($col != '' && $search != '') {
-                                            if ($col == 'no') {
-                                                $sql = "SELECT * FROM g_members WHERE no = '$search' ORDER BY regist_day DESC";
-                                            } else {
-                                                $sql = "SELECT * FROM g_members WHERE $col LIKE '%$search%' ORDER BY regist_day DESC";
-                                            }
+                                            $sql = "SELECT * FROM user WHERE $col LIKE '%$search%' ORDER BY user_signup_day DESC";
                                         } else {
                                             $sql = "SELECT * FROM `user` ORDER BY user_signup_day DESC";
                                         }
@@ -270,9 +266,14 @@
                                                 <li class="list_row">
                                                     <form method="post" action="#">
                                                         <span class="col1"><?= $number ?></span>
-                                                        <span class="col2"><input type="text" name="no[]" value="<?=$no?>" maxlength="12" oninput="limitMaxLength(this)"></span>
+                                                        <span class="col2"><input type="text" name="no[]"
+                                                                                  value="<?= $no ?>"
+                                                                                  readonly></span>
                                                         <span class="col3"><?= $name ?></span>
-                                                        <span class="col4"><?= $nickName ?></span>
+                                                        <span class="col4"><input type="text" name="nick[]"
+                                                                                  value="<?= $nickName ?>"
+                                                                                  maxlength="12"
+                                                                                  oninput="limitMaxLength(this)"></span>
                                                         <span class="col5"><?= $mail ?></span>
                                                         <span class="col6"><?= $phone ?></span>
                                                         <span class="col7"><?= $gender ?></span>

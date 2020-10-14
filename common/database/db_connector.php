@@ -40,7 +40,7 @@ if (!$dbCon) {
 }
 
 include_once 'create_procedure.php';
-$prcd_name = array('get_join_g_members', 'get_wthdr_g_members', 'get_wthdr_a_members');
+$prcd_name = array('get_join_g_members', 'get_wthdr_g_members', 'get_wthdr_a_members', 'get_day_reivew_for_one_month');
 for($i=0; $i<sizeof($prcd_name); $i++){
     create_procedure($con, $prcd_name[$i]);
 }

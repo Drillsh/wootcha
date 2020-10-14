@@ -21,9 +21,7 @@ function listItemPicker(){
         }
 
         $(this).css('background-color' , '#8ec4f0a9');
-        $(this).children('form').children('.col4').children('input').prop('disabled',false);
-        $(this).children('form').children('.col5').children('input').prop('disabled',false);
-        $(this).children('form').children('.col8').children('input').prop('disabled',false);
+        // $(this).children('form').children('.col4').children('input').prop('disabled',false);
 
         formsForUpdate.push($(this).children('form'));
     });
@@ -45,7 +43,7 @@ function submitUpdate(){
         $.ajax({
             type: "post",
             data: serialize,
-            url : "./lib/gm_members_update.php",
+            url : "lib/members_update.php",
             success : function(data){
                 if(data==1){
                     location.href=url+'&page='+page;
@@ -76,7 +74,7 @@ function submitDelete(){
         $.ajax({
             type: "post",
             data: serialize,
-            url : "./lib/gm_members_delete.php",
+            url : "lib/members_delete.php",
             success : function(data){
                 if(data==1){
                     location.href=url+'&page='+page;
@@ -89,7 +87,6 @@ function submitDelete(){
             }
         });
     }
-
 }
 
 function limitMaxLength(e){
@@ -104,19 +101,19 @@ function onclickSearch(){
     var search = $('.form-control').val();
 
     if(col=="회원번호"){
-        col="no";
-    }else if(col=="아이디"){
-        col="id";
+        col="user_num";
+    }else if(col=="이름"){
+        col="user_name";
+    }else if(col=="닉네임"){
+        col="user_nickname";
+    }else if(col=="이메일"){
+        col="user_mail";
     }else if(col=="연락처"){
-        col="phone";
-    }else if(col=="출생년도"){
-        col="age";
-    }else if(col=="관심사"){
-        col="intres";
-    }else if(col=="유료만료일"){
-        col="expiry_day";
+        col="user_phone";
+    }else if(col=="생년월일"){
+        col="user_age";
     }else if(col=="가입일"){
-        col="regist_day";
+        col="user_signup_day";
     }
 
     if(!search){

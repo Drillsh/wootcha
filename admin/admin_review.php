@@ -15,7 +15,7 @@
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="js/members.js"></script>
+    <script src="./js/review.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">
@@ -37,7 +37,6 @@
     <section>
         <div class="my_info_content">
             <div class="left_menu">
-                <!-- 순서대로쭉쭉 -->
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/admin/admin_side_left_menu.php"; ?>
             </div>
             <div class="right_content">
@@ -63,8 +62,8 @@
 
                     <section>
                         <div class="sec_top">
-                            <span onclick="prevDateChange('review_mng')"><i class="fas fa-angle-left"></i></span>
-                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('review_mng')">
+                            <span onclick="prevDateChange('admin_review')"><i class="fas fa-angle-left"></i></span>
+                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('admin_review')">
                                 <?php
                                 for ($i = 2018; $i <= date("Y"); $i++) {
                                     echo "<option>$i</option>";
@@ -72,7 +71,7 @@
                                 ?>
                             </select>
                             <span>년 </span>
-                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('review_mng')">
+                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('admin_review')">
                                 <?php
                                 $last_m = $y == date("Y") ? date("n") : 12;
                                 for ($i = 1; $i <= $last_m; $i++) {
@@ -81,54 +80,42 @@
                                 ?>
                             </select>
                             <span>월 </span>
-                            <span onclick="nextDateChange('review_mng')"><i class="fas fa-angle-right"></i></span>
+                            <span onclick="nextDateChange('admin_review')"><i class="fas fa-angle-right"></i></span>
                         </div>
                         <!--end of 년 월 선택바 -->
 
                         <?php
                         $m2 = $m < 10 ? "0" . $m : $m;
+                        // 전체 리뷰 수
                         $sql = "SELECT 
                                 COUNT(*) AS count 
                                 FROM
                                 review
                                 WHERE
-                                review_regtime BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
+                                review_regtime BETWEEN '20-01-01' AND LAST_DAY('$y-$m2-01');";
 
                         $result = mysqli_query($con, $sql);
-                        $row = mysqli_fetch_array($result);
-                        $total_review = mysqli_num_rows($result);
+                        $total_review = mysqli_fetch_array($result);
 
-                        //이달의 리뷰평점
+                        // 이달의 리뷰평점
                         $sql = "SELECT 
-                                AVG(total_star) `ts`,
-                                AVG(facility) `fc`,
-                                AVG(acsbl) `asc`,
-                                AVG(teacher)  `tc`,
-                                AVG(cost_efct) `ce`,
-                                AVG(achievement) `acm`
+                                AVG(review_rating) `rating`
                                 FROM
                                 review
                                 WHERE 
                                 DATE_FORMAT(review_regtime, '%Y%m%d') 
                                 BETWEEN 
-                                DATE_FORMAT('$y-$m2-01', '%Y%m%d') 
+                                DATE_FORMAT('$y-$m2-01', '%Y%m%d')
                                 AND 
                                 DATE_FORMAT(LAST_DAY('$y-$m2-01'), '%Y%m%d')";
 
                         $result = mysqli_query($con, $sql);
-
                         $review_avg = 0;
+
                         if ($result) {
                             $row = mysqli_fetch_array($result);
-                            $ts = $row['ts'];
-                            $fc = $row['fc'];
-                            $asc = $row['asc'];
-                            $tc = $row['tc'];
-                            $ce = $row['ce'];
-                            $acm = $row['acm'];
-                            $review_avg = ($ts + $fc + $asc + $tc + $ce + $acm) / 6;
+                            $review_avg = $row['rating'];
                         }
-
                         ?>
                         <!-- 총 리뷰수 가져오기 -->
                         <div class="sec_content">
@@ -136,7 +123,7 @@
                                 <div>
                                     <span>전체 리뷰</span><br>
                                     <span class="dash_topline_i"><i
-                                                class="fas fa-box-open"></i>&nbsp;<span><?= $total_review ?></span></span>
+                                                class="fas fa-box-open"></i>&nbsp;<span><?= $total_review[0] ?></span></span>
                                     <span class="caret up"> </i></span>
                                 </div>
                                 <div>
@@ -154,6 +141,7 @@
                             </div>
                             <!--end of 상단 이달의 리뷰정보-->
 
+                            <!--리뷰 막대 그래프-->
                             <div id="g_members_totalGraph_wrap">
                                 <div id="g_members_totalGraph_cell1">
                                     <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Review
@@ -162,21 +150,6 @@
 
                                 </div>
                             </div>
-                            <!-- end of 회원수 변화 그래프 -->
-
-                            <div style="display:flex; width:960px; margin-bottom: 50px;">
-                                <div id="dash_good_key_wrap">
-                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Good keyword</h4>
-                                    <div id="good_key"></div>
-                                    <div id="not_found_keyword1"></div>
-                                </div>
-                                <div id="dash_bad_key_wrap">
-                                    <h4><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;Bad keyword</h4>
-                                    <div id="bad_key"></div>
-                                    <div id="not_found_keyword2"></div>
-                                </div>
-                            </div>
-                            <!-- end of 그래프 3개 -->
 
                             <div id="g_members_list_wrap">
                                 <div id="g_members_list">
@@ -205,7 +178,7 @@
                                     <div class="list_edit_delete_wrap">
                                         <button onclick="submitDelete()">삭제</button>
                                     </div>
-                                    <ul id="member_list">
+                                    <ul id="review_list">
                                         <li>
                                             <span class="col1">No</span>
                                             <span class="col2">영화 제목</span>
@@ -218,26 +191,42 @@
                                         if ($col != '' && $search != '') {
                                             $sql = "SELECT 
                                                      review_num,
-                                                     mv_num,
-                                                     user_num,
-                                                     review_short,
-                                                     review_rating,
-                                                     review_regtime
-                                                 FROM
-                                                     review
-                                                 WHERE
-                                                     $col LIKE '%$search%'
-                                                    ORDER BY regist_day DESC";
-                                        } else {
-                                            $sql = "SELECT
-                                                     review_num,
-                                                     mv_num,
-                                                     user_num,
+                                                     M.mv_title,
+                                                     U.user_nickname,
                                                      review_short,
                                                      review_rating,
                                                      review_regtime
                                                   FROM
-                                                      review
+                                                      review AS R
+                                                  LEFT JOIN
+                                                      movie AS M
+                                                  ON
+                                                      R.mv_num = M.mv_num
+                                                  LEFT JOIN
+                                                      user AS U
+                                                  ON
+                                                      R.user_num = U.user_num
+                                                  WHERE
+                                                     $col LIKE '%$search%'
+                                                    ORDER BY review_regtime DESC";
+                                        } else {
+                                            $sql = "SELECT
+                                                     review_num,
+                                                     M.mv_title,
+                                                     U.user_nickname,
+                                                     review_short,
+                                                     review_rating,
+                                                     review_regtime
+                                                  FROM
+                                                      review AS R
+                                                  LEFT JOIN
+                                                      movie AS M
+                                                  ON
+                                                      R.mv_num = M.mv_num
+                                                  LEFT JOIN
+                                                      user AS U
+                                                  ON
+                                                      R.user_num = U.user_num                       
                                                   ORDER BY review_regtime DESC";
                                         }
 
@@ -266,13 +255,13 @@
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
                                                 $no = $row["review_num"];
-                                                $mv_name = $row["mv_num"];
-                                                $id = $row["user_num"];
+                                                $mv_name = $row["mv_title"];
+                                                $id = $row["user_nickname"];
                                                 $one_line = $row["review_short"];
                                                 $rating = $row["review_rating"];
                                                 $regist_day = $row["review_regtime"];
                                                 ?>
-                                                <li class="list_row">
+                                                <li class="list_row_review">
                                                     <form method="post" action="#">
                                                         <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
