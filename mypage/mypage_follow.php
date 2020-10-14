@@ -39,7 +39,16 @@
                     <!-- db에서 가져온 값이 들어갈 것 -->
                     <li class='list_item'>
                         <a href='mypage_index.php?userpage_user_num=<?=$row['user_num']?>'>
-                            <div class='img_box'><img src='../user/img/<?=$row['user_img']?>' alt=""></div>
+                            <div class='img_box'>
+                <?php
+                            if (strlen($row['user_img']) > 22) {
+                                echo "<img src='".$row['user_img']."' alt=''>";
+                            }else{ 
+                                echo "<img src='../user/img/".$row['user_img']."' alt=''>";
+                            }
+                ?>            
+                            </div>
+
                             <h3><?=$row['user_nickname']?></h3>
                         </a>
                     </li>

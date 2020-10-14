@@ -61,12 +61,12 @@ function init_modal_script(){
           };
           // icon 변경 함수
           if(like_checkbox.checked == true){
-            like_ckeckbox_class[num].src = "./img/like_color.png"; 
+            like_ckeckbox_class[num].src = "http://"+ location.host +"/wootcha/mypage/img/like_color.png"; 
           }else{
-            like_ckeckbox_class[num].src = "./img/like.png"; 
+            like_ckeckbox_class[num].src = "http://"+ location.host +"/wootcha/mypage/img/like.png"; 
           }
           data = "review_num=" + review_num.value;
-          httpRequest.open("POST", "../review/review_like_ajax_request.php", true);
+          httpRequest.open("POST", "http://"+ location.host +"/wootcha/review/review_like_ajax_request.php", true);
           httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           httpRequest.send(data);
         };
@@ -103,7 +103,7 @@ function init_modal_script(){
           };
 
           data = "mode="+ mode.value +"&review_num=" + review_num.value + "&userpage_user_num="+userpage_user_num.value + "&review_reply_contents=" + review_reply_contents.value;
-          httpRequest.open("POST", "../review/review_d_m_i.php", true);
+          httpRequest.open("POST", "http://"+ location.host +"/wootcha/review/review_d_m_i.php", true);
           httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           httpRequest.send(data);
         }

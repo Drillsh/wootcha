@@ -66,7 +66,16 @@ else $user_img = "";
     ?>
         <div class="search_profile">
             <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/mypage/mypage_index.php?userpage_user_num=<?=$user_num?>">          
-            <img src="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha/user/img/<?=$user_img?>"></a>
+            <?php
+                // 선택 이미지의 파일명이 22자리, api 이미지는 22자리 이상
+                if (strlen($user_img) > 22) {
+                    echo "<img src='$user_img' alt='프로필 이미지'></a>";
+                }else{
+            ?>
+                    <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$user_img?>" alt="프로필 이미지"></a>
+            <?php
+                }
+            ?>
         </div>
     <?php
     }

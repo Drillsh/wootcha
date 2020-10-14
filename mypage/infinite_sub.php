@@ -160,7 +160,13 @@
                 <!-- profile img : get으로 받은 user의 img 그리고 nickname이 들어가야 함-->
 
                 <div class="small_img_box">
-                    <img src="../user/img/<?=$img?>" alt="프로필 이미지">
+                <?php
+                    if (strlen($img) > 22) {
+                        echo "<img src='$img' alt=''>";
+                    }else{ 
+                        echo "<img src='../user/img/$img' alt='프로필 이미지'>";
+                    }
+                ?>
                 </div>
 
                 <!-- 닉네임 : 세션에서 값 옴 -->
@@ -262,7 +268,13 @@
                             <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
                             <a href="mypage_index.php?userpage_user_num=<?=$reply_user_num?>">
                                 <div class="small_img_box">
-                                    <img src="../user/img/<?=$reply_user_img?>" alt="프로필 이미지 수정">
+                                    <?php
+                                        if (strlen($reply_user_img) > 22) {
+                                            echo "<img src='$reply_user_img' alt=''>";
+                                        }else{ 
+                                            echo "<img src='../user/img/$reply_user_img' alt='프로필 이미지'>";
+                                        }
+                                    ?>
                                 </div>
                                 <!-- 닉네임 -->
                                 <p><?=$reply_user_nickname?></p>

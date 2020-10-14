@@ -85,9 +85,10 @@
         <input type="button" value="로그인" onclick="check_input_login()">
         </form>
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
-        <button> api 로그인 </button>
+        
         <button onclick="signupClick()"> 회원가입하기 </button>
         <button class="trigger_user_find_account"> 계정찾기 </button>
+        <div id="kakao_login_button" onclick="kakaoConn();"><img src="/wootcha/user/img/kakao_login_button.png" alt="kakao_login_button"></div>
     </div>
 </div>
 

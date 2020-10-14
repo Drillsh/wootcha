@@ -43,11 +43,15 @@
             <header class="section_header">
                 <span class="title_sub">마이 페이지 &nbsp&nbsp > &nbsp&nbsp 내 정보</span><br><br>
                 <span class="title_main">내 정보</span>
-                <a href="#" class="trigger_mypage_modify">
-                    <div class="small_img_box">
-                        <img src="./img/edit.png" alt="">
-                    </div>
-                </a>
+<?php
+                if (strlen($user_img) <= 22) {
+                    echo "<a href='#' class='trigger_mypage_modify'>
+                    <div class='small_img_box'><img src='./img/edit.png' alt=''></div></a>";
+                }else{
+                    echo "<br><br><br><h3> 카카오 계정으로 이용하고 계십니다. </h3>";
+                }
+
+?>
             </header>
             
             <div class="section_container">

@@ -99,6 +99,8 @@
                     $img_0 = ""; $img_1 = ""; $img_2 = "checked"; $img_3 = ""; 
                 }elseif($user_img == "user_robot_avatar3.png"){
                     $img_0 = ""; $img_1 = ""; $img_2 = ""; $img_3 = "checked"; 
+                }else{
+                    
                 }
             ?>
             <tr><td>

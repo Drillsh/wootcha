@@ -129,15 +129,52 @@
                 <?php
                   $main_list=1;
                   while($row = mysqli_fetch_array($result)){
-                   $mv_num = $row['mv_num'];
-                   $review_rating = $row['review_rating'];
-                   $mv_release_date = $row['mv_release_date'];
-                   $mv_title = $row['mv_title'];
-                   $mv_img_path = $row['mv_img_path'];
+                    $mv_num = $row['mv_num'];
+                    $review_rating = $row['review_rating'];
+                    $review_number = $row['review_num'];
+                    $mv_release_date = $row['mv_release_date'];
+                    $mv_title = $row['mv_title'];
+                    $mv_img_path = $row['mv_img_path'];
+
+                    // *****************************
+                    // 리뷰 모달에서 사용하는 변수, 여기에 매치하면 됨
+                    // *****************************
+                    $query = "select user_img, user_nickname, review_like, review_regtime, review_short, review_long  
+                    from review R
+                    inner join user U
+                    on R.user_num = U.user_num
+                    where review_num = $review_number;";
+                    $result_query = mysqli_query($con, $query) or die(mysqli_error($con));
+                    $row = mysqli_fetch_array($result_query);
+                    // 리뷰 pk
+                    $review_pk_num = $review_number;
+                    // 리뷰 작성자의 이미지
+                    $review_writer_img = $row['user_img'];
+                    // 리뷰 작성자의 닉네임
+                    $review_writer_nickname = $row['user_nickname'];
+                    // 리뷰 작성자가 평가한 평점
+                    $review_writer_rating = $review_rating;
+                    // 리뷰 좋아요 수
+                    $review_like_count = $row['review_like'];
+                    // 리뷰 등록 일자
+                    $review_register_date = $row['review_regtime'];
+                    // 반복문의 넘버 
+                    $while_num = $main_list + $main_list2-1; 
+                    // 영화의 제목
+                    $movie_subject = $mv_title;
+                    // 한줄평
+                    $short_review_content = $row['review_short'];
+                    // 장문평
+                    $long_review_content = $row['review_long'];
+                    // 세션 유저의 넘버
+                    $session_user_num = $_SESSION['user_num'];
+
+                    include $_SERVER['DOCUMENT_ROOT']."/wootcha/review/review_modal.php";
+                    // review_dialog_trigger 클래스가 버튼 역할을 함
                 ?>
                 <li class="css-MainList-li e3fgkal0">
                   <!-- 영화 6층 a -->
-                  <a title="<?=$mv_title?>" href="#">
+                  <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger">
                     <!-- 6층 포스터 -->
                     <div class="css-MainContentPosterBlock e3fgkal1">
                       <!-- 포스터 설정 -->
@@ -208,13 +245,50 @@
                   while($row = mysqli_fetch_array($result)){
                     $mv_num = $row['mv_num'];
                     $review_rating = $row['review_rating'];
+                    $review_number = $row['review_num'];
                     $mv_release_date = $row['mv_release_date'];
                     $mv_title = $row['mv_title'];
                     $mv_img_path = $row['mv_img_path'];
+
+                    // *****************************
+                    // 리뷰 모달에서 사용하는 변수, 여기에 매치하면 됨
+                    // *****************************
+                    $query = "select user_img, user_nickname, review_like, review_regtime, review_short, review_long  
+                    from review R
+                    inner join user U
+                    on R.user_num = U.user_num
+                    where review_num = $review_number;";
+                    $result_query = mysqli_query($con, $query) or die(mysqli_error($con));
+                    $row = mysqli_fetch_array($result_query);
+                    // 리뷰 pk
+                    $review_pk_num = $review_number;
+                    // 리뷰 작성자의 이미지
+                    $review_writer_img = $row['user_img'];
+                    // 리뷰 작성자의 닉네임
+                    $review_writer_nickname = $row['user_nickname'];
+                    // 리뷰 작성자가 평가한 평점
+                    $review_writer_rating = $review_rating;
+                    // 리뷰 좋아요 수
+                    $review_like_count = $row['review_like'];
+                    // 리뷰 등록 일자
+                    $review_register_date = $row['review_regtime'];
+                    // 반복문의 넘버 : 1부터 시작하는데 js에서 필요한 건 0부터 시작
+                    $while_num = $main_list3-1; 
+                    // 영화의 제목
+                    $movie_subject = $mv_title;
+                    // 한줄평
+                    $short_review_content = $row['review_short'];
+                    // 장문평
+                    $long_review_content = $row['review_long'];
+                    // 세션 유저의 넘버
+                    $session_user_num = $_SESSION['user_num'];
+
+                    include $_SERVER['DOCUMENT_ROOT']."/wootcha/review/review_modal.php";
+                    // review_dialog_trigger 클래스가 버튼 역할을 함
                 ?>
                 <li class="css-MainList-li e3fgkal0">
                   <!-- 영화 6층 a -->
-                  <a title="<?=$mv_title?>" href="#">
+                  <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger">
                     <!-- 6층 포스터 -->
                     <div class="css-MainContentPosterBlock e3fgkal1">
                       <!-- 포스터 설정 -->

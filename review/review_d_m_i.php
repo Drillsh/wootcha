@@ -159,25 +159,32 @@
                 $user_nickname = $row['user_nickname'];
                 $user_img = $row['user_img'];
                 $user_num = $row['user_num'];
-
-                echo "<div class='comments_item'>
+?>
+                <div class='comments_item'>
                         <!-- profile image -->
                         <div class='profile_box'>
                             <!-- 댓글 을 쓴 사람의 num을 받아서 a로 넘겨야함 -->
                             <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
-                            <a href='mypage_index.php?userpage_user_num=$user_num'>
+                            <a href='mypage_index.php?userpage_user_num=<?=$user_num?>'>
                                 <div class='small_img_box'>
-                                    <img src='../user/img/$user_img' alt='프로필 이미지 수정'>
+                                <?php
+                                    if (strlen($user_img) > 22) {
+                                        echo "<img src='$user_img' alt=''>";
+                                    }else{ 
+                                        echo "<img src='../user/img/$user_img' alt='프로필 이미지 수정'>";
+                                    }
+                                ?>
                                 </div>
                                 <!-- 닉네임 -->
-                                <p>$user_nickname</p>
+                                <p><?=$user_nickname?></p>
                             </a>
                         </div>
                         <div class='comment_content'>
                             <!-- 댓글 내용 -->
-                            <p>$review_reply_contents</p>
+                            <p><?=$review_reply_contents?></p>
                         </div>
-                    </div>";
+                    </div>
+<?php                    
             }
             break;
         

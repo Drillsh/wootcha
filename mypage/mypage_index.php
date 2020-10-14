@@ -56,11 +56,6 @@
                 </div>
             </div>
 
-
-
-
-
-
             <div class="section_container">
             <input type="hidden" value="<?=$userpage_user_num?>" id="userpage_user_num">
             <input type="hidden" value="" id="review_total_count">
@@ -92,6 +87,8 @@
                             // 해당 리뷰의 댓글 select
                             $result_review_and_reply = select_data($con, "select_my_review_reply", $review_num);
                             $result_review_and_reply_num = mysqli_num_rows($result_review_and_reply);
+                            
+                            
                             ?>
 
                 <!-- db에서 가져온 값이 들어갈 것 -->
@@ -168,10 +165,16 @@
                                 <!-- profile img : get으로 받은 user의 img 그리고 nickname이 들어가야 함-->
 
                                 <div class="small_img_box">
-                                    <img src="../user/img/<?=$img?>" alt="프로필 이미지">
+                                <?php
+                                    if (strlen($img) > 22) {
+                                        echo "<img src='$img' alt='프로필 이미지'>";
+                                    }else{ 
+                                        echo "<img src='../user/img/$img' alt='프로필 이미지'>";
+                                    }
+                                ?>  
                                 </div>
 
-                                <!-- 닉네임 : 세션에서 값 옴 -->
+                                <!-- 닉네임-->
                                 <div>
                                     <?=$nickname?>
                                 </div>
@@ -255,6 +258,7 @@
                         <div class="comments_container">
                             <div class="comments_list">
                                 <?php
+                                
                                     while($row_reply = mysqli_fetch_array($result_review_and_reply)){
                                         $review_reply_num = $row_reply['review_reply_num'];
                                         $review_reply_contents = $row_reply['review_reply_contents'];
@@ -270,7 +274,13 @@
                                             <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
                                             <a href="mypage_index.php?userpage_user_num=<?=$reply_user_num?>">
                                                 <div class="small_img_box">
-                                                    <img src="../user/img/<?=$reply_user_img?>" alt="프로필 이미지 수정">
+                                                <?php
+                                                    if (strlen($reply_user_img) > 22) {
+                                                        echo "<img src='$reply_user_img' alt=''>";
+                                                    }else{ 
+                                                        echo "<img src='../user/img/$reply_user_img' alt='프로필 이미지 수정'>";
+                                                    }
+                                                ?>
                                                 </div>
                                                 <!-- 닉네임 -->
                                                 <p><?=$reply_user_nickname?></p>

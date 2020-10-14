@@ -128,13 +128,13 @@
             <!-- 아바타 -->
             <tr><td>
                     <input type="radio" id="avatar_1" name="avatar" value="user_robot_avatar0.png" checked>
-                    <label for="avatar_1"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar0.png" alt=""></label>
+                    <label for="avatar_1"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar0.png" id="avatar_1_img" alt=""></label>
                     <input type="radio" id="avatar_2" name="avatar" value="user_robot_avatar1.png">
-                    <label for="avatar_2"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar1.png" alt=""></label>
+                    <label for="avatar_2"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar1.png" id="avatar_2_img" alt=""></label>
                     <input type="radio" id="avatar_3" name="avatar" value="user_robot_avatar2.png">
-                    <label for="avatar_3"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar2.png" alt=""></label>
+                    <label for="avatar_3"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar2.png" id="avatar_3_img" alt=""></label>
                     <input type="radio" id="avatar_4" name="avatar" value="user_robot_avatar3.png">
-                    <label for="avatar_4"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar3.png" alt=""></label>
+                    <label for="avatar_4"><img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/user_robot_avatar3.png" id="avatar_4_img" alt=""></label>
             </td></tr>
         </table>
         <input type="button" value="회원가입" onclick="allCheck()">
@@ -142,15 +142,6 @@
         <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <!-- kakaoConn()는 mypage_index에 있음  -->
         <div id="kakao_login_button" onclick="kakaoConn();"><img src="/wootcha/user/img/kakao_login_button.png" alt="kakao_login_button"></div>
-
-        <!-- 카카오 로그인 정보를 담는 form (로그인)-->
-        <form name="kakao_login_form" action="/user/kakao_login.php?mode=" method="POST">
-            <input id="kakao_id_login" name="kakao_id_login" type="hidden">
-            <input id="kakao_email_login" name="kakao_email_login" type="hidden">
-            <input id="kakao_nickname_login" name="kakao_nickname_login" type="hidden">
-            <input id="kakao_img_login" name="kakao_img_login" type="hidden">
-        </form>
-
     </div>
 </div>
 
