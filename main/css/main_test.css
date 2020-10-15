@@ -275,7 +275,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  left: -11px;
+  left: -20px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
@@ -318,7 +318,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  right: -11px;
+  right: -20px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
@@ -391,11 +391,11 @@
 }
 
 /* ================ 장르별리스트 li ================= */
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 17.6667%;}
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 18.3%; box-shadow:0px 0px 4px 2px #D1CFCF;}
 .css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-bottom: 0px;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-left: 13px;}
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-left: 14px;}
 .css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {padding: 0px 8px !important;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover {box-shadow: 0px 0px 4px 2px #b6b4b4;}
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover {box-shadow: 0px 0px 8px 5px #a7a6a6;}
 .css-106b4k6-Self {
   display: inline-block;
   vertical-align: top;
@@ -544,7 +544,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  left: -9px;
+  left: -14px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
@@ -570,7 +570,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  right: -9px;
+  right: -14px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
