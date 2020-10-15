@@ -1,114 +1,104 @@
 // 모든 문서가 로딩이 되면 자동으로 실행해주는 함수 => document.ready와 같음.
 $(function () {
+  // ========== 스크롤 최근 리뷰 컨테이너 ==========//
+    var container = $(".css-ScrollingTaim");
 
-  // 변수 선언
-  var slideshow = $('.slideshow'),
-      slideshowSlides = slideshow.find('.slideshow_slides'), // 속도개선. 큰 객체안에 하위객체를 찾아오는 방법.
-      slides = slideshowSlides.find('div'), // anchor 4개를 찾아옴. 배열로 들어온다.
-      slidesCount = slides.length,
-      nav = slideshow.find('.slideshow_nav'),
-      prev = nav.find('.prev'),
-      next = nav.find('.next'),
-      currentIndex = 0, // 현재슬라이드를 첫번째 화면으로 세팅
-      indicator = slideshow.find('.slideshow_indicator'),
-      interval = 3000,
-      timer = null,
-      incrementValue = 1; // 자동슬라이드 변화시간
+    //이전, 다음 버튼
+    var prev = $(".css-BackwardButton-left");
+    var next = $(".css-ForwardButton-right");
 
-  // 이벤트 처리 1. 슬라이드 배치 ( 가로 ) => slide1 왼쪽 0%, slide2 100%, slide3 200%, slide4 300%
-  slides.each(function(i){
+    var currentIndex = 0;
 
-    var newLeft = (i*100)+'%'; // style = "left: 0% 100% 200% 300%" 해야될것을 프로그램으로 처리하기
-    $(this).css({left: newLeft});
-
-  });
-
-  prev.addClass('disabled');
-  indicator.find('a').eq(0).addClass('active');
-
-  // 슬라이드 화면이동하는 함수를 생성한다.
-  function gotoSlide(index){
-
-    slideshowSlides.animate({ left: (-100*index)+'%'}, 1000, 'easeInOutExpo');
-
-    currentIndex = index;
-
-    if(currentIndex === 0){
-      prev.addClass('disabled');
-    }else{
-      prev.removeClass('disabled');
+    //좌우 네비게이션 버튼 함수
+    function stateNavigationButton(index) {
+        switch (index) {
+            case 0:
+                prev.hide();
+                next.show();
+                break;
+            case 1:
+            case 2:
+                prev.show();
+                next.show();
+                break;
+            case 3:
+                prev.show();
+                next.hide();
+                break;
+            default: break;
+        }
+    }
+    
+    // 이미지 및 인티케이터, nav 전환
+    function startAnimation(index) {
+      container.css( {'transform' : "translateX("+ (-1255 * index) + "px )"} );
     }
 
-    if(currentIndex === (slidesCount-1)){
-      next.addClass('disabled');
-    }else{
-      next.removeClass('disabled');
+    //이전 버튼
+    prev.on("click", function(event){
+        // if(currentIndex !== 0){
+        //     currentIndex -= 1; 
+        // }else{
+        //     currentIndex = 0;
+        // }
+        // startAnimation(currentIndex);
+        
+    });
+
+    //다음 버튼
+    next.on("click", function(event){
+        currentIndex += 1; 
+        startAnimation(currentIndex);
+    });
+
+  // =========== 스크롤 서브1 리뷰 컨테이너 ===========//
+    var container2 = $(".css-Sub1-ScrollingTaim");
+
+    //이전, 다음 버튼
+    var prev2 = $(".css-Sub1-BackwardButton-left");
+    var next2 = $(".css-Sub1-ForwardButton-right");
+
+    var currentIndex2 = 0;
+
+    //좌우 네비게이션 버튼 함수
+    function stateNavigationButton(index) {
+        switch (index) {
+            case 0:
+                prev2.hide();
+                next2.show();
+                break;
+            case 1:
+            case 2:
+                prev2.show();
+                next2.show();
+                break;
+            case 3:
+                prev2.show();
+                next2.hide();
+                break;
+            default: break;
+        }
+    }
+    
+    // 이미지 및 인티케이터, nav 전환
+    function startAnimation(index) {
+      container2.css( {'transform' : "translateX("+ (-1255 * index) + "px )"} );
     }
 
-    indicator.find('a').removeClass('active');
-    indicator.find('a').eq(currentIndex).addClass('active');
+    //이전 버튼
+    prev2.on("click", function(event){
+        // if(currentIndex !== 0){
+        //     currentIndex -= 1; 
+        // }else{
+        //     currentIndex = 0;
+        // }
+        // startAnimation(currentIndex);
+        
+    });
 
-  }
-
-  // 이벤트처리 네비게이션 진행
-  prev.click(function(e){
-
-    e.preventDefault(); // a 태그 기본기능 막기
-    if(currentIndex !== 0){
-      currentIndex -= 1;
-    }
-
-    gotoSlide(currentIndex);
-
-  });
-
-  next.click(function(e){
-
-    e.preventDefault(); // a 태그 기본기능 막기
-    if(currentIndex !== (slidesCount-1)){
-      currentIndex += 1;
-    }
-
-    gotoSlide(currentIndex);
-
-  });
-
-  indicator.find('a').click(function(e){
-    e.preventDefault();
-    var point = $(this).index();
-    gotoSlide(point);
-  });
-
-  // 자동슬라이드 함수
-  // setInterval( 일을 하는 함수구현, 시간)
-  function autoDisplayStart(){
-    timer = setInterval(function(){
-      // 0, 1, 2, 3 => 0, 1, 2, 3 => 0, 1, 2, 3
-
-      if(currentIndex === 3 ){
-        incrementValue = -1;
-      }else if(currentIndex === 0 ){
-        incrementValue = 1;
-      }
-
-      var nextIndex = (currentIndex + 1) % slidesCount;
-      gotoSlide(nextIndex);
-    }, interval);
-  };
-
-  function autoDisplayStop(){
-    clearInterval(timer);
-  };
-
-  slideshow.mouseenter(function(e){
-    autoDisplayStop();
-  });
-
-  slideshow.mouseleave(function(e){
-    autoDisplayStart();
-  });
-
-  //gotoSlide(currentIndex);
-  autoDisplayStart();
-
+    //다음 버튼
+    next2.on("click", function(event){
+        currentIndex2 += 1; 
+        startAnimation(currentIndex2);
+    });
 });
