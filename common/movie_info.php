@@ -20,7 +20,7 @@ class Movie_info
     public $release_date;       //개봉일
     public $synopsis;           //시놉시스
     public $actor;              //출연배우
-    public $stillcut;           //스틸컷
+    public $stillcut = array(); //스틸컷
 
     // 생성자
     public function __construct(){}
@@ -45,6 +45,12 @@ class Movie_info
             $this->release_date = $row['mv_release_date'];
             $this->subTitle = $selected_movie['subtitle'];
 
+            $sql = "SELECT mi_img_path FROM `movie_img` WHERE mv_num = {$this->movie_code}";
+            $res = mysqli_query($con, $sql) or die("Select movie Error: " . mysqli_error($con));
+            while ($row = mysqli_fetch_array($res)) {
+                $this->stillcut[] = $row['mi_img_path'];
+            }
+
         } else {
             $this->title = str_replace("<b>", "", $selected_movie['title']);    //태그제거
             $this->title = str_replace("</b>", "", $this->title);
@@ -62,6 +68,9 @@ class Movie_info
             $sql = "INSERT INTO `movie`(mv_num, mv_title, mv_rating, mv_img_path, mv_genre, mv_nation, mv_release_date, mv_running_time, mv_subtitle) 
                 VALUES({$this->movie_code}, '{$this->title}', 0.0, '{$this->poster_img}', '{$this->genre}', '{$this->nation}', '{$this->release_date}', '{$this->running_time}','{$this->subTitle}');";
             mysqli_query($con, $sql) or die("Movie Insert Error: " . mysqli_error($con));
+
+            //스틸컷 DB 저장
+            $this->save_StillCut($this->movie_code, $con);
         }
 
         // 네이버 영화 크롤링
@@ -200,7 +209,7 @@ class Movie_info
         return $movie_detail;
     }
 
-    //*************************** 영화코드로 세팅 ****************************************
+    //*************************** 스틸컷 가져와서 DB 저장 ****************************************
     function save_StillCut($mv_num, $con)
     {
         $data = file_get_html("https://movie.naver.com/movie/bi/mi/photoView.nhn?code={$mv_num}");
@@ -233,6 +242,12 @@ class Movie_info
         $instance->nation = $row['mv_nation'];
         $instance->running_time = $row['mv_running_time'];
         $instance->release_date = $row['mv_release_date'];
+
+        $sql = "SELECT mi_img_path FROM `movie_img` WHERE mv_num = {$mv_code}";
+        $res = mysqli_query($con, $sql) or die("Select movie Error: " . mysqli_error($con));
+        while ($row = mysqli_fetch_array($res)) {
+            $instance->stillcut[] = $row['mi_img_path'];
+        }
 
         $link = "https://movie.naver.com/movie/bi/mi/basic.nhn?code={$mv_code}";
 

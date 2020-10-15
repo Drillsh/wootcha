@@ -10,14 +10,30 @@ function save_StillCut($mv_num, $con)
     $data = file_get_html("https://movie.naver.com/movie/bi/mi/photoView.nhn?code={$mv_num}");
     $image = $data->find('#photo_area > div > div.list_area._list_area > div > ul > li');
 
-    foreach ($image as $item) {
-        $img = $item->attr['data-json'];
-        $img = json_decode($img);
-        $still_cut[] = $img->fullImageUrl665px;
-        $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl665px}');";
-        mysqli_query($con, $sql);
+    if (!empty($image)) {
+        foreach ($image as $item) {
+            $img = $item->attr['data-json'];
+            $img = json_decode($img);
+            $still_cut[] = $img->fullImageUrl665px;
+            $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl665px}');";
+            mysqli_query($con, $sql);
+        }
     }
 }
+
+$sql = "SELECT mi_img_path FROM `movie_img` WHERE mv_num = 167613";
+$res = mysqli_query($con, $sql) or die("Select movie Error: " . mysqli_error($con));
+$still_cut = array();
+while ($result = mysqli_fetch_array($res)) {
+    array_push($still_cut, $result['mi_img_path']);
+}
+
+print_r($still_cut);
+
+//foreach ($result as $value) {
+//    echo $value . "<br>";
+//}
+//save_StillCut($value,$con);
 
 // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
 //ini_set("allow_url_fopen", 1);

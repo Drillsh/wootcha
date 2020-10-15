@@ -6,6 +6,11 @@ if (isset($_GET["item"])) {
     $movie_info = new Movie_info();
     $movie_info->setMovieInfo($item, $con);
 
+}elseif (isset($_GET["mv_num"])){
+
+   $movie_info = Movie_info::getMovieInfo_ByCode($_GET['mv_num'], $con);
+
+}
     $mv_code = $movie_info->movie_code;                 // 영화 코드
     $title = $movie_info->title;                        // 영화 제목
     $subtitle = $movie_info->subTitle;                  // 부제
@@ -20,8 +25,7 @@ if (isset($_GET["item"])) {
     $release_date = $movie_info->release_date;          // 개봉일
     $actor = $movie_info->actor;                        // 배우
     $synopsis = $movie_info->synopsis;                  // 시놉시스
-
-}
+    $stillcut = $movie_info->stillcut;                  // 스틸컷
 
 ?>
 
@@ -215,7 +219,7 @@ if (isset($_GET["item"])) {
                                     }
                                     echo "
                                                 <label class='startRadio__box'>
-                                                    <input type='radio' name='review_rating_$i' value='$find_rating' $rating_checked disabled='disabled'>
+                                                    <input type='radio' name='review_rating' value='$find_rating' $rating_checked disabled='disabled'>
                                                     <span class='startRadio__img'><span class='blind'></span></span>
                                                 </label>";
                                     $find_rating += 0.5;

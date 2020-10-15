@@ -126,7 +126,7 @@ $number = $total_record - $start;
             // \n이 들어가면 줄바꿈 " "공백이면 한칸 띄운 서브젝트를 반환한다
             $subject=str_replace("\n", "<br>",$subject);
             $subject=str_replace(" ", "&nbsp;",$subject);
-            if ($row["file_name_0"])
+            if (isset($row["file_name_0"]))
       	      $file_image = "<img src='./img/file.gif'>";
             else
       	      $file_image = " ";

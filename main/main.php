@@ -1,11 +1,10 @@
 <!-- 상단 슬라이드 -->
 <div class="css-1l88qpn-StyledSelf eayv25j0">
+
 </div>
 
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
-  include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/crawling/movie_cgv_crawling.php";
-  include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/search/movie_naver_api_func.php";
 
   $sql = "select R.mv_num, count(R.mv_num) as count, M.mv_title, M.mv_release_date, M.mv_img_path, R.review_rating 
   from review R inner join movie M on R.mv_num = M.mv_num group by R.mv_num order by count desc limit 5;";
@@ -145,7 +144,12 @@
                   // 장문평
                   $long_review_content = $row['review_long'];
                   // 세션 유저의 넘버
-                  $session_user_num = $_SESSION['user_num'];
+                    if (isset($_SESSION['user_num'])) {
+                        $session_user_num = $_SESSION['user_num'];
+                    }else{
+                        $session_user_num = "";
+                    }
+
                   include $_SERVER['DOCUMENT_ROOT']."/wootcha/review/review_modal.php";
                   // review_dialog_trigger 클래스가 버튼 역할을 함
               ?>

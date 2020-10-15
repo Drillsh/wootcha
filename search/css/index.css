@@ -22,21 +22,6 @@ body {
   top: 0px;
 }
 
-/* #mva4{
-width: 100%;
-height: 130px;
-border: 1px solid lightblue;
-}
-#mva3{
-width: 100%;
-height: 130px;
-border: 1px solid yellow;
-}
-#mva2{
-width: 100%;
-height: 130px;
-border: 1px solid red;
-} */
 #more_btn > a !important{
 width: 120px;
 }
