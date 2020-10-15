@@ -7,14 +7,9 @@
         <link rel="stylesheet" type="text/css" href="./css/mypage.css?after">
         <link rel="stylesheet" type="text/css" href="./css/mypage_comment_list_item.css?after">
         
-        <!-- 무한 스크롤 -->
+        <!-- 리스트 자동 추가 -->
         <script src="http://code.jquery.com/jquery-1.7.js"></script>
         <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/mypage/js/infi_scroll.js"></script>
-
-        <!-- 형태소 분석
-        <script src="./js/review_mng.js"></script>
-        <link rel="stylesheet" href="/wootcha/mypage/css/jqcloud.min.css">
-        <script src="/wootcha/mypage/js/jqcloud.min.js" charset="utf-8"></script> -->
 
         <!-- 모달  -->
         <link rel="stylesheet" type="text/css" href="./css/mypage_review_modal.css?after">
@@ -46,15 +41,7 @@
                 <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp <?=$title_main?> 작성한 리뷰</span><br><br>
                 <span class="title_main"><?=$title_main?> 작성한 리뷰 <h5 id="review_total_count"> <?=$result_total_review_count->num_rows?> 개</h5></span>
             </header>
-            <!-- 키워드 테스트 -->
             
-            <div id="content_mid" class="content">
-                <h2 class="txt_title">장단점 키워드</h2>
-                <div>
-                    <div id="good_key"></div><div id="bad_key"></div>
-                    <div id="not_found_keyword"></div>
-                </div>
-            </div>
 
             <div class="section_container">
             <input type="hidden" value="<?=$userpage_user_num?>" id="userpage_user_num">

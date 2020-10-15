@@ -58,11 +58,11 @@
                 <!-- db에서 가져온 값이 들어갈 것 -->
                 <form action="#" method="post">
                     <table>
-                        <tr>
+                        <!-- <tr>
                             <td>프로필사진</td>
                             <td>사진을 설정합니다.</td>
                             <td></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td>아이디</td>
                             <td><?=$user_mail?></td>

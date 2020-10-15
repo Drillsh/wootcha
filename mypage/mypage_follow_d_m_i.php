@@ -22,9 +22,12 @@
         $query = "select * from user_follow where follow_user_num= $follow_user_num;";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
     
-        echo "<p>$result->num_rows 명</p>";
+        echo "<p>팔로워 $result->num_rows 명</p>";
+        mysqli_close($con);
+    }else{
+        exit; 
+        return false;
+        mysqli_close($con);
     }
-    mysqli_close($con);
-    
 ?>
 
