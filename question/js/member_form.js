@@ -5,8 +5,6 @@ function check_delete(num) {
   }
 }
 
-
-
 function check_id() {
   window.open("check_id.php?mode=id_check&id="+document.member_form.id.value,
     "IDcheck",
