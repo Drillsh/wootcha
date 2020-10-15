@@ -21,7 +21,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
     -webkit-touch-callout: none;
 } */
 
-.slides input { display: none; }
+/* .slides input { display: none; } */
 
 /* .slide-container { display: block; } */
 
@@ -130,7 +130,7 @@ label.next {
  height: 2350px;
  margin-top: 50px; 
  position: relative;
- background-color: gainsboro;
+ background-color: whitesmoke;
  padding: 20px;
 }
 
@@ -146,8 +146,8 @@ label.next {
 }
 .css-m21fst-Self-LazyLoadingImg {
   position: absolute;
-  top: -55px;
-  left: -10px;
+  top: -70px;
+  left: -15px;
   width: 153px;
   height: 221px;
   border-width: 2px;
@@ -191,7 +191,7 @@ img {
     width: 900px;
     height: 100% auto;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 10px;
     margin-left: 130px;
     position: absolute;
     font-size: 20;
@@ -220,83 +220,87 @@ img {
   border-color: slategray;
 }
 
-#favorite_movie_button {
+/* #favorite_movie_button {
+  background: none;
+  padding: 0px;
+  border: 1px;
+  margin: 0px;
+  cursor: pointer;
+  flex: 1 1 0%;
+  color: rgb(246, 246, 246);
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+  line-height: 22px;
+  height: 100%;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  align-items: flex-start;
+  font: 400 13.3333px Arial;
+  margin-top: 20px;
+  color: black;
+  border-color: black;
   width: 200px;
   height: 50px;
-  top: 150px;
-  right: 0px;
-  position: relative;
-  background-color: white;
-  background: url('../img/good_before.png');
-  -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    text-align: center;
-    cursor: default;
-    font: 400 13.3333px Arial;
-    margin-top: 15px;
-    
-  }  
-/* 
-#favorite_movie_like_on {
-width: 50px;
-height: 50px;
-top: 210px;
-right: 580px;
-position: absolute;
-background-color: white;
-background-image : url('../img/good_after.png') no-repeat 0 0;
-background-color: transparent;
-cursor: pointer;
-
 } */
 
-/* #favorite_movie_like_on:hover {
-  background-image : url('../img/good_before.png') no-repeat 0 0;
-  width: 50px;
-  height: 50px;
-  background-size: contain;  
+
+#favorite_movie_like_on {
+  width: 80px;
+  height: 80px;
+  margin-right: -280px;
+  top: 30px;
+  left: 970px;
+  position: absolute;
+  background-color: white;
+  background-image : url('../img/good_after.png');
+  background-size: cover; 
+  cursor: pointer;
+  font-size: 60px;
+}
+
+ #favorite_movie_like_on:hover {
+   background-image : url('../img/good_after.png');
+  width: 80px;
+  height: 80px;
+  background-size: cover;  
   overflow: hidden;
 }
 
 
 #favorite_movie_like_off {
-  background : url('../img/good_before.png') no-repeat 0 0 ;
-    -webkit-writing-mode: horizontal-tb;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    text-align: center;
-    cursor: default;
-    font: 400 13.3333px Arial;
-    position: absolute;
-    top: 210px;
-    right: 580px;
-    width: 200px;
-    height: 30px;
+  width: 80px;
+  height: 80px;
+  margin-right: -280px;
+  top: 30px;
+  left: 970px;
+  position: absolute;
+  background-color: white;
+  background-image : url('../img/good_before.png');
+  background-size: cover; 
+  cursor: pointer;
+  font-size: 60px;
+
   }
 
 #favorite_movie_like_off:hover {
   background-image : url('../img/good_after.png');
-  width: 50px;
-  height: 50px;
-  background-size: contain;  
+  width: 80px;
+  height: 80px;
+  background-size: cover;  
   overflow: hidden;
-} */
+
+}
 
 #review_write {
   width: 80px;
   height: 80px;
-  margin-top: -50px;
+  margin-top: -195px;
   left: 850px;
   position: absolute;
   background-color: white;
@@ -304,6 +308,7 @@ cursor: pointer;
   float: right;
   padding-left: 5px;
   padding-top: 5px;
+
 }
 
 .css-zv7ww6-Detail {
@@ -314,6 +319,9 @@ cursor: pointer;
   line-height: 20px;
   box-sizing: border-box;
   margin-top: 3px;
+  font-family:  'fantasy';
+  font-weight: bold;
+
 }
 
 .css-1xlr4il-ContentRatings {
@@ -323,9 +331,13 @@ cursor: pointer;
   letter-spacing: -0.5px;
   line-height: 20px;
   padding: 10px 0;
-  border-top: 1px solid #ededed;
-  border-bottom: 1px solid #ededed;
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
   margin-top: 14px;
+  font-family: monospace, fantasy;
+  border-width: 3px;
+  font-weight: bold;
+
 }
 
 #movie_score {
@@ -643,31 +655,6 @@ font-weight: bold;
 display: none;
 }
 
-
-
-.starR1{
-  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
-  background-size: auto 100%;
-  width: 30px;
-  height: 60px;
-  float:left;
-  text-indent: -9999px;
-  cursor: pointer;
-  position: absolute;
-}
-.starR2{
-  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
-  background-size: auto 100%;
-  width: 30px;
-  height: 60px;
-  float:left;
-  text-indent: -9999px;
-  cursor: pointer;
-  position: absolute;
-}
-.starR1.on{background-position:0 0;}
-.starR2.on{background-position:-15px 0;}
-
 .css-m4wuz0-PosterContainer {
   padding: 300px 0 0;
   position: relative;
@@ -749,3 +736,50 @@ h1, h3, p, hr {
   box-sizing: border-box;
   margin-top: 3px;
 }
+
+.css-1xlr4il-ContentRatings em {
+  color: #ff2f6e;
+}
+
+#kakao-link-btn {
+  width: 120px;
+  height: 50px;
+  right: 50px;
+  background-color: GOLD;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  font: 400 13.3333px Arial;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  position: absolute;
+  font-family: 'NanumSquare', sans-serif;
+  top: 30px;
+  
+}
+
+/* 별점 */
+.blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
+.startRadio { display: inline-block; overflow: hidden; height: 40px;} 
+.startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 40px;
+     background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
+.startRadio__box { position: relative; z-index: 1; float: left; width: 20px; height: 40px; cursor: pointer; }
+.startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
+.startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
+.startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }

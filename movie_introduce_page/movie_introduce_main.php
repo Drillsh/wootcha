@@ -25,7 +25,7 @@ if (isset($_GET["item"])) {
 
 ?>
 
-<script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce.js"></script>
+<script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce_contents.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
@@ -120,93 +120,145 @@ if (isset($_GET["item"])) {
     </li> -->
     </ul>
     <div id="movie_introduce">
-    <div class="css-p3jnjc-Pane e1svyhwg12">
-        <div class="css-16l0ojz-MaxWidthGrid e445inc0">
-            <div class="css-rr3jd3-MaxWidthRow ecjn50m0">
-                <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
-                <div class="css-13h49w0-PaneInner e1svyhwg13">
-                    <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
-                        <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?=$poster_img?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
+        <div class="css-p3jnjc-Pane e1svyhwg12">
+            <div class="css-16l0ojz-MaxWidthGrid e445inc0">
+                <div class="css-rr3jd3-MaxWidthRow ecjn50m0">
+                    <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
+                        <div class="css-13h49w0-PaneInner e1svyhwg13">
+                            <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
+                                <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="css-bwni1m-Title e1ei9ot91">
+                    <h2>
+                        <?php
+                        echo $title . "<h4>" . $subtitle . "</h4>";
+                        ?>
+                    </h2>
+
+                    <button type='button' id='kakao-link-btn' class='button_next' value='movie_share' href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share </button>
+
+                    <!-- 공유하기를 위한 자바스크립트 추가 시작 -->
+                    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                        Kakao.init('b1d92a5562ec8ac7f9466fce0bef38a7');
+
+                        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+                        Kakao.Link.createDefaultButton({
+                            container: '#kakao-link-btn',
+                            objectType: 'feed',
+                            content: {
+                                title: "<?= $mv_title ?>",
+                                description: "<?= $synopsis ?>",
+                                imageUrl: 'https://lh3.googleusercontent.com/proxy/ZL6IbPsJ1bP5FHc3fk_ZN9V-XNUFoPOnajGpso_jHq-lKlHIXJk42CF5j8xfHzBnT7_ejQJAd_O1C3PSxP5Z12StImRx1y8Fmp6-_eHXYTTY-acX',
+                                link: {
+                                    mobileWebUrl: 'https://developers.kakao.com',
+                                    webUrl: 'https:/localhost/wootcha/movie_introduce_page/movie_introduce_index.php'
+                                }
+                            },
+                            buttons: [{
+                                    title: '웹으로 보기',
+                                    link: {
+                                        mobileWebUrl: 'https://developers.kakao.com',
+                                        webUrl: 'https://developers.kakao.com'
+                                    }
+                                },
+                                {
+                                    title: '앱으로 보기',
+                                    link: {
+                                        mobileWebUrl: 'https://developers.kakao.com',
+                                        webUrl: 'https://developers.kakao.com'
+                                    }
+                                }
+                            ]
+                        });
+                        //]]>
+                    </script>
+
+
+                    <div class="css-zv7ww6-Detail e1svyhwg15">
+                        <br>
+                        <h2>
+                            <?php
+                            echo $genre;
+                            ?>
+                            &nbsp;・&nbsp;
+                            <?php
+                            echo $nation;
+                            ?>
+                            &nbsp;・&nbsp;
+                            <?php
+                            echo $running_time;
+                            ?>
+                            &nbsp;・&nbsp;
+                            <?php
+                            echo $release_date;
+                            ?>
+                        </h2>
+                    </div>
+                    <div class="css-1xlr4il-ContentRatings e1svyhwg16">
+                        <div class="follow_movie_star_wrap">
+                            <div class="startRadio">
+                                <?php
+                                $find_rating = 0.5;
+
+                                while ($find_rating <= 5) {
+                                    // 반복문으로 rating bar 생성 및 checked 설정
+                                    if ($find_rating <= ($naver_star / 2)) {
+                                        $rating_checked = "checked";
+                                    } else {
+                                        $rating_checked = "";
+                                    }
+                                    echo "
+                                                <label class='startRadio__box'>
+                                                    <input type='radio' name='review_rating_$i' value='$find_rating' $rating_checked disabled='disabled'>
+                                                    <span class='startRadio__img'><span class='blind'></span></span>
+                                                </label>";
+                                    $find_rating += 0.5;
+                                }
+                                ?>
+                            </div>
+                            <div class="follow_movie_star_num"><?= $naver_star ?></div>
+                        </div>
+                    </div>
+                    <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>'"><img src="./img/review_write.png"></span>
+
+
+                    <?php
+                    if ($user_num) {
+
+                        // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
+                        $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$mv_code}) as exist;";
+                        $res = mysqli_query($con, $sql);
+                        $row = mysqli_fetch_array($res);
+
+                        if ($row['exist']) {
+                            echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on'></button></a>";
+                        } else {
+                            echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
+                        }
+                    } else {
+                    ?>
+                        <a href="javascript:alert('로그인 후 이용 가능합니다.')"></a>
+                        <a><button type='button' id='favorite_movie_like_off'></button></a>
+
+                    <?php
+                    }
+                    ?>
+
+                </div>
+
             </div>
         </div>
-        <div class="css-bwni1m-Title e1ei9ot91">
-            <h2>
-                <?php
-                echo $title . "<h4>" . $subtitle . "</h4>";
-                ?>
-            </h2>
-            <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php'"><img src="./img/review_write.png"></span>
-           
-             <!-- <span id="favorite_movie_button"> -->
-            <?php
-            if ($user_num) {
-
-                // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
-                $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$mv_code}) as exist;";
-                $res = mysqli_query($con, $sql);
-                $row = mysqli_fetch_array($res);
-
-                if ($row['exist']) {
-                    echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on'>like</button></a>";
-                } else {
-                    echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'>like</button></a>";
-                }
-            } else {
-            ?>
-                <a href="javascript:alert('로그인 후 이용 가능합니다.')">
-                <button type="button" id="favorite_movie_button" img src="./img/good_before.png">이 영화가 좋아요</button>
-                
-
-                </a>
-            <?php
-            }
-            ?>
-            
-         
-            
-
-        <div class="css-zv7ww6-Detail e1svyhwg15">
-        <br>    
-        <h2>
-            <?php
-            echo $genre;
-            ?>
-            //
-            <?php
-            echo $nation;
-            ?>
-            //
-            <?php
-            echo $running_time;
-            ?>
-            //
-            <?php
-            echo $release_date;
-            ?>
-            </h2>
-        </div>
-        <div class="css-1xlr4il-ContentRatings e1svyhwg16">
-            네이버 평점 //
-                <?php
-                echo $naver_star;
-                ?>    
-            &nbsp;&nbsp;・&nbsp;&nbsp;
-        </div>
-        </div>
-
-        </div>
 
 
 
-        
-        </div>
 
-                                                                                                          
-        
 
-       
         <div id="movie_content">
             <h1>
 
@@ -223,7 +275,7 @@ if (isset($_GET["item"])) {
             </h1>
         </div>
 
-       
+
 
         </span>
 
@@ -311,11 +363,11 @@ if (isset($_GET["item"])) {
                     $review_regtime = $row['review_regtime'];
 
                     $sql = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img, U.user_num  
-                from review_reply RR
-                inner join user U
-                on RR.user_num = U.user_num
-                where RR.review_num = $review_num 
-                order by RR.review_reply_regtime DESC;";
+                            from review_reply RR
+                            inner join user U
+                            on RR.user_num = U.user_num
+                            where RR.review_num = $review_num 
+                            order by RR.review_reply_regtime DESC;";
 
                     $res = mysqli_query($con, $sql);
                     $result_review_and_reply_num = mysqli_num_rows($res);
