@@ -158,40 +158,40 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
       $q_num = mysqli_real_escape_string($con, $num);
       $regist_day=date("Y-m-d (H:i)");
 
-    //   //1번과 2번이 해당이 된다. 파일삭제만 체크한다..
-    //   if(isset($_POST['del_file']) && $_POST['del_file'] =='1'){
-    //     //삭제할 게시물의 이미지파일명을 가져와서 삭제한다.
-    //     $sql="SELECT `file_copied_0` from `free` where num ='$q_num';";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       alert_back('Error: 6' . mysqli_error($con));
-    //       // die('Error: ' . mysqli_error($conn));
-    //     }
-    //     $row=mysqli_fetch_array($result);
-    //     $file_copied_0=$row['file_copied_0'];
-    //     if(!empty($file_copied_0)){
-    //       unlink("./data/".$file_copied_0);
-    //     }
+      //1번과 2번이 해당이 된다. 파일삭제만 체크한다..
+      if(isset($_POST['del_file']) && $_POST['del_file'] =='1'){
+        //삭제할 게시물의 이미지파일명을 가져와서 삭제한다.
+        $sql="SELECT `qna_file_copied` from `qna_board` where qna_num ='$q_num';";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          alert_back('Error: 6' . mysqli_error($con));
+          // die('Error: ' . mysqli_error($conn));
+        }
+        $row=mysqli_fetch_array($result);
+        $file_copied_0=$row['qna_file_copied'];
+        if(!empty($file_copied_0)){
+          unlink("./data/".$file_copied_0);
+        }
 
-    //     $sql="UPDATE `free` SET `file_name_0`='', `file_copied_0` ='', `file_type_0` =''  WHERE `num`=$q_num;";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       die('Error: ' . mysqli_error($con));
-    //     }
+        $sql="UPDATE `qna_board` SET `qna_file_name`='', `qna_file_copied` ='', `qna_file_type` =''  WHERE `qna_num`=$q_num;";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          die('Error: ' . mysqli_error($con));
+        }
 
-    //   }
+      }
 
-    //   //1번과 2번 파일삭제신경쓰지 않고 업로드가 됬느냐? 안됐는냐?
-    //   if(!empty($_FILES['upfile']['name'])){
-    //     //include 파일업로드기능
-    //     include  "./lib/file_upload.php";
+      //1번과 2번 파일삭제신경쓰지 않고 업로드가 됬느냐? 안됐는냐?
+      if(!empty($_FILES['upfile']['name'])){
+        //include 파일업로드기능
+        include  "./lib/file_upload.php";
 
-    //     $sql="UPDATE `free` SET `file_name_0`= '$upfile_name', `file_copied_0` ='$copied_file_name', `file_type_0` ='$type[0]' WHERE `num`=$q_num;";
-    //     $result = mysqli_query($con,$sql);
-    //     if (!$result) {
-    //       die('Error: ' . mysqli_error($con));
-    //     }
-    //   }
+        $sql="UPDATE `qna_board` SET `qna_file_name`= '$upfile_name', `qna_file_copied` ='$copied_file_name', `qna_file_type` ='$type[0]' WHERE `qna_num`=$q_num;";
+        $result = mysqli_query($con,$sql);
+        if (!$result) {
+          die('Error: ' . mysqli_error($con));
+        }
+      }
 
       //3번 파일과 상관없이 무조건 내용중심으로 update한다.
       $sql="UPDATE `qna_board` SET `qna_title`='$q_subject',`qna_contents`='$q_content',`qna_regtime`='$regist_day' WHERE `qna_num`=$q_num;";
