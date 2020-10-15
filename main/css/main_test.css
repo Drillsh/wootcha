@@ -6,6 +6,20 @@
   font-style: normal;
 }
 
+
+/* ================ wootcha 상단 div 총리스트 ================= */
+.css-1l88qpn-StyledSelf {
+  position: relative;
+  padding-bottom: 46.71875%;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
 /* ================= 총 리스트 ================= */
 .css-MainDiv {padding: 6px;}
 /* .css-MainDiv {min-height: calc(100vh - 343px);} */
@@ -48,6 +62,7 @@
 .css-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
 /* ================= 영화 2층 ================= */
 .css-ScrollingTaim {-webkit-transition: 500ms; transition: 500ms;}
+.css-Sub1-ScrollingTaim {-webkit-transition: 500ms; transition: 500ms;}
 /* ================= 영화 3층 ================= */
 .css-StyledMainScrollingTaimContainer {
   margin-right: 0;
@@ -275,7 +290,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  left: -11px;
+  left: -20px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
@@ -284,6 +299,18 @@
 }
 .css-StyledMainScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
 .css-BackwardButton-left {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
+  box-sizing: border-box;
+  border: 1px solid rgb(249, 249, 249);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  transition: opacity 300ms ease 0s;
+}
+/* 서브1 리스트 왼쪽 버튼 */
+.css-Sub1-BackwardButton-left {
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
   box-sizing: border-box;
   border: 1px solid rgb(249, 249, 249);
@@ -318,26 +345,46 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  right: -11px;
+  right: -20px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
   opacity: 0;
   transition: all 300ms ease 0s;
 }
-
+/* 서브1 리스트 오른쪽 버튼 */
+.css-Sub1-ForwardButton-right {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  border: 1px solid rgb(249, 249, 249);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+  background-size: 12px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  transition: opacity 300ms ease 0s;
+}
 /* ================ 영화로비 오른쪽 방향버튼 img ================= */
 .css-ForwardButton-right > img {opacity: 0.4;}
 .css-ForwardButton-right > img {border-style: none;}
+/* 서브1 리스트 버튼 */
+.css-Sub1-ForwardButton-right > img {opacity: 0.4;}
+.css-Sub1-ForwardButton-right > img {border-style: none;}
 
 
 
 
 
-/* ================ 장르별리스트 div 타이틀과 리스트 ================= */
+/* ================ 서브리스트 div 타이틀과 리스트 ================= */
 .css-gxko42-StyledHomeListContainer {margin-bottom: 42px; font-family: 'paybooc-Bold';}
 
-/* ================ 장르별리스트 div 타이틀 ================= */
+/* ================ 서브리스트 div 타이틀 ================= */
 .css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {margin: 0 60px;}
 .css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {
   white-space: nowrap;
@@ -350,7 +397,7 @@
   max-height: 60px;
   line-height: 30px;
 }
-/* ================ 장르별리스트 p 타이틀 설정 ================= */
+/* ================ 서브리스트 p 타이틀 설정 ================= */
 .css-1e8eq80-StyledHomeListTitle {
   color: #292a32;
   font-size: 22px;
@@ -362,24 +409,24 @@
   line-height: 30px;
 }
 
-/* ================ 장르별리스트 div 로비 ================= */
+/* ================ 서브리스트 div 로비 ================= */
 .css-1pik52h-StyledHorizontalScrollOuterContainer {margin: 0px 30px;}
 .css-1pik52h-StyledHorizontalScrollOuterContainer {max-width: 1320px;}
 /* .css-1pik52h-StyledHorizontalScrollOuterContainer {margin-right: 0%; margin-left: 0%;} */
 
-/* ================ 장르별리스트 div 1층 ================= */
+/* ================ 서브리스트 div 1층 ================= */
 .css-1yw8v4t-ScrollBarContainer {position: relative; transform: translate3d(0px, 0px, 0px); margin: 0px -8px;}
 
-/* ================ 장르별리스트 div 2층 ================= */
+/* ================ 서브리스트 div 2층 ================= */
 .css-chidac-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
 
-/* ================ 장르별리스트 div 3층 ================= */
+/* ================ 서브리스트 div 3층 ================= */
 .css-150y45-ScrollingInner {transition: 500ms;}
 
-/* ================ 장르별리스트 div 4층 ================= */
+/* ================ 서브리스트 div 4층 ================= */
 .css-6kwoq4-StyledHorizontalScrollInnerContainer {margin-right: 0; margin-left: 0;}
 
-/* ================ 장르별리스트 ul ================= */
+/* ================ 서브리스트 ul ================= */
 .css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList {
   list-style: none;
   padding: 0px;
@@ -390,12 +437,12 @@
   margin-left: 0px !important;
 }
 
-/* ================ 장르별리스트 li ================= */
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 17.6667%;}
+/* ================ 서브리스트 li ================= */
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 18.3%; box-shadow:0px 0px 4px 2px #D1CFCF;}
 .css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-bottom: 0px;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-left: 13px;}
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-left: 14px;}
 .css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {padding: 0px 8px !important;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover {box-shadow: 0px 0px 4px 2px #b6b4b4;}
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover {box-shadow: 0px 0px 8px 5px #a7a6a6;}
 .css-106b4k6-Self {
   display: inline-block;
   vertical-align: top;
@@ -405,10 +452,10 @@
   margin: 0 0 24px;
 }
 
-/* ================ 장르별리스트 a ================= */
+/* ================ 서브리스트 a ================= */
 .css-106b4k6-Self > a {display: inline-block; -webkit-text-decoration: none; text-decoration: none; width: 100%;}
 
-/* ================ 장르별리스트 div 포스터 로비 ================= */
+/* ================ 서브리스트 div 포스터 로비 ================= */
 .css-wg9zzb-ContentPosterBlock {
   position: relative;
   width: 100%;
@@ -416,7 +463,7 @@
   padding-bottom: 145.37037037037038%;
 }
 
-/* ================ 장르별리스트 div 포스터 1층 ================= */
+/* ================ 서브리스트 div 포스터 1층 ================= */
 .css-1hdc5d8-Self-LazyLoadingImg {
   position: relative;
   overflow: hidden;
@@ -433,7 +480,7 @@
   transition: 300ms;
 }
 
-/* ================ 장르별리스트 div 포스터 설정 ================= */
+/* ================ 서브리스트 div 포스터 설정 ================= */
 .css-1onlrbk-Img-LazyLoadingImg {
   vertical-align: top;
   width: 100%;
@@ -445,10 +492,10 @@
 }
 .css-1onlrbk-Img-LazyLoadingImg {border-style: none;}
 
-/* ================ 장르별리스트 div 설명 로비 ================= */
+/* ================ 서브리스트 div 설명 로비 ================= */
 .css-dmreg0-ContentInfo {text-align: left; width: calc(100% - 10px); margin: 5px 10px 0 0;}
 
-/* ================ 장르별리스트 div 설명 제목 ================= */
+/* ================ 서브리스트 div 설명 제목 ================= */
 .css-1teivyt-ContentTitle {
   color: #292a32;
   font-size: 15px;
@@ -471,7 +518,7 @@
   margin-bottom: 3px;
 }
 
-/* ================ 장르별리스트 div 설명 short ================= */
+/* ================ 서브리스트 div 설명 short ================= */
 .css-1teivyt-ContentShort {
   color: #292a32;
   font-size: 12px;
@@ -492,7 +539,7 @@
   margin-top: 0px;
 }
 
-/* ================ 장르별리스트 div 설명 MemberNick ================= */
+/* ================ 서브리스트 div 설명 MemberNick ================= */
 .css-1teivyt-ContentShortMemberNick {
   color: #292a32;
   font-size: 12px;
@@ -513,7 +560,7 @@
   margin-top: 2.8px;
 }
 
-/* ================ 장르별리스트 div 양쪽 틈 ================= */
+/* ================ 서브리스트 div 양쪽 틈 ================= */
 .css-1piyrvy-CheatBlock {
   display: flex;
   position: absolute;
@@ -535,7 +582,7 @@
   height: 100%;
 }
 
-/* ================ 장르별리스트 div 왼쪽 btn ================= */
+/* ================ 서브리스트 div 왼쪽 btn ================= */
 .css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc(((((100vw - 120px) * 108) / 127) / 7) - 17px);}
 .css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button {align-items: flex-start;}
 .css-gxko42-StyledHomeListContainer .arrow_button {opacity: 1 !important;}
@@ -544,7 +591,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  left: -9px;
+  left: -14px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
@@ -562,7 +609,7 @@
   cursor: pointer;
   transition: opacity 300ms ease 0s;
 }
-/* ================ 장르별리스트 div 오른쪽 btn ================= */
+/* ================ 서브리스트 div 오른쪽 btn ================= */
 .css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button {align-items: flex-start;}
 .css-gxko42-StyledHomeListContainer .arrow_button {opacity: 1 !important;}
 .css-cj0kkg-ArrowButtonBlock {
@@ -570,7 +617,7 @@
   position: absolute;
   top: 0px;
   z-index: 2;
-  right: -9px;
+  right: -14px;
   -webkit-box-align: center;
   align-items: center;
   height: 100%;
@@ -596,7 +643,7 @@
   transition: opacity 300ms ease 0s;
 }
 
-/* ================ 장르별리스트 div 오른쪽 btn ================= */
+/* ================ 서브리스트 div 오른쪽 btn ================= */
 .css-kb0601-ForwardButton > img {opacity: 0.4;}
 .css-kb0601-ForwardButton > img {border-style: none;}
 .css-kb0601-ForwardButton {
@@ -616,8 +663,6 @@
   cursor: pointer;
   transition: opacity 300ms ease 0s;
 }
-
-
 
 
 
