@@ -20,6 +20,7 @@ class Movie_info
     public $release_date;       //개봉일
     public $synopsis;           //시놉시스
     public $actor;              //출연배우
+    public $stillcut;           //스틸컷
 
     // 생성자
     public function __construct(){}
@@ -198,6 +199,22 @@ class Movie_info
 
         return $movie_detail;
     }
+
+    //*************************** 영화코드로 세팅 ****************************************
+    function save_StillCut($mv_num, $con)
+    {
+        $data = file_get_html("https://movie.naver.com/movie/bi/mi/photoView.nhn?code={$mv_num}");
+        $image = $data->find('#photo_area > div > div.list_area._list_area > div > ul > li');
+
+        foreach ($image as $item) {
+            $img = $item->attr['data-json'];
+            $img = json_decode($img);
+            $still_cut[] = $img->fullImageUrl665px;
+            $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl665px}');";
+            mysqli_query($con, $sql);
+        }
+    }
+
 
     //*************************** 영화코드로 세팅 ****************************************
     public static function getMovieInfo_ByCode($mv_code, $con)
