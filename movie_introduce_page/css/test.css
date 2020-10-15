@@ -174,7 +174,7 @@ h1, h3, p, hr {
 .css-zv7ww6-Detail {
     color: black;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 40px;
     letter-spacing: -0.5px;
     line-height: 20px;
     box-sizing: border-box;
@@ -186,14 +186,14 @@ h1, h3, p, hr {
 .css-1xlr4il-ContentRatings {
     color: #282828;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 10;
     letter-spacing: -0.5px;
     line-height: 20px;
     white-space: pre-wrap;
     box-sizing: border-box;
     padding: 7px 0;
-    border-top: 5px solid #ededed;
-    border-bottom: 5px solid #ededed;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
     margin-top: 14px;
 }
 

@@ -20,25 +20,7 @@ if (isset($_GET["item"])) {
     $release_date = $movie_info->release_date;          // 개봉일
     $actor = $movie_info->actor;                        // 배우
     $synopsis = $movie_info->synopsis;                  // 시놉시스
-}
-if (isset($_GET["mv_num"])){
-    $mv_num = $_GET['mv_num'];
-    $movie_info = Movie_info::getMovieInfo_ByCode($mv_num, $con);
 
-    $mv_code = $mv_num;                // 영화 코드
-    $title = $movie_info->title;                        // 영화 제목
-    $subtitle = $movie_info->subTitle;                  // 부제
-    $poster_img = $movie_info->poster_img;               // 포스터
-    $naver_star = $movie_info->naver_star;              // 네이버 평점
-    $naver_star = sprintf('%0.1f', $naver_star);        // 형식 수정
-    $naverLink = $movie_info->naver_link;               // 네이버 영화 링크
-
-    $genre = $movie_info->genre;                        // 장르
-    $nation = $movie_info->nation;                      // 국가
-    $running_time = $movie_info->running_time;          // 러닝타임
-    $release_date = $movie_info->release_date;          // 개봉일
-    $actor = $movie_info->actor;                        // 배우
-    $synopsis = $movie_info->synopsis;                  // 시놉시스
 }
 
 ?>
@@ -142,6 +124,7 @@ if (isset($_GET["mv_num"])){
         <div class="css-16l0ojz-MaxWidthGrid e445inc0">
             <div class="css-rr3jd3-MaxWidthRow ecjn50m0">
                 <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
+                <div class="css-13h49w0-PaneInner e1svyhwg13">
                     <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
                         <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?=$poster_img?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
                     </div>
@@ -154,13 +137,9 @@ if (isset($_GET["mv_num"])){
                 echo $title . "<h4>" . $subtitle . "</h4>";
                 ?>
             </h2>
-        
-</div>
-
-
-        <span>
-            <!-- <button type=button id="favorite_movie_button"> -->
-            <!-- <img src="./img/good_before.png"> -->
+            <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php'"><img src="./img/review_write.png"></span>
+           
+             <!-- <span id="favorite_movie_button"> -->
             <?php
             if ($user_num) {
 
@@ -177,16 +156,20 @@ if (isset($_GET["mv_num"])){
             } else {
             ?>
                 <a href="javascript:alert('로그인 후 이용 가능합니다.')">
-                    <button type="button" id="favorite_movie_like_off">like</button>
+                <button type="button" id="favorite_movie_button" img src="./img/good_before.png">이 영화가 좋아요</button>
+                
+
                 </a>
             <?php
             }
             ?>
-
-        </span>
+            
+         
+            
 
         <div class="css-zv7ww6-Detail e1svyhwg15">
-            <h2>
+        <br>    
+        <h2>
             <?php
             echo $genre;
             ?>
@@ -204,7 +187,7 @@ if (isset($_GET["mv_num"])){
             ?>
             </h2>
         </div>
-            <div class="css-1xlr4il-ContentRatings e1svyhwg16">
+        <div class="css-1xlr4il-ContentRatings e1svyhwg16">
             네이버 평점 //
                 <?php
                 echo $naver_star;
@@ -212,10 +195,18 @@ if (isset($_GET["mv_num"])){
             &nbsp;&nbsp;・&nbsp;&nbsp;
         </div>
         </div>
+
+        </div>
+
+
+
+        
+        </div>
+
                                                                                                           
         
 
-        <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php'"><img src="./img/review_write.png"></span>
+       
         <div id="movie_content">
             <h1>
 
@@ -232,7 +223,9 @@ if (isset($_GET["mv_num"])){
             </h1>
         </div>
 
+       
 
+        </span>
 
 
         <div id="movie_casting_container">
