@@ -257,7 +257,9 @@
                     // 장문평
                     $long_review_content = $row['review_long'];
                     // 세션 유저의 넘버
-                    $session_user_num = $_SESSION['user_num'];
+                    if(isset($_SESSION['user_num'])){
+                      $session_user_num = $_SESSION['user_num'];
+                    }
 
                     include $_SERVER['DOCUMENT_ROOT']."/wootcha/review/review_modal.php";
                     // review_dialog_trigger 클래스가 버튼 역할을 함
@@ -387,8 +389,9 @@
                     // 장문평
                     $long_review_content = $row['review_long'];
                     // 세션 유저의 넘버
-                    $session_user_num = $_SESSION['user_num'];
-
+                    if(isset($_SESSION['user_num'])){
+                      $session_user_num = $_SESSION['user_num'];
+                    }
                     include $_SERVER['DOCUMENT_ROOT']."/wootcha/review/review_modal.php";
                     // review_dialog_trigger 클래스가 버튼 역할을 함
                 ?>

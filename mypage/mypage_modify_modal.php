@@ -201,7 +201,6 @@
                 notifyText_ok_modify(hidden_bar_password_modify_re);
                 return true;
             }
-        
     }
 
     function checkPhone() {

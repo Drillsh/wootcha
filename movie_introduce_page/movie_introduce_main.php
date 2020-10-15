@@ -225,7 +225,7 @@ if (isset($_GET["item"])) {
                             <div class="follow_movie_star_num"><?= $naver_star ?></div>
                         </div>
                     </div>
-                    <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>'"><img src="./img/review_write.png"></span>
+                    <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?=$title?>'"><img src="./img/review_write.png"></span>
 
 
                     <?php

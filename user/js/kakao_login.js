@@ -90,6 +90,9 @@ function kakaoConn() {
                 var avatar_1 = document.getElementById("avatar_1");
                 avatar_1_img.src = kakao_image;
                 avatar_1.value = kakao_image;
+
+                var email_check_button = document.getElementById("email_check_button");
+                email_check_button.style.display = "none";
               }
             },
             error: function() {

@@ -151,6 +151,15 @@ function create_table($con, $table_name)
                       PRIMARY KEY(`wd_num`)
                     );";
                     break;
+
+            case 'user_follow' : //팔로우 회원 테이블
+                $sql = "CREATE TABLE `user_follow` (
+                          `follow_num` int(11) NOT NULL AUTO_INCREMENT,
+                          `user_num` int(11) NOT NULL,
+                          `follow_user_num` int(11) NOT NULL,
+                          PRIMARY KEY (`follow_num`)
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                    break;
             default:
                 echo "<script>alert('해당 테이블명이 없습니다. 점검요청');</script>";
         }

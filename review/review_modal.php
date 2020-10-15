@@ -25,10 +25,12 @@
         // // 세션 유저의 넘버
         // $session_user_num = "";
 
-
-        // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
+        if(isset($_SESSION['user_num'])){
+           // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
         $sql = "select like_state from review_like where review_num = $review_pk_num and user_num = $session_user_num;";
         $result_like = mysqli_query($con, $sql);
+        }
+        
 
 
         // 해당 리뷰의 댓글 select
@@ -102,6 +104,7 @@
             <div class="modal_content_review_bottom">
                 <!-- 좋아요 -->
             <?php
+                                if(isset($_SESSION['user_num'])){
                                     // 각 리뷰별 session의 user가 좋아요를 눌렀었는지 조회한 데이터를 기준으로 icon 변경
                                     if (mysqli_fetch_array($result_like)['like_state'] == 1) {
                                         $like_img = "like_color";
@@ -110,6 +113,10 @@
                                         $like_img = "like";
                                         $ckeckbox_checked = "";
                                     }
+                                }else{
+                                    $like_img = "like";
+                                    $ckeckbox_checked = "";
+                                }
                                 ?>
                 <span>
                     <form action="#" method="post" class="review_like_form">

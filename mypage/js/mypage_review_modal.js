@@ -36,10 +36,14 @@ function init_modal_script(){
         // ********************
         var checkbox = document.getElementById("checkbox" + num);
         checkbox.onclick = function () {
-          if(checkbox.checked == true){
-            comments_container[num].style.display = "inline-block";
+          if (sessionStorage.getItem('user_num') != "") {
+            if(checkbox.checked == true){
+              comments_container[num].style.display = "inline-block";
+            }else{
+              comments_container[num].style.display = "none";
+            }
           }else{
-            comments_container[num].style.display = "none";
+            alert("로그인 후 이용하세요.");
           }
         };
 

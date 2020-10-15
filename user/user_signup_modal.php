@@ -9,7 +9,7 @@
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */
-    .modal_container .modal_content {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+    .modal_container .modal_content {  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
          padding: 1rem 1.5rem;   width: 400px;  height: 800px;   border-radius: 0.5rem; text-align:center; overflow:hidden;} 
 
     /* 끄기 버튼 */
@@ -34,6 +34,11 @@
     .modal_content form table p{width:100%;height:15px; line-height:20px; text-align:center;}
     .modal_content form table td input[type=text],[type=password],[type=tel],[type=date]{width:300px;height:50px; font-size:15px;text-align:center;}
     .modal_content form table td input{height:50px;}
+    /* 이메일 */
+    .modal_content form table tr:nth-child(1) td{position:relative;}
+    .modal_content form table tr:nth-child(1) td span{position:absolute; right:12%; top: 30%; 
+        transform: translateY(-50%); width:60px; height:30px; overflow:hidden; }
+    .modal_content form table tr:nth-child(1) td span #email_check_button{margin: 0; font-size:10px; color:white; height:25px; background-color:gray; border-radius:0;font-weight:}
     /* 생년월일 input */
     .modal_content form table tr:nth-child(11) td{position:relative;}
     .modal_content form table tr:nth-child(11) label{position:absolute; top: 50%;  left: 50%;  transform: translate(-50%, -50%); color:gray;}
@@ -74,8 +79,9 @@
         <form action="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/user_signup.php" id="signup_form" name="signup_form" method="post">
         <table>
             <!-- 아이디(이메일) -->
-            <tr><td>
+            <tr><td id="td_email">
                     <input type="text" id="signup_email" name="signup_email" placeholder="이메일(ID로 사용)" onblur="checkEmail()">
+                    <span ><input type="button" value="이메일 인증" id="email_check_button"></span>
             </td></tr>
             <tr id="hidden_bar_email"><td><p id="signup_email_ck"></p></td></tr>
 
@@ -239,8 +245,16 @@ function checkEmail() {
             if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
                 if (httpRequest.responseText != "") {
                     notifyText_back(signup_email_ck, httpRequest.responseText, hidden_bar_email);
+                    
                 } else {
-                    notifyText_ok(hidden_bar_email);
+                    if (signup_email.readonly == true) {
+                        notifyText_ok(hidden_bar_email);
+                        
+                    }else{
+                        notifyText_back(signup_email_ck, "이메일 인증을 진행해주세요. 이메일 인증 클릭!", hidden_bar_email);
+                        
+                    }
+                    
                 }
             }
         };
@@ -375,5 +389,49 @@ function allCheck() {
     document
         .signup_form
         .submit();
+}
+
+
+</script>
+<!-- *********************** -->
+<!-- email 인증 -->
+<!-- *********************** -->
+<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+    emailjs.init("user_qWXUv6FiCrhMLiFPII6Be");
+    })();
+
+    // 이메일 인증 : EmailJS 라이브러리 사용
+    var btnEmailCheck = document.getElementById('email_check_button');
+    btnEmailCheck.onclick = function () {
+        if(checkEmail() == true){
+            // 6자리 랜덤 숫자 만들기
+            var randNum = Math.floor(Math.random() * 1000000)+100000;
+            if(randNum>1000000){
+                randNum = randNum - 100000;
+            }
+            var email = document.getElementById('signup_email').value;
+            
+             emailjs.send("service_bd3fxbr","template_w88ci22",{message: randNum, from_email: email})
+            .then(function(response) {
+                console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+                var userInput = prompt("해당 이메일로 발생된 인증번호를 입력하세요.");
+                if(userInput == randNum){
+                    alert("인증 되었습니다.");
+                    document.getElementById('signup_email').readonly = true;
+                    // document.getElementById('signup_email').style.display = "none";
+                    // document.getElementById('hidden_bar_email').style.display = "none";
+                    btnEmailCheck.style.display = "none";
+                    // document.getElementById('td_email').innerHTML = "<input type='text' id='signup_email' name='signup_email' value='"+ email +"'  onblur='checkEmail()' readonly>";
+                }else{
+                    alert("인증번호가 일치하지 않습니다.");
+                }
+            }, function(err) {
+                console.log("FAILED. error=", err);
+
+
+            });
+        }
 }
 </script>

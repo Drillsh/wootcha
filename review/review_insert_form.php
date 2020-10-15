@@ -25,8 +25,8 @@
         <!-- 섹션 -->
         <section>
             <header class="section_header">
-                <span class="title_sub">??? &nbsp&nbsp > &nbsp&nbsp 리뷰 작성하기 </span><br><br>
-                <span class="title_main">리뷰 작성하기</span>
+                <span class="title_sub"> 영화 상세 페이지 &nbsp&nbsp > &nbsp&nbsp 리뷰 작성하기 </span><br><br>
+                <span class="title_main"><?=$mv_title?> 리뷰 작성하기</span>
             </header>
             <div class="container_review" name="container_review">
                 <div class="content_review">

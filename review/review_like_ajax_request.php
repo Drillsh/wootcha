@@ -2,7 +2,15 @@
     $review_num = $_POST['review_num'];
 
     session_start();
-    $user_num = $_SESSION['user_num'];
+    if(isset($_SESSION['user_num'])){
+        $user_num = $_SESSION['user_num'];
+    }else{
+        $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/index.php";
+        echo "<script>alert('로그인 후 이용하세요.');
+        location.href = '$url';</script>";
+        exit;
+    }
+    
 
     // 먼저 review_like 테이블에서 insert 한게 있는지 확인
     include_once "../common/database/db_connector.php";

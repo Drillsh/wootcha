@@ -19,15 +19,20 @@
             <?php include "./mypage_nav_left.php"?>
         </nav>
                 <?php
-                    $query = "select user_num, user_nickname, user_img, user_mail from user;";
+                    $query = "select F.follow_user_num, U.user_img, U.user_nickname  
+                    from user_follow F 
+                    inner join user U 
+                    on F.follow_user_num = U.user_num 
+                    where F.user_num = $write_review_user_num;";
                     $result = mysqli_query($con, $query);
                     $row_count = $result->num_rows;
+                    // 팔로우 하고 있는 사람의 사진, 닉네임, pk를 가져와야 함
                 ?>
         <!-- 섹션 -->
         <section id="section">
             <header class="section_header">
-                <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp 팔로우</span><br><br>
-                <span class="title_main">팔로우 <h5 id="row_count"><?=$row_count?> 명</h5></span>
+                <span class="title_sub"><?=$title_sub?> 페이지 &nbsp&nbsp > &nbsp&nbsp 팔로잉</span><br><br>
+                <span class="title_main">팔로잉 <h5 id="row_count"><?=$row_count?> 명</h5></span>
             </header>
             <div class="section_container">
                 <ul>
@@ -38,7 +43,7 @@
                 ?>  
                     <!-- db에서 가져온 값이 들어갈 것 -->
                     <li class='list_item'>
-                        <a href='mypage_index.php?userpage_user_num=<?=$row['user_num']?>'>
+                        <a href='mypage_index.php?userpage_user_num=<?=$row['follow_user_num']?>'>
                             <div class='img_box'>
                 <?php
                             if (strlen($row['user_img']) > 22) {
@@ -55,7 +60,7 @@
                 <?php
                     }
                 }else{
-                    echo "<div>팔로우 리스크가 없습니다. </div>";
+                    echo "<div>팔로잉 리스크가 없습니다. </div>";
                 }
                 ?>
                 </ul>

@@ -47,8 +47,8 @@
                 exit;
             }
             // 영화 상세 페이지로 이동하는 문장 필요
-            // $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$user_num";
-            // echo "<script>alert('리뷰 삭제를 성공했습니다.');location.href = '$url';</script>";
+            $url = "http://".$_SERVER['HTTP_HOST']."/wootcha/mypage/mypage_index.php?userpage_user_num=$user_num";
+            echo "<script>alert('리뷰 삭제를 성공했습니다.');location.href = '$url';</script>";
         break;
         
         // ****************
