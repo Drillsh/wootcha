@@ -137,7 +137,7 @@
                   // 리뷰 등록 일자
                   $review_register_date = $row['review_regtime'];
                   // 반복문의 넘버 
-                  $while_num = $main_list + $main_list2-1; 
+                  $while_num = $main_list-1; 
                   // 영화의 제목
                   $movie_subject = $mv_title;
                   // 한줄평
@@ -151,7 +151,7 @@
               ?>
               <li class="css-MainList-li e3fgkal0">
                 <!-- 영화 6층 a -->
-                <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger">
+                <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger" onclick="return false;">
                   <!-- 6층 포스터 -->
                   <div class="css-MainContentPosterBlock e3fgkal1">
                     <!-- 포스터 설정 -->
@@ -249,7 +249,7 @@
                     // 리뷰 등록 일자
                     $review_register_date = $row['review_regtime'];
                     // 반복문의 넘버 : 1부터 시작하는데 js에서 필요한 건 0부터 시작
-                    $while_num = $main_list3-1; 
+                    $while_num = $main_list3+$main_list-2; 
                     // 영화의 제목
                     $movie_subject = $mv_title;
                     // 한줄평
@@ -266,7 +266,7 @@
                 ?>
                 <li class="css-MainList-li e3fgkal0">
                   <!-- 영화 6층 a -->
-                  <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger">
+                  <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger" onclick="return false;">
                     <!-- 6층 포스터 -->
                     <div class="css-MainContentPosterBlock e3fgkal1">
                       <!-- 포스터 설정 -->
@@ -350,7 +350,7 @@
               <ul class="css-StyledMainUl-StyledMainUlContentPosterList-RowList eykn4p10">
                 <!-- 영화 5층 li -->
                 <?php
-                  $main_list3 = 1;
+                  $main_list4 = 1;
                   while($row = mysqli_fetch_array($result)){
                     $mv_title = $row['mv_title'];
                     $review_rating = $row['review_rating'];
@@ -381,7 +381,7 @@
                     // 리뷰 등록 일자
                     $review_register_date = $row['review_regtime'];
                     // 반복문의 넘버 : 1부터 시작하는데 js에서 필요한 건 0부터 시작
-                    $while_num = $main_list3-1; 
+                    $while_num = $main_list4+$main_list3+$main_list-3; 
                     // 영화의 제목
                     $movie_subject = $mv_title;
                     // 한줄평
@@ -397,7 +397,7 @@
                 ?>
                 <li class="css-MainList-li e3fgkal0">
                   <!-- 영화 6층 a -->
-                  <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger">
+                  <a title="<?=$mv_title?>" href="#" class="review_dialog_trigger" onclick="return false;">
                     <!-- 6층 포스터 -->
                     <div class="css-MainContentPosterBlock e3fgkal1">
                       <!-- 포스터 설정 -->
@@ -425,7 +425,7 @@
                   </a>
                 </li><!-- END 영화 5층 li -->
                 <?php
-                  $main_list3++;
+                  $main_list4++;
                   } // END while
                 ?>
               </ul>
@@ -476,7 +476,7 @@
           <!-- 장르별리스트 ul -->
           <ul class="ebeya3l0 css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList eykn4p10">
             <?php
-              $main_list4 = 1;
+              $main_list5 = 1;
               while($row = mysqli_fetch_array($result)){
                 $mv_title = $row['mv_title'];
                 $review_rating = $row['review_rating'];
@@ -487,7 +487,7 @@
             <!-- 장르별리스트 li -->
             <li class="css-106b4k6-Self e3fgkal0">
               <!-- 장르별리스트 a -->
-              <a title="<?=$mv_title?>" href="#">
+              <a title="<?=$mv_title?>" href="#" onclick="return false;">
                 <!-- 장르별리스트 div 영화포스터 -->
                 <div class="css-wg9zzb-ContentPosterBlock e3fgkal1">
                   <!-- 장르별리스트 img -->
@@ -518,7 +518,7 @@
               </a>
             </li>
             <?php
-              $main_list4++;
+              $main_list5++;
               } // END while
             ?>
           </ul>

@@ -57,7 +57,8 @@
 .css-StyledMainScrollOuterContainer {margin: 0 3.5%;}
 .css-StyledMainScrollOuterContainer {max-width: 1320px;}
 /* ================= 영화 로비 ================= */
-.css-ScrollBarContainer {position: relative; transform: translate3d(0px, 0px, 0px); margin: 0px -37px;}
+.css-ScrollBarContainer {position: relative; margin: 0px -37px;}
+/* transform: translate3d(0px, 0px, 0px); 모달 창이 보이려면 이거 없애야 함 */
 /* ================= 영화 1층 ================= */
 .css-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
 /* ================= 영화 2층 ================= */
