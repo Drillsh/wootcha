@@ -146,8 +146,8 @@ label.next {
 }
 .css-m21fst-Self-LazyLoadingImg {
   position: absolute;
-  top: -40px;
-  left: 0;
+  top: -55px;
+  left: -10px;
   width: 153px;
   height: 221px;
   border-width: 2px;
@@ -188,13 +188,11 @@ img {
 }
 
 #movie_content {
-    border: 5px;
-    border-style: solid;
     width: 900px;
     height: 100% auto;
     text-align: center;
-    margin-top: 150px;
-    margin-left: -890px;
+    margin-top: 60px;
+    margin-left: 130px;
     position: absolute;
     font-size: 20;
     font-family: monospace fantasy;
@@ -202,7 +200,6 @@ img {
     box-sizing: content-box;
     padding: 30px;
     background-color: white;
-    border-color: slategray;
 }
 
 #movie_trailer_container {
@@ -223,89 +220,96 @@ img {
   border-color: slategray;
 }
 
-/* #favorite_movie_button {
-  border: 1px;
-  border-color: black;
-  border-style: groove;
-  width: 100px;
-  height: 100px;
-  margin-top: 60px;
-  margin-left: -700px;
-  position: absolute;
+#favorite_movie_button {
+  width: 200px;
+  height: 50px;
+  top: 150px;
+  right: 0px;
+  position: relative;
   background-color: white;
-  background-image: url('../img/good_before.png');
-  }   */
-
+  background: url('../img/good_before.png');
+  -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    cursor: default;
+    font: 400 13.3333px Arial;
+    margin-top: 15px;
+    
+  }  
+/* 
 #favorite_movie_like_on {
-border: 1px;
-border-color: black;
-border-style: groove;
-width: 80px;
-height: 80px;
-margin-top: 90px;
-margin-left: 900px;
+width: 50px;
+height: 50px;
+top: 210px;
+right: 580px;
 position: absolute;
 background-color: white;
 background-image : url('../img/good_after.png') no-repeat 0 0;
 background-color: transparent;
 cursor: pointer;
 
-}
+} */
 
-#favorite_movie_like_on:hover {
+/* #favorite_movie_like_on:hover {
   background-image : url('../img/good_before.png') no-repeat 0 0;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background-size: contain;  
   overflow: hidden;
 }
 
 
 #favorite_movie_like_off {
-  margin-left: 5px;
   background : url('../img/good_before.png') no-repeat 0 0 ;
-  background-color: white;
-  border: 15px solid transparent;
-  width: 80px;
-  height: 80px;
-  color: transparent;
-  cursor: pointer;
-  margin-left: 900px;
-  margin-top: 90px;
-  background-size: contain;  
-  overflow: hidden;
-  max-width: initial;
-  
-
-
-}
+    -webkit-writing-mode: horizontal-tb;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    cursor: default;
+    font: 400 13.3333px Arial;
+    position: absolute;
+    top: 210px;
+    right: 580px;
+    width: 200px;
+    height: 30px;
+  }
 
 #favorite_movie_like_off:hover {
   background-image : url('../img/good_after.png');
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background-size: contain;  
   overflow: hidden;
-  max-width: initial;
-}
+} */
 
 #review_write {
-  width: 100px;
-  height: 100px;
-  margin-top: 60px;
-  left: 1050px;
+  width: 80px;
+  height: 80px;
+  margin-top: -50px;
+  left: 850px;
   position: absolute;
   background-color: white;
-  border: 2px;
-  border-color: black;
   border-style: groove;
   float: right;
+  padding-left: 5px;
+  padding-top: 5px;
 }
 
 .css-zv7ww6-Detail {
   color: rgba(0,0,0,0.5);
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 10px;
+  font-weight: 30;
   letter-spacing: -0.5px;
   line-height: 20px;
   box-sizing: border-box;
@@ -315,12 +319,10 @@ cursor: pointer;
 .css-1xlr4il-ContentRatings {
   color: #282828;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 40;
   letter-spacing: -0.5px;
   line-height: 20px;
-  white-space: pre-wrap;
-  box-sizing: border-box;
-  padding: 7px 0;
+  padding: 10px 0;
   border-top: 1px solid #ededed;
   border-bottom: 1px solid #ededed;
   margin-top: 14px;
@@ -331,10 +333,7 @@ cursor: pointer;
     height: 60px;
     margin-top: 25px;
     right: 330px;
-    border: 1px;
-    border-style: solid;
     background-color: white;
-    border-color: black;
     position: absolute;
     float: left;
     text-align: left;
@@ -344,14 +343,11 @@ cursor: pointer;
 #movie_casting_container {
     width: 960px;
     height: 320px;
-    margin-top: -1700px;
-    margin-left: 170px;
-    border: 5px;
-    border-style: solid;
+    margin-top: 400px;
+    margin-left: 130px;
     text-align: center;
     position: absolute;
     background-color: white;
-    border-color: slategray;
 }
 
 
@@ -439,15 +435,12 @@ font-weight: bold;
 #movie_comment_container {
     width: 960px;
     height: 830px;
-    border: 5px;
-    border-style: solid;
-    top: 2150px;
-    margin-left: 160px;
+    top: 1020px;
+    margin-left: 130px;
     margin-bottom: 100px;
     text-align: center;
     position: absolute;
     background-color: white;
-    border-color: slategray;
 } 
 
 #movie_comment_box {
@@ -745,4 +738,14 @@ display: none;
 
 h1, h3, p, hr {
   margin: 0px;
+}
+
+.css-13h49w0-PaneInner {
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 20px;
+  box-sizing: border-box;
+  margin-top: 3px;
 }
