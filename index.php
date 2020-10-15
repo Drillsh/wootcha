@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main_test.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/js/slide/main.js"></script>
+
     <!-- 모달 리뷰 화면 -->
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/mypage/css/mypage_review_modal.css?after">
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/mypage/js/mypage_review_modal.js"></script>
