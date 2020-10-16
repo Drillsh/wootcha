@@ -22,27 +22,6 @@ function init_modal_script(){
          // ********************
          review_dialog_trigger[num].onclick =  function() {
           modal_container_review[num].style.visibility = "visible";
-          // var review_owner_num = document.getElementsByClassName("review_owner_num")[num].value;
-          // // ajax 사용
-          // var data = "";
-          // var httpRequest = new XMLHttpRequest();
-
-          // // 데이터 받아왔을 때 실행되는 함수
-			    // httpRequest.onreadystatechange = function() {
-          //   if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
-					//     document.getElementById("like_checkbox_label" + num).innerHTML = httpRequest.responseText;
-				  //   }
-          // };
-          // // icon 변경 함수
-          // if(like_checkbox.checked == true){
-          //   like_ckeckbox_class[num].src = "http://"+ location.host +"/wootcha/mypage/img/like_color.png"; 
-          // }else{
-          //   like_ckeckbox_class[num].src = "http://"+ location.host +"/wootcha/mypage/img/like.png"; 
-          // }
-          // data = "review_num=" + review_num.value;
-          // httpRequest.open("POST", "http://"+ location.host +"/wootcha/review/review_like_ajax_request.php", true);
-          // httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          // httpRequest.send(data);
          };
      
          // ********************

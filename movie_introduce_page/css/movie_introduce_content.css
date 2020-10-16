@@ -145,7 +145,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 #movie_content {
     width: 900px;
     height: 100% auto;
-    text-align: center;
+    /* text-align: center; */
     margin-top: 10px;
     margin-left: 130px;
     position: absolute;
@@ -162,7 +162,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
   border-style: solid;
   width: 900px;
   height: 220px;
-  text-align: center;
+  /* text-align: center; */
   margin-top: -360px;
   margin-left: 5px;
   position: absolute;
@@ -416,7 +416,7 @@ font-weight: bold;
     height: 663px;
     border: 2px;
     border-style: solid;
-    text-align: center;
+    text-align: left;
     position: absolute;
     margin-top: 80px;
     left: 245px;
@@ -459,6 +459,7 @@ font-weight: bold;
   .star_rating_content {
     font-size:0;
     letter-spacing: -4px;
+    /* margin-left: 50px; */
   }
   
   .star_rating_content a {
@@ -505,7 +506,7 @@ font-weight: bold;
   .comment_profile_name{
     width: 150px;
     margin-bottom: -5px;
-    margin-left: 100px;
+    margin-left: 130px;
   }
   
   .comment_profile_name a{
@@ -515,13 +516,12 @@ font-weight: bold;
   
   .comment_line {
     display: inline-block;
-    width: 450px;
+    width: 310px;
     height: 70px;
     margin-top: -100px;
     line-height: -100px;
-    margin-left: 50px;
+    margin-left: 130px;
     margin-right: 500px;
-    
   }
   
   .board_number{

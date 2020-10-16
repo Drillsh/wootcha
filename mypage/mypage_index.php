@@ -79,8 +79,6 @@
                             // 해당 리뷰의 댓글 select
                             $result_review_and_reply = select_data($con, "select_my_review_reply", $review_num);
                             $result_review_and_reply_num = mysqli_num_rows($result_review_and_reply);
-                            
-                            
                             ?>
 
                 <!-- db에서 가져온 값이 들어갈 것 -->
@@ -214,14 +212,21 @@
                                 </div>
                             </div>
                             <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-                            <h3 class="title"><?=$mv_title?></h3>
-                            <h3>한 줄 평</h3>
-                            <p class="line_review"><?=$review_short?></p>
-                            <h3>장 문 평</h3>
-                            <p class="long_review"><?=$review_long?></p>
-                            <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-                                            
+                            <h2 class="title"><?=$mv_title?></h2>
+                            <div class="review_content_box">
+                                <div class="line_view_box">
+                                    <h2>한 줄 평</h2>
+                                    <p class="line_review"><?=$review_short?></p>
+                                </div>
+                                <div class="long_view_box">
+                                    <h2>장 문 평</h2>
+                                    <p class="long_review"><?=$review_long?></p>
+                                </div>
+                                
+                                
+                            </div>
                             <!-- 좋아요 및 댓글 icon -->
+                            <hr class="fixed_bottom" width="500px" color="#e2e2e2" noshade="noshade"/>
                             <div class="modal_content_review_bottom">
                                 <!-- 좋아요 -->
                                 <?php
