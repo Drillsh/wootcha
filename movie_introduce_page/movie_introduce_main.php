@@ -332,25 +332,40 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
                     <!-- 리뷰 -->
                     <div class="user_comment_content review_dialog_trigger">
-                        <div class="comment_profile_img">
-                            <img src="../user/img/<?= $user_img ?>">
+                        <div class="comment_profile_img_container">
+                            <div class="comment_profile_img">
+                                <img src="../user/img/<?= $user_img ?>">
 
+                            </div>
                         </div>
+                        <!-- 닉네임, 한줄평, 별점 들어가는 box -->
+                        <div class="profile_shortreview_rating">
+                            <!-- get 방식으로 이름, 등록날짜를 보낸다. -->
+                            <div class="comment_profile_name">
+                                <a href="#"><span><strong><?= $user_nickname ?></strong></span></a>
+                                <p class="star_rating_content">
+                                    <a href="#" class="on">★</a>
+                                    <a href="#" class="on">★</a>
+                                    <a href="#" class="on">★</a>
+                                    <a href="#">★</a>
+                                    <a href="#">★</a>
+                                </p>
+                            </div>
 
-                        <!-- get 방식으로 이름, 등록날짜를 보낸다. -->
-                        <div class="comment_profile_name">
-                            <a href="#"><span><strong><?= $user_nickname ?></strong></span></a>
-                            <p class="star_rating_content">
-                                <a href="#" class="on">★</a>
-                                <a href="#" class="on">★</a>
-                                <a href="#" class="on">★</a>
-                                <a href="#">★</a>
-                                <a href="#">★</a>
-                            </p>
+                            <div class="comment_line">
+                                <span><?= $review_short ?></span>
+                            </div>
                         </div>
+                        
 
-                        <div class="comment_line">
-                            <span><?= $review_short ?></span>
+                        <div class="div_chu_box">
+                            <div class="div_chu">
+                                <div id="like_count" class="like_count<?php echo $num; ?>" onclick="update_like('up','<?= $num ?>')">
+                                    <img src="./img/like.png"> &nbsp;<?= $review_like ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                             <!-- *************** -->
                             <!-- 모달 팝업 -->
                             <!-- *************** -->
@@ -406,6 +421,9 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                         <div class="modal_content_review_bottom">
                                             <!-- 좋아요 -->
                                             <?php
+                                            // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
+                                            $sql = "select like_state from review_like where review_num = $review_num and user_num = $user_num;";
+                                            $result_like = mysqli_query($con, $sql);
                                             // 각 리뷰별 session의 user가 좋아요를 눌렀었는지 조회한 데이터를 기준으로 icon 변경
                                             if (mysqli_fetch_array($result_like)['like_state'] == 1) {
                                                 $like_img = "like_color";
@@ -496,17 +514,6 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                     <span class="modal_close_btn_review" onclick="console.log(1)">&times;</span>
                                 </div><!-- modal_content_review -->
                             </div><!-- modal_containder -->
-                        </div>
-
-                        <div class="div_chu_box">
-                            <div class="div_chu">
-                                <div id="like_count" class="like_count<?php echo $num; ?>" onclick="update_like('up','<?= $num ?>')">
-                                    <img src="./img/like.png"> &nbsp;<?= $review_like ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
 
                 <?php
                     $number--;

@@ -30,28 +30,31 @@
     .modal_container_review .modal_close_btn:hover { background-color: darkgray; } 
 
     /* 영화제목 */
-    .modal_container_review .title{ font-family: 'Oswald', sans-serif; color: #216182; margin-top:30px; margin-bottom:50px} 
+    .modal_container_review .title{font-size: xx-large; font-family: 'Oswald', sans-serif; color: #216182; margin-top:30px; margin-bottom:50px} 
 
     /* 한줄평 및 장문평 제목 */
-    .modal_container_review h3{margin-top:20px; font-family: 'Oswald', sans-serif; color: #216182;}
+    .modal_container_review h2{margin-top:20px; font-family: 'Oswald', sans-serif; color: #216182; text-align: center; margin-bottom: 20px;}
 
     /* 한줄평 */
-    .line_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:90%; margin:0 auto; margin-bottom:30px}
+    .line_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:90%; margin:0 auto; margin-bottom:50px; text-align: center;}
     
     /* 장문평 */
     .long_review{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:90%; margin:0 auto; margin-bottom:30px;
-        max-height:200px; overflow-y:auto; }
+        max-height:200px; overflow-y:auto; text-align: center;}
 
     /* 좋아요 및 댓글 icon */
-    .modal_content_review_bottom {width:99%; height:30px;}
+    .modal_content_review_bottom {width:500px; height:30px; position: fixed; bottom: 0;}
     .modal_content_review_bottom input{display:none;}
     .modal_content_review_bottom .review_like_form {display: inline-block;}
     .modal_content_review_bottom img{width:20px; height:20px; display:inline-block; line-height:30px}
     .modal_content_review_bottom p{display:inline-block; line-height:30px; margin-right:20px}
-    
+    .modal_content_review_bottom .marginTB{margin-top: 10px;margin-bottom: 10px;}
     /* 등록일자 */
     .modal_content_review_bottom .review_regist_day{float:right;}
-
+    /*구분선  */
+    .fixed_bottom{position: fixed; bottom: 50px;}
+    .content_left_review .review_content_box { height: 390px; }
+    /* .line_view_box{line-height: 390px;} */
     /* ************** */
     /* 댓글 창 */
     /* ************** */

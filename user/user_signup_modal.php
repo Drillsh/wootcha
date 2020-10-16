@@ -5,12 +5,12 @@
 <!-- ****************** -->
 <style type="text/css"> 
     /* 빈공간을 어둡게 채우는 창 */
-    .modal_container { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 3; 
+    .modal_container { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);  z-index: 210; 
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */
     .modal_container .modal_content {  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
-         padding: 1rem 1.5rem;   width: 400px;  height: 800px;   border-radius: 0.5rem; text-align:center; overflow:hidden;} 
+         padding: 1rem 1.5rem;   width: 400px;  height: 800px;   border-radius: 0.5rem; text-align:center; overflow:hidden; z-index: 211;} 
 
     /* 끄기 버튼 */
     .modal_container .modal_close_btn_signup { float: right; width: 1.5rem; line-height: 1.5rem; text-align: center; cursor: pointer; 
