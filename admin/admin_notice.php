@@ -187,7 +187,7 @@
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
                                                 $num = $row["notice_num"];
-                                                $mv_name = $row["notice_title"];
+                                                $title = $row["notice_title"];
                                                 $id = $row["notice_contents"];
                                                 $reply_content = $row["notice_hit"];
                                                 $reply_parent = $row["notice_regtime"];
@@ -198,7 +198,7 @@
                                                         <input type="hidden" name="no[]" value="<?= $num ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
                                                         <!-- 절대경로 설정 -->
-                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/notice/notice_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $mv_name ?></span></a> 
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/notice/notice_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $title?></span></a> 
                                                         <!-- 왜 안 될까???? -->
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
