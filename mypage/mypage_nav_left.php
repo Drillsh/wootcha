@@ -78,11 +78,16 @@ include_once "../common/crawling/movie_cgv_crawling.php";
     $result_follow_user = mysqli_query($con, $sql);
 
     // 각 리뷰별 session의 user가 좋아요를 눌렀었는지 조회한 데이터를 기준으로 icon 변경
-    if ($result_follow->num_rows == 1) {
-        $follow_img = "follow_color";
-        $follow_checked = "checked";
+    if ($userpage_user_num != $user_num) {
+        if ($result_follow->num_rows == 1) {
+            $follow_img = "follow_color";
+            $follow_checked = "checked";
+        }else{
+            $follow_img = "follow";
+            $follow_checked = "";
+        }
     }else{
-        $follow_img = "follow";
+        $follow_img = "follow_color";
         $follow_checked = "";
     }
 
@@ -100,15 +105,63 @@ include_once "../common/crawling/movie_cgv_crawling.php";
     </form>
 <?php
     // }
+    $weightTag_1=$weightTag_2=$weightTag_3=$weightTag_4=$weightTag_5=$weightTag_6=$weightTag_7=$weightTag_8= "";
+        // 현재 페이지에 따라서 글씨 굵기 변경
+        switch ($now_page_name) {
+            case 'review':
+                $weightTag_1 = "<h4>";
+                $weightTag_2 = "</h4>";
+                break;
+            case 'like':
+                $weightTag_3 = "<h4>";
+                $weightTag_4 = "</h4>";
+                break;
+            case 'follow':
+                $weightTag_5 = "<h4>";
+                $weightTag_6 = "</h4>";
+                break;
+            case 'myinfo':
+                $weightTag_7 = "<h4>";
+                $weightTag_8 = "</h4>";
+                
+                break;
+            default:
+                # code...
+                break;
+        }
+
+
 ?>
         
 </div>
 <ul>
-    <li><a href="./mypage_index.php?userpage_user_num=<?=$userpage_user_num?>">작성한 리뷰</a></li>
-    <li><a href="./mypage_like_movie.php?userpage_user_num=<?=$userpage_user_num?>">좋아요</a></li>
-    <li><a href="./mypage_follow.php?userpage_user_num=<?=$userpage_user_num?>">팔로잉</a></li>
+    <li><?=$weightTag_1?><a href="./mypage_index.php?userpage_user_num=<?=$userpage_user_num?>">작성한 리뷰</a><?=$weightTag_2?></li>
+    <li><?=$weightTag_3?><a href="./mypage_like_movie.php?userpage_user_num=<?=$userpage_user_num?>">좋아요</a><?=$weightTag_4?></li>
+    <li><?=$weightTag_5?><a href="./mypage_follow.php?userpage_user_num=<?=$userpage_user_num?>">팔로잉</a><?=$weightTag_6?></li>
 <?php
-    if ($userpage_user_num == $user_num) echo "<li><a href='./mypage_edit_myinfo.php?userpage_user_num=$userpage_user_num'>내 정보</a></li>";
+    if ($userpage_user_num == $user_num) echo "<li>$weightTag_7<a href='./mypage_edit_myinfo.php?userpage_user_num=$userpage_user_num'>내 정보</a>$weightTag_8</li>";
 ?>
   
 </ul>
+<a href="#" id="btn_top"><img src="../common/img/page_up.png" alt=""></a>
+
+<script>
+    //  페이지 상단으로 올리기
+    $(function() {
+      $(window).scroll(function() {
+          if ($(this).scrollTop() > 200) {
+              $('#btn_top').fadeIn();
+          } else {
+              $('#btn_top').fadeOut();
+          }
+      });
+      
+      $("#btn_top").click(function() {
+          $('html, body').animate({
+              scrollTop : 0
+          }, 400);
+          return false;
+      });
+  });
+
+</script>

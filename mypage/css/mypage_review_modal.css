@@ -63,7 +63,6 @@
     /* comments item */
     .modal_container_review .comments_container .comments_item{position:relative;}
     
-    
     /* profile image  및 닉네임*/
     .modal_container_review .comments_container .profile_box{display:inline-block; margin-right:15px; width:80px;text-align:center;}
     .modal_container_review .comments_container .profile_box p{font-size:13px; }

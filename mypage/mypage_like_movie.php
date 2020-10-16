@@ -18,14 +18,17 @@
         <header>
             <?php include "../common/page_form/header.php"?>
         </header>
-
+        <!-- 현재 페이지 확인용 -->
+        <?php
+            $now_page_name = "like";
+        ?>
         <!-- 네비게이션 : 왼쪽 -->
         <nav class="nav_left">
             <?php include "./mypage_nav_left.php"?>
         </nav>
         <?php
         // 좋아하는 영화 리스트
-        $sql = "select * from fav_movie F 
+        $sql = "select F.fav_num, F.mv_num, M.mv_title, M.mv_img_path from fav_movie F 
         inner join movie M 
         on F.mv_num = M.mv_num 
         where F.user_num = $userpage_user_num order by F.fav_num DESC";
