@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main_test.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/js/slide/main.js"></script>
 
     <!-- 모달 리뷰 화면 -->
