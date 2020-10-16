@@ -89,15 +89,15 @@
 <!-- db에서 가져온 값이 들어갈 것 -->
 <div class="list_item">
     <div class="left">
-        <li><img src="<?=$mv_img_path?>" alt=""></li>
+        <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/movie_introduce_page/movie_introduce_index.php?mv_num=<?=$mv_num?>"><img src="<?=$mv_img_path?>" alt=""></a></li>
     </div>
-    <div class="center review_dialog_trigger">
+    <div class="center">
         <img src="" alt="">
         <ul>
             <!-- 영화 제목 -->
-            <li><?=$mv_title?></li>
+            <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/movie_introduce_page/movie_introduce_index.php?mv_num=<?=$mv_num?>"><?=$mv_title?></a></li>
             <!-- 한줄평 -->
-            <li><?=$review_short?></li>
+            <li class="review_dialog_trigger"><?=$review_short?></li>
             <!-- 별점 -->
             <li>
                 <div class="startRadio">
@@ -121,6 +121,24 @@
                 </div>
                 <span><?=$review_rating?>점</span>
             </li>
+            <span class="review_like_and_comments_box">
+                                <!-- 좋아요 -->
+                                <input type="checkbox" id="like_checkbox_review_view<?=$i?>">
+                                <label for="like_checkbox_review_view<?=$i?>">
+                                    <img src="./img/like_color.png" alt="">
+                                    <span>
+                                        <p><?=$review_like?></p>
+                                    </span>
+                                </label>
+                                <!-- 댓글 -->
+                                <input type="checkbox" id="checkbox_review<?=$i?>">
+                                <label for="checkbox_review<?=$i?>">
+                                    <img src="./img/comments.png" alt="">&nbsp;
+                                    <span>    
+                                        <p><?=$result_review_and_reply_num?></p>
+                                    </span>    
+                                </label> 
+                            </span>
         </ul>
     </div>
     <div class="right">
@@ -212,6 +230,7 @@
 <?php
                     // 각 리뷰별 session의 user가 좋아요를 눌렀었는지 조회한 데이터를 기준으로 icon 변경
                     if (mysqli_fetch_array($result_like)['like_state'] == 1) {
+                        
                         $like_img = "like_color";
                         $ckeckbox_checked = "checked";
                     }else{

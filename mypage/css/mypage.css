@@ -18,7 +18,8 @@
 .nav_left .follow_box .review_like_form {display: inline-block;}
 .nav_left .follow_box img{width:20px; height:20px; display:inline-block; line-height:30px}
 .nav_left .follow_box p{display:inline-block; line-height:30px; margin-right:20px}
-
+.nav_left #follow_form label{width: 100px; display: block;}
+.nav_left ul h4{font-size: large;}
 
 /* section 안에 header 제목 부분 */
 .section_header { margin: 50px;}
@@ -31,3 +32,18 @@ section{width: 800px; min-height: 800px;  margin: 50px; float: left; background-
 #review_total_count{display: inline-block;}
 /* footer */
 /* footer{position: absolute; bottom: 0px; background-color: midnightblue; float: left; width: 100%;} */
+
+/* 페이지 상단으로 올리기 */
+a#btn_top {
+    color: red;
+    position: fixed;
+    right: 2%;
+    bottom: 50px;
+    display: none;
+    z-index: 2;
+    border-radius: 40px;
+    background-color: white;
+   font-size: 28px;
+   font-weight: bolder;
+}
+a#btn_top img{width: 80px; height: 80px;}

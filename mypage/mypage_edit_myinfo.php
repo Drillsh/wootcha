@@ -15,8 +15,9 @@
         <header>
             <?php include "../common/page_form/header.php"?>
         </header>
-
         <?php
+        // 현재 페이지 확인용
+        $now_page_name = "myinfo";
         // session값 확인을 header에서 했기 때문 $user_num 사용 가능
         include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
         $result = mysqli_query($con, "select * from user where user_num = $user_num");
@@ -46,7 +47,7 @@
 <?php
                 if (strlen($user_img) <= 22) {
                     echo "<a href='#' class='trigger_mypage_modify'>
-                    <div class='small_img_box'><img src='./img/edit.png' alt=''></div></a>";
+                    <div class='small_img_box'><img src='../review/img/edit_pencil.png' alt=''></div></a>";
                 }else{
                     echo "<br><br><br><h3> 카카오 계정으로 이용하고 계십니다. </h3>";
                 }

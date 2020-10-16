@@ -13,7 +13,10 @@
         <header>
             <?php include "../common/page_form/header.php"?>
         </header>
-
+        <!-- 현재 페이지 확인용 -->
+        <?php
+            $now_page_name = "follow";
+        ?>
         <!-- 네비게이션 : 왼쪽 -->
         <nav class="nav_left">
             <?php include "./mypage_nav_left.php"?>
@@ -60,7 +63,7 @@
                 <?php
                     }
                 }else{
-                    echo "<div>팔로잉 리스크가 없습니다. </div>";
+                    echo "<br><br><div>팔로잉 리스트가 없습니다. </div>";
                 }
                 ?>
                 </ul>

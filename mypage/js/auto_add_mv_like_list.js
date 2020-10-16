@@ -5,7 +5,9 @@ $(document).ready(function() {
    $(window).scroll(function(){
 
      let $window = $(this);
+    //  스크롤 바 위치 가져옴
      let scrollTop = $window.scrollTop();
+     //  화면 높이를 가져옴
      let windowHeight = $window.height();
      let documentHeight = $(document).height();
      var user_num = document.getElementById('userpage_user_num');
@@ -24,7 +26,7 @@ $(document).ready(function() {
                     loading_box.style.display = "block";
                     setTimeout(() => {
                       loading_box.style.display = "none";
-                      $('.fav_movie_list_container').append(html);
+                      $('#fav_movie_list_container').append(html);
                       count += 8;
                     }, 1000);
                     
