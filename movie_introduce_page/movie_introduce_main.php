@@ -5,27 +5,25 @@ if (isset($_GET["item"])) {
 
     $movie_info = new Movie_info();
     $movie_info->setMovieInfo($item, $con);
+} elseif (isset($_GET["mv_num"])) {
 
-}elseif (isset($_GET["mv_num"])){
-
-   $movie_info = Movie_info::getMovieInfo_ByCode($_GET['mv_num'], $con);
-
+    $movie_info = Movie_info::getMovieInfo_ByCode($_GET['mv_num'], $con);
 }
-    $mv_code = $movie_info->movie_code;                 // 영화 코드
-    $title = $movie_info->title;                        // 영화 제목
-    $subtitle = $movie_info->subTitle;                  // 부제
-    $poster_img = $movie_info->poster_img;              // 포스터
-    $naver_star = $movie_info->naver_star;              // 네이버 평점
-    $naver_star = sprintf('%0.1f', $naver_star);        // 형식 수정
-    $naverLink = $movie_info->naver_link;               // 네이버 영화 링크
+$mv_code = $movie_info->movie_code;                 // 영화 코드
+$title = $movie_info->title;                        // 영화 제목
+$subtitle = $movie_info->subTitle;                  // 부제
+$poster_img = $movie_info->poster_img;              // 포스터
+$naver_star = $movie_info->naver_star;              // 네이버 평점
+$naver_star = sprintf('%0.1f', $naver_star);        // 형식 수정
+$naverLink = $movie_info->naver_link;               // 네이버 영화 링크
 
-    $genre = $movie_info->genre;                        // 장르
-    $nation = $movie_info->nation;                      // 국가
-    $running_time = $movie_info->running_time;          // 러닝타임
-    $release_date = $movie_info->release_date;          // 개봉일
-    $actor = $movie_info->actor;                        // 배우
-    $synopsis = $movie_info->synopsis;                  // 시놉시스
-    $stillcut = $movie_info->stillcut;                  // 스틸컷
+$genre = $movie_info->genre;                        // 장르
+$nation = $movie_info->nation;                      // 국가
+$running_time = $movie_info->running_time;          // 러닝타임
+$release_date = $movie_info->release_date;          // 개봉일
+$actor = $movie_info->actor;                        // 배우
+$synopsis = $movie_info->synopsis;                  // 시놉시스
+$stillcut = $movie_info->stillcut;                  // 스틸컷
 
 ?>
 
@@ -35,94 +33,39 @@ if (isset($_GET["item"])) {
 
 <table id="movie_introduce_container">
 
-    <ul class="slides">
-        <!-- <input type="radio" name="radio-btn" id="img-1" checked />
-    <li class="slide-container">
-        <div class="slide">
-            <img src="http://farm9.staticflickr.com/8072/8346734966_f9cd7d0941_z.jpg" />
-        
-        </div>
-        <div class="nav">
-            <label for="img-6" class="prev">&#x2039;</label>
-            <label for="img-2" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-2" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-1" class="prev">&#x2039;</label>
-            <label for="img-3" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-3" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-2" class="prev">&#x2039;</label>
-            <label for="img-4" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-4" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-3" class="prev">&#x2039;</label>
-            <label for="img-5" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-5" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-4" class="prev">&#x2039;</label>
-            <label for="img-6" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-6" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-5" class="prev">&#x2039;</label>
-            <label for="img-1" class="next">&#x203a;</label>
-        </div>
-    </li> -->
-        <div class="css-m4wuz0-PosterContainer e1svyhwg1">
-            <div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
-                <div color="#211C38" class="css-tyue43-LeftBackground e1svyhwg6"></div>
-                <div class="css-1qkjnu8-BlurPoster e1svyhwg4">
-                    <div color="#211C38" class="css-1rtfe1i-LeftGradient e1svyhwg8"></div>
-                    <div color="#303539" class="css-ml7z2y-RightGradient e1svyhwg9"></div>
-                </div>
-                <div color="#303539" class="css-1ctk406-RightBackground e1svyhwg7"></div>
-                <div class="css-1rpwc4r-DimmedLayer e1svyhwg3"></div>
-            </div>
+    <div class="slideShow">
+    <div color="#211C38" class="css-1rtfe1i-LeftGradient e1svyhwg8"></div>
+    <div color="#303539" class="css-ml7z2y-RightGradient e1svyhwg9"></div>
+    <div color="#211C38" class="css-tyue43-LeftBackground e1svyhwg6"></div>
+    <div color="#303539" class="css-1ctk406-RightBackground e1svyhwg7"></div>
+        <div class="slideShow_slides">
+            <a href="#"><img src=<?= $stillcut[0] ?> alt="slide1"></a>
+            <a href="#"><img src=<?= $stillcut[1] ?> alt="slide2"></a>
+            <a href="#"><img src=<?= $stillcut[2] ?> alt="slide3"></a>
+            <a href="#"><img src=<?= $stillcut[3] ?> alt="slide4"></a>
+            <a href="#"><img src=<?= $stillcut[4] ?> alt="slide5"></a>
+            <a href="#"><img src=<?= $stillcut[5] ?> alt="slide6"></a>
+            <a href="#"><img src=<?= $stillcut[6] ?> alt="slide7"></a>
+            <a href="#"><img src=<?= $stillcut[7] ?> alt="slide8"></a>
 
 
-            <!-- <li class="nav-dots">
-      <label for="img-1" class="nav-dot" id="img-dot-1"></label>
-      <label for="img-2" class="nav-dot" id="img-dot-2"></label>
-      <label for="img-3" class="nav-dot" id="img-dot-3"></label>
-      <label for="img-4" class="nav-dot" id="img-dot-4"></label>
-      <label for="img-5" class="nav-dot" id="img-dot-5"></label>
-      <label for="img-6" class="nav-dot" id="img-dot-6"></label>
-    </li> -->
-    </ul>
+        </div>
+        <div class="slideShow_nav">
+            <a href="#" class="prev">이전</a>
+            <a href="#" class="next">다음</a>
+        </div>
+        <div class="slideShow_indicator">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">7</a>
+            <a href="#">8</a>
+        </div>
+    </div>
+
     <div id="movie_introduce">
         <div class="css-p3jnjc-Pane e1svyhwg12">
             <div class="css-16l0ojz-MaxWidthGrid e445inc0">
@@ -149,7 +92,7 @@ if (isset($_GET["item"])) {
                     <script type="text/javascript">
                         //<![CDATA[
                         // // 사용할 앱의 JavaScript 키를 설정해 주세요.
-                        Kakao.init('b1d92a5562ec8ac7f9466fce0bef38a7');
+                        Kakao.init('2b6afa1b53bec9c5c3161feff6ce8026');
 
                         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
                         Kakao.Link.createDefaultButton({
@@ -229,7 +172,7 @@ if (isset($_GET["item"])) {
                             <div class="follow_movie_star_num"><?= $naver_star ?></div>
                         </div>
                     </div>
-                    <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?=$title?>'"><img src="./img/review_write.png"></span>
+                    <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img src="./img/review_write.png"></span>
 
 
                     <?php
@@ -295,6 +238,16 @@ if (isset($_GET["item"])) {
             <div id="movie_cast_5"><?php print_r($actor[4]); ?></div>
             <div id="movie_cast_6"><?php print_r($actor[5]); ?></div>
         </div>
+
+
+
+
+
+
+
+
+
+
 
         <div id="movie_comment_container">
 
@@ -568,7 +521,7 @@ if (isset($_GET["item"])) {
 
                     <?php
 
-                    if ($total_page >= 2 && $page >= 2) {
+                    if ($total_page >= 9 && $page >= 2) {
                         $new_page = $page - 1;
                         echo "<li><a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=" . urlencode(json_encode($item)) . "&page=$new_page'>◀&nbsp</a> </li>";
                     } else
@@ -583,7 +536,7 @@ if (isset($_GET["item"])) {
                             echo "<li><a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=" . urlencode(json_encode($item)) . "&page=$i'> $i </a><li>";
                         }
                     }
-                    if ($total_page >= 2 && $page != $total_page) {
+                    if ($total_page >= 9 && $page != $total_page) {
                         $new_page = $page + 1;
                         echo "<li> <a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=" . urlencode(json_encode($item)) . "&page=$new_page'>&nbsp▶</a> </li>";
                     } else
