@@ -133,29 +133,30 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
 
 <!--덧글내용시작  -->
 <div id="ripple">
-  <div id="ripple1">덧글</div>
+  <div id="ripple1"><h4>덧글</h4><br><hr></div>
   <div id="ripple2">
     <?php
-      $sql="select * from `qna_reply` where qna_num='$q_num' ";
+      $sql="select * from `qna_reply` a inner join user b on a.user_num=b.user_num where qna_num='$q_num' ";
       $ripple_result= mysqli_query($con,$sql);
       while($ripple_row=mysqli_fetch_array($ripple_result)){
         $ripple_num=$ripple_row['qna_reply_num'];
         $ripple_id=$ripple_row['user_num'];
-        $ripple_nick =$ripple_row['qna_reply_contnents'];
+        $ripple_usernick=$ripple_row['user_nickname'];
+        $ripple_nick =$ripple_row['qna_num'];
         $ripple_date=$ripple_row['qna_reply_regtime'];
-        $ripple_content=$ripple_row['qna_num'];
+        $ripple_content=$ripple_row['qna_reply_contnents'];
         $ripple_content=str_replace("\n", "<br>",$ripple_content);
         $ripple_content=str_replace(" ", "&nbsp;",$ripple_content);
     ?>
         <div id="ripple_title">
           <ul>
-            <li><?=$ripple_nick."&nbsp;&nbsp;".$ripple_date?></li>
-            <li id="mdi_del">
-            <?php
-            $message =free_ripple_delete($id,$ripple_num,'dml_board.php',$page,$hit,$q_num);
-            echo "<script>alert($id,$ripple_id,,$page,$hit,$q_num)</script>";
+            <li><?=$ripple_usernick."&nbsp;&nbsp;".$ripple_date."&nbsp;&nbsp;"."&nbsp;&nbsp;"?> <?php
+            $message =free_ripple_delete($ripple_usernick,$ripple_num,$ripple_nick,$page,$hit,$q_num);
+            // echo "<script>alert($ripple_id,$ripple_id,$page,$hit,$q_num)</script>";
             echo $message;
-            ?>
+            ?></li>
+            <li id="mdi_del">
+           
             </li>
           </ul>
         </div>

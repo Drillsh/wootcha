@@ -99,6 +99,7 @@
 }
 
 #list_item {
+	margin: 3px;
 	height:18px;
 	margin-top:2px;
 	padding:6px;  
@@ -114,6 +115,7 @@
 #list_item #list_item2{
 	float:left;
 	width:560px;
+	text-align:center;
 }
 
 #list_item #list_item3{
@@ -276,4 +278,15 @@
 	text-align:right;
 	margin-top:15px;
 	margin-bottom:15px;
+}
+#ripple_content{
+	margin: 15px;
+	padding: 10px;
+	border-bottom: solid 1px rgb(163, 168, 162);
+}
+#ripple1{
+	padding: 10px;
+}
+#ripple_textarea{
+	padding: 5px;
 }

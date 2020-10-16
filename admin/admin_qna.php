@@ -187,7 +187,7 @@
                                                 mysqli_data_seek($result, $i);
                                                 $row = mysqli_fetch_array($result);
                                                 $no = $row["qna_num"];
-                                                $mv_name = $row["qna_title"];
+                                                $title = $row["qna_title"];
                                                 $id = $row["qna_contents"];
                                                 $reply_content = $row["qna_hit"];
                                                 $reply_parent = $row["qna_regtime"];
@@ -197,7 +197,7 @@
                                                     <form method="post" action="#">
                                                         <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
-                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/view.php?num=<?=$no?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $mv_name ?></span></a>                               
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/view.php?num=<?=$no?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $title?></span></a>                               
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
                                                         <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>
