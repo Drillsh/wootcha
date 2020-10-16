@@ -1,12 +1,67 @@
-<!-- 상단 슬라이드 -->
-<div class="css-1l88qpn-StyledSelf eayv25j0">
-
+<div class="css-3igsdh-StyledSelf e6fbvza0">
+  <!-- 상단 슬라이드 -->
+  <div class="css-1l88qpn-StyledSelf eayv25j0">
+    <!-- 왼쪽버튼 -->
+    <div class="css-jxbkzh-StyledJumbotronArrowButton-StyledJumbotronArrowPrevButton eayv25j4">
+      <span class="SVGInline css-1jewpj1-StyledJumbotronArrowButtonIcon eayv25j2">
+        <!--?xml version="1.0" encoding="UTF-8"?-->
+        <svg class="SVGInline-svg css-1jewpj1-StyledJumbotronArrowButtonIcon-svg eayv25j2-svg" width="12px" height="22px" viewBox="0 0 12 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+              <title>arrow</title>
+              <desc>Created with Sketch.</desc>
+              <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="홈" transform="translate(-13.000000, -281.000000)" fill="#CCCCCC">
+                    <g id="Group" transform="translate(13.000000, 281.000000)">
+                        <polygon id="arrow" transform="translate(6.000000, 10.560000) scale(-1, 1) translate(-6.000000, -10.560000) " points="9.12 10.56 -2.83182089e-13 19.68 1.44 21.12 11.28 11.28 12 10.56 1.44 -5.5067062e-14 -2.81976258e-13 1.44"></polygon>
+                    </g>
+                </g>
+              </g>
+        </svg>
+      </span>
+    </div>
+    <!-- 오른쪽버튼 -->
+    <div class="css-1kvaztz-StyledJumbotronArrowButton-StyledJumbotronArrowNextButton eayv25j3">
+      <span class="SVGInline css-1jewpj1-StyledJumbotronArrowButtonIcon eayv25j2">
+        <!--?xml version="1.0" encoding="UTF-8"?-->
+        <svg class="SVGInline-svg css-1jewpj1-StyledJumbotronArrowButtonIcon-svg eayv25j2-svg" width="12px" height="22px" viewBox="0 0 12 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+          <title>arrow</title>
+          <desc>Created with Sketch.</desc>
+          <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="홈" transform="translate(-1255.000000, -281.000000)" fill="#CCCCCC">
+                  <g id="Group" transform="translate(13.000000, 281.000000)">
+                      <polygon id="arrow" points="1251.12 10.56 1242 19.68 1243.44 21.12 1253.28 11.28 1254 10.56 1243.44 -5.5067062e-14 1242 1.44"></polygon>
+                  </g>
+              </g>
+          </g>
+        </svg>
+      </span>
+    </div>
+    <div class="home-jumbotron">
+      <div content="[object Object]" class="css-4bfx6u-Self e9r9i620 enter-done">
+        <div class="css-1fqeujt-StillcutContainer e9r9i621">
+            <div class="e7hewbz0 css-1sxaihu-StyledSelf-DefaultStillCut e1q5rx9q0">
+              <span class="css-1te5psz-StyledBackground e1q5rx9q1" style="background-image: url(&quot;https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/v1602045273/kc4mrbpdfymvihkqespp.webp&quot;);"></span>
+            </div>
+          <div class="css-1qzrlid-Shadow-ShadowLeft e9r9i625"></div>
+        </div>
+        <div class="css-5g3syw-Shadow-ShadowTop e9r9i626"></div>
+        <div class="css-up7oer-Shadow-ShadowBottom e9r9i624"></div>
+        <div class="css-1rbg53a-Information e9r9i622">
+          <div class="e15s157p1 css-q4juhy-Self-Logo ewlo9840">
+            <img src="https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_260,q_80/v1601356336/dbjgb5besajfh1oebtxp.png" class="e15s157p1 css-1q8u4mv-Img-Logo ewlo9841" style="width: 25.82%;">
+          </div>
+          <h3 class="css-15hvbu0-Subtitle e7hewbz1">Part2로 돌아온 최강 스포츠 애니매주 일요일, 왓챠에서 가장 빠르게!</h3>
+        </div>
+      </div>
+    </div>
+  </div><!-- END 상단 슬라이드 -->
 </div>
 
 <?php
   include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
 
-  $sql = "select R.mv_num, count(R.mv_num) as count, M.mv_title, M.mv_release_date, M.mv_img_path, R.review_rating 
+  $sql = "select R.mv_num, count(R.mv_num) as count, M.mv_title, M.mv_release_date, M.mv_img_path, M.mv_rating 
   from review R inner join movie M on R.mv_num = M.mv_num group by R.mv_num order by count desc limit 5;";
   $result = mysqli_query($con, $sql) or die(mysqli_error($con));
 ?>
@@ -33,11 +88,12 @@
               <?php
                 $main_list2=1;
                 while($row = mysqli_fetch_array($result)){
-                  $review_rating = $row['review_rating'];
+                  $mv_rating = $row['mv_rating'];
                   $mv_release_date = $row['mv_release_date'];
                   $mv_title = $row['mv_title'];
                   $mv_img_path = $row['mv_img_path'];
                   $mv_num = $row['mv_num'];
+                  $count = $row['count'];
               ?>
               <li class="css-MainList-li e3fgkal0">
                 <!-- 영화 6층 a -->
@@ -63,7 +119,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 12 12" fill="#555765" class="css-IcRatingStarSvg erjycaa0">
                           <path class="fillTarget" fill="#6A6B76" fill-rule="evenodd" d="M5.637 8.02L2.779 9.911c-.138.092-.324.054-.415-.084-.048-.073-.063-.162-.04-.246l.916-3.302L.56 4.145c-.13-.103-.152-.292-.048-.421.054-.068.134-.11.221-.113l3.424-.15 1.2-3.21c.058-.155.23-.233.386-.175.081.03.146.094.176.175l1.2 3.21 3.424.15c.165.007.294.147.286.313-.003.086-.045.167-.112.221L8.034 6.28l.915 3.302c.045.16-.049.325-.209.37-.083.022-.173.008-.245-.04L5.637 8.02z"></path>
                         </svg>
-                      <span><?=$review_rating?></span>
+                      <span><?=$mv_rating?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;조회수 : <?=$count?></span>
                     </div>
                   </div>
                 </a>
@@ -109,6 +165,7 @@
                 while($row = mysqli_fetch_array($result)){
                   $mv_num = $row['mv_num'];
                   $review_rating = $row['review_rating'];
+                  $review_like = $row['review_like'];
                   $review_number = $row['review_num'];
                   $mv_release_date = $row['mv_release_date'];
                   $mv_title = $row['mv_title'];
@@ -177,7 +234,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 12 12" fill="#555765" class="css-IcRatingStarSvg erjycaa0">
                           <path class="fillTarget" fill="#6A6B76" fill-rule="evenodd" d="M5.637 8.02L2.779 9.911c-.138.092-.324.054-.415-.084-.048-.073-.063-.162-.04-.246l.916-3.302L.56 4.145c-.13-.103-.152-.292-.048-.421.054-.068.134-.11.221-.113l3.424-.15 1.2-3.21c.058-.155.23-.233.386-.175.081.03.146.094.176.175l1.2 3.21 3.424.15c.165.007.294.147.286.313-.003.086-.045.167-.112.221L8.034 6.28l.915 3.302c.045.16-.049.325-.209.37-.083.022-.173.008-.245-.04L5.637 8.02z"></path>
                         </svg>
-                      <span><?=$review_rating?></span>
+                      <span><?=$review_rating?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;좋아요 : <?=$review_like?></span>
                     </div>
                   </div>
                 </a>

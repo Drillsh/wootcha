@@ -50,18 +50,18 @@ $(function () {
         currentIndex += 1; 
         startAnimation(currentIndex);
     });
-
+    
   // =========== 스크롤 서브1 리뷰 컨테이너 ===========//
-    var container2 = $(".css-Sub1-ScrollingTaim");
+  var container2 = $(".css-Sub1-ScrollingTaim");    
 
     //이전, 다음 버튼
     var prev2 = $(".css-Sub1-BackwardButton-left");
     var next2 = $(".css-Sub1-ForwardButton-right");
 
-    var currentIndex2 = 0;
+    var currentIndex = 0;
 
     //좌우 네비게이션 버튼 함수
-    function stateNavigationButton(index) {
+    function stateNavigationButton2(index) {
         switch (index) {
             case 0:
                 prev2.hide();
@@ -98,7 +98,8 @@ $(function () {
 
     //다음 버튼
     next2.on("click", function(event){
-        currentIndex2 += 1; 
-        startAnimation(currentIndex2);
+        currentIndex += 1; 
+        startAnimation(currentIndex);
     });
+
 });

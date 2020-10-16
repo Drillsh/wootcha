@@ -22,17 +22,19 @@
 </head>
 
 <body>
-    <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
-    </header>
-    <section class="css-xpk6f5-Main ebsyszu1">
-        <div class="css-7eleqt-Self ebeya3l1">
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main.php"; ?>
-        </div>
-    </section>
-    <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
-    </footer>
+    <div class="css-1sh3zvx-NavContainer ebsyszu0">
+        <header class="css-11i4ae3-Self e1cl8ith0">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
+        </header>
+        <section class="css-xpk6f5-Main ebsyszu1">
+            <div class="css-7eleqt-Self ebeya3l1">
+                <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main.php"; ?>
+            </div>
+        </section>
+        <footer>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
+        </footer>
+    </div>
 </body>
 
 </html>

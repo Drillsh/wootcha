@@ -7,20 +7,21 @@
     <title> WOOTCHA </title>
 
     <!-- CSS, JS 파일 링크 -->
-    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/common/css/common.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/common/css/common.css?after">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/search/css/view_all.css">
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="./js/search_func.js"></script>
 
     <!--    DB, Header-->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
+    <!-- < ?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?> -->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php";?>
 </head>
 
 <body>
 
-    <header>
+    <header class="css-11i4ae3-Self e1cl8ith0">
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
         <?php
         // 세션
         if (isset($_SESSION['user_num'])) {
@@ -58,7 +59,7 @@
             $selected_option = $_GET["selected_option"];
         }
         ?>
-
+        
     </header>
     <section>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/search/search_result.php"; ?>
