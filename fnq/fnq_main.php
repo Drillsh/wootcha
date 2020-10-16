@@ -5,7 +5,8 @@
 <title>PHP 프로그래밍 입문</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/board.css">
-
+<link rel="stylesheet" href="./css/gm_members.css">
+<link rel="stylesheet" href="./css/nav.css">
 </head>
 <body> 
 <header>
@@ -80,64 +81,114 @@
 	//   echo "<script>alert($hit)</script>";
 
 ?>
-				<li>
+				<li id="member_list">
 					<span class="col1"><?=$number?></span>
-					<span class="col2"><a href="fnq_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$hit?>"><?=$id?></a></span>
+					<span class="col2"><a id="fnqtitle" href="fnq_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$hit?>"><?=$id?></a></span>
 					<span class="col3">관리자</span>
 					<span class="col5"><?=$regist_day?></span>
 					<span class="col6"><?=$hit?></span>
 				</li>	
 <?php
-   	   $number++;
+   	   $number--;
    }
    mysqli_close($con);
 
 ?>
 	    	</ul>
-			<ul id="page_num"> 	
-<?php
-	if ($total_page>=2 && $page >= 2)	
-	{
-		$new_page = $page-1;
-		echo "<li><a href='fnq_main.php?page=$new_page'>◀ 이전</a> </li>";
-	}		
-	else 
-		echo "<li>&nbsp;</li>";
+			<div class="page_num_wrap">
+                 <div class="page_num">
+                   <ul class="page_num_ul">
+		<?php
+		$page_scale = 5; // 페이지 쪽수 표시 량 (5 페이지씩 표기)
+			   $pageGroup = ceil($page / $page_scale); // 페이지 그룹번호(페이지 5개가 1그룹)
 
-   	// 게시판 목록 하단에 페이지 링크 번호 출력
-   	for ($i=1; $i<=$total_page; $i++)
-   	{
-		if ($page == $i)     // 현재 페이지 번호 링크 안함
-		{
-			echo "<li><b> $i </b></li>";
-		}
-		else
-		{
-			echo "<li><a href='fnq_main.php?page=$i'> $i </a><li>";
-		}
-   	}
-   	if ($total_page>=2 && $page != $total_page)		
-   	{
-		$new_page = $page+1;	
-		echo "<li> <a href='fnq_main.php?page=$new_page'>다음 ▶</a> </li>";
-	}
-	else 
-		echo "<li>&nbsp;</li>";
-?>
-			</ul> <!-- page -->	    	
-			<ul class="buttons">
-				<li><button onclick="location.href='fnq_main.php'">목록</button></li>
-				<li>
-<?php 
-    if($user_nickname=='admin') {
-?>
-					<button onclick="location.href='fnq_form.php'">글쓰기</button>
-<?php
-	} 
-?>
-				</li>
-			</ul>
-	</div> <!-- board_box -->
+				$last_page = $pageGroup * $page_scale; //그룹번호 안에서의 마지막 페이지 숫자
+				//그룹번호의 마지막 페이지는 전체 페이지보다 클 수 없음
+						if ($total_page < $page_scale) {
+						$last_page = $total_page;
+						} else if ($last_page > $total_page) {
+						$last_page = $total_page;
+						}
+
+						//그룹번호의 첫번째 페이지 숫자
+						$first_page = $last_page - ($page_scale - 1);
+						//그룹번호의 첫번째 페이지는 1페이지보다 작을 수 없음
+						if ($first_page < 1) {															$first_page = 1;
+						} else if ($last_page == $total_page) { //마지막 그룹번호일때 첫번째 페이지값 결정
+						if($total_page % $page_scale == 0) {
+						$first_page = $total_page - $page_scale + 1;
+						} else {
+						$first_page = $total_page - ($total_page % $page_scale) + 1;
+						}
+						}
+						echo "<script>console.log($first_page, $last_page)</script>";
+
+						$next = $last_page + 1;// > 버튼 누를때 나올 페이지
+						$prev = $first_page - 1;// < 버튼 누를때 나올 페이지
+
+						$url = "/wootcha/fnq/fnq_main.php?y=$y&m=$m";
+						if ($search != '') {
+							$url .= "&col=$col&search=$search";
+						}
+						// 첫번째 페이지일 때 앵커 비활성화
+						if ($first_page == 1) {
+							if ($page != 1)
+							echo "<li><a href='$url&page=1'><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
+							else
+							echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
+
+							echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-left'></i></span></a></li>";
+							} else {
+								echo "<li><a href='$url&page=1'><span class='page_num_direction'><i class='fas fa-angle-double-left'></i></span></a></li>";
+								echo "<li><a href='$url&page=$prev'><span class='page_num_direction'><i class='fas fa-angle-left'></i></span></a></li>";
+								}
+
+
+						//페이지 번호 매기기
+						for ($i = $first_page; $i <= $last_page; $i++) {
+						if ($page == $i) {
+						echo "<li><span class='page_num_set'><b style='color:#2E89FF'> $i </b></span></li>";
+						} else {
+						echo "<li><a href='$url&page=$i'><span class='page_num_set'> &nbsp$i&nbsp </span></a></li>";
+						}
+						}
+
+						// 마지막 페이지일 때 앵커 비활성화
+						if ($last_page == $total_page) {
+						echo "<li><a><span class='page_num_direction'><i class='fas fa-angle-right'></i></span></a></li>";
+
+						if ($page != $total_page)
+						echo "<li><a href='$url&page=$total_page'><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
+						else
+						echo "<li><a><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
+
+						} else {
+						echo "<li><a href='$url&page=$next'><span class='page_num_direction'><i class='fas fa-angle-right'></i></span></a></li>";
+						echo "<li><a href='$url&page=$total_page'><span class='page_num_direction_last'><i class='fas fa-angle-double-right'></i></span></a></li>";
+						}
+						?>
+						</ul>								
+						</div>	
+
+							<div id="listwrite">
+							 	<input class="listwrite" type="image" src="./img/list.png" onclick="location.href='fnq_main.php'">
+								 <?php 
+   								 if($user_nickname=='admin') {
+								?>
+								 <input class="listwrite" type="image" src="./img/write.png" onclick="location.href='fnq_form.php'">
+								 <?php
+								}
+								?>
+							</div>
+							</div><!--end of list content -->
+
+</div><!--end of col2  -->
+</div><!--end of content -->
+</div><!--end of wrap  -->
+
+</div><!-- end of right_content -->
+
+</div><!-- end of my_info_content -->
 </section> 
 <footer>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>

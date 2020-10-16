@@ -33,7 +33,7 @@
 	
    	<div id="board_box">
 	    <h3 id="board_title">
-	    		공지사항 > 글 쓰기
+	    		FAQ > 글 쓰기
 		</h3>
 	    <form  name="board_form" method="post" action="fnq_insert.php" enctype="multipart/form-data">
 	    	 <ul id="board_form">
