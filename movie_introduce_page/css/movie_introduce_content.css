@@ -281,7 +281,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 }
 
 .css-1xlr4il-ContentRatings {
-  color: #282828;
+  color: rgba(0,0,0,0.5);
   font-size: 15px;
   font-weight: 40;
   letter-spacing: -0.5px;
@@ -745,14 +745,36 @@ h1, h3, p, hr {
 }
 
 /* 별점 */
-.blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
-.startRadio { display: inline-block; overflow: hidden; height: 40px;} 
-.startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 40px;
+.naver_movie_star_wrap {display: inline-block; margin-left: 60px}
+.naver_movie_star_wrap .blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
+.naver_movie_star_wrap .startRadio { display: inline-block; overflow: hidden; height: 35px;}
+.naver_movie_star_wrap .startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 35px;
      background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
-.startRadio__box { position: relative; z-index: 1; float: left; width: 20px; height: 40px; cursor: pointer; }
-.startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
-.startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
-.startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }
+.naver_movie_star_wrap .startRadio__box { position: relative; z-index: 1; float: left; width: 17.6px; height: 40px; cursor: pointer; }
+.naver_movie_star_wrap .startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
+.naver_movie_star_wrap .startRadio__box input:checked + .startRadio__img {background-color: #19ce60; }
+.naver_movie_star_wrap .startRadio__img {display: block; position: absolute; right: 0; width: 176px; height: 40px;  pointer-events: none; }
+
+.wootcha_movie_star_wrap {display: inline-block; margin-left: 60px}
+.wootcha_movie_star_wrap .blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
+.wootcha_movie_star_wrap .startRadio { display: inline-block; overflow: hidden; height: 35px;}
+.wootcha_movie_star_wrap .startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 35px;
+  background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
+.wootcha_movie_star_wrap .startRadio__box { position: relative; z-index: 1; float: left; width: 17.6px; height: 40px; cursor: pointer; }
+.wootcha_movie_star_wrap .startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
+.wootcha_movie_star_wrap .startRadio__box input:checked + .startRadio__img {background-color: #20A0F1; }
+.wootcha_movie_star_wrap .startRadio__img {display: block; position: absolute; right: 0; width: 176px; height: 40px;  pointer-events: none; }
+
+.review_reply_star {display: inline-block; margin-left: 60px}
+.review_reply_star .blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
+.review_reply_star .startRadio { display: inline-block; overflow: hidden; height: 30px;}
+.review_reply_star .startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 25px;
+  background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
+.review_reply_star .startRadio__box { position: relative; z-index: 1; float: left; width: 12.8px; height: 25px; cursor: pointer; }
+.review_reply_star .startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
+.review_reply_star .startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
+.review_reply_star .startRadio__img {display: block; position: absolute; right: 0; width: 200px; height: 25px;  pointer-events: none; }
+
 
 /* 스크롤 버튼 */
 #movetopbt {

@@ -29,7 +29,8 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce_contents.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
 
 <table id="movie_introduce_container">
 
@@ -74,7 +75,9 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                         <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
                             <div class="css-13h49w0-PaneInner e1svyhwg13">
                                 <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
-                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
+                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img
+                                                src="<?= $poster_img ?>"
+                                                class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +89,9 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                             ?>
                         </h2>
 
-                        <button type='button' id='kakao-link-btn' class='button_next' value='movie_share' href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share </button>
+                        <button type='button' id='kakao-link-btn' class='button_next' value='movie_share'
+                                href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share
+                        </button>
 
                         <!-- 공유하기를 위한 자바스크립트 추가 시작 -->
                         <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -109,12 +114,12 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                     }
                                 },
                                 buttons: [{
-                                        title: '웹으로 보기',
-                                        link: {
-                                            mobileWebUrl: 'https://developers.kakao.com',
-                                            webUrl: 'https://developers.kakao.com'
-                                        }
-                                    },
+                                    title: '웹으로 보기',
+                                    link: {
+                                        mobileWebUrl: 'https://developers.kakao.com',
+                                        webUrl: 'https://developers.kakao.com'
+                                    }
+                                },
                                     {
                                         title: '앱으로 보기',
                                         link: {
@@ -150,7 +155,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                         </div>
 
                         <div class="css-1xlr4il-ContentRatings e1svyhwg16">
-                            <div class="follow_movie_star_wrap">
+                            <div class="naver_movie_star_wrap">
                                 <div class="startRadio">
                                     <?php
                                     $find_rating = 0.5;
@@ -171,23 +176,43 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                     ?>
 
                                 </div>
-                                <br>
-                                <div class="follow_movie_star_num">네이버 평점 : <?= $naver_star ?></div>
-
-                                Wootcha 평점 :
-                                <?php
-                                $sql = "select mv_rating from movie where mv_title ='$title'";
-                                $result = mysqli_query($con, $sql) or die("select error: " . mysqli_error($con));
-                                $movie_rating = mysqli_fetch_array($result);
-                                echo $movie_rating['mv_rating'];
-                                ?>
-
+                                <div class="follow_movie_star_num">네이버 평점&nbsp;&nbsp;|&nbsp;&nbsp;<?= $naver_star ?> / 10</div>
                             </div>
 
+                            <div class="wootcha_movie_star_wrap">
+                                <div class="startRadio">
+                                    <?php
+                                    $sql = "select mv_rating from movie where mv_num ='$mv_code'";
+                                    $result = mysqli_query($con, $sql) or die("select error: " . mysqli_error($con));
+                                    $movie_rating = mysqli_fetch_array($result);
+                                    $wootcha_star = $movie_rating['mv_rating'];
+                                    $find_rating = 0.5;
+
+                                    while ($find_rating <= 5) {
+                                        // 반복문으로 rating bar 생성 및 checked 설정
+                                        if ($find_rating <= $wootcha_star) {
+                                            $rating_checked = "checked";
+                                        } else {
+                                            $rating_checked = "";
+                                        }
+                                        echo "<label class='startRadio__box'>
+                                          <input type='radio' name='review_rating2' value='$find_rating' $rating_checked disabled='disabled'>
+                                          <span class='startRadio__img'><span class='blind'></span></span>
+                                          </label>";
+                                        $find_rating += 0.5;
+                                    }
+                                    ?>
+
+                                </div>
+
+                                <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?=$wootcha_star ?> / 5.0 </div>
+                            </div>
                         </div>
 
 
-                        <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img src="./img/review_write.png"></span>
+                        <span><button type=button id="review_write"
+                                      onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img
+                                        src="./img/review_write.png"></span>
 
 
                         <?php
@@ -204,11 +229,13 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                 echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
                             }
                         } else {
-                        ?>
+                            ?>
                             <a href="javascript:alert('로그인 후 이용 가능합니다.')"></a>
-                            <a><button type='button' id='favorite_movie_like_off'></button></a>
+                            <a>
+                                <button type='button' id='favorite_movie_like_off'></button>
+                            </a>
 
-                        <?php
+                            <?php
                         }
                         ?>
 
@@ -233,7 +260,6 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
             </div>
 
 
-
             </span>
 
 
@@ -251,7 +277,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                 <div id="movie_comment_container">
 
                     <div class="user_comment_title">
-                        <span>게스트 후기</span>
+                        <span>유저 리뷰</span>
                         <p class="star_rating">
                             <a href="#" class="on">★</a>
                             <a href="#" class="on">★</a>
@@ -334,7 +360,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                             $res = mysqli_query($con, $sql);
                             $result_review_and_reply_num = mysqli_num_rows($res);
 
-                        ?>
+                            ?>
 
                             <!-- 리뷰 -->
                             <div class="user_comment_content">
@@ -351,23 +377,22 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                     <div class="comment_profile_name">
                                         <a href="#"><span><strong><?= $user_nickname ?></strong></span></a>
                                     </div>
-                                    <div class="starRadio_container">
+                                    <div class="review_reply_star">
                                         <div class="startRadio">
-
                                             <?php
                                             $find_rating = 0.5;
 
                                             while ($find_rating <= 5) {
                                                 // 반복문으로 rating bar 생성 및 checked 설정
-                                                if ($find_rating == $review_rating) {
+                                                if ($find_rating <= $review_rating) {
                                                     $rating_checked = "checked";
                                                 } else {
                                                     $rating_checked = "";
                                                 }
                                                 echo "<label class='startRadio__box'>
-  <input type='radio' name='review_rating_a$i' value='$find_rating' $rating_checked disabled='disabled'>
-  <span class='startRadio__img'><span class='blind'></span></span>
-  </label>";
+                                                      <input type='radio' name='review_rating_a$i' value='$find_rating' $rating_checked disabled='disabled'>
+                                                      <span class='startRadio__img'><span class='blind'></span></span>
+                                                      </label>";
                                                 $find_rating += 0.5;
                                             }
                                             ?>
@@ -383,7 +408,8 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
                                 <div class="div_chu_box">
                                     <div class="div_chu">
-                                        <div id="like_count" class="like_count<?php echo $num; ?>" onclick="update_like('up','<?= $num ?>')">
+                                        <div id="like_count" class="like_count<?php echo $num; ?>"
+                                             onclick="update_like('up','<?= $num ?>')">
                                             <img src="./img/like.png"> &nbsp;<?= $review_like ?>
                                         </div>
                                     </div>
@@ -432,13 +458,13 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                                 <?= $review_rating ?>점
                                             </div>
                                         </div>
-                                        <hr width="99%" color="#e2e2e2" noshade="noshade" />
+                                        <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                                         <h3 class="title"><?= $title ?></h3>
                                         <h3>한 줄 평</h3>
                                         <p class="line_review"><?= $review_short ?></p>
                                         <h3>장 문 평</h3>
                                         <p class="long_review"><?= $review_long ?></p>
-                                        <hr width="99%" color="#e2e2e2" noshade="noshade" />
+                                        <hr width="99%" color="#e2e2e2" noshade="noshade"/>
 
                                         <!-- 좋아요 및 댓글 icon -->
                                         <div class="modal_content_review_bottom">
@@ -458,10 +484,13 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                             ?>
                                             <span>
                                                 <form action="#" method="post" class="review_like_form">
-                                                    <input type="hidden" name="review_num" id="review_num<?= $i ?>" value="<?= $review_num ?>">
-                                                    <input type="checkbox" id="like_checkbox<?= $i ?>" <?= $ckeckbox_checked ?>>
+                                                    <input type="hidden" name="review_num" id="review_num<?= $i ?>"
+                                                           value="<?= $review_num ?>">
+                                                    <input type="checkbox"
+                                                           id="like_checkbox<?= $i ?>" <?= $ckeckbox_checked ?>>
                                                     <label for="like_checkbox<?= $i ?>">
-                                                        <img src="../mypage/img/<?= $like_img ?>.png" alt="" class="like_ckeckbox_class">
+                                                        <img src="../mypage/img/<?= $like_img ?>.png" alt=""
+                                                             class="like_ckeckbox_class">
                                                         <span id="like_checkbox_label<?= $i ?>">
                                                             <p><?= $review_like ?></p>
                                                         </span>
@@ -497,7 +526,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                                 $reply_user_num = $row_reply['user_num'];
                                                 $reply_user_nickname = $row_reply['user_nickname'];
                                                 $reply_user_img = $row_reply['user_img'];
-                                            ?>
+                                                ?>
                                                 <div class="comments_item">
                                                     <!-- profile image -->
                                                     <div class="profile_box">
@@ -505,7 +534,8 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                                         <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
                                                         <a href="mypage_index.php?userpage_user_num=<?= $reply_user_num ?>">
                                                             <div class="small_img_box">
-                                                                <img src="../user/img/<?= $reply_user_img ?>" alt="프로필 이미지 수정">
+                                                                <img src="../user/img/<?= $reply_user_img ?>"
+                                                                     alt="프로필 이미지 수정">
                                                             </div>
                                                             <!-- 닉네임 -->
                                                             <p><?= $reply_user_nickname ?></p>
@@ -516,17 +546,21 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                                         <p><?= $review_reply_contents ?></p>
                                                     </div>
                                                 </div>
-                                            <?php
+                                                <?php
                                                 // review의 댓글 반복문 종료 
                                             }
                                             ?>
                                         </div>
-                                        <hr width="99%" color="#e2e2e2" noshade="noshade" />
+                                        <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                                         <form action="#" method="post">
                                             <div class="comments_register">
-                                                <input type="hidden" name="mode" id="mode<?= $i ?>" value="insert_reply">
-                                                <input type="hidden" name="userpage_user_num" id="userpage_user_num<?= $i ?>" value="<?= $reply_user_num ?>">
-                                                <textarea name="review_reply_contents" id="review_reply_contents<?= $i ?>" cols="30" rows="10" placeholder="댓글을 입력하세요 ^.^"></textarea>
+                                                <input type="hidden" name="mode" id="mode<?= $i ?>"
+                                                       value="insert_reply">
+                                                <input type="hidden" name="userpage_user_num"
+                                                       id="userpage_user_num<?= $i ?>" value="<?= $reply_user_num ?>">
+                                                <textarea name="review_reply_contents"
+                                                          id="review_reply_contents<?= $i ?>" cols="30" rows="10"
+                                                          placeholder="댓글을 입력하세요 ^.^"></textarea>
                                                 <div class="submit_btn_box">
                                                     <input type="button" value="보내기" id="reply_input_button<?= $i ?>">
                                                 </div>
@@ -538,7 +572,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                 </div><!-- modal_content_review -->
                             </div><!-- modal_containder -->
 
-                        <?php
+                            <?php
                             $number--;
                         }
                         mysqli_close($con);
