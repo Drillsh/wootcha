@@ -12,11 +12,12 @@ else $user_img = "";
 <!-- 아이콘 폰트  https://fontawesome.com/  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
-<div class="css-1gkas1x-Grid ejny11m0">
+<div class="css-11i4ae3-Self e1cl8ith0">
+    <div class="css-1gkas1x-Grid ejny11m0">
     <div class="css-1wd9lk5-StyledPaddedContainer e18137le0">
         <ul class="css-1wpau1v-VisualUl-NavUl e1cl8ith3">
             <li class="css-u82ra6-NavLogo e1cl8ith4">
-                 <h3><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha">WOOTCHA</a></h3></li>
+            <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha"><h3>WOOTCHA</h3></a></li>
             <li class="css-67pwm-NavList e1cl8ith5">
                 <div class="css-cn9qlz-SearchContainer e1cl8ith1">
                     <div class="css-v7y0ja-SearchFormBlock e1rma0lx0">
@@ -100,6 +101,8 @@ else $user_img = "";
                 <?php
                     }
                 ?>
+            </li>
+            <li class="css-1jqsj0d-NavList e1cl8ith5">
                 <?php
                     //로그인 상태일 경우 로그인 로고 클릭 시 로그아웃됨 
                     if($user_mail != ""){
@@ -110,11 +113,12 @@ else $user_img = "";
                         $modalTrigger = "class='trigger_user_login'";
                     }
                 ?>
-                    <a href="<?=$logout?>" <?= $modalTrigger?> id="trigger_user_login"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/img/wootcha_login.png" alt="프로필 이미지" class="e1cl8ith2 css-1vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall e12ju1w01"></a>
+                    <a href="<?=$logout?>" <?= $modalTrigger?> id="trigger_user_login"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/img/wootcha_logout.png" alt="프로필 이미지" class="e1cl8ith2 css-2vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall e12ju1w01"></a>
                 <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_signup_modal.php"?>
                 <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_login_modal.php"?>
                 <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_find_account.php"?>
             </li>
         </ul>
     </div>
+</div>
 </div>

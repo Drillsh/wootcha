@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/css/main_test.css?after">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/main/js/slide/main.js"></script>
 
     <!-- 모달 리뷰 화면 -->
@@ -19,23 +18,20 @@
     <!-- 아이콘 폰트  https://fontawesome.com/  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
-
+    <?=include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";?>
 </head>
 
 <body>
-    <div class="css-1sh3zvx-NavContainer ebsyszu0">
-        <header class="css-11i4ae3-Self e1cl8ith0">
+        <header>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
         </header>
-        <section class="css-xpk6f5-Main ebsyszu1">
-            <div class="css-7eleqt-Self ebeya3l1">
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main_slide.php"; ?>
+        <section>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/main/main.php"; ?>
-            </div>
         </section>
         <footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
         </footer>
-    </div>
 </body>
 
 </html>

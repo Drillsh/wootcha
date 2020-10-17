@@ -14,14 +14,13 @@
 
     <!--    DB, Header-->
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
-    <!-- < ?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?> -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php";?>
 </head>
 
 <body>
 
-    <header class="css-11i4ae3-Self e1cl8ith0">
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
+    <header>
         <?php
         // 세션
         if (isset($_SESSION['user_num'])) {
