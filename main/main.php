@@ -36,8 +36,7 @@
           <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <g id="홈" transform="translate(-1255.000000, -281.000000)" fill="#CCCCCC">
                   <g id="Group" transform="translate(13.000000, 281.000000)">
-                      <polygon id="arrow"
-                               points="1251.12 10.56 1242 19.68 1243.44 21.12 1253.28 11.28 1254 10.56 1243.44 -5.5067062e-14 1242 1.44"></polygon>
+                      <polygon id="arrow" points="1251.12 10.56 1242 19.68 1243.44 21.12 1253.28 11.28 1254 10.56 1243.44 -5.5067062e-14 1242 1.44"></polygon>
                   </g>
               </g>
           </g>
@@ -48,8 +47,7 @@
             <div content="[object Object]" class="css-4bfx6u-Self e9r9i620 enter-done">
                 <div class="css-1fqeujt-StillcutContainer e9r9i621">
                     <div class="e7hewbz0 css-1sxaihu-StyledSelf-DefaultStillCut e1q5rx9q0">
-                        <span class="css-1te5psz-StyledBackground e1q5rx9q1"
-                              style="background-image: url(&quot;https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/v1602045273/kc4mrbpdfymvihkqespp.webp&quot;);"></span>
+                        <span class="css-1te5psz-StyledBackground e1q5rx9q1" style="background-image: url(&quot;https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/v1602045273/kc4mrbpdfymvihkqespp.webp&quot;);"></span>
                     </div>
                     <div class="css-1qzrlid-Shadow-ShadowLeft e9r9i625"></div>
                 </div>
@@ -158,8 +156,7 @@ $result = mysqli_query($con, $sql) or die(mysqli_error($con));
                 <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
                     <div class="css-ForwardButton-right e1f5xhlb5">
                         <!-- 영화로비_오른쪽버튼 img -->
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-                             alt="forward">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="forward">
                     </div>
                 </div>
             </div> <!-- END 영화로비 -->
@@ -437,18 +434,11 @@ $result = mysqli_query($con, $sql) or die(mysqli_error($con));
 
                 <!-- 영화로비_왼쪽버튼 -->
                 <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3" direction="left">
-                    <div class="css-BackwardButton-left e1f5xhlb6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
-                            <g fill="none" fill-rule="evenodd">
-                                <path d="M0 0H12V16H0z" transform="rotate(180 6 8)"/>
-                                <path fill="#292A32" stroke="#292A32" stroke-width=".35" d="M3.429 13.409L4.354 14.258 10.68 8.46 11.143 8.036 4.354 1.813 3.429 2.662 9.291 8.036z" transform="rotate(180 6 8)"/>
-                            </g>
-                        </svg>
-                    </div>
+                    <div class="css-BackwardButton-left e1f5xhlb6"></div>
                 </div>
                 <!-- 영화로비_오른쪽버튼 -->
                 <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
-                    <div class="css-ForwardButton-right e1f5xhlb5" id="total_review_right">
+                    <div class="css-ForwardButton-right e1f5xhlb5">
                         <!-- 영화로비_오른쪽버튼 img -->
                         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="forward">
                     </div>

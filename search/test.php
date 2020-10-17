@@ -15,25 +15,13 @@ function save_StillCut($mv_num, $con)
             $img = $item->attr['data-json'];
             $img = json_decode($img);
             $still_cut[] = $img->fullImageUrl665px;
-            $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl665px}');";
+            $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl886px}');";
             mysqli_query($con, $sql);
         }
     }
 }
 
-$sql = "SELECT mi_img_path FROM `movie_img` WHERE mv_num = 167613";
-$res = mysqli_query($con, $sql) or die("Select movie Error: " . mysqli_error($con));
-$still_cut = array();
-while ($result = mysqli_fetch_array($res)) {
-    array_push($still_cut, $result['mi_img_path']);
-}
 
-print_r($still_cut);
-
-//foreach ($result as $value) {
-//    echo $value . "<br>";
-//}
-//save_StillCut($value,$con);
 
 // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
 //ini_set("allow_url_fopen", 1);
