@@ -305,10 +305,16 @@
                                             <!-- 댓글 내용 -->
                                             <p><?=$review_reply_contents?></p>
                                         </div>
+                                        <?php
+                                        if($reply_user_num == $user_num){
+                                            echo "<span class='delete_reply_btn$i' title='댓글삭제'>$review_reply_num &times;</span>
+                                            <input type='hidden' class='review_reply_num$i' value='$review_reply_num'>";
+                                        }
+                                        ?>
                                     </div>
                                     <?php  
                                     // review의 댓글 반복문 종료 
-                                }                
+                                }
                                 ?>
                             </div>     
                             <hr width="99%" color="#e2e2e2" noshade="noshade"/>
@@ -316,7 +322,7 @@
                                 <div class="comments_register">
                                     <input type="hidden" name="mode" id="mode<?=$i?>" value="insert_reply">
                                     <input type="hidden" name="userpage_user_num" id="userpage_user_num<?=$i?>" value="<?=$userpage_user_num?>">
-                                    <textarea name="review_reply_contents" id="review_reply_contents<?=$i?>" cols="30" rows="10" placeholder="댓글을 입력하세요 ^.^"></textarea>
+                                    <textarea name="review_reply_contents" id="review_reply_contents<?=$i?>" cols="30" rows="10" placeholder="댓글을 입력하세요 ^.^  45자 이내작성 가능"></textarea>
                                     <div class="submit_btn_box">
                                         <input type="button" value="보내기" id="reply_input_button<?=$i?>">
                                     </div>

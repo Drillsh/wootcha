@@ -12,6 +12,7 @@ function init_modal_script(){
      var like_ckeckbox_class = document.getElementsByClassName("like_ckeckbox_class");
      // 댓글 리스트가 담기는 공간 가져온다
      var comments_list = document.getElementsByClassName("comments_list");
+     
      var funcs = [];
 
      // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
@@ -88,8 +89,8 @@ function init_modal_script(){
         
         reply_input_button.onclick = function () {
           // 댓글 내용 입력 확인
-          if (!review_reply_contents.value.trim()){
-            alert("내용을 입력하세요!");
+          if (review_reply_contents.value.trim().length >= 45 || review_reply_contents.value.trim().length == 0){
+            alert("댓글 길이를 확인해주세요. (45자 이내)");
             review_reply_contents.focus();
             return;
           }
@@ -111,6 +112,44 @@ function init_modal_script(){
           httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           httpRequest.send(data);
         }
+
+        // 댓글 삭제 버튼
+        // 댓글 리스트가 담기는 공간 가져온다
+        // var delete_reply_btn = document.getElementsByClassName("delete_reply_btn" + num);
+        // var review_reply_num = document.getElementsByClassName("review_reply_num" + num);
+        // var reply_num = new Array();
+        // for(var k = 0; k < delete_reply_btn.length; k++ ){
+        //   console.log("나의 리뷰 : "+num + " 그 리뷰의 내가 쓴 댓글 수 : " + review_reply_num.length + " 배열로 온 댓글pk : " + review_reply_num[k].value);
+        //   console.log("댓글 수 : "+review_reply_num.length);
+        //   console.log("리뷰안에 댓글 수 : "+k);
+        //   reply_num[k] = review_reply_num[k].value;
+        // }
+
+        var delete_reply_btn = $(".delete_reply_btn"+ num);
+        var review_reply_num = $(".review_reply_num"+ num);
+
+        delete_reply_btn.each(function(index){
+          $(this).on("click", function(){
+            alert(review_reply_num[index].value);
+            // alert(num);
+
+            var httpRequest = new XMLHttpRequest();
+            // 데이터 받아왔을 때 실행되는 함수
+            httpRequest.onreadystatechange = function() {
+              if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+                comments_list[num].innerHTML = httpRequest.responseText;
+              }
+            };
+            data = "mode=delete_reply&reply_num=" + review_reply_num[index].value + "&num=" + num;
+            console.log("댓글 번호 : "+ review_reply_num[index].value);
+            httpRequest.open("POST", "http://"+ location.host +"/wootcha/review/review_d_m_i.php", true);
+            httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            httpRequest.send(data);
+          });
+        });
+
+
+
 
       };
      }

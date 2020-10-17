@@ -5,6 +5,7 @@
         <title>Wootcha</title>
         <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
         <link rel="stylesheet" type="text/css" href="./css/review.css?after">
+        <script src="./js/review_insert.js"></script>
     </head>
     <body>
         <!-- 헤더 -->
@@ -83,6 +84,7 @@
                         </div>
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <h2>한 줄 평</h2>
+                        <span style="color:#aaa;" id="counter">(<?=mb_strlen($review_short, "utf-8")?> / 최대 40자)</span>
                             <input type="text" class="review_short" name="review_short" value="<?=$review_short?>">
                             <hr width="99%" color="#e2e2e2" noshade="noshade"/>
                         <div id="long_view_box">
