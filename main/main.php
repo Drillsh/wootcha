@@ -71,7 +71,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
 
 $sql = "select R.mv_num, count(R.mv_num) as count, M.mv_title, M.mv_release_date, M.mv_img_path, M.mv_rating 
-  from review R inner join movie M on R.mv_num = M.mv_num group by R.mv_num order by count desc limit 5;";
+  from review R inner join movie M on R.mv_num = M.mv_num group by R.mv_num order by count desc limit 10;";
 $result = mysqli_query($con, $sql) or die(mysqli_error($con));
 ?>
 <!-- 최다 리뷰 영화 리스트 -->
@@ -298,11 +298,6 @@ $result = mysqli_query($con, $sql);
                         <!-- 영화로비_오른쪽버튼 img -->
                         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
                              alt="forward">
-
-
-                        >>>>>>> leesi
-
-
                     </div>
                 </div>
             </div> <!-- END 영화로비 -->
@@ -441,18 +436,21 @@ $result = mysqli_query($con, $sql) or die(mysqli_error($con));
                 <div direction="right" class="css-CheatBlock-right"></div>
 
                 <!-- 영화로비_왼쪽버튼 -->
-                <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3"
-                     direction="left">
-                    <div class="css-BackwardButton-left e1f5xhlb6"></div>
+                <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3" direction="left">
+                    <div class="css-BackwardButton-left e1f5xhlb6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0H12V16H0z" transform="rotate(180 6 8)"/>
+                                <path fill="#292A32" stroke="#292A32" stroke-width=".35" d="M3.429 13.409L4.354 14.258 10.68 8.46 11.143 8.036 4.354 1.813 3.429 2.662 9.291 8.036z" transform="rotate(180 6 8)"/>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
                 <!-- 영화로비_오른쪽버튼 -->
-                <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3"
-                     direction="right">
-                    <div class="css-ForwardButton-right e1f5xhlb5"
-                         id="total_review_right">
+                <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
+                    <div class="css-ForwardButton-right e1f5xhlb5" id="total_review_right">
                         <!-- 영화로비_오른쪽버튼 img -->
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-                             alt="forward">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="forward">
                     </div>
                 </div>
             </div> <!-- END 영화로비 -->

@@ -135,6 +135,7 @@
                                             <span class="col4">내용</span>
                                             <!-- <span class="col5">댓글 위치</span> -->
                                             <span class="col6">등록일</span>
+                                            <span class="col7"></span>
                                         </li>
                                         <?php
                                         if ($col != '') {
@@ -190,8 +191,7 @@
                                                 $title = $row["qna_title"];
                                                 $id = $row["qna_contents"];
                                                 $reply_content = $row["qna_hit"];
-                                                $reply_parent = $row["qna_regtime"];
-                                                // $regist_day = $row["review_reply_regtime"];
+                                                $regist_day = $row["qna_regtime"];
                                                 ?>
                                                 <li class="list_row">
                                                     <form method="post" action="#">
@@ -200,7 +200,6 @@
                                                         <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/view.php?num=<?=$no?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $title?></span></a>                               
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
-                                                        <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
                                                         <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$no?>">
 

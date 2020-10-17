@@ -190,8 +190,7 @@
                                                 $title = $row["notice_title"];
                                                 $id = $row["notice_contents"];
                                                 $reply_content = $row["notice_hit"];
-                                                $reply_parent = $row["notice_regtime"];
-                                                // $regist_day = $row["review_reply_regtime"];
+                                                $regist_day = $row["notice_regtime"];
                                                 ?>
                                                 <li class="list_row">
                                                     <form method="post" action="#">
@@ -202,7 +201,6 @@
                                                         <!-- 왜 안 될까???? -->
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
-                                                        <span class="col5"><?= sprintf('%0.1f', round($reply_parent, 1)) ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
                                                         <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$num?>">
 

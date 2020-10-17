@@ -126,7 +126,7 @@
 						$next = $last_page + 1;// > 버튼 누를때 나올 페이지
 						$prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
-						$url = "/wootcha/fnq/fnq_main.php?y=$y&m=$m";
+						$url = "/wootcha/fnq/fnq_main.php?";
 						if ($search != '') {
 							$url .= "&col=$col&search=$search";
 						}

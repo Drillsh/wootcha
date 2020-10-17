@@ -9,8 +9,6 @@ ul { list-style-type: none; }
 /* <a> 태그 기본 설정 */
 a { display: inline-block; text-decoration: none; }
 a:link { text-decoration:none; color: #222222; }
-a:hover { text-decoration:none; color: #222222; }
-a:visited { text-decoration:none; color: #222222; }
 a:active { text-decoration:none; color: #222222; }
 
 /* 메인 <section> 태그 css */

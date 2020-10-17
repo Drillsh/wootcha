@@ -17,24 +17,24 @@ $(function () {
     const T_INDEX = 1;
 
     //좌우 네비게이션 버튼 함수
-    function stateNavigationButton(index) {
-        switch (index) {
-            case 0:
-                prev.hide();
-                next.show();
-                break;
-            case 1:
-            case 2:
-                prev.show();
-                next.show();
-                break;
-            case 3:
-                prev.show();
-                next.hide();
-                break;
-            default: break;
-        }
-    }
+    // function stateNavigationButton(index) {
+    //     switch (index) {
+    //         case 0:
+    //             prev.hide();
+    //             next.show();
+    //             break;
+    //         case 1:
+    //         case 2:
+    //             prev.show();
+    //             next.show();
+    //             break;
+    //         case 3:
+    //             prev.show();
+    //             next.hide();
+    //             break;
+    //         default: break;
+    //     }
+    // }
     
     // 이미지 전환
     function startAnimation(index, parent) {

@@ -171,7 +171,7 @@ function importJoinData() {
 
 function membersGraph(join, wthdr, sbtr){
 
-    var ctx = document.getElementById('g_members_totalGraph').getContext('2d');
+    var ctx = document.getElementById('g_members_totalGraph');
     ctx.canvas.width = 880;
     ctx.canvas.height = 310;
     var chart = new Chart(ctx, {
@@ -242,7 +242,7 @@ function membersGraph(join, wthdr, sbtr){
 
 
 function dash_age_range(teen, twenty, thirty, forty, senior){
-    var ctx = document.getElementById('dash_age_range').getContext('2d');
+    var ctx = document.getElementById('dash_age_range');
     ctx.canvas.width = 240;
     ctx.canvas.height = 160;
     var chart = new Chart(ctx, {
@@ -276,7 +276,7 @@ function dash_age_range(teen, twenty, thirty, forty, senior){
 
 
 function dash_gender_ratio(male, female){
-    var ctx = document.getElementById('dash_gender_ratio').getContext('2d');
+    var ctx = document.getElementById('dash_gender_ratio');
     ctx.canvas.width = 240;
     ctx.canvas.height = 160;
     var chart = new Chart(ctx, {
