@@ -2,7 +2,7 @@
 * {padding: 0; margin: 0;}
 
 /* 페이지 기본 글꼴과 크기 설정 */
-body { font-family: "나눔고딕"; font-size: 14px; position: relative; width: 1300px; margin: 0 auto;}
+body {font-family: "나눔고딕"; font-size: 14px; position: relative;}
 img { border: 0;}
 ul { list-style-type: none; }
 
@@ -10,9 +10,11 @@ ul { list-style-type: none; }
 a { display: inline-block; text-decoration: none; }
 a:link { text-decoration:none; color: #222222; }
 a:active { text-decoration:none; color: #222222; }
+a:visited { text-decoration:none; color: #222222; }
 
 /* 메인 <section> 태그 css */
 .css-xpk6f5-Main {padding-top: 54px; padding-bottom: unset;}
+.css-xpk6f5-Main {width: 1300px; margin: 0 auto;}
 .css-xpk6f5-Main {transition: padding-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;}
 
 /* 메인 <div> 태그 css */
@@ -52,7 +54,7 @@ a:active { text-decoration:none; color: #222222; }
 
 /* 메인 로고 <li> 태그 css */
 .css-u82ra6-NavLogo {margin: 13px 0px 0px;}
-.css-u82ra6-NavLogo h3 { position: absolute; top: 15px; left: 40px; font-size: 30px; }
+.css-u82ra6-NavLogo h3 { position: absolute; top: 15px; left: 40px; font-size: 30px; color: #20A0F1;}
 
 /* 메인 검색란 <li> 태그 css */
 .css-67pwm-NavList {width: 400px;}
@@ -119,8 +121,25 @@ a:active { text-decoration:none; color: #222222; }
 
 /* 메인 사용자프로필 <img> 태그 css */
 .css-1vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall {
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 50%;
+    display: flex;
+    position: relative;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+/* 메인 로그아웃 <img> 태그 css */
+.css-2vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall {
+    /* border: 1px solid rgba(0, 0, 0, 0.08); */
+    border-radius: 2px;
     display: flex;
     position: relative;
     -webkit-box-pack: center;
