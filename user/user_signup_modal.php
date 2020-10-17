@@ -10,7 +10,7 @@
 
     /* 흰 화면의 dialog 부분 */
     .modal_container .modal_content {  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
-         padding: 1rem 1.5rem;   width: 400px;  height: 800px;   border-radius: 0.5rem; text-align:center; overflow:hidden; z-index: 211;} 
+         padding: 1rem 1.5rem;   width: 400px;  border-radius: 0.5rem; text-align:center; overflow:hidden; z-index: 211;} 
 
     /* 끄기 버튼 */
     .modal_container .modal_close_btn_signup { float: right; width: 1.5rem; line-height: 1.5rem; text-align: center; cursor: pointer; 
@@ -18,27 +18,27 @@
     .modal_container .modal_close_btn_signup:hover { background-color: darkgray; }     
 
     /* 상단 닉네임 및 평점 부분 */
-    .modal_container .modal_content_header{height: 50px; width:95%; position:relative;}
+    .modal_container .modal_content_header{height: 30px; width:95%; position:relative;}
 
     /* 프로필 이미지 */
     .modal_container .small_img_box{ width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display:inline-block;}
     .modal_container .small_img_box img{width: 100%; height: 100%; object-fit: cover;}
     
     /* 회원가입 폼 */
-    .modal_content form{width:100%;text-align:center; margin-top:20px; margin-bottom:20px}  
+    .modal_content form{width:100%;text-align:center;}  
     .modal_content form table{width:100%;}
-    .modal_content form table tr:nth-child(odd){height:50px}
-    .modal_content form table tr:nth-child(odd) td{width:100%; line-height:50px; text-align:center;}
+    .modal_content form table tr:nth-child(odd){height:45px}
+    .modal_content form table tr:nth-child(odd) td{width:100%; line-height:45px; text-align:center;}
     .modal_content form table tr:nth-child(even){display:none; width:100%;height:20px;text-align:center;}
     .modal_content form table tr:nth-child(even) td{width:100%; line-height:20px; text-align:center;}
     .modal_content form table p{width:100%;height:15px; line-height:20px; text-align:center;}
-    .modal_content form table td input[type=text],[type=password],[type=tel],[type=date]{width:300px;height:50px; font-size:15px;text-align:center;}
-    .modal_content form table td input{height:50px;}
+    .modal_content form table td input[type=text],[type=password],[type=tel],[type=date]{width:300px;height:45px; font-size:15px;text-align:center;}
+    .modal_content form table td input{height:45px;}
     /* 이메일 */
     .modal_content form table tr:nth-child(1) td{position:relative;}
     .modal_content form table tr:nth-child(1) td span{position:absolute; right:12%; top: 30%; 
         transform: translateY(-50%); width:60px; height:30px; overflow:hidden; }
-    .modal_content form table tr:nth-child(1) td span #email_check_button{margin: 0; font-size:10px; color:white; height:25px; background-color:gray; border-radius:0;font-weight:}
+    .modal_content form table tr:nth-child(1) td span #email_check_button{margin: 0; font-size:10px; color:white; height:25px; background-color:#0C191D; border-radius: 0.5rem;}
     /* 생년월일 input */
     .modal_content form table tr:nth-child(11) td{position:relative;}
     .modal_content form table tr:nth-child(11) label{position:absolute; top: 50%;  left: 50%;  transform: translate(-50%, -50%); color:gray;}
@@ -46,15 +46,17 @@
     .modal_content form table tr:nth-child(11) input:valid ~ label {display:none;}
     .modal_content form table tr:nth-child(11) input[type=date]{text-align:left;}
     /* gender */
-    .modal_content form table tr:nth-child(15) label{text-align:center; line-height:50px; font-size:20px}
-    .modal_content form table tr:nth-child(15) input{text-align:center; line-height:50px; font-size:20px}
+    .modal_content form table tr:nth-child(15) label{text-align:center; line-height:45px; font-size:20px; color:black;}
+    .modal_content form table tr:nth-child(15) input{text-align:center; line-height:45px; font-size:20px}
     /* user_img */
     .modal_content form table tr:nth-child(17) img{width: 45px; height: 45px; margin-left:5px; margin-right:5px}
     /* 회원가입 버튼 */
-    .modal_content form input[type=button]{width:90%; height: 40px; background-color:#679b9b; border-style:none;
-        border-radius: 0.5rem;font-size:20px;font-weight: bold}
+    .modal_content form input[type=button]{width:90%; height: 40px; background-color:#0C191D; border-style:none;
+        border-radius: 0.5rem;font-size:20px;font-weight: bold; color:white;}
         /* 하단 버튼 */
     .modal_content button{width:40%; height:40px; font-size:15px;margin:10px }
+    /* 카카오 */
+    div#kakao_login_button img { width:90%; height: 40px;  border-radius:  0.5rem; margin-bottom:10px; margin-top:10px}
 </style>
 
 <!-- ****************** -->
@@ -66,14 +68,7 @@
     <div class="modal_content"> 
         <!-- 닫기 버튼 -->
         <span class="modal_close_btn_signup">&times;</span>
-        <!-- 상단 로고 -->
-        <div class="modal_content_header">
-            <!-- 로고 -->
-            <!-- <div class="small_img_box">
-                <img src="./img/profile_image< ?=$i?>.png" alt="프로필 이미지">
-            </div>  -->
-        </div>
-        <hr width="99%" color="#e2e2e2" noshade/>
+        
         
         <!-- 회원가입 폼 -->
         <form action="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/user_signup.php" id="signup_form" name="signup_form" method="post">
@@ -145,7 +140,7 @@
         </table>
         <input type="button" value="회원가입" onclick="allCheck()">
         </form>
-        <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
+        <!-- <hr width="99%" color="#e2e2e2" noshade/>구분선 -->
         <!-- kakaoConn()는 mypage_index에 있음  -->
         <div id="kakao_login_button" onclick="kakaoConn();"><img src="/wootcha/user/img/kakao_login_button.png" alt="kakao_login_button"></div>
     </div>

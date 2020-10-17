@@ -32,8 +32,6 @@ $(document).ready(function() {
                   }
              }
            }); // end of ajax
-           
-           console.log(count);
            setTimeout(function(){check = true;},1000);
          }
 

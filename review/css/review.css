@@ -60,3 +60,79 @@ section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: w
 .startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
 .startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }
 .startRadio_box { text-align: center;}
+
+
+/* 슬라이드 이미지 */
+.slideShow{
+    position: relative;
+    background-color: #0C191D;
+    height: 550px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .slideShow_slides{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slideShow_slides a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    padding-top: 20px;
+  }
+  
+  .slideShow_nav a.prev{
+    position: absolute;
+    width: 71px;
+    height: 71px;
+    background: url('../../movie_introduce_page/img/sprites.png') no-repeat -0px -20px;
+    left: 32%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-indent: -9999em;
+    margin-left: -500px;
+  }
+  
+  .slideShow_nav a.next{
+    position: absolute;
+    width: 71px;
+    height: 71px;
+    background: url('../../movie_introduce_page/img/sprites.png') no-repeat -81px -20px;
+    left: 65%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-indent: -9999em;
+    margin-left: 500px;
+  }
+  
+  .slideShow_indicator{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 25px;
+    text-align: center;
+  }
+  
+  .slideShow_indicator a{
+    background: url('../../movie_introduce_page/img/sprites.png') no-repeat -113px -4px;
+      width: 9px;
+    height: 8px;
+    margin: 0 5px;
+    text-indent: -9999em;
+    display: inline-block;
+  }
+  
+  .slideShow_indicator a.active{
+    background: url('../../movie_introduce_page/img/sprites.png') no-repeat -133px -4px;
+      width: 9px;
+      height: 8px;
+  }

@@ -8,7 +8,7 @@
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     ?>
     <!-- 최다 리뷰 영화 리스트 -->
-    <div class="css-MainDiv ebeya3l11">
+    <div class="css-MainDiv ebeya3l11 session_check">
         <!-- 타이틀과 영화항목 최다리뷰 -->
         <div class="css-MainListContainer ebeya3l2">
             <!-- 타이틀 -->
@@ -101,7 +101,7 @@
     $result = mysqli_query($con, $sql);
     ?>
     <!-- 베스트 리뷰 리스트 -->
-    <div class="css-MainDiv ebeya3l11">
+    <div class="css-MainDiv ebeya3l11 session_check">
         <!-- 타이틀과 영화항목 베스트리뷰 -->
         <div class="css-MainListContainer ebeya3l2">
             <!-- 타이틀 -->
@@ -134,7 +134,7 @@
                                         // *****************************
                                         // 리뷰 모달에서 사용하는 변수, 여기에 매치하면 됨
                                         // *****************************
-                                        $query = "select user_img, user_nickname, review_like, review_regtime, review_short, review_long  
+                                        $query = "select R.user_num, user_img, user_nickname, review_like, review_regtime, review_short, review_long  
                                                   from review R
                                                   inner join user U
                                                   on R.user_num = U.user_num
@@ -143,6 +143,8 @@
                                         $row = mysqli_fetch_array($result_query);
                                         // 리뷰 pk
                                         $review_pk_num = $review_number;
+                                        // 리뷰 작성자 pk
+                                        $review_writer_num = $row['user_num'];
                                         // 리뷰 작성자의 이미지
                                         $review_writer_img = $row['user_img'];
                                         // 리뷰 작성자의 닉네임
@@ -238,7 +240,7 @@
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     ?>
     <!-- 리뷰 전체 리스트 -->
-    <div class="css-MainDiv ebeya3l11">
+    <div class="css-MainDiv ebeya3l11 session_check">
         <!-- 타이틀과 영화항목 최근리뷰 -->
         <div class="css-MainListContainer ebeya3l2">
             <!-- 타이틀 -->
@@ -273,7 +275,7 @@
                                         // *****************************
                                         // 리뷰 모달에서 사용하는 변수, 여기에 매치하면 됨
                                         // *****************************
-                                        $query = "select user_img, user_nickname, review_like, review_regtime, review_short, review_long  
+                                        $query = "select R.user_num, user_img, user_nickname, review_like, review_regtime, review_short, review_long  
                                                   from review R
                                                   inner join user U
                                                   on R.user_num = U.user_num
@@ -282,6 +284,8 @@
                                         $row = mysqli_fetch_array($result_query);
                                         // 리뷰 pk
                                         $review_pk_num = $review_number;
+                                        // 리뷰 작성자 pk
+                                        $review_writer_num = $row['user_num'];
                                         // 리뷰 작성자의 이미지
                                         $review_writer_img = $row['user_img'];
                                         // 리뷰 작성자의 닉네임
@@ -303,6 +307,8 @@
                                         // 세션 유저의 넘버
                                         if (isset($_SESSION['user_num'])) {
                                             $session_user_num = $_SESSION['user_num'];
+                                        }else{
+                                            $session_user_num = "";
                                         }
 
                                         include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/review/review_modal.php";
@@ -421,15 +427,17 @@
                                         // *****************************
                                         // 리뷰 모달에서 사용하는 변수, 여기에 매치하면 됨
                                         // *****************************
-                                        $query = "select user_img, user_nickname, review_like, review_regtime, review_short, review_long  
-                        from review R
-                        inner join user U
-                        on R.user_num = U.user_num
-                        where review_num = $review_number;";
+                                        $query = "select R.user_num, user_img, user_nickname, review_like, review_regtime, review_short, review_long  
+                                                from review R
+                                                inner join user U
+                                                on R.user_num = U.user_num
+                                                where review_num = $review_number;";
                                         $result_query = mysqli_query($con, $query) or die(mysqli_error($con));
                                         $row = mysqli_fetch_array($result_query);
                                         // 리뷰 pk
                                         $review_pk_num = $review_number;
+                                        // 리뷰 작성자 pk
+                                        $review_writer_num = $row['user_num'];
                                         // 리뷰 작성자의 이미지
                                         $review_writer_img = $row['user_img'];
                                         // 리뷰 작성자의 닉네임
@@ -451,6 +459,8 @@
                                         // 세션 유저의 넘버
                                         if (isset($_SESSION['user_num'])) {
                                             $session_user_num = $_SESSION['user_num'];
+                                        } else {
+                                            $session_user_num = "";
                                         }
                                         include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/review/review_modal.php";
                                         // review_dialog_trigger 클래스가 버튼 역할을 함
@@ -489,8 +499,7 @@
                                                     </div>
                                                     <!-- 서브리스트 div 리뷰작성자 -->
                                                     <div class="css-1teivyt-ContentShortMemberNick">
-                                                        작성자
-                                                        : <?= $user_nickname ?></div>
+                                                        작성자 : <?= $user_nickname ?></div>
                                                     <!-- 서브리스트 div 영화리뷰 -->
                                                     <div class="css-1teivyt-ContentShort"><?= $review_short ?></div>
                                                 </div>
