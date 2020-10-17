@@ -6,10 +6,12 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 .slideShow{
   position: relative;
   background-color: black;
-  height: 350px;
-  min-width: 500px;
+  height: 550px;
+  min-width: 1500px;
   overflow: hidden;
   margin-top: 20px;
+  right: 100px;
+  
   
 }
 
@@ -27,8 +29,8 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
   display: block;
   align-items: center;
   justify-content: center;
-  filter: brightness(150%);
   background-size: cover;
+  padding-top: 20px;
 
 }
 
@@ -60,7 +62,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
   position: absolute;
   left: 0px;
   right: 0px;
-  bottom: 5px;
+  bottom: 25px;
   text-align: center;
 }
 
@@ -81,7 +83,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 
 #movie_introduce {
  
- width: 1260px;
+ width: 1200px;
  height: 2350px;
  margin-top: 50px; 
  position: relative;
@@ -130,8 +132,6 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
   left: 500px;
 }
 
-
-
 .css-1wnjyf4-Title {
   width: 520px;
   font-size: 25px;
@@ -146,7 +146,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
     width: 900px;
     height: 100% auto;
     /* text-align: center; */
-    margin-top: 10px;
+    margin-top: 80px;
     margin-left: 130px;
     position: absolute;
     font-size: 20;
@@ -209,8 +209,8 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
   width: 80px;
   height: 80px;
   margin-right: -280px;
-  top: 30px;
-  left: 970px;
+  top: 270px;
+  left: 670px;
   position: absolute;
   background-color: white;
   background-image : url('../img/good_after.png');
@@ -232,8 +232,8 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
   width: 80px;
   height: 80px;
   margin-right: -280px;
-  top: 35px;
-  left: 970px;
+  top: 270px;
+  left: 670px;
   position: absolute;
   background-color: white;
   background-image : url('../img/good_before.png');
@@ -255,8 +255,8 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 #review_write {
   width: 80px;
   height: 80px;
-  margin-top: -195px;
-  left: 850px;
+  top: 270px;
+  left: 500px;
   position: absolute;
   background-color: white;
   border-style: groove;
@@ -311,7 +311,7 @@ html, body { background: white url("https://codepen.io/images/classy_fabric.png"
 #movie_casting_container {
     width: 960px;
     height: 320px;
-    margin-top: 400px;
+    margin-top: 600px;
     margin-left: 130px;
     text-align: center;
     position: absolute;
@@ -401,10 +401,10 @@ font-weight: bold;
                 }
 
 #movie_comment_container {
+    
     width: 960px;
     height: 830px;
-    top: 1020px;
-    margin-left: 130px;
+    margin-top: 250px;
     margin-bottom: 100px;
     text-align: center;
     position: absolute;
@@ -440,7 +440,7 @@ font-weight: bold;
     color: #585858;
   }
 
-  .star_rating {
+   /* .star_rating {
     font-size:0;
     letter-spacing:-4px;
   }
@@ -453,14 +453,14 @@ font-weight: bold;
       text-decoration:none;
   }
   .star_rating a:first-child {margin-left:0;}
-  .star_rating a.on {color:#777;}
+  .star_rating a.on {color:#777;} */
   
   
-  .star_rating_content {
+  /* .star_rating_content {
     font-size:0;
     letter-spacing: -4px;
-    /* margin-left: 50px; */
-  }
+     margin-left: 50px;
+   } 
   
   .star_rating_content a {
       font-size:16px;
@@ -471,7 +471,7 @@ font-weight: bold;
       text-decoration:none;
   }
   .star_rating_content a:first-child {margin-left:0;}
-  .star_rating_content a.on {color:#777;}
+  .star_rating_content a.on {color:#777;}   */
 
   .comment_profile_img{
     float: left;
@@ -491,7 +491,11 @@ font-weight: bold;
     height: 100%;
     object-fit: cover;
   }
-  
+
+  .starRadio_container {
+    left: 100px !important;
+    z-index: 0;
+  }
   
   .user_comment_content{
     width: 650px;
@@ -671,6 +675,7 @@ display: none;
   background: #111111;
   filter: blur(100px);
   -webkit-filter: blur(100px);
+  
 }
 
 /* .css-1rpwc4r-DimmedLayer {
@@ -749,4 +754,17 @@ h1, h3, p, hr {
 .startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
 .startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }
 
-
+/* 스크롤 버튼 */
+#movetopbt {
+  width: 140px;
+  height: 28px;
+  float: right;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  right: 10px;
+  bottom: 20px;
+  position: fixed;
+  margin-right: 10px;
+  text-align: center;
+}
