@@ -5,6 +5,8 @@
 <title>PHP 프로그래밍 입문</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/board.css">
+<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/greet.css">
+
 <link rel="stylesheet" href="./css/gm_members.css">
 <link rel="stylesheet" href="./css/nav.css">
 </head>
@@ -20,6 +22,73 @@
 	    <h3>
 	    	FnQ > 목록보기
 		</h3>
+		<div>
+			<?php
+			                    //isset으로 겟 모드로 들어왔는지 확인하고 겟방식으로 들어온 모드가 search인지 확인
+								if (isset($_GET["mode"]) && $_GET["mode"] == "search") {
+									//제목, 내용, 아이디
+								
+									//입력받은 find search값의 데이터에 불필요한 것이 없도록 test input으로 검사
+									$find = test_input($_POST["find"]);
+									$search = test_input($_POST["search"]);
+									//우리가 string을 입력할때 Tom's cat 이란 입력을 하면  '는 sql문에 앞서 있던 ' 와 중첩이 될 수 있다.
+									//이러한 문제를 막기위해 \n, \r \" 처럼 구별해주는 형태로 만들어주는 것을 Escape string 이라고 한다.
+									$q_search = mysqli_real_escape_string($con, $search);
+									$sql = "SELECT * from `faq_board` where $find like '%$q_search%' order by faq_num desc;";
+								} else {
+									$sql = "select * from faq_board order by faq_num desc";
+								}
+								
+								if (isset($_GET["page"]))
+								$page = $_GET["page"];
+								else
+								$page = 1;
+							
+							
+							
+						
+						
+							// $con = mysqli_connect("localhost", "user1", "12345", "sample");
+							$result = mysqli_query($con, $sql);
+							if (!$result) {
+								echo "<script>alert()</script>";
+								die('Error: ' . mysqli_error($con));
+							  }
+							$total_record = mysqli_num_rows($result); // 전체 글 수
+						
+							$scale = 10;
+						
+							// 전체 페이지 수($total_page) 계산 
+							if ($total_record % $scale == 0)     
+								$total_page = floor($total_record/$scale);      
+							else
+								$total_page = floor($total_record/$scale) + 1; 
+						 
+							// 표시할 페이지($page)에 따라 $start 계산  
+							$start = ($page - 1) * $scale;      
+						
+							$number = $total_record - $start;
+						
+			?>
+		<form name="board_form" action="fnq_main.php?mode=search" method="post">
+                            <div id="list_search">
+                                <div id="list_search1">총 <?= $total_record ?>개의 게시물이 있습니다.</div>
+                                <div id="list_search2"><img src="./img/select_search.gif"></div>
+                                <div id="list_search3">
+                                    <select name="find">
+                                        <option value="faq_title">제목</option>
+                                        <option value="faq_contents">내용</option>
+                                        <!-- <option value="nick">별명</option>
+                                        <option value="name">이름</option>
+                                        <option value="id">아이디</option> -->
+                                    </select>
+                                </div><!--end of list_search3  -->
+                                <!-- 검색기능 -->
+                                <div id="list_search4"><input type="text" name="search"></div>
+                                <div id="list_search5"><input type="image" src="./img/list_search_button.gif"></div>
+                            </div><!--end of list_search  -->
+                        </form>
+		</div>
 	    <ul id="board_list">
 				<li>
 					<span class="col1">번호</span>
@@ -35,37 +104,8 @@
             <button>컨텐츠 </button>
         </div>             -->
 <?php
-	if (isset($_GET["page"]))
-		$page = $_GET["page"];
-	else
-		$page = 1;
+
 	
-	
-	
-
-
-	// $con = mysqli_connect("localhost", "user1", "12345", "sample");
-	$sql = "select * from faq_board order by faq_num desc";
-	$result = mysqli_query($con, $sql);
-	if (!$result) {
-		echo "<script>alert()</script>";
-		die('Error: ' . mysqli_error($con));
-	  }
-	$total_record = mysqli_num_rows($result); // 전체 글 수
-
-	$scale = 10;
-
-	// 전체 페이지 수($total_page) 계산 
-	if ($total_record % $scale == 0)     
-		$total_page = floor($total_record/$scale);      
-	else
-		$total_page = floor($total_record/$scale) + 1; 
- 
-	// 표시할 페이지($page)에 따라 $start 계산  
-	$start = ($page - 1) * $scale;      
-
-	$number = $total_record - $start;
-
    for ($i=$start; $i<$start+$scale && $i < $total_record; $i++)
    {
       mysqli_data_seek($result, $i);

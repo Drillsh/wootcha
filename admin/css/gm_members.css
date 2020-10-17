@@ -225,16 +225,22 @@
 
 .col1 {
     padding-left: 12px;
-    width: 50px;
+    width: 70px;
 }
 .col2 {
-    width: 60px;
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .col3 {
     width: 90px;
 }
 .col4{
-    width: 90px;
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .col2 input, .col4 input, .col5 input, .col7 input, .col8 input  {
     width: 90%;
@@ -243,10 +249,10 @@
     width: 180px;
 }
 .col6 {
-    width: 100px;
+    width: 170px;
 }
 .col7{
-    width: 50px;
+    width: 100px;
 }
 .col8  {
     width: 100px;
@@ -309,6 +315,10 @@
 .list_row_review > form > span > input{
     background-color:transparent;
     border: none;
+}
+#road_notice_board{
+    width: 190px;
+    text-align: center;
 }
 
 #review_list .col1 {

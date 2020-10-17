@@ -197,10 +197,10 @@
                                                         <input type="hidden" name="no[]" value="<?= $num ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
                                                         <!-- 절대경로 설정 -->
-                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/notice/notice_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $title?></span></a> 
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/notice/notice_view.php?num=<?=$num?>&page=<?=$page?>&hit=<?=$reply_content?>"><span class="col2 left-align"><?= $title?></span></a> 
                                                         <!-- 왜 안 될까???? -->
-                                                        <span class="col3"><?= $id ?></span>
-                                                        <span class="col4 left-align"><?= $reply_content ?></span>
+                                                        <span class="col3">관리자</span>
+                                                        <span class="col4 left-align"><?= $id ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
                                                         <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$num?>">
 

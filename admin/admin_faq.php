@@ -197,9 +197,9 @@
                                                     <form method="post" action="#">
                                                         <input type="hidden" name="no[]" value="<?= $num ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
-                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/fnq/fnq_view.php?num=<?=$num?>&page=<?=$page?>"><?=$title?><span class="col2 left-align"><?= $title?></span></a>                               
-                                                        <span class="col3"><?= $id ?></span>
-                                                        <span class="col4 left-align"><?= $reply_content ?></span>
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/fnq/fnq_view.php?num=<?=$num?>&page=<?=$page?>"><span class="col2 left-align"><?= $title?></span></a>                               
+                                                        <span class="col3">관리자</span>
+                                                        <span class="col4 left-align"><?= $id ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>
                                                         <span class="col7"><input type="checkbox" name="no[]" id="item<?=$i?>" value="<?=$num?>">
 

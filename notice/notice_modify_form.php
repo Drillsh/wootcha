@@ -15,7 +15,7 @@
 	
    	<div id="board_box">
 	    <h3 id="board_title">
-	    		게시판 > 글 쓰기
+	    		공지사항 > 글 쓰기
 		</h3>
 <?php
 	$num  = $_GET["num"];

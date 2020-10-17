@@ -137,30 +137,14 @@
                                             <span class="col6">등록일</span>
                                             <span class="col7"></span>
                                         </li>
+
                                         <?php
                                         if ($col != '') {
-                                            $sql = "SELECT 
-                                                     qna_num,
-                                                     qna_title,
-                                                     qna_contents,
-                                                     qna_hit,
-                                                     qna_regtime
-                                                    --  review_reply_regtime    
-                                                 FROM
-                                                     qna_board
-                                                 WHERE
-                                                    --  $col LIKE '%$search%'
-                                                    ORDER BY qna_regtime DESC";
+                                            $sql = " SElECT * from `qna_board` a INNER JOIN `user` b 
+                                            on a.user_num=b.user_num ORDER BY qna_regtime desc";
                                         } else {
-                                            $sql = "SELECT
-                                                    qna_num,
-                                                     qna_title,
-                                                     qna_contents,
-                                                     qna_hit,
-                                                     qna_regtime
-                                                  FROM
-                                                  qna_board
-                                                  ORDER BY qna_regtime DESC";
+                                            $sql = " SElECT * from `qna_board` a INNER JOIN `user` b 
+                                            on a.user_num=b.user_num ORDER BY qna_regtime desc";
                                         }
 
                                         $result = mysqli_query($con, $sql);
@@ -189,15 +173,16 @@
                                                 $row = mysqli_fetch_array($result);
                                                 $no = $row["qna_num"];
                                                 $title = $row["qna_title"];
-                                                $id = $row["qna_contents"];
-                                                $reply_content = $row["qna_hit"];
+                                                $id = $row["user_nickname"];
+                                                $hit=$row["qna_hit"];
+                                                $reply_content = $row["qna_contents"];
                                                 $regist_day = $row["qna_regtime"];
                                                 ?>
                                                 <li class="list_row">
                                                     <form method="post" action="#">
                                                         <input type="hidden" name="no[]" value="<?= $no ?>" readonly>
                                                         <span class="col1"><?= $number ?></span>
-                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/view.php?num=<?=$no?>&page=<?=$page?>&hit=<?=$reply_content?>"><?=$title?><span class="col2 left-align"><?= $title?></span></a>                               
+                                                        <a href="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/question/view.php?num=<?=$no?>&page=<?=$page?>&hit=<?=$hit?>"><span class="col2 left-align"><?= $title?></span></a>                               
                                                         <span class="col3"><?= $id ?></span>
                                                         <span class="col4 left-align"><?= $reply_content ?></span>
                                                         <span class="col6"><?= $regist_day ?></span>

@@ -10,8 +10,7 @@ if (isset($_SESSION["user_num"])) $userlevel = $_SESSION["user_num"];
 else $userlevel = "";
 if (isset($_SESSION["user_img"])) $userpoint = $_SESSION["user_img"];
 else $userpoint = "";
-echo $_SERVER['HTTP_HOST'];//localhost
-echo $_SERVER['DOCUMENT_ROOT'];// /Users/hong-yongcheon/Sites
+
 ?>
 <!DOCTYPE html>
 <html>

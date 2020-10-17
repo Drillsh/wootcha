@@ -688,3 +688,9 @@ div#listwrite {
     position: absolute;
     right: 0;
 }
+#noticetitle{
+    display: inline-block; 
+    width: 200px;
+    white-space: nowrap; 
+    overflow: hidden;
+}
