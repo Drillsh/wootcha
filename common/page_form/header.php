@@ -8,7 +8,12 @@ if (isset($_SESSION["user_num"])) $user_num = $_SESSION["user_num"];
 else $user_num = "";
 if (isset($_SESSION["user_img"])) $user_img = $_SESSION["user_img"];
 else $user_img = "";
+// 세션 값 존재 여부: main에서 이벤트 방어하기 위해 js로 값을 넘겨서 alert를 주려는데 html화 하기에 위에있는 값들은 노출되면 안되니까
+if (isset($_SESSION["user_mail"])) $session_value_flag = 'true';
+else $session_value_flag = "false";
 ?>
+<input type="hidden" id="session_value_flag" value="<?=$session_value_flag?>">
+
 <!-- 아이콘 폰트  https://fontawesome.com/  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">

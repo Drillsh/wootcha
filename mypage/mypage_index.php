@@ -221,9 +221,7 @@
                                 <div class="long_view_box">
                                     <h2>장 문 평</h2>
                                     <p class="long_review"><?=$review_long?></p>
-                                </div>
-                                
-                                
+                                </div>  
                             </div>
                             <!-- 좋아요 및 댓글 icon -->
                             <hr class="fixed_bottom" width="500px" color="#e2e2e2" noshade="noshade"/>
@@ -307,7 +305,7 @@
                                         </div>
                                         <?php
                                         if($reply_user_num == $user_num){
-                                            echo "<span class='delete_reply_btn$i' title='댓글삭제'>$review_reply_num &times;</span>
+                                            echo "<span class='spandelete delete_reply_btn$i' title='댓글삭제'>&times;</span>
                                             <input type='hidden' class='review_reply_num$i' value='$review_reply_num'>";
                                         }
                                         ?>

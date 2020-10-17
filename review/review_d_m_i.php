@@ -5,7 +5,6 @@
     // POST 방식으로 data 받음
     $mode = $_POST['mode'];
     
-    
     include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
 
     switch ($mode) {
@@ -171,7 +170,7 @@
                                     if (strlen($user_img) > 22) {
                                         echo "<img src='$user_img' alt=''>";
                                     }else{ 
-                                        echo "<img src='../user/img/$user_img' alt='프로필 이미지 수정'>";
+                                        echo "<img src='http://".$_SERVER['HTTP_HOST']."/wootcha/user/img/$user_img' alt='프로필 이미지 수정'>";
                                     }
                                 ?>
                                 </div>
@@ -183,6 +182,12 @@
                             <!-- 댓글 내용 -->
                             <p><?=$review_reply_contents?></p>
                         </div>
+                        <?php
+                            
+                                echo "<span class='spandelete delete_reply_btn$i' title='댓글삭제'>&times;</span>
+                                <input type='hidden' class='review_reply_num$i' value='$review_reply_num'>";
+                            
+                            ?>
                     </div>
 <?php                    
             }
@@ -191,7 +196,7 @@
             $reply_num = $_POST['reply_num'];
             $i = $_POST['num'];
             $query = "select review_num from review_reply where review_reply_num=$reply_num";
-            $result = mysqli_query($con, $query) or die("Delete Error: ". mysqli.error($con));
+            $result = mysqli_query($con, $query) or die("Delete Error: ". mysqli_error($con));
             $row = mysqli_fetch_array($result);
             $review_num = $row['review_num'];
             
@@ -204,11 +209,11 @@
             on RR.user_num = U.user_num 
             where RR.review_num = $review_num  
             order by RR.review_reply_num DESC;";
-            $result = mysqli_query($con, $query);
-
-            
+            $result = mysqli_query($con, $query);            
                                 
-                while($row_reply = mysqli_fetch_array($result)){
+            for ($i=0; $i < $result->num_rows; $i++) { 
+                mysqli_data_seek($result,$i);
+                $row_reply = mysqli_fetch_array($result);
                     $review_reply_num = $row_reply['review_reply_num'];
                     $review_reply_contents = $row_reply['review_reply_contents'];
                     $review_reply_regtime = $row_reply['review_reply_regtime'];
@@ -227,7 +232,7 @@
                                 if (strlen($reply_user_img) > 22) {
                                     echo "<img src='$reply_user_img' alt=''>";
                                 }else{ 
-                                    echo "<img src='../user/img/$reply_user_img' alt='프로필 이미지 수정'>";
+                                    echo "<img src='http://".$_SERVER['HTTP_HOST']."/wootcha/user/img/$reply_user_img' alt='프로필 이미지 수정'>";
                                 }
                             ?>
                             </div>
@@ -241,7 +246,7 @@
                     </div>
                     <?php
                     if($reply_user_num == $user_num){
-                        echo "<span class='delete_reply_btn$i' title='댓글삭제'>&times;</span>
+                        echo "<span class='spandelete delete_reply_btn$i' title='댓글삭제'>&times;</span>
                         <input type='hidden' class='review_reply_num$i' value='$review_reply_num'>
                         ";
                     }

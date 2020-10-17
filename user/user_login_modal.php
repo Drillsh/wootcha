@@ -41,11 +41,12 @@
     .modal_content_login form table td input{height:50px;}
     
     /* 로그인 버튼 */
-    .modal_content_login form input[type=button]{width:90%; height: 50px; background-color:#679b9b; border-style:none;
-        border-radius: 0.5rem;font-size:20px;font-weight: bold}
+    .modal_content_login form input[type=button]{width:300px; height: 50px; background-color:#0C191D; border-style:none;
+        border-radius: 0.5rem;font-size:20px;font-weight: bold;color:white;}
 
     /* 하단 버튼 */
-    .modal_content_login button{width:40%; height:40px; font-size:15px;margin:10px }
+    .modal_content_login button{width:138px; height:40px; font-size:15px;margin:10px; background-color:#0C191D; border-style:none;
+        border-radius: 0.5rem;color:white;}
 </style>
 <script src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/js/login.js?after"></script>
 <!-- ****************** -->
