@@ -13,7 +13,7 @@ $(function () {
   var currentIndex = -1;
   var setIntervalObject;
 
-  // 1. 슬라이드를 자동으로 움직이는 기능을 구현하겠다.
+  // 1. 슬라이드를 자동으로 움직이는 기능을 구현.
   //    이미지를 가로로 배치시켜야한다.
   // for(var index =0; index<slides.length; index++){
   //   var indexLeft = index*100+"%";
@@ -72,7 +72,7 @@ $(function () {
       var nextIndex = (currentIndex + 1) % slideCount;
       currentIndex = nextIndex;
       gotoSlide(nextIndex)
-    }, 2500);
+    }, 4000);
   }
 
   function stopTimer() {
@@ -121,7 +121,16 @@ $(function () {
 });
 
 
+// 스크롤 버튼
+$(document).ready(function() {
+  $('#movetopbt').bind('click', function() {
+    $('html, body').animate({scrollTop: '0'}, 680);
+  });
+  // 애니메이션 효과로 자연스럽게 이동됨, 0.68초
 
-
-
+  $('#movetopbt').on('click', function() {
+    $('html').scrollTop('0');
+  });
+  // 애니메이션 효과없이 즉시 해당 위치 0 지점으로 이동함
+});
 
