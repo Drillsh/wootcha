@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
         <link rel="stylesheet" type="text/css" href="./css/review.css?after">
         <script src="./js/review_insert.js"></script>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php"; ?>
     </head>
     <body>
         <!-- 헤더 -->
@@ -30,10 +31,14 @@
                         exit;
                     }
 
+                    $stillcut = Movie_info::getMovieInfo_ByCode($mv_num, $con)->stillcut;
             ?>
-
+        <!-- 영화 스틸컷 -->
+        <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce_contents.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/movie_introduce_page/stillcut_slide.php";?>
         <!-- 섹션 -->
-        <section>
+        <section style="margin-top:50px">
             <header class="section_header">
                 <span class="title_sub"> 영화 상세 페이지 &nbsp&nbsp > &nbsp&nbsp 리뷰 작성하기 </span><br><br>
                 <span class="title_main"><?=$mv_title?></span>

@@ -217,16 +217,20 @@
                 </div>
             </div>
             <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-            <h3 class="title"><?=$mv_title?></h3>
-            <h3>한 줄 평</h3>
-            <p class="line_review"><?=$review_short?></p>
-            <h3>장 문 평</h3>
-            <p class="long_review"><?=$review_long?></p>
-            
-                            
+            <h2 class="title"><?=$mv_title?></h2>
+            <div class="review_content_box">
+                <div class="line_view_box">
+                    <h2>한 줄 평</h2>
+                    <p class="line_review"><?=$review_short?></p>
+                </div>
+                <div class="long_view_box">
+                    <h2>장 문 평</h2>
+                    <p class="long_review"><?=$review_long?></p>
+                </div>
+            </div>                
             <!-- 좋아요 및 댓글 icon -->
+            <hr class="fixed_bottom" width="500px" color="#e2e2e2" noshade="noshade"/>
             <div class="modal_content_review_bottom">
-            <hr width="94%" color="#e2e2e2" noshade="noshade"/>
                 <!-- 좋아요 -->
 <?php
                     // 각 리뷰별 session의 user가 좋아요를 눌렀었는지 조회한 데이터를 기준으로 icon 변경
@@ -304,6 +308,12 @@
                             <!-- 댓글 내용 -->
                             <p><?=$review_reply_contents?></p>
                         </div>
+                        <?php
+                        if($reply_user_num == $user_num){
+                            echo "<span class='spandelete delete_reply_btn$i' title='댓글삭제'>&times;</span>
+                            <input type='hidden' class='review_reply_num$i' value='$review_reply_num'>";
+                        }
+                        ?>
                     </div>
                     <?php  
                     // review의 댓글 반복문 종료 

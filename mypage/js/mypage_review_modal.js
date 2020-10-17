@@ -76,6 +76,37 @@ function init_modal_script(){
           httpRequest.send(data);
         };
         
+        // 댓글 삭제 버튼
+        // 댓글 리스트가 담기는 공간 가져온다
+        // 반복문 안에서 이벤트를 여러개 선언할 때는 아래와 같은 방식으로 해야 가능함. javascript로 했을 때 안되는 이유는 정확히 모르겠음
+        function review_reply_delete_init() {
+          var delete_reply_btn = $(".delete_reply_btn"+ num);
+          var review_reply_num = $(".review_reply_num"+ num);
+
+          delete_reply_btn.each(function(index){
+            $(this).on("click", function(){
+
+              var httpRequest = new XMLHttpRequest();
+              // 데이터 받아왔을 때 실행되는 함수
+              httpRequest.onreadystatechange = function() {
+                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+                  comments_list[num].innerHTML = httpRequest.responseText;
+                  review_reply_delete_init();
+                }
+              };
+              data = "mode=delete_reply&reply_num=" + review_reply_num[index].value + "&num=" + num;
+              console.log("댓글 번호 : "+ review_reply_num[index].value);
+              httpRequest.open("POST", "http://"+ location.host +"/wootcha/review/review_d_m_i.php", true);
+              httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+              httpRequest.send(data);
+            });
+          });
+
+        }
+        console.log("댓글 삭제 초기화 함수 실행");
+        review_reply_delete_init();
+
+
         // ********************
         // 댓글 보내기 버튼
         // ********************
@@ -84,7 +115,6 @@ function init_modal_script(){
         var review_reply_contents = document.getElementById("review_reply_contents" + num);
         var mode = document.getElementById("mode" + num);
         // 위에 선언 먼저 되어 있음
-        // var review_num = document.getElementById("review_num" + num);
         var userpage_user_num = document.getElementById("userpage_user_num" + num);
         
         reply_input_button.onclick = function () {
@@ -104,6 +134,7 @@ function init_modal_script(){
               var value = httpRequest.getResponseHeader("replycount");
               reply_count.innerHTML = "<p>" + value + "</p>";
               review_reply_contents.value = "";
+              review_reply_delete_init();
 				    }
           };
 
@@ -112,45 +143,6 @@ function init_modal_script(){
           httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           httpRequest.send(data);
         }
-
-        // 댓글 삭제 버튼
-        // 댓글 리스트가 담기는 공간 가져온다
-        // var delete_reply_btn = document.getElementsByClassName("delete_reply_btn" + num);
-        // var review_reply_num = document.getElementsByClassName("review_reply_num" + num);
-        // var reply_num = new Array();
-        // for(var k = 0; k < delete_reply_btn.length; k++ ){
-        //   console.log("나의 리뷰 : "+num + " 그 리뷰의 내가 쓴 댓글 수 : " + review_reply_num.length + " 배열로 온 댓글pk : " + review_reply_num[k].value);
-        //   console.log("댓글 수 : "+review_reply_num.length);
-        //   console.log("리뷰안에 댓글 수 : "+k);
-        //   reply_num[k] = review_reply_num[k].value;
-        // }
-
-        var delete_reply_btn = $(".delete_reply_btn"+ num);
-        var review_reply_num = $(".review_reply_num"+ num);
-
-        delete_reply_btn.each(function(index){
-          $(this).on("click", function(){
-            alert(review_reply_num[index].value);
-            // alert(num);
-
-            var httpRequest = new XMLHttpRequest();
-            // 데이터 받아왔을 때 실행되는 함수
-            httpRequest.onreadystatechange = function() {
-              if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
-                comments_list[num].innerHTML = httpRequest.responseText;
-              }
-            };
-            data = "mode=delete_reply&reply_num=" + review_reply_num[index].value + "&num=" + num;
-            console.log("댓글 번호 : "+ review_reply_num[index].value);
-            httpRequest.open("POST", "http://"+ location.host +"/wootcha/review/review_d_m_i.php", true);
-            httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            httpRequest.send(data);
-          });
-        });
-
-
-
-
       };
      }
 
@@ -166,8 +158,6 @@ function init_modal_script(){
      for(var j = 0; j < review_dialog_trigger.length; j++) {
        funcs[j]();
      }
-
-    
 }
 
 window.onload = function () {

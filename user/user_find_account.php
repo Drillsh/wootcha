@@ -109,15 +109,20 @@
         height: 50px;
     }
 
+    .modal_content_find_account form .label_text {
+        color:black; font-size: 20px;
+    }
+
     /* 로그인 버튼 */
     .modal_content_find_account form input[type=button] {
-        width: 90%;
+        width: 300px;
         height: 50px;
-        background-color: #679b9b;
+        background-color: #0C191D;
         border-style: none;
         border-radius: 0.5rem;
         font-size: 20px;
         font-weight: bold;
+        color:white;    
     }
 
     /* 하단 버튼 */
@@ -152,9 +157,9 @@
                 <tr>
                     <td>
                         <input type="radio" id="find_mode_email" name="find_mode" value="email" onclick="find_mode_email()" checked>
-                        <label for="find_mode_email">이메일(ID) 찾기</label>
+                        <label for="find_mode_email" class="label_text">이메일(ID) 찾기</label>
                         <input type="radio" id="find_mode_password" name="find_mode" value="password" onclick="find_mode_password()" >
-                        <label for="find_mode_password">비밀번호 찾기</label>
+                        <label for="find_mode_password" class="label_text">비밀번호 찾기</label>
                     </td>
                 </tr>
                 <!-- 이름 -->
