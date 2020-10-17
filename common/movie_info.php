@@ -219,7 +219,7 @@ class Movie_info
             $img = $item->attr['data-json'];
             $img = json_decode($img);
             $still_cut[] = $img->fullImageUrl665px;
-            $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl665px}');";
+            $sql = "insert into `movie_img`(mv_num, mi_img_path) values({$mv_num}, '{$img->fullImageUrl886px}');";
             mysqli_query($con, $sql);
         }
     }

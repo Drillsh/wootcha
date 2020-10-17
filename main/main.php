@@ -79,17 +79,15 @@
                             </div>
                         </div> <!-- END 영화 2층 -->
                     </div> <!-- END 영화 1층 -->
-                    <!-- 영화로비_왼쪽버튼 -->
-                    <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3" direction="left">
-                        <div class="css-BackwardButton-left e1f5xhlb6"></div>
-                    </div>
-                    <!-- 영화로비_오른쪽버튼 -->
-                    <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
-                        <div class="css-ForwardButton-right e1f5xhlb5">
-                            <!-- 영화로비_오른쪽버튼 img -->
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-                                alt="forward">
-                        </div>
+                <!-- 영화로비_왼쪽버튼 -->
+                <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3" direction="left">
+                    <div class="css-BackwardButton-left e1f5xhlb6"></div>
+                </div>
+                <!-- 영화로비_오른쪽버튼 -->
+                <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
+                    <div class="css-ForwardButton-right e1f5xhlb5">
+                        <!-- 영화로비_오른쪽버튼 img -->
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="forward">
                     </div>
                 </div> <!-- END 영화로비 -->
             </div>
@@ -356,24 +354,15 @@
                     <!-- 영화로비_양쪽 틈 -->
                     <div direction="left" class="css-CheatBlock-left"></div>
                     <div direction="right" class="css-CheatBlock-right"></div>
-
-                    <!-- 영화로비_왼쪽버튼 -->
-                    <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3" direction="left">
-                        <div class="css-BackwardButton-left e1f5xhlb6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
-                                <g fill="none" fill-rule="evenodd">
-                                    <path d="M0 0H12V16H0z" transform="rotate(180 6 8)"/>
-                                    <path fill="#292A32" stroke="#292A32" stroke-width=".35" d="M3.429 13.409L4.354 14.258 10.68 8.46 11.143 8.036 4.354 1.813 3.429 2.662 9.291 8.036z" transform="rotate(180 6 8)"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- 영화로비_오른쪽버튼 -->
-                    <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
-                        <div class="css-ForwardButton-right e1f5xhlb5" id="total_review_right">
-                            <!-- 영화로비_오른쪽버튼 img -->
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="forward">
-                        </div>
+                <!-- 영화로비_왼쪽버튼 -->
+                <div class="arrow_button css-ArrowButtonBlock-left e1f5xhlb3" direction="left">
+                    <div class="css-BackwardButton-left e1f5xhlb6"></div>
+                </div>
+                <!-- 영화로비_오른쪽버튼 -->
+                <div class="arrow_button css-ArrowButtonBlock-right e1f5xhlb3" direction="right">
+                    <div class="css-ForwardButton-right e1f5xhlb5">
+                        <!-- 영화로비_오른쪽버튼 img -->
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="forward">
                     </div>
                 </div> <!-- END 영화로비 -->
             </div>

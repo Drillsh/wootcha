@@ -525,7 +525,6 @@ g[Attributes Style] {
 }
 .css-MainListContainer .arrow_button {opacity: 1 !important;}
 .css-ArrowButtonBlock-left {
-  display: none;
   position: absolute;
   top: 0px;
   z-index: 2;
@@ -538,18 +537,7 @@ g[Attributes Style] {
 }
 .css-StyledMainScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
 .css-BackwardButton-left {
-  /*background:  12px center / 12px no-repeat rgb(255, 255, 255);*/
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
-}
-/* 서브1 리스트 왼쪽 버튼 */
-.css-Sub1-BackwardButton-left {
+  display: none;
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
   box-sizing: border-box;
   border: 1px solid rgb(249, 249, 249);
@@ -560,6 +548,7 @@ g[Attributes Style] {
   cursor: pointer;
   transition: opacity 300ms ease 0s;
 }
+
 /* ================ 영화로비 오른쪽 방향버튼 ================= */
 .css-StyledMainScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
 .css-ForwardButton-right {
@@ -591,34 +580,10 @@ g[Attributes Style] {
   opacity: 0;
   transition: all 300ms ease 0s;
 }
-/* 서브1 리스트 오른쪽 버튼 */
-.css-Sub1-ForwardButton-right {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  background-size: 12px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
-}
-/* ================ 영화로비 오른쪽 방향버튼 img ================= */
+
+/* ================ 영화로비 방향 버튼 img ================= */
 .css-ForwardButton-right > img {opacity: 0.4;}
 .css-ForwardButton-right > img {border-style: none;}
-/* 서브1 리스트 버튼 */
-.css-Sub1-ForwardButton-right > img {opacity: 0.4;}
-.css-Sub1-ForwardButton-right > img {border-style: none;}
-
-
-
-
 
 /* ================ 서브리스트 div 타이틀과 리스트 ================= */
 .css-gxko42-StyledHomeListContainer {margin-bottom: 42px; font-family: 'paybooc-Bold';}

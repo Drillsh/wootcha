@@ -1,6 +1,6 @@
 <!-- 왼쪽 사이드 메뉴 -->
 <div class="my_info_profile">
-    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_index.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/img/admin_profile.png"></a>
+    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_index.php"><img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/user/img/admin.png"></a>
 </div>
 <ul>
     <li class="<?= COMMON::$css_sub_menu; ?>"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/admin/admin_edit_user.php">유저 관리</a> </li>
