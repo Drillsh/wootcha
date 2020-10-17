@@ -187,7 +187,72 @@
 <?php                    
             }
             break;
-        
+        case "delete_reply":
+            $reply_num = $_POST['reply_num'];
+            $i = $_POST['num'];
+            $query = "select review_num from review_reply where review_reply_num=$reply_num";
+            $result = mysqli_query($con, $query) or die("Delete Error: ". mysqli.error($con));
+            $row = mysqli_fetch_array($result);
+            $review_num = $row['review_num'];
+            
+            $query = "delete from review_reply where review_reply_num = $reply_num";
+            $result = mysqli_query($con, $query);
+            
+            $query = "select RR.review_reply_num, RR.review_reply_contents, RR.review_reply_regtime, U.user_nickname, U.user_img, U.user_num  
+            from review_reply RR 
+            inner join user U 
+            on RR.user_num = U.user_num 
+            where RR.review_num = $review_num  
+            order by RR.review_reply_num DESC;";
+            $result = mysqli_query($con, $query);
+
+            
+                                
+                while($row_reply = mysqli_fetch_array($result)){
+                    $review_reply_num = $row_reply['review_reply_num'];
+                    $review_reply_contents = $row_reply['review_reply_contents'];
+                    $review_reply_regtime = $row_reply['review_reply_regtime'];
+                    $reply_user_num = $row_reply['user_num'];
+                    $reply_user_nickname = $row_reply['user_nickname'];
+                    $reply_user_img = $row_reply['user_img'];
+            ?>
+                <div class="comments_item">
+                    <!-- profile image -->
+                    <div class="profile_box">
+                        <!-- 댓글 을 쓴 사람의 num을 받아서 a로 넘겨야함 -->
+                        <!-- mypage주소에 get방식으로 user_num을 보내야함 -->
+                        <a href="mypage_index.php?userpage_user_num=<?=$reply_user_num?>">
+                            <div class="small_img_box">
+                            <?php
+                                if (strlen($reply_user_img) > 22) {
+                                    echo "<img src='$reply_user_img' alt=''>";
+                                }else{ 
+                                    echo "<img src='../user/img/$reply_user_img' alt='프로필 이미지 수정'>";
+                                }
+                            ?>
+                            </div>
+                            <!-- 닉네임 -->
+                            <p><?=$reply_user_nickname?></p>
+                        </a>
+                    </div>
+                    <div class="comment_content">
+                        <!-- 댓글 내용 -->
+                        <p><?=$review_reply_contents?></p>
+                    </div>
+                    <?php
+                    if($reply_user_num == $user_num){
+                        echo "<span class='delete_reply_btn$i' title='댓글삭제'>&times;</span>
+                        <input type='hidden' class='review_reply_num$i' value='$review_reply_num'>
+                        ";
+                    }
+                    ?>
+                </div>
+                <?php  
+                // review의 댓글 반복문 종료 
+            }
+                                
+
+            break;
         default:
             break;
     }

@@ -5,7 +5,7 @@
         <title>Wootcha</title>
         <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css?after">
         <link rel="stylesheet" type="text/css" href="./css/review.css?after">
-        <!-- <script src="./js/mypage_modal.js"></script> -->
+        <script src="./js/review_insert.js"></script>
     </head>
     <body>
         <!-- 헤더 -->
@@ -79,9 +79,12 @@
                             </div>
                         </div>
                         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
-                        <h2>한 줄 평</h2>
-                            <input type="text" class="review_short" name="review_short" placeholder="이 작품에 대한 생각을 한줄로 작성해본다면?">
-                            <hr width="99%" color="#e2e2e2" noshade="noshade"/>
+                        <div id="short_view_box">
+                            <h2>한 줄 평</h2>
+                            <span style="color:#aaa;" id="counter">(0 / 최대 40자)</span>
+                                <input type="text" class="review_short" name="review_short" placeholder="이 작품에 대한 생각을 한줄로 작성해본다면?">
+                                <hr width="99%" color="#e2e2e2" noshade="noshade"/>
+                        </div>
                         <div id="long_view_box">
                             <h2>장 문 평</h2>
                             <textarea name="review_long" id="review_long" cols="30" rows="10" class="review_long" wrap="physical" placeholder="장문평을 자유롭게 기재해 주세요"></textarea>
