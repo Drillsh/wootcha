@@ -25,7 +25,7 @@ else $session_value_flag = "false";
     <div class="css-1wd9lk5-StyledPaddedContainer e18137le0">
         <ul class="css-1wpau1v-VisualUl-NavUl e1cl8ith3">
             <li class="css-u82ra6-NavLogo e1cl8ith4">
-            <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha"><h3>WOOTCHA</h3></a></li>
+            <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/wootcha"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/img/wootcha_logo1.png" alt=""></a></li>
             <li class="css-67pwm-NavList e1cl8ith5">
                 <div class="css-cn9qlz-SearchContainer e1cl8ith1">
                     <div class="css-v7y0ja-SearchFormBlock e1rma0lx0">
