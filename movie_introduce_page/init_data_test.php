@@ -1,24 +1,39 @@
 <?php
-include_once "./common/database/db_connector.php";
+ include $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
 
 function user_init_data(){
+    
     $sql ="INSERT INTO `user_test` VALUES "; 
     
-    $user_mail = array('1st@naver.com', '2st@gmail.com', '3st@hanmail.net', '4st@nate.com', '5st@zum.com');
-    $password = rand(1, 1000);
-    $user_name =  array('이시형', '임훈사', '홍용천', '박다니엘', '오선환');
-    $user_nickname = array('1st', '2st', '3st', '4st', '5st');
+    // 10부터 1000까지의 정수를 랜덤으로 출력한다.
+    $user_nickname = random_int(10, 1000); 
+    
+    // 이미지 정보 값을 저장.
     $user_img = array('user_robot_avatar0.png', 'user_robot_avatar1.png', 'user_robot_avatar2.png', 'user_robot_avatar3.png', 'user_robot_avatar4.png');
-    $user_age = rand(20, 30);
-    $user_gender = array('male');
-    $user_phone = randomDate('010-1111-1111', '010-9999-9999');
-    $user_signup_day = randomDate('2020-01-01', '2020-10-18');
+     
+    // $user_img의 문자열 값을 랜덤으로 출력한다.
+    $user_img_output= array_rand($user_img);
+    
+    // 10부터 60까지의 정수를 랜덤으로 출력한다.
+    $user_age = random_int(10, 60); 
+    
+    // 0부터 1까지의 정수를 랜덤으로 출력한다.
+    $user_gender = random_int(0, 1);
 
+    //  start_date와 end_date 사이의 임의의 전화번호 값을 출력한다.
+    $user_phone = '010-1234-56789';
+    
+    // start_date와 end_date 사이의 임의의 가입일자 값을 출력한다.
+    $user_signup_day = randomDate('1960-01-01', '2020-10-18');
+
+    // user_num columm 값을 증가시킨다.
     for($no = 1; $no<= 100 ; $no++) {
        
-        $sql .= "($no, $user_mail, $password, $user_nickname, $user_name, $user_img, $user_age, $user_gender, $user_phone, $user_signup_day)";
+        // query 문 실행.
+        $sql .= "($no, 'test$no@naver.com', 'a123456!', user$no, 닉네임$no, $user_img[$user_img_output], $user_age, $user_gender, $user_phone, $user_signup_day)";
     }
-    return $sql;
-    }    
     
-?>
+    // query문 반환.
+    return $sql;
+
+    }

@@ -16,8 +16,8 @@
 
         </div>
         <div class="slideShow_nav">
-            <a href="#" class="prev">이전</a>
-            <a href="#" class="next">다음</a>
+            <a href="#" class="prev"><</a>
+            <a href="#" class="next">></a>
         </div>
         <div class="slideShow_indicator">
             <a href="#" class="active">1</a>
