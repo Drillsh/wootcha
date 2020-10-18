@@ -262,6 +262,7 @@ g[Attributes Style] {
 }
 /* ================= 타이틀 설정 ================= */
 .css-StyledMainListTitle {
+  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
   color: #292a32;
   font-size: 22px;
   font-weight: 1000;
@@ -419,6 +420,7 @@ g[Attributes Style] {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'paybooc-Bold';
 }
 /* ================= 영화설명_출시년도 ================= */
 .css-StyledContentYear {display: block !important;}
@@ -436,6 +438,7 @@ g[Attributes Style] {
   letter-spacing: -0.4px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
 /* ================= 영화설명_평점 ================= */
 .css-MainContentRating-StyledContentRating.average {color: #555765;}
@@ -464,6 +467,7 @@ g[Attributes Style] {
   letter-spacing: 0;
   line-height: 14px;
   height: 16px;
+  font-family: 'paybooc-Bold';
 }
 /* ================= 영화설명_평점단어 ================= */
 .css-MainContentRating-StyledContentRating > span {height: 16px;}
@@ -732,6 +736,7 @@ g[Attributes Style] {
   text-overflow: ellipsis;
   /* margin-bottom: 4px; */
   margin-top: 2px;
+  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
 .css-1teivyt-ContentShort span{
   color: #292a32;
@@ -758,6 +763,7 @@ g[Attributes Style] {
   text-overflow: ellipsis;
   margin-bottom: 0px;
   margin-top: 2.8px;
+  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
 
 /* ================ 서브리스트 div 양쪽 틈 ================= */
