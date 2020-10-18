@@ -13,7 +13,7 @@
                         <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
                             <div class="css-13h49w0-PaneInner e1svyhwg13">
                                 <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
-                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841" onclick=window.open(img src='<?=$poster_img?>, width=600 height=600')></div>
+                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841" onclick=window.open(img src='<?=$poster_img?>, width=600, height=600')></div>
                                 </div>
                             </div>
                         </div>
@@ -83,6 +83,7 @@
                                 echo $running_time;
                                 ?>
                                 &nbsp;・&nbsp;
+                                <br>
                                 <?php
                                 echo $release_date;
                                 ?>
@@ -249,7 +250,7 @@
                         $scale = 5;
 
                         if (empty($total_record)) {
-                            echo "<img src=./img/not_found.png><br>리뷰가 없습니다.";
+                            echo "<img src=./img/not_found.png id='not_review'><br><h1>리뷰가 없습니다.</h1>";
                         } else {
                         }
                         // 전체 페이지 수($total_page) 계산
@@ -422,3 +423,4 @@
 </table>
 
 <div id="movetopbt">TOP</div>
+
