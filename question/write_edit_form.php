@@ -11,7 +11,8 @@
   <header>
 	  <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/common/page_form/header.php";?>
   </header> 
-  <!-- <div id="main_img_bar">
+  <section id="question_section">
+<!-- <div id="main_img_bar">
 		<img src= "http://<?php echo $_SERVER['HTTP_HOST'];?>/myhome/img/main_img.png">
   </div> -->
   <?php
@@ -123,6 +124,8 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
       </div><!--end of col2  -->
       </div><!--end of content -->
     </div><!--end of wrap  -->
+  </section>
+  
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/footer.php"; ?>
     </footer> 

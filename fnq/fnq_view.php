@@ -19,13 +19,14 @@ else $userpoint = "";
 <title>FAQ화면</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/board.css">
+<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/greet.css">
 
 </head>
 <body> 
 <header>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 </header>  
-<section>
+<section id="faq_view_section"> 
 	
    	<div id="board_box">
 	    <h3 class="title">

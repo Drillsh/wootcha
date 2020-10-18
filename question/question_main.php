@@ -65,7 +65,7 @@ $number = $total_record - $start;
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
-    <section>
+    <section id="question_section">
         <div class="right_content">
 
             <div id="wrap">

@@ -20,13 +20,15 @@ else $userpoint = "";
 <title>읒차공지</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/board.css">
+<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/greet.css">
+
 <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/myhome/board/js/board.js"></script>
 </head>
 <body> 
 <header>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 </header>  
-<section>
+<section id="notice_section">
 	
    	<div id="board_box">
 	    <h3 class="title">

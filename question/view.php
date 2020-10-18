@@ -81,7 +81,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
 }
 
 ?>
-  <section>
+  <section id="question_view_section">
 
   <!-- <div id="main_img_bar">
 		<img src= "http://<?php echo $_SERVER['HTTP_HOST'];?>/wootcha/question/img/main_img.png">

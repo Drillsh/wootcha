@@ -2,15 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>공지사항</title>
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/board.css">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/notice/css/greet.css">
 
     <link rel="stylesheet" href="./css/gm_members.css">
     <link rel="stylesheet" href="./css/nav.css">
+    
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/common_class_value.php"; ?>
-
 </head>
 <body>
     <header>
@@ -18,7 +18,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 
     </header>
-    <section>
+    <section id="notice_section">
         <div id="board_box">
             <div>
                 <h3>
