@@ -10,6 +10,7 @@
 
     $login_password = test_input($login_password);
     $login_password = mysqli_real_escape_string($con, $login_password);
+    $login_password = openssl_encrypt($login_password, 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
     $login_email = test_input($login_email);
     $login_email = mysqli_real_escape_string($con, $login_email);
 

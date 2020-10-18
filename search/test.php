@@ -20,8 +20,9 @@ function save_StillCut($mv_num, $con)
         }
     }
 }
-
-
+$pass = openssl_encrypt('gnstk12!', 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
+$sql = 'update user set password =' .$pass. 'where user_num = 2';
+mysqli_query($con, $sql);
 
 // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
 //ini_set("allow_url_fopen", 1);

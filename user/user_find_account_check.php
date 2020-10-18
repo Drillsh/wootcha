@@ -13,6 +13,7 @@
         $find_account_password = $_POST['find_account_password'];
         $find_account_password = test_input($find_account_password);
         $find_account_password = mysqli_real_escape_string($con, $find_account_password);
+        $find_account_password = openssl_encrypt($find_account_password, 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
 
         $query = "select * from user where user_name='$find_account_name' and user_phone='$find_account_phone' and password='$find_account_password';";
         $result = mysqli_query($con, $query) or die($error = mysqli_error($con));
@@ -38,6 +39,8 @@
             $row = mysqli_fetch_array($result);
             $user_name = $row['user_name'];
             $password = $row['password'];
+
+            $password = openssl_decrypt($password, 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
             // ajax request로 넘겼을 때 문자열 가장 앞에 코드 1 정상 작동한 것.
             echo "1$user_name 고객님의 비밀번호는 $password 입니다.";
         }else{

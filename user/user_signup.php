@@ -19,7 +19,10 @@
     $signup_phone = test_input($signup_phone);
     $avatar = test_input($avatar);
     $regist_day = date("Y-m-d (H:i)");
-    
+
+    //비밀번호 암호화
+    $signup_password = openssl_encrypt($signup_password, 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
+
     $query = "insert into user values
         (null,'$signup_email','$signup_password','$signup_name','$signup_nickname','$avatar','$signup_birth_day',$gender,'$signup_phone','$regist_day');";
     $result = mysqli_query($con, $query) or die($error = mysqli_error($con));
