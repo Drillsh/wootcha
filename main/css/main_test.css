@@ -6,6 +6,17 @@
   overflow: hidden;
 }
 
+.movie_title_main {
+  position: absolute;
+  left: 200px;
+  top: 400px;
+  z-index: 4;
+}
+
+.movie_title_main > h1 {
+  color: #F5F5F7;
+}
+
 /* ================ wootcha 상단 div 왼쪽버튼 ================= */
 .css-jxbkzh-StyledJumbotronArrowButton-StyledJumbotronArrowPrevButton:hover {
   opacity: 1;

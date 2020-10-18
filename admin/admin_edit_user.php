@@ -64,7 +64,7 @@
                         var search = "<?=$search?>";
                     </script>
 
-                    <section>
+                    <div>
                         <!--날짜 선택바 -->
                         <div class="sec_top">
                             <span onclick="prevDateChange('admin_edit_user')"><i class="fas fa-angle-left"></i></span>
@@ -373,7 +373,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </main>
             </div><!-- end of right_content -->
 

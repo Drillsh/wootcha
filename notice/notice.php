@@ -26,61 +26,61 @@
                 </h3>
             </div> <!--공지사항  -->
             <div>
-            <?php
-                    //isset으로 겟 모드로 들어왔는지 확인하고 겟방식으로 들어온 모드가 search인지 확인
-    if (isset($_GET["mode"]) && $_GET["mode"] == "search") {
-    //제목, 내용, 아이디
+                <?php
+                //isset으로 겟 모드로 들어왔는지 확인하고 겟방식으로 들어온 모드가 search인지 확인
+                if (isset($_GET["mode"]) && $_GET["mode"] == "search") {
+                    //제목, 내용, 아이디
 
-    //입력받은 find search값의 데이터에 불필요한 것이 없도록 test input으로 검사
-    $find = test_input($_POST["find"]);
-    $search = test_input($_POST["search"]);
-    //우리가 string을 입력할때 Tom's cat 이란 입력을 하면  '는 sql문에 앞서 있던 ' 와 중첩이 될 수 있다.
-    //이러한 문제를 막기위해 \n, \r \" 처럼 구별해주는 형태로 만들어주는 것을 Escape string 이라고 한다.
-    $q_search = mysqli_real_escape_string($con, $search);
-    $sql = "SELECT * from `notice_board` where $find like '%$q_search%' order by notice_num desc;";
-} else {
-    $sql = "select * from notice_board order by notice_num desc";
-}
+                    //입력받은 find search값의 데이터에 불필요한 것이 없도록 test input으로 검사
+                    $find = test_input($_POST["find"]);
+                    $search = test_input($_POST["search"]);
+                    //우리가 string을 입력할때 Tom's cat 이란 입력을 하면  '는 sql문에 앞서 있던 ' 와 중첩이 될 수 있다.
+                    //이러한 문제를 막기위해 \n, \r \" 처럼 구별해주는 형태로 만들어주는 것을 Escape string 이라고 한다.
+                    $q_search = mysqli_real_escape_string($con, $search);
+                    $sql = "SELECT * from `notice_board` where $find like '%$q_search%' order by notice_num desc;";
+                } else {
+                    $sql = "select * from notice_board order by notice_num desc";
+                }
 
-                    if (isset($_GET["page"]))
-                        $page = $_GET["page"];
-                    else
-                        $page = 1;
-    
-                    $result = mysqli_query($con, $sql);
-                    $total_record = mysqli_num_rows($result); // 전체 글 수
-    
-                    $scale = 10;// 가져올 글 수
-    
-                    // 전체 페이지 수($total_page) 계산
-                    if ($total_record % $scale == 0)
-                        $total_page = floor($total_record / $scale);
-                    else
-                        $total_page = floor($total_record / $scale) + 1;
-    
-                    // 표시할 페이지($page)에 따라 $start 계산
-                    $start = ($page - 1) * $scale;
-                    //게시판 맨 상단 번호
-                    $number = $total_record - $start;
-                    ?>
-            <form name="board_form" action="notice.php?mode=search" method="post">
-                            <div id="list_search">
-                                <div id="list_search1">총 <?= $total_record ?>개의 게시물이 있습니다.</div>
-                                <div id="list_search2"><img src="./img/select_search.gif"></div>
-                                <div id="list_search3">
-                                    <select name="find">
-                                        <option value="notice_title">제목</option>
-                                        <option value="notice_contents">내용</option>
-                                        <!-- <option value="nick">별명</option>
-                                        <option value="name">이름</option>
-                                        <option value="id">아이디</option> -->
-                                    </select>
-                                </div><!--end of list_search3  -->
-                                <!-- 검색기능 -->
-                                <div id="list_search4"><input type="text" name="search"></div>
-                                <div id="list_search5"><input type="image" src="./img/list_search_button.gif"></div>
-                            </div><!--end of list_search  -->
-                        </form>
+                if (isset($_GET["page"]))
+                    $page = $_GET["page"];
+                else
+                    $page = 1;
+
+                $result = mysqli_query($con, $sql);
+                $total_record = mysqli_num_rows($result); // 전체 글 수
+
+                $scale = 10;// 가져올 글 수
+
+                // 전체 페이지 수($total_page) 계산
+                if ($total_record % $scale == 0)
+                    $total_page = floor($total_record / $scale);
+                else
+                    $total_page = floor($total_record / $scale) + 1;
+
+                // 표시할 페이지($page)에 따라 $start 계산
+                $start = ($page - 1) * $scale;
+                //게시판 맨 상단 번호
+                $number = $total_record - $start;
+                ?>
+                <form name="board_form" action="notice.php?mode=search" method="post">
+                    <div id="list_search">
+                        <div id="list_search1">총 <?= $total_record ?>개의 게시물이 있습니다.</div>
+                        <div id="list_search2"><img src="./img/select_search.gif"></div>
+                        <div id="list_search3">
+                            <select name="find">
+                                <option value="notice_title">제목</option>
+                                <option value="notice_contents">내용</option>
+                                <!-- <option value="nick">별명</option>
+                                <option value="name">이름</option>
+                                <option value="id">아이디</option> -->
+                            </select>
+                        </div><!--end of list_search3  -->
+                        <!-- 검색기능 -->
+                        <div id="list_search4"><input type="text" name="search"></div>
+                        <div id="list_search5"><input type="image" src="./img/list_search_button.gif"></div>
+                    </div><!--end of list_search  -->
+                </form>
             </div>
 
             <div>
@@ -92,7 +92,7 @@
                         <span class="col5">등록일</span>
                         <span class="col6">조회</span>
                     </li>
-                    
+
                     <?php
                     for ($i = $start; $i < $start + $scale && $i < $total_record; $i++) {
                         mysqli_data_seek($result, $i);
@@ -118,7 +118,7 @@
                         $number--;
                     }//end of for
                     mysqli_close($con);
-    
+
                     ?>
                 </ul>
             </div>
