@@ -1,6 +1,6 @@
 <?php
  
- include $_SERVER['DOCUMENT_ROOT']."/wootcha/movie_introduce_page/init_data_test.php";
+ include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/movie_introduce_page/init_data_test.php";
 
     function insert_init_data($con, $table_name){
     $flag = "NO";
@@ -8,19 +8,16 @@
     $result = mysqli_query($con,$sql) or die('Error: '.mysqli_error($con));
     $is_set=mysqli_num_rows($result);
 
-    if(!empty($is_set)) {
-        $flag="OK";
-      }
-    
       if($flag=="NO") {
         $sql = user_init_data();
-      } else {
-        
-      }
-
-    if(mysqli_query($con,$sql)){
+      if(mysqli_query($con,$sql)){
         echo "<script>alert('$table_name 테이블 초기값 설정 완료');</script>";
-      }else{
-        echo "테이블 초기값 설정 실패 : ".mysqli_error($con);
+      } else {
+        echo "<script>alert('테이블 초기값 설정 실패 :') .mysqli_error($con);</script>";
       }
     }
+  }
+
+  
+  
+  
