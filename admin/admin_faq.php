@@ -32,6 +32,11 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
     <section>
+    <?php
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+    $col = isset($_GET["col"]) ? $_GET["col"] : '';
+    $search = isset($_GET["search"]) ? $_GET["search"] : '';
+    ?>
         <div class="my_info_content">
             <div class="left_menu">
                 <!-- 순서대로쭉쭉 -->
@@ -41,63 +46,7 @@
                 <main>
                     <?php
                     include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-
-                    $y = isset($_GET["y"]) ? $_GET["y"] : date("Y");
-                    $m = isset($_GET["m"]) ? $_GET["m"] : date("n");
-                    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                    $col = isset($_GET["col"]) ? $_GET["col"] : '';
-                    $search = isset($_GET["search"]) ? $_GET["search"] : '';
-
                     ?>
-                    <!-- php 변수를 자바스크립트로 넘겨줌 -->
-                    <script>
-                        var y = <?=$y?>;
-                        var m = <?=$m?>;
-                        var page = "<?=$page?>";
-                        var col = "<?=$col?>";
-                        var search = "<?=$search?>";
-                    </script>
-                    <section>
-                        <div class="sec_top">
-                            <span onclick="prevDateChange('gm_members')"><i class="fas fa-angle-left"></i></span>
-                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('gm_members')">
-                                <?php
-                                for ($i = 2018; $i <= date("Y"); $i++) {
-                                    echo "<option>$i</option>";
-                                }
-                                ?>
-                            </select>
-                            <span>년 </span>
-                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('gm_members')">
-                                <?php
-                                $last_m = $y == date("Y") ? date("n") : 12;
-                                for ($i = 1; $i <= $last_m; $i++) {
-                                    echo "<option>$i</option>";
-                                }
-                                ?>
-                            </select>
-                            <span>월 </span>
-                            <span onclick="nextDateChange('gm_members')"><i class="fas fa-angle-right"></i></span>
-                        </div>
-                        <!--end of 년 월 선택바 -->
-
-                        <?php
-                        $m2 = $m;
-                        if ($m2 < 10) {
-                            $m2 = "0" . $m2;
-                        }
-                        $sql = "SELECT 
-                                COUNT(*) AS count 
-                                FROM
-                                user;";
-                        //          WHERE
-                        //            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
-
-                        $result = mysqli_query($con, $sql);
-                        $row = mysqli_fetch_array($result);
-                        $total_m = mysqli_num_rows($result);
-
-                        ?>
                         <!-- 총 리뷰수 가져오기 -->
                         <div class="sec_content">
                             <div id="g_members_list_wrap">
@@ -167,7 +116,7 @@
 
                                         if (mysqli_num_rows($result)) {
                                             $total_record = mysqli_num_rows($result);
-
+                                            
                                             $scale = 10; // 가져올 글 수
 
                                             // 전체 페이지 수($total_page) 계산
@@ -177,12 +126,13 @@
                                                 $total_page = floor($total_record / $scale) + 1;
 
                                             // 표시할 페이지($page)에 따라 $truncated_num(한페이지에서 10개 리스트 보여지고 그 뒤 짤리는 넘버) 계산
-                                            $truncated_num = ($page - 1) * $scale;
+                                            $truncated_num = ($total_page - 1) * $scale;
                                             $start_num = $total_record - $truncated_num;
-
+                                           
+                                            
                                             //게시판 맨 상단 번호
-                                            $number = $total_record - $truncated_num;
-
+                                            $number = $total_record - $truncated_num; 
+                                              
                                             for ($i = $truncated_num; $i < $truncated_num + $scale && $i < $total_record; $i++) {
                                                 // 가져올 레코드로 위치(포인터) 이동
                                                 mysqli_data_seek($result, $i);

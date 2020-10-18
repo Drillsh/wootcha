@@ -112,7 +112,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
 
               <div id="view_content">
                 <div class="col2">
-                  <?php
+                  <!-- < ?php
                     if($file_type_0 =="image"){
                       echo "<img src='./data/$file_copied_0' width='$image_width'><br>";
                     }elseif(!empty($_SESSION['user_nickname'])&&!empty($file_copied_0)){
@@ -125,7 +125,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
                         <a href='download.php?mode=download&num=$q_num'>저장</a><br><br>
                       ");
                     }
-                  ?>
+                  ?> -->
                   <?=$content?>
                 </div><!--end of col2  -->
               </div><!--end of view_content  -->
@@ -151,7 +151,7 @@ if(isset($_GET["num"])&&!empty($_GET["num"])){
         <div id="ripple_title">
           <ul>
             <li><?=$ripple_usernick."&nbsp;&nbsp;".$ripple_date."&nbsp;&nbsp;"."&nbsp;&nbsp;"?> <?php
-            $message =free_ripple_delete($ripple_usernick,$ripple_num,$ripple_nick,$page,$hit,$q_num);
+            $message =free_ripple_delete($ripple_usernick,$ripple_num,"dml_board.php",$page,$hit,$q_num);
             // echo "<script>alert($ripple_id,$ripple_id,$page,$hit,$q_num)</script>";
             echo $message;
             ?></li>
