@@ -11,6 +11,16 @@ else $user_img = "";
 // 세션 값 존재 여부: main에서 이벤트 방어하기 위해 js로 값을 넘겨서 alert를 주려는데 html화 하기에 위에있는 값들은 노출되면 안되니까
 if (isset($_SESSION["user_mail"])) $session_value_flag = 'true';
 else $session_value_flag = "false";
+
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
+
+    $sql = "select count(review_num) as count from review;";
+    $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+
+    $row = mysqli_fetch_array($result);
+    $count = $row['count'];
+
+    $_SESSION["count"] = $count;
 ?>
 <input type="hidden" id="session_value_flag" value="<?=$session_value_flag?>">
 

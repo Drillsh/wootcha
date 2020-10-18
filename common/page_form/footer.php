@@ -1,14 +1,6 @@
-<?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
 
-    $sql = "select count(review_num) as count from review;";
-    $result = mysqli_query($con, $sql) or die(mysqli_error($con));
-
-    $row = mysqli_fetch_array($result);
-    $count = $row['count'];
-?>
 <section class="css-1iuqns0-StyledFooterTopSection e19unuxw1">
-        <span class="css-z9tuc7-StyledRatingSummary e19unuxw2">지금까지 <em>★ <?=$count?> 개의 리뷰가 </em>쌓였어요.</span>
+        <span class="css-z9tuc7-StyledRatingSummary e19unuxw2">지금까지 <em>★ <?=$_SESSION["count"]?> 개의 리뷰가 </em> 쌓였어요.</span>
 </section>
 <div id="footer_content">
     <div id="footer_top">
