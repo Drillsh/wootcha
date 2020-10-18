@@ -5,6 +5,8 @@
 <title>PHP 프로그래밍 입문</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/board.css">
+<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/greet.css">
+
 <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/js/board.js"></script>
 <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/js/vendor/jquery-1.10.2.min.js"></script>
 <!-- script는 웹페이지에 스크립트를 추가한다 -->
@@ -29,7 +31,7 @@
             exit;
         }
         ?> -->
-<section>
+<section id="faq_section">
 	
    	<div id="board_box">
 	    <h3 id="board_title">

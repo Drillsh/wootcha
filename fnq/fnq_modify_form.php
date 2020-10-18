@@ -5,6 +5,9 @@
 <title>PHP 프로그래밍 입문</title>
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/board.css">
+<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/fnq/css/greet.css">
+<link rel="stylesheet" href="./css/gm_members.css">
+<link rel="stylesheet" href="./css/nav.css">
 <script src="./js/board.js"> </script>
 </head>
 <body> 
@@ -12,7 +15,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 </header>  
-<section>
+<section >
 	
    	<div id="board_box">
 	    <h3 id="board_title">

@@ -266,7 +266,7 @@
 
 #view_content {
 	width:96%;
-	min-height:200px;
+	min-height:100px;
 	padding:15px;
 	overflow:hidden;
 	line-height:150%;
@@ -289,4 +289,16 @@
 }
 #ripple_textarea{
 	padding: 5px;
+}
+#question_section{
+	margin-top: 130px;
+	height: 560px;
+}
+#question_view_section{
+	margin: 40px;
+	padding: 70px;
+	height: 560px;
+}
+footer{
+
 }

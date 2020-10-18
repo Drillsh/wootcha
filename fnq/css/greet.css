@@ -290,3 +290,11 @@
 #ripple_textarea{
 	padding: 5px;
 }
+#faq_section{
+	margin-top: 130px;
+	/* height: 590px; */
+} 
+#faq_view_section{
+	margin-top: 130px;
+	height: 540px;
+}
