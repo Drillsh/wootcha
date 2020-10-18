@@ -1,32 +1,3 @@
-<?php
-if (isset($_GET["item"])) {
-    $item = $_GET['item'];
-    $item = json_decode($item, true);
-
-    $movie_info = new Movie_info();
-    $movie_info->setMovieInfo($item, $con);
-} elseif (isset($_GET["mv_num"])) {
-
-    $movie_info = Movie_info::getMovieInfo_ByCode($_GET['mv_num'], $con);
-}
-$mv_code = $movie_info->movie_code;                 // 영화 코드
-$title = $movie_info->title;                        // 영화 제목
-$subtitle = $movie_info->subTitle;                  // 부제
-$poster_img = $movie_info->poster_img;              // 포스터
-$naver_star = $movie_info->naver_star;              // 네이버 평점
-$naver_star = sprintf('%0.1f', $naver_star);        // 형식 수정
-$naverLink = $movie_info->naver_link;               // 네이버 영화 링크
-
-$genre = $movie_info->genre;                        // 장르
-$nation = $movie_info->nation;                      // 국가
-$running_time = $movie_info->running_time;          // 러닝타임
-$release_date = $movie_info->release_date;          // 개봉일
-$actor = $movie_info->actor;                        // 배우
-$synopsis = $movie_info->synopsis;                  // 시놉시스
-$stillcut = $movie_info->stillcut;                  // 스틸컷
-
-?>
-
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce_contents.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -34,9 +5,6 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
 
 <table id="movie_introduce_container">
-
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/movie_introduce_page/stillcut_slide.php"; ?>
-
     <section>
         <div id="movie_introduce">
             <div class="css-p3jnjc-Pane e1svyhwg12">
@@ -72,7 +40,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                 container: '#kakao-link-btn',
                                 objectType: 'feed',
                                 content: {
-                                    title: "<?= $mv_title ?>",
+                                    title: "<?= $title ?>",
                                     description: "<?= $synopsis ?>",
                                     imageUrl: 'https://lh3.googleusercontent.com/proxy/ZL6IbPsJ1bP5FHc3fk_ZN9V-XNUFoPOnajGpso_jHq-lKlHIXJk42CF5j8xfHzBnT7_ejQJAd_O1C3PSxP5Z12StImRx1y8Fmp6-_eHXYTTY-acX',
                                     link: {
@@ -143,7 +111,9 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                     ?>
 
                                 </div>
-                                <div class="follow_movie_star_num">네이버 평점&nbsp;&nbsp;|&nbsp;&nbsp;<?= $naver_star ?> / 10</div>
+                                <div class="follow_movie_star_num">네이버 평점&nbsp;&nbsp;|&nbsp;&nbsp;<?= $naver_star ?> /
+                                    10
+                                </div>
                             </div>
 
                             <div class="wootcha_movie_star_wrap">
@@ -172,11 +142,17 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
                                 </div>
 
+<<<<<<< HEAD
                                 <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?= $wootcha_star ?> / 5.0 </div>
+=======
+                                <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?= $wootcha_star ?> / 5.0
+                                </div>
+>>>>>>> leesi
                             </div>
                         </div>
 
 
+<<<<<<< HEAD
                         <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img src="./img/review_write.png"></span>
 
 
@@ -204,14 +180,40 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                         }
                         ?>
 
-                    </div>
+=======
+                        <!--좋아요, 리뷰쓰기-->
+                        <div class="movie_like_write">
+                               <button type=button id="review_write"
+                                       onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'">
+                               </button>
+                            <?php
+                            if ($user_num) {
+                                // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
+                                $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$mv_code}) as exist;";
+                                $res = mysqli_query($con, $sql);
+                                $row = mysqli_fetch_array($res);
 
+                                if ($row['exist']) {
+                                    echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on'></button></a>";
+                                } else {
+                                    echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
+                                }
+                                } else {
+                                ?>
+                                <a href="javascript:alert('로그인 후 이용 가능합니다.')">
+                                    <button type='button' id='favorite_movie_like_off'></button>
+                                </a>
+                            <?php
+                            }
+                            ?>
+                        </div>
+>>>>>>> leesi
+                    </div>
                 </div>
             </div>
 
             <div id="movie_content">
                 <h1>
-
                     <?php
                     // if (isset($movie_detail["movie_story"])) {
                     //     echo $movie_detail['movie_story'];
@@ -220,13 +222,8 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                     // }
                     echo $synopsis;
                     ?>
-
                 </h1>
             </div>
-
-
-            </span>
-
 
             <div id="movie_casting_container">
                 <br>
@@ -353,7 +350,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                             }
                             include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/review/review_modal.php";
                             // review_dialog_trigger 클래스가 버튼 역할을 함
-                        ?>
+                            ?>
 
                             <!-- 리뷰 -->
                             <div class="user_comment_content">

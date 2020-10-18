@@ -131,26 +131,8 @@
     font-size: 12px;
 }
 
-/* 회원정보수정 */
-#g_members_list_wrap{
-    width: 880px;
-    padding: 25px 40px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 1px 17px -6px #cfcfcf; 
-    box-shadow: 0px 1px 17px -6px #cfcfcf;
-    margin-bottom: 40px;
-}
-
-#g_members_list>h4{
-    display: inline-block;
-    width: 100%;
-    border-bottom: 1px solid #ececec;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
 
 /* 게시판 */
-
 .list_edit_delete_wrap, .btn_hide{
     text-align: right;
 }
@@ -166,6 +148,72 @@
 .list_edit_delete_wrap button:hover,  .btn_hide button:hover{
     background-color: #4da3ee;
     color: #fff;
+}
+.list_row:hover{
+    background-color: #e9e9e9a9;
+    cursor: pointer;
+}
+
+.list_row > form > span > input{
+    background-color:transparent;
+    border: none;
+}
+
+.col1 {
+    padding-left: 12px;
+    width: 70px;
+}
+.col2 {
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.col3 {
+    width: 90px;
+}
+.col4{
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.col2 input, .col4 input, .col5 input, .col7 input, .col8 input  {
+    width: 90%;
+}
+.col5{
+    width: 180px;
+}
+.col6 {
+    width: 170px;
+}
+.col7{
+    width: 100px;
+}
+.col8  {
+    width: 100px;
+}
+.col9 {
+    width: 100px;
+}
+
+
+/* 회원정보수정 */
+#g_members_list_wrap{
+    width: 880px;
+    padding: 25px 40px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 17px -6px #cfcfcf;
+    box-shadow: 0px 1px 17px -6px #cfcfcf;
+    margin-bottom: 40px;
+}
+
+#g_members_list>h4{
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 #member_list {
@@ -213,54 +261,36 @@
     padding: 5px;
 }
 
-.list_row:hover{
-    background-color: #e9e9e9a9;
-    cursor: pointer;
-}
-
-.list_row > form > span > input{
-    background-color:transparent;
-    border: none;
-}
-
-.col1 {
+#member_list .col1 {
     padding-left: 12px;
-    width: 70px;
+    padding-right: 20px;
+    width: 50px;
 }
-.col2 {
-    display: inline-block;
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
+#member_list .col2 {
+    width: 50px;
 }
-.col3 {
-    width: 90px;
+#member_list .col3 {
+    width: 80px;
 }
-.col4{
-    display: inline-block;
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
+#member_list .col4{
+    width: 100px;
 }
-.col2 input, .col4 input, .col5 input, .col7 input, .col8 input  {
-    width: 90%;
-}
-.col5{
-    width: 180px;
-}
-.col6 {
+#member_list .col5{
     width: 170px;
 }
-.col7{
+#member_list .col6 {
+    width: 110px;
+}
+#member_list .col7{
+    width: 50px;
+}
+#member_list .col8  {
     width: 100px;
 }
-.col8  {
+#member_list .col9 {
     width: 100px;
 }
-.col9 {
-    padding-right: 12px;
-    width: 100px;
-}
+
 
 /*리뷰 리스트*/
 #review_list {
@@ -338,7 +368,7 @@
 #review_list .col5{
     width: 80px;
 }
-#review_list.col6 {
+#review_list .col6 {
     width: 100px;
 }
 
@@ -404,7 +434,7 @@
 #reply_list .col5{
     width: 80px;
 }
-#reply_list.col6 {
+#reply_list .col6 {
     width: 100px;
 }
 
@@ -416,33 +446,37 @@
     list-style: none;
 }
 #board_list .col1 {
-    width: 40px;
-}
-#board_list .col2 {
-    width: 60px;
-}
-#board_list .col3 {
-    width: 130px;
-}
-#board_list .col4 {
-    width: 80px;
-}
-#board_list .col5 {
-    width: 60px;
-}
-#board_list .col6 {
-    width: 280px;
-}
-#board_list .col7 {
-    width: 90px;
-}
-#board_list .col8 {
+    padding-left: 12px;
     width: 70px;
 }
-#member_list {
-    margin: 10px 0 30px;
-    list-style: none;
+#board_list .col2 {
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
 }
+#board_list .col3 {
+    width: 80px;
+}
+#board_list .col4 {
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#board_list .col5 {
+    width: 180px;
+}
+#board_list .col6 {
+    width: 170px;
+}
+#board_list .col7 {
+    width: 100px
+}
+#board_list .col8 {
+    width: 100px;
+}
+
 
 #board_list li:nth-child(1) {
     font-weight: bold;

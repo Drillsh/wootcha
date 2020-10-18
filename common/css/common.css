@@ -16,6 +16,7 @@ a:active { text-decoration:none; color: #222222; }
 a:visited { text-decoration:none; color: #222222; }
 
 /* 메인 <section> 태그 css */
+.section{ margin-top: 90px;}
 .css-xpk6f5-Main {padding-bottom: unset;}
 .css-xpk6f5-Main {width: 1300px; margin: 0 auto;}
 .css-xpk6f5-Main {transition: padding-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;}
@@ -209,7 +210,7 @@ a:visited { text-decoration:none; color: #222222; }
 .my_info_content{
     margin: 15px;
     width: 100%;
-    min-height: 500px;
+    min-height: 1000px;
     min-width: 1400px;
     position: relative;
     display: inline-block;

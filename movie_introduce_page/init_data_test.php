@@ -32,8 +32,14 @@ function user_init_data(){
         // query 문 실행.
         $sql .= "($no, 'test$no@naver.com', 'a123456!', user$no, 닉네임$no, $user_img[$user_img_output], $user_age, $user_gender, $user_phone, $user_signup_day)";
     }
+<<<<<<< HEAD
     
     // query문 반환.
     return $sql;
 
     }
+=======
+    return $sql;
+    }    
+?>
+>>>>>>> leesi
