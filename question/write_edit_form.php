@@ -71,7 +71,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
               <div class="write_line"></div>
               <div id="write_row1">
                 <div class="col1">아이디</div>
-                <div class="col2"><?=$id?></div>
+                <div class="col2">관리자</div>
                 <!-- <div class="col3">
                   <input type="checkbox" name="is_html" value="y" <?=$checked?>>HTML 쓰기</div> -->
               </div><!--end of write_row1  -->

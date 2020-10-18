@@ -20,7 +20,7 @@
 	
    	<div id="board_box">
 	    <h3>
-	    	FnQ > 목록보기
+	    	FaQ > 목록보기
 		</h3>
 		<div>
 			<?php

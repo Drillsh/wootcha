@@ -47,7 +47,12 @@
                 <main>
                     <?php
                     include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-
+                
+                    $y = isset($_GET["y"]) ? $_GET["y"] : date("Y");
+                    $m = isset($_GET["m"]) ? $_GET["m"] : date("n");
+                    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+                    $col = isset($_GET["col"]) ? $_GET["col"] : '';
+                    $search = isset($_GET["search"]) ? $_GET["search"] : '';
                   ?>
 
                         <!-- 총 리뷰수 가져오기 -->
