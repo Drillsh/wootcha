@@ -1,5 +1,10 @@
 * {margin: 0; padding: 0;}
-
+@font-face {
+    font-family: 'paybooc-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 /* 왼쪽 사이드 메뉴 */
 /* 프로필 이미지 */
 .nav_left{ width: 300px; float: left; margin: 50px; background-color: white; box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;}
@@ -8,23 +13,23 @@
 
 /* 네비게이션 앵커 */
 .nav_left ul { margin: 50px}
-.nav_left li{ font-family: 'NanumSquare', sans-serif; font-size: 1rem; padding: 10px 0; list-style: none; }
+.nav_left li{ font-family: 'paybooc-light'; font-size: 1rem; padding: 10px 0; list-style: none; }
 .nav_left li a:link, .nav_left li a:visited, .nav_left li a:hover{ color: black; text-decoration: none;}
-.nav_left h3{text-align: center;}
+.nav_left h3{text-align: center;margin: 10px;}
 .nav_left #follow_form{width: 100%;}
 .nav_left #follow_form * {margin:0 auto; text-align: center;}
 .nav_left .follow_box {width:99%; height:30px;}
 .nav_left .follow_box input{display:none;}
 .nav_left .follow_box .review_like_form {display: inline-block;}
-.nav_left .follow_box img{width:20px; height:20px; display:inline-block; line-height:30px}
-.nav_left .follow_box p{display:inline-block; line-height:30px; margin-right:20px}
+.nav_left .follow_box img{ height:20px; display:inline-block; line-height:30px;border-radius: 5px; box-shadow: 2px 2px 10px #D1CFCF;}
+.nav_left .follow_box p{display:inline-block; margin-right: 20px; font-family: 'paybooc-Bold'; font-size: 12px; color: black;}
 .nav_left #follow_form label{width: 100px; display: block;}
 .nav_left ul h4{font-size: large;}
 
 /* section 안에 header 제목 부분 */
 .section_header { margin: 50px;}
-.section_header .title_sub{color: black;}
-.section_header .title_main{color: black; font-size: x-large;}
+.section_header .title_sub{color: black; font-family: 'paybooc-Bold';}
+.section_header .title_main{color: black; font-size: x-large; font-family: 'paybooc-Bold';}
 
 /* section */
 section{width: 800px; min-height: 800px;  margin: 50px; float: left; background-color: white;}

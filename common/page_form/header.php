@@ -14,6 +14,9 @@ else $session_value_flag = "false";
 ?>
 <input type="hidden" id="session_value_flag" value="<?=$session_value_flag?>">
 
+<!-- github 웹폰트 스포카 한 산스 체 -->
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+
 <!-- 아이콘 폰트  https://fontawesome.com/  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">

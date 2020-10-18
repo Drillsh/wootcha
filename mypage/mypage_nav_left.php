@@ -99,7 +99,7 @@ include_once "../common/crawling/movie_cgv_crawling.php";
         <label for="follow_checkbox">
             <img src="./img/<?=$follow_img?>.png" alt="" class="follow_ckeckbox_class">
             <span id="follow_checkbox_label">
-                <p>팔로워 <?=$result_follow_user->num_rows?>명</p>
+                <p><?=$result_follow_user->num_rows?>명</p>
             </span>
         </label>
     </form>

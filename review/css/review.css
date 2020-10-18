@@ -1,11 +1,16 @@
-
+@font-face {
+  font-family: 'paybooc-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 /* section */
 section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: white;}
 
 /* section 안에 header 제목 부분 */
 .section_header { margin: 50px; background-color: white;}
-.section_header .title_sub{color: black;}
-.section_header .title_main{color: black; font-size: x-large;}
+.section_header .title_sub{color: black; font-family: 'paybooc-Bold';}
+.section_header .title_main{color: black; font-size: x-large; font-family: 'paybooc-Bold';}
 
 /* 빈공간을 어둡게 채우는 창 */
 .container_review { }
@@ -31,7 +36,7 @@ section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: w
 /* 영화제목 */
 .container_review .title{ font-family: 'Oswald', sans-serif; color: #216182; margin-top:30px; margin-bottom:50px} 
 /* 한줄평 및 장문평 제목 */
-.container_review h2{margin-top:20px; font-family: 'Oswald', sans-serif; color: #216182; text-align: center; margin-bottom:20px;}
+.container_review h2{margin-top:20px; font-family: 'Oswald', sans-serif; color: #216182; text-align: center; margin-bottom:20px; font-family: 'paybooc-Bold';}
 
 /* form 태그 */
 .content_review form{width: 100%;margin: 0 auto;}
@@ -39,7 +44,7 @@ section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: w
 .content_review form input[type=submit]{width: 30%; height: 30px; margin: 0px auto; margin-top: 10px; display: block; background-color:#679b9b;
     border: none; border-radius: 10px;}
 
-.content_review h2{text-align: center; margin-bottom:20px;}
+/* .content_review h2{text-align: center; margin-bottom:20px; } */
 
 /* 한줄평 */
 .review_short{word-break:break-all; font-family: 'Oswald', sans-serif; font-size: 20px; width:80%; margin:20px auto; 
@@ -52,14 +57,13 @@ section{width: 800px; min-height: 800px;  margin: 50px auto; background-color: w
 
 /* 별점 */
 .blind { position: absolute; overflow: hidden; margin: -1px; padding: 0; width: 1px; height: 1px; border: none; clip: rect(0, 0, 0, 0); }
-.startRadio { display: inline-block; overflow: hidden; height: 40px; margin-bottom:20px;} 
-.startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 40px;
+.startRadio { display: inline-block; overflow: hidden; height: 20px;} 
+.startRadio:after {content: "";  display: block; position: relative; z-index: 2; height: 20px;
      background: url("../../common/img/star.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
-.startRadio__box { position: relative; z-index: 1; float: left; width: 20px; height: 40px; cursor: pointer; }
+.startRadio__box { position: relative; z-index: 1; float: left; width: 10px; height: 25px; cursor: pointer; }
 .startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
 .startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
-.startRadio__img {display: block; position: absolute; right: 0; width: 500px; height: 40px;  pointer-events: none; }
-.startRadio_box { text-align: center;}
+.startRadio__img {display: block; position: absolute; right: 0; width: 200px; height: 25px;  pointer-events: none; }
 
 
 /* 슬라이드 이미지 */
