@@ -624,8 +624,8 @@ g[Attributes Style] {
 .css-1pik52h-StyledHorizontalScrollOuterContainer {max-width: 1320px;}
 /* .css-1pik52h-StyledHorizontalScrollOuterContainer {margin-right: 0%; margin-left: 0%;} */
 
-/* ================ 서브리스트 div 1층 ================= */
-.css-1yw8v4t-ScrollBarContainer {position: relative; transform: translate3d(0px, 0px, 0px); margin: 0px -8px;}
+/* ================ 서브리스트 div 1층 =================transform: translate3d(0px, 0px, 0px); */
+.css-1yw8v4t-ScrollBarContainer {position: relative; margin: 0px -8px;}
 
 /* ================ 서브리스트 div 2층 ================= */
 .css-chidac-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
