@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
     <?=include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";?>
+
 </head>
 
 <body>

@@ -206,7 +206,7 @@
                                                 $next = $last_page + 1;// > 버튼 누를때 나올 페이지
                                                 $prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
-                                                $url = "/wootcha/admin/admin_notice.php?y=$y&m=$m";
+                                                $url = "/wootcha/admin/admin_notice.php?";
                                                 if ($search != '') {
                                                     $url .= "&col=$col&search=$search";
                                                 }

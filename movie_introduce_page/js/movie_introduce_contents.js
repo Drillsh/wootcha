@@ -32,8 +32,9 @@ $(function () {
         slideGroup.animate({left: -100 * index + '%'}, 500, 'swing');
         // index : 0번일때 왼쪽은 안보이고 ,오른쪽은 보이고
         // index : 3번일때 왼쪽은 보이고, 오른쪽은 안보이고
+        console.log(movie_title[index]);
         currentIndex = index;
-        console.log(currentIndex);
+
         indexDisplay();
     }
 

@@ -57,7 +57,7 @@
                         var col = "<?=$col?>";
                         var search = "<?=$search?>";
                     </script>
-                    <section>
+                    <div>
                         <div class="sec_top">
                             <span onclick="prevDateChange('admin_reply')"><i class="fas fa-angle-left"></i></span>
                             <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('admin_reply')">
@@ -320,7 +320,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </main>
             </div><!-- end of right_content -->
     </section>
