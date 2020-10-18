@@ -26,7 +26,7 @@ function init_modal_script(){
          };
      
          // ********************
-         // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
+         // <span> 태그(X 버튼)를 클릭하면 Modal 닫습니다.
          // ********************
          modal_close_btn_review[num].onclick = function() {
           modal_container_review[num].style.visibility = "hidden";
@@ -162,5 +162,6 @@ function init_modal_script(){
 
 window.onload = function () {
   init_modal_script();
+  console.log('실행됨?');
 }
 

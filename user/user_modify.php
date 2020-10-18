@@ -20,7 +20,7 @@ if ($result === true) {
     echo "
     <script>
     alert('성공적으로 수정 되었습니다.');
-        location.href = '../mypage/mypage_edit_myinfo.php';
+        location.href = '../mypage/mypage_edit_myinfo.php?userpage_user_num=$user_num';
     </script>
     ";
 }else{
