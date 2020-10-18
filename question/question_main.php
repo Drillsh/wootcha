@@ -26,9 +26,9 @@ if (isset($_GET["mode"]) && $_GET["mode"] == "search") {
     $sql = "SElECT * from `qna_board` a join `user` b on a.user_num=b.user_num order by qna_num desc";
 }
 
-$result = mysqli_query($con, $sql);
+$res = mysqli_query($con, $sql);
 // 행의 개수를 구해서 total_recorde에 저장한다
-$total_record = mysqli_num_rows($result);
+$total_record = mysqli_num_rows($res);
 
 //total_page를 scale로 나눴을 때 0인가? 그려면 1 아니면 반올림한다
 $total_page = ($total_record % SCALE == 0) ? ($total_record / SCALE) : (ceil($total_record / SCALE));
@@ -108,13 +108,16 @@ $number = $total_record - $start;
                             <?php
                             //i가 스타트와 같음, i가 스타트와 스케일의 합보다 작고 토탈리코드보다 작으면 i값을 늘린다
                             //토탈리코드는 행의 갯수 스타트는 $start=($page -1) * SCALE;
+
+
                             for ($i = $start; $i < $start + SCALE && $i < $total_record; $i++) {
                                 //mysqli_data_seek 함수는 리절트 셋(result set)에서
                                 // 원하는 순번의 데이터를 선택하는데 쓰입니다.
                                 //리저트에서 i의 번째를 선택한다
-                                mysqli_data_seek($result, $i);
+                                mysqli_data_seek($res, $i);
                                 //리코드 셋을 배열로 만든다
-                                $row = mysqli_fetch_array($result);
+                                $row = mysqli_fetch_array($res);
+//                                var_dump($row);
                                 $num = $row['qna_num'];
                                 $id = $row['user_num'];
                                 $name = $row['user_nickname'];
@@ -183,8 +186,8 @@ $number = $total_record - $start;
                                         $prev = $first_page - 1;// < 버튼 누를때 나올 페이지
 
                                         $url = "/wootcha/question/question_main.php?";
-                                        if ($search != '') {
-                                            $url .= "&col=$col&search=$search";
+                                        if (isset($search)) {
+                                            $url .= "&search=$search";
                                         }
                                         // 첫번째 페이지일 때 앵커 비활성화
                                         if ($first_page == 1) {

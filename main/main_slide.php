@@ -1,11 +1,12 @@
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce_contents.js"></script>
 <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/css/movie_introduce_content.css?after">
 <?php
-$sql = "select A.mi_img_path, M.mv_title from (select * from `movie_img` order by rand() limit 10) as A left join movie M on A.mv_num = M.mv_num order by rand();";
+$sql = "select A.mi_img_path, M.mv_title, M.mv_subtitle from (select * from `movie_img` order by rand() limit 10) as A left join movie M on A.mv_num = M.mv_num order by rand();";
 $result = mysqli_query($con, $sql) or die(mysqli_error($con));
 while ($row = mysqli_fetch_array($result)) {
     $mi_img_path[] = $row['mi_img_path'];
     $movie_title[] = $row['mv_title'];
+    $subtitle[] = $row['mv_subtitle'];
 }
 ?>
 <div class="slideShow">
@@ -21,12 +22,12 @@ while ($row = mysqli_fetch_array($result)) {
         ?>
         <script>
             var movie_title = <?= json_encode($movie_title)?>;
+            var movie_subtitle = <?= json_encode($subtitle)?>;
         </script>
     </div>
     <div class="movie_title_main">
-        <?php
-            echo "<h1>영화영화제모오옹옥</h1>";
-        ?>
+            <h1></h1>
+            <h2></h2>
     </div>
     <div class="slideShow_nav">
         <!--왼쪽버튼-->

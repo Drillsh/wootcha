@@ -1,884 +1,1144 @@
 /* ================ wootcha 상단 div 총리스트 ================= */
 .css-1l88qpn-StyledSelf {
-  margin-top: 75px;
-  position: relative;
-  padding-bottom: 46.71875%;
-  overflow: hidden;
+    margin-top: 75px;
+    position: relative;
+    padding-bottom: 46.71875%;
+    overflow: hidden;
 }
 
 .movie_title_main {
-  position: absolute;
-  left: 200px;
-  top: 400px;
-  z-index: 4;
+    position: absolute;
+    left: 200px;
+    top: 350px;
+    z-index: 4;
 }
 
 .movie_title_main > h1 {
-  color: #F5F5F7;
+    color: #F5F5F7;
+    font-size: 50px;
+}
+
+.movie_title_main > h2 {
+    color: #20A2F1;
 }
 
 /* ================ wootcha 상단 div 왼쪽버튼 ================= */
 .css-jxbkzh-StyledJumbotronArrowButton-StyledJumbotronArrowPrevButton:hover {
-  opacity: 1;
+    opacity: 1;
 }
+
 .css-jxbkzh-StyledJumbotronArrowButton-StyledJumbotronArrowPrevButton {
-  padding-right: 19px;
-  padding-left: 18px;
+    padding-right: 19px;
+    padding-left: 18px;
 }
+
 .css-jxbkzh-StyledJumbotronArrowButton-StyledJumbotronArrowPrevButton {
-  width: 50px;
+    width: 50px;
 }
+
 .css-jxbkzh-StyledJumbotronArrowButton-StyledJumbotronArrowPrevButton {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 52.2%;
-  z-index: 3;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 4%;
-  height: 50%;
-  opacity: 0.28;
-  cursor: pointer;
-  left: 0;
-  padding-right: 1.484375vw;
-  padding-left: 1.40625vw;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 52.2%;
+    z-index: 3;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 4%;
+    height: 50%;
+    opacity: 0.28;
+    cursor: pointer;
+    left: 0;
+    padding-right: 1.484375vw;
+    padding-left: 1.40625vw;
 }
+
 /* ================ wootcha 상단 span 왼쪽버튼 ================= */
 .css-1jewpj1-StyledJumbotronArrowButtonIcon {
-  display: inline-block;
-  position: relative;
-  top: -1.640625vw;
-  width: 100%;
+    display: inline-block;
+    position: relative;
+    top: -1.640625vw;
+    width: 100%;
 }
 
 /* ================ wootcha 상단 svg 왼쪽버튼 ================= */
 .css-1jewpj1-StyledJumbotronArrowButtonIcon svg {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 
 /* ================ wootcha 상단 div 오른쪽버튼 ================= */
 .css-1kvaztz-StyledJumbotronArrowButton-StyledJumbotronArrowNextButton:hover {
-  opacity: 1;
+    opacity: 1;
 }
+
 .css-1kvaztz-StyledJumbotronArrowButton-StyledJumbotronArrowNextButton {
-  padding-right: 18px;
-  padding-left: 19px;
+    padding-right: 18px;
+    padding-left: 19px;
 }
+
 .css-1kvaztz-StyledJumbotronArrowButton-StyledJumbotronArrowNextButton {
-  width: 50px;
+    width: 50px;
 }
+
 .css-1kvaztz-StyledJumbotronArrowButton-StyledJumbotronArrowNextButton {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 52.2%;
-  z-index: 3;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 4%;
-  height: 50%;
-  opacity: 0.28;
-  cursor: pointer;
-  right: 0;
-  padding-right: 1.40625vw;
-  padding-left: 1.484375vw;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 52.2%;
+    z-index: 3;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 4%;
+    height: 50%;
+    opacity: 0.28;
+    cursor: pointer;
+    right: 0;
+    padding-right: 1.40625vw;
+    padding-left: 1.484375vw;
 }
+
 /* ================ wootcha 상단 span 오른쪽버튼 ================= */
 .css-1jewpj1-StyledJumbotronArrowButtonIcon {
-  display: inline-block;
-  position: relative;
-  top: -1.640625vw;
-  width: 100%;
+    display: inline-block;
+    position: relative;
+    top: -1.640625vw;
+    width: 100%;
 }
 
 /* ================ wootcha 상단 svg 오른쪽버튼 ================= */
 .css-1jewpj1-StyledJumbotronArrowButtonIcon svg {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* ================ wootcha 상단 g 오른쪽버튼 ================= */
-g[Attributes Style] {
-  stroke: none;
-  stroke-width: 1;
-  fill: none;
-  fill-rule: evenodd;
+g[Attributes Style
+
+]
+{
+    stroke: none
+;
+    stroke-width: 1
+;
+    fill: none
+;
+    fill-rule: evenodd
+;
 }
-g[Attributes Style] {
-  transform: translate(-1255, -281);
-  fill: rgb(204, 204, 204);
+g[Attributes Style
+
+]
+{
+    transform: translate(-1255, -281)
+;
+    fill: rgb(204, 204, 204)
+;
 }
-g[Attributes Style] {
-  transform: translate(13, 281);
+g[Attributes Style
+
+]
+{
+    transform: translate(13, 281)
+;
 }
 
 /* ================ wootcha 상단 div 슬라이드로고 ================= */
 .css-1rbg53a-Information {
-  padding: 0 50px;
+    padding: 0 50px;
 }
+
 .css-1rbg53a-Information {
-  position: absolute;
-  top: 49.7%;
-  left: 0;
-  z-index: 1;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-  width: 100%;
-  padding: 0 4%;
+    position: absolute;
+    top: 49.7%;
+    left: 0;
+    z-index: 1;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    width: 100%;
+    padding: 0 4%;
 }
 
 /* ================ wootcha 상단 div 슬라이드로고 ================= */
 .css-q4juhy-Self-Logo {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 /* ================ wootcha 상단 div 슬라이드로고 img ================= */
 .css-1q8u4mv-Img-Logo {
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  object-fit: cover;
-  transition: opacity 420ms ease 0s;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    object-fit: cover;
+    transition: opacity 420ms ease 0s;
 }
 
 /* ================ wootcha 상단 div 슬라이드 ================= */
 .css-4bfx6u-Self.enter-done {
-  opacity: 1;
-  -webkit-transition: opacity 500ms ease-in;
-  transition: opacity 500ms ease-in;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in;
+    transition: opacity 500ms ease-in;
 }
+
 .css-4bfx6u-Self {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /* ================ wootcha 상단 div 슬라이드 ================= */
 .css-1fqeujt-StillcutContainer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* ================ wootcha 상단 div 슬라이드 ================= */
 .css-1sxaihu-StyledSelf-DefaultStillCut {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 /* ================ wootcha 상단 div 슬라이드 ================= */
 .css-1te5psz-StyledBackground {
-  display: inline-block;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  opacity: 1;
-  transition: all 420ms ease 0s;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: all 420ms ease 0s;
 }
 
 /* ================ wootcha 상단 div 슬라이드 중 ================= */
 .css-1qzrlid-Shadow-ShadowLeft {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  bottom: 0;
-  background-image: linear-gradient( 90deg, rgba(20,21,23,0.7) 0%, rgba(20,21,23,0.45) 38%, rgba(20,21,23,0.15) 69%, rgba(20,21,23,0) 100% );
-  width: 46.71875vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    bottom: 0;
+    background-image: linear-gradient(90deg, rgba(20, 21, 23, 0.7) 0%, rgba(20, 21, 23, 0.45) 38%, rgba(20, 21, 23, 0.15) 69%, rgba(20, 21, 23, 0) 100%);
+    width: 46.71875vw;
 }
 
 /* ================ wootcha 상단 div 슬라이드 상 ================= */
 .css-5g3syw-Shadow-ShadowTop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  right: 0;
-  background-image: linear-gradient( to top,rgba(20,21,23,0) 0%,rgba(20,21,23,0.36) 100% );
-  height: 31.2709%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    right: 0;
+    background-image: linear-gradient(to top, rgba(20, 21, 23, 0) 0%, rgba(20, 21, 23, 0.36) 100%);
+    height: 31.2709%;
 }
 
 /* ================ wootcha 상단 div 슬라이드 하 ================= */
 .css-up7oer-Shadow-ShadowBottom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  top: auto;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient( to bottom,rgba(20,21,23,0) 0%,rgba(20,21,23,0.43) 50%,rgba(20,21,23,1) 100% );
-  height: 17.265625vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(20, 21, 23, 0) 0%, rgba(20, 21, 23, 0.43) 50%, rgba(20, 21, 23, 1) 100%);
+    height: 17.265625vw;
 }
 
 /* ================= 총 리스트 ================= */
-.css-MainDiv {padding: 6px;}
+.css-MainDiv {
+    padding: 6px;
+}
+
 /* .css-MainDiv {min-height: calc(100vh - 343px);} */
 
 /* ================= 타이틀과 영화항목 리스트 ================= */
-.css-MainListContainer {margin-bottom: 42px; }
+.css-MainListContainer {
+    margin-bottom: 42px;
+}
 
 /* ================= 타이틀 ================= */
-.css-MainListTitleRow-MainListTitleRow {margin: 0 3.5%;}
-.css-MainListTitleRow-MainListTitleRow {margin-right: 20px; margin-left: 20px;}
 .css-MainListTitleRow-MainListTitleRow {
-  white-space: nowrap;
-  max-width: 1320px;
-  padding: 12px 0 14px;
-  margin-right: 15px;
-  margin-left: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 60px;
-  line-height: 30px;
+    margin: 0 3.5%;
 }
+
+.css-MainListTitleRow-MainListTitleRow {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.css-MainListTitleRow-MainListTitleRow {
+    white-space: nowrap;
+    max-width: 1320px;
+    padding: 12px 0 14px;
+    margin-right: 15px;
+    margin-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 60px;
+    line-height: 30px;
+}
+
 /* ================= 타이틀 설정 ================= */
 .css-StyledMainListTitle {
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-  color: #292a32;
-  font-size: 22px;
-  font-weight: 1000;
-  letter-spacing: -0.4px;
-  line-height: 30px;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    color: #292a32;
+    font-size: 22px;
+    font-weight: 1000;
+    letter-spacing: -0.4px;
+    line-height: 30px;
+    -webkit-letter-spacing: -0.4px;
+    -moz-letter-spacing: -0.4px;
+    -ms-letter-spacing: -0.4px;
 }
 
 /* ================= 영화항목 ================= */
-.css-StyledMainScrollOuterContainer {margin: 0 3.5%;}
-.css-StyledMainScrollOuterContainer {max-width: 1320px;}
+.css-StyledMainScrollOuterContainer {
+    margin: 0 3.5%;
+}
+
+.css-StyledMainScrollOuterContainer {
+    max-width: 1320px;
+}
+
 /* ================= 영화 로비 ================= */
-.css-ScrollBarContainer {position: relative; margin: 0px -37px;}
+.css-ScrollBarContainer {
+    position: relative;
+    margin: 0px -37px;
+}
+
 /* transform: translate3d(0px, 0px, 0px); 모달 창이 보이려면 이거 없애야 함 */
 /* ================= 영화 1층 ================= */
-.css-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
+.css-ScrollBar {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* ================= 영화 2층 ================= */
-.css-ScrollingTaim {-webkit-transition: 500ms; transition: 500ms;}
-.css-Sub1-ScrollingTaim {-webkit-transition: 500ms; transition: 500ms;}
+.css-ScrollingTaim {
+    -webkit-transition: 500ms;
+    transition: 500ms;
+}
+
+.css-Sub1-ScrollingTaim {
+    -webkit-transition: 500ms;
+    transition: 500ms;
+}
+
 /* ================= 영화 3층 ================= */
 .css-StyledMainScrollingTaimContainer {
-  margin-right: 0;
-  margin-left: 0;
-  margin-right: 28px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-left: 15px;
+    margin-right: 0;
+    margin-left: 0;
+    margin-right: 28px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-left: 15px;
 }
+
 /* ================= 영화 4층 ul ================= */
 .css-StyledMainUl-StyledMainUlContentPosterList-RowList {
-  list-style: none;
-  padding: 0px;
-  white-space: nowrap;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+    list-style: none;
+    padding: 0px;
+    white-space: nowrap;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
 }
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList::after {content: none !important;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList::after {content: ""; display: inline-block; width: 20px; height: 100%;}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList::after {
+    content: none !important;
+}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 100%;
+}
+
 /* ================= 영화 5층 li ================= */
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {padding: 0px 5px; box-shadow: 0px 0px 4px 2px #D1CFCF;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {width: 33.3333%;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {width: 33.3333%; padding: 0px 5px; margin-bottom: 0px; margin-right: 10px;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {width: 16.6667%;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {width: 19.2%;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {padding: 0px 7px !important;}
-.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li:hover{box-shadow: 0px 0px 8px 5px #a7a6a6;}
-.css-MainList-li {
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
-  margin: 0 0 24px;
-  width: 33.333333333333336%;
-  padding: 0 5px;
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {
+    padding: 0px 5px;
+    box-shadow: 0px 0px 4px 2px #D1CFCF;
 }
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {
+    width: 33.3333%;
+}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {
+    width: 33.3333%;
+    padding: 0px 5px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {
+    width: 16.6667%;
+}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {
+    width: 19.2%;
+}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li {
+    padding: 0px 7px !important;
+}
+
+.css-StyledMainUl-StyledMainUlContentPosterList-RowList > li:hover {
+    box-shadow: 0px 0px 8px 5px #a7a6a6;
+}
+
+.css-MainList-li {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin: 0 0 24px;
+    width: 33.333333333333336%;
+    padding: 0 5px;
+}
+
 /* ================= 영화 6층 a ================= */
 .css-MainList-li > a {
-  display: inline-block;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  width: 100%;
-  background-color: transparent;
-  /* color: -webkit-link; */
-  /* cursor: pointer;
-  text-decoration: underline; */
+    display: inline-block;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    width: 100%;
+    background-color: transparent;
+    /* color: -webkit-link; */
+    /* cursor: pointer;
+    text-decoration: underline; */
 }
+
 /* ================= 6층 영화 포스터 ================= */
-.css-MainContentPosterBlock {position: relative; width: 100%; height: 0; padding-bottom: 145.37037037037038%;}
+.css-MainContentPosterBlock {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 145.37037037037038%;
+}
+
 /* ================= 영화 포스터 ================= */
 .css-MainPosterBlock-MainPosterBlock {
-  position: relative;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #F5F5F7;
-  border-radius: 5px;
-  background: #F5F5F7;
-  -webkit-transition: 300ms;
-  transition: 300ms;
+    position: relative;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #F5F5F7;
+    border-radius: 5px;
+    background: #F5F5F7;
+    -webkit-transition: 300ms;
+    transition: 300ms;
 }
+
 .css-StyledMainPosterBlock {
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  object-fit: cover;
-  background: rgb(248, 248, 248);
-  transition: all 300ms ease 0s;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    object-fit: cover;
+    background: rgb(248, 248, 248);
+    transition: all 300ms ease 0s;
 }
+
 /* ================= 영화 포스터 랭크 ================= */
-.css-RankBadge {top: 6px; left: 6px; width: 28px; height: 28px; line-height: 27px;}
-.css-RankBadge {bottom: 6px; left: 6px;}
-.css-RankBadge {font-size: 16px;}
 .css-RankBadge {
-  position: absolute;
-  bottom: 3px;
-  left: 3px;
-  background-color: rgba(0, 0, 0, 0.77);
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  letter-spacing: normal;
-  font-size: 14px;
-  line-height: 22px;
-  text-align: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  opacity: 1;
-  transition: opacity 300ms ease 0s;
+    top: 6px;
+    left: 6px;
+    width: 28px;
+    height: 28px;
+    line-height: 27px;
 }
+
+.css-RankBadge {
+    bottom: 6px;
+    left: 6px;
+}
+
+.css-RankBadge {
+    font-size: 16px;
+}
+
+.css-RankBadge {
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    background-color: rgba(0, 0, 0, 0.77);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    letter-spacing: normal;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    opacity: 1;
+    transition: opacity 300ms ease 0s;
+}
+
 /* ================= 영화 포스터 스템프 ================= */
-.css-cq1n1p-OttBadge.ottBadge {margin: 6px 6px 0px 0px;}
-.css-cq1n1p-OttBadge {background-size: 20px; width: 30px; height: 30px; padding: 4px;}
+.css-cq1n1p-OttBadge.ottBadge {
+    margin: 6px 6px 0px 0px;
+}
+
 .css-cq1n1p-OttBadge {
-  position: relative;
-  float: right;
-  background: url(https://images.watcha.net/updatable_images/2570/original/f72039e….png) center center / 17px no-repeat rgb(255, 255, 255);
-  box-sizing: border-box;
-  width: 24px;
-  height: 24px;
-  padding: 4px 3px 3px 4px;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 50%;
-  opacity: 1;
-  transition: opacity 300ms ease 0s;
+    background-size: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+}
+
+.css-cq1n1p-OttBadge {
+    position: relative;
+    float: right;
+    background: url(https://images.watcha.net/updatable_images/2570/original/f72039e….png) center center / 17px no-repeat rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    padding: 4px 3px 3px 4px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 300ms ease 0s;
 }
 
 /* ================= 6층 영화 설명 ================= */
-.css-MainContentBlock {text-align: left; width: calc(100% - 10px); margin: 5px 10px 0 0;}
+.css-MainContentBlock {
+    text-align: left;
+    width: calc(100% - 10px);
+    margin: 5px 10px 0 0;
+}
 
 /* ================= 영화설명_제목 ================= */
 .css-ContentTitle {
-  color: #292a32;
-  font-size: 18px;
-  font-weight: 400;
-  -webkit-letter-spacing: -0.5px;
-  -moz-letter-spacing: -0.5px;
-  -ms-letter-spacing: -0.5px;
-  letter-spacing: -0.5px;
-  line-height: 23px;
-  font-size: 18px;
-  font-weight: 500;
-  -webkit-letter-spacing: -0.3px;
-  -moz-letter-spacing: -0.3px;
-  -ms-letter-spacing: -0.3px;
-  letter-spacing: -0.3px;
-  line-height: 22px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: 'paybooc-Bold';
+    color: #292a32;
+    font-size: 18px;
+    font-weight: 400;
+    -webkit-letter-spacing: -0.5px;
+    -moz-letter-spacing: -0.5px;
+    -ms-letter-spacing: -0.5px;
+    letter-spacing: -0.5px;
+    line-height: 23px;
+    font-size: 18px;
+    font-weight: 500;
+    -webkit-letter-spacing: -0.3px;
+    -moz-letter-spacing: -0.3px;
+    -ms-letter-spacing: -0.3px;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'paybooc-Bold';
 }
+
 /* ================= 영화설명_출시년도 ================= */
-.css-StyledContentYear {display: block !important;}
 .css-StyledContentYear {
-  display: none;
-  color: #292a32;
-  padding-bottom: 1px;
-  font-size: 14px;
-  font-weight: 400;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  /* letter-spacing: normal; */
-  line-height: 22px;
-  letter-spacing: -0.4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    display: block !important;
 }
+
+.css-StyledContentYear {
+    display: none;
+    color: #292a32;
+    padding-bottom: 1px;
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-letter-spacing: normal;
+    -moz-letter-spacing: normal;
+    -ms-letter-spacing: normal;
+    /* letter-spacing: normal; */
+    line-height: 22px;
+    letter-spacing: -0.4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+}
+
 /* ================= 영화설명_평점 ================= */
-.css-MainContentRating-StyledContentRating.average {color: #555765;}
-.css-MainContentRating-StyledContentRating {margin-top: 2.5px; margin-bottom: 4px;}
-.css-MainContentRating-StyledContentRating {
-  color: #787878;
-  font-size: 13px;
-  font-weight: 400;
-  -webkit-letter-spacing: -0.2px;
-  -moz-letter-spacing: -0.2px;
-  -ms-letter-spacing: -0.2px;
-  letter-spacing: -0.2px;
-  line-height: 18px;
-  white-space: nowrap;
-  height: 18px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 14px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 14px;
-  height: 16px;
-  font-family: 'paybooc-Bold';
+.css-MainContentRating-StyledContentRating.average {
+    color: #555765;
 }
+
+.css-MainContentRating-StyledContentRating {
+    margin-top: 2.5px;
+    margin-bottom: 4px;
+}
+
+.css-MainContentRating-StyledContentRating {
+    color: #787878;
+    font-size: 13px;
+    font-weight: 400;
+    -webkit-letter-spacing: -0.2px;
+    -moz-letter-spacing: -0.2px;
+    -ms-letter-spacing: -0.2px;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+    white-space: nowrap;
+    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    line-height: 14px;
+    height: 16px;
+    font-family: 'paybooc-Bold';
+}
+
 /* ================= 영화설명_평점단어 ================= */
-.css-MainContentRating-StyledContentRating > span {height: 16px;}
+.css-MainContentRating-StyledContentRating > span {
+    height: 16px;
+}
+
 /* ================= 영화설명_SVG ================= */
-.css-MainContentRating-StyledContentRating > svg {margin-top: 2px;}
+.css-MainContentRating-StyledContentRating > svg {
+    margin-top: 2px;
+}
+
 .css-IcRatingStarSvg {
-  vertical-align: bottom;
-  width: 15px;
-  height: 15px;
-  margin-right: 1px;
-  margin-left: 1px;
+    vertical-align: bottom;
+    width: 15px;
+    height: 15px;
+    margin-right: 1px;
+    margin-left: 1px;
 }
 
 .css-IcRatingStarImg {
-  vertical-align: bottom;
-  width: 16px;
-  height: 16px;
-  margin-right: 1px;
-  margin-left: 1px;
+    vertical-align: bottom;
+    width: 16px;
+    height: 16px;
+    margin-right: 1px;
+    margin-left: 1px;
 }
 
 /* ================ 영화로비 왼쪽 오른쪽 틈 ================= */
 .css-CheatBlock-left {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  z-index: 1;
-  left: 0px;
-  background-color: #F5F5F7;
-  width: 6px;
-  height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    left: 0px;
+    background-color: #F5F5F7;
+    width: 6px;
+    height: 100%;
 }
+
 .css-CheatBlock-right {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  z-index: 1;
-  right: 0px;
-  background-color: #F5F5F7;
-  width: 6px;
-  height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    right: 0px;
+    background-color: #F5F5F7;
+    width: 6px;
+    height: 100%;
 }
 
 /* ================ 영화로비 왼쪽 방향버튼 ================= */
 .css-StyledMainScrollOuterContainer .arrow_button {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
 }
-.css-MainListContainer .arrow_button {opacity: 1 !important;}
+
+.css-MainListContainer .arrow_button {
+    opacity: 1 !important;
+}
+
 .css-ArrowButtonBlock-left {
-  position: absolute;
-  top: 0px;
-  z-index: 2;
-  left: -20px;
-  -webkit-box-align: center;
-  align-items: center;
-  height: 100%;
-  opacity: 0;
-  transition: all 300ms ease 0s;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    left: -20px;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    opacity: 0;
+    transition: all 300ms ease 0s;
 }
-.css-StyledMainScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
+
+.css-StyledMainScrollOuterContainer .arrow_button > div {
+    margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);
+}
+
 .css-BackwardButton-left {
-  display: none;
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
+    display: none;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
+    box-sizing: border-box;
+    border: 1px solid rgb(249, 249, 249);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: opacity 300ms ease 0s;
 }
 
 /* ================ 영화로비 오른쪽 방향버튼 ================= */
-.css-StyledMainScrollOuterContainer .arrow_button > div {margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);}
-.css-ForwardButton-right {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  background-size: 12px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
+.css-StyledMainScrollOuterContainer .arrow_button > div {
+    margin-top: calc((100vw - 60px) * 108 / 157 / 6 - 17px);
 }
+
+.css-ForwardButton-right {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    border: 1px solid rgb(249, 249, 249);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+    background-size: 12px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: opacity 300ms ease 0s;
+}
+
 .css-ArrowButtonBlock-right {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  z-index: 2;
-  right: -20px;
-  -webkit-box-align: center;
-  align-items: center;
-  height: 100%;
-  opacity: 0;
-  transition: all 300ms ease 0s;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    right: -20px;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    opacity: 0;
+    transition: all 300ms ease 0s;
 }
 
 /* ================ 영화로비 방향 버튼 img ================= */
-.css-ForwardButton-right > img {opacity: 0.4;}
-.css-ForwardButton-right > img {border-style: none;}
+.css-ForwardButton-right > img {
+    opacity: 0.4;
+}
+
+.css-ForwardButton-right > img {
+    border-style: none;
+}
 
 /* ================ 서브리스트 div 타이틀과 리스트 ================= */
-.css-gxko42-StyledHomeListContainer {margin-bottom: 42px; font-family: 'paybooc-Bold';}
+.css-gxko42-StyledHomeListContainer {
+    margin-bottom: 42px;
+    font-family: 'paybooc-Bold';
+}
 
 /* ================ 서브리스트 div 타이틀 ================= */
-.css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {margin: 0 60px;}
 .css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {
-  white-space: nowrap;
-  max-width: 1320px;
-  padding: 12px 0 20px;
-  margin-right: 15px;
-  margin-left: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 60px;
-  line-height: 30px;
+    margin: 0 60px;
 }
+
+.css-1ewd6nb-StyledHomeListTitleRow-StyledHomeListTitleRow {
+    white-space: nowrap;
+    max-width: 1320px;
+    padding: 12px 0 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 60px;
+    line-height: 30px;
+}
+
 /* ================ 서브리스트 p 타이틀 설정 ================= */
 .css-1e8eq80-StyledHomeListTitle {
-  color: #292a32;
-  font-size: 22px;
-  font-weight: 700;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
-  letter-spacing: -0.4px;
-  line-height: 30px;
+    color: #292a32;
+    font-size: 22px;
+    font-weight: 700;
+    -webkit-letter-spacing: -0.4px;
+    -moz-letter-spacing: -0.4px;
+    -ms-letter-spacing: -0.4px;
+    letter-spacing: -0.4px;
+    line-height: 30px;
 }
 
 /* ================ 서브리스트 div 로비 ================= */
-.css-1pik52h-StyledHorizontalScrollOuterContainer {margin: 0px 30px;}
-.css-1pik52h-StyledHorizontalScrollOuterContainer {max-width: 1320px;}
+.css-1pik52h-StyledHorizontalScrollOuterContainer {
+    margin: 0px 30px;
+}
+
+.css-1pik52h-StyledHorizontalScrollOuterContainer {
+    max-width: 1320px;
+}
+
 /* .css-1pik52h-StyledHorizontalScrollOuterContainer {margin-right: 0%; margin-left: 0%;} */
 
 /* ================ 서브리스트 div 1층 =================transform: translate3d(0px, 0px, 0px); */
-.css-1yw8v4t-ScrollBarContainer {position: relative; margin: 0px -8px;}
+.css-1yw8v4t-ScrollBarContainer {
+    position: relative;
+    margin: 0px -8px;
+}
 
 /* ================ 서브리스트 div 2층 ================= */
-.css-chidac-ScrollBar {overflow-x: hidden; overflow-y: hidden; -webkit-overflow-scrolling: touch;}
+.css-chidac-ScrollBar {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
 
 /* ================ 서브리스트 div 3층 ================= */
-.css-150y45-ScrollingInner {transition: 500ms;}
+.css-150y45-ScrollingInner {
+    transition: 500ms;
+}
 
 /* ================ 서브리스트 div 4층 ================= */
-.css-6kwoq4-StyledHorizontalScrollInnerContainer {margin-right: 0; margin-left: 0;}
+.css-6kwoq4-StyledHorizontalScrollInnerContainer {
+    margin-right: 0;
+    margin-left: 0;
+}
 
 /* ================ 서브리스트 ul ================= */
 .css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList {
-  list-style: none;
-  padding: 0px;
-  white-space: nowrap;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+    list-style: none;
+    padding: 0px;
+    white-space: nowrap;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
 }
 
 /* ================ 서브리스트 li ================= */
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {width: 18.3%; box-shadow:0px 0px 4px 2px #D1CFCF;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-bottom: 0px;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {margin-left: 14px;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {padding: 0px 8px !important;}
-.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover {box-shadow: 0px 0px 8px 5px #a7a6a6;}
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {
+    width: 18.3%;
+    box-shadow: 0px 0px 4px 2px #D1CFCF;
+}
+
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {
+    margin-bottom: 0px;
+}
+
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {
+    margin-left: 14px;
+}
+
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li {
+    padding: 0px 8px !important;
+}
+
+.css-oudgax-VisualUl-StyledHorizontalUl-StyledHorizontalUlWithContentPosterList-RowList > li:hover {
+    box-shadow: 0px 0px 8px 5px #a7a6a6;
+}
+
 .css-106b4k6-Self {
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
-  width: 33.333333333333336%;
-  padding: 0 5px;
-  margin: 0 0 24px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 33.333333333333336%;
+    padding: 0 5px;
+    margin: 0 0 24px;
 }
 
 /* ================ 서브리스트 a ================= */
-.css-106b4k6-Self > a {display: inline-block; -webkit-text-decoration: none; text-decoration: none; width: 100%;}
+.css-106b4k6-Self > a {
+    display: inline-block;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    width: 100%;
+}
 
 /* ================ 서브리스트 div 포스터 로비 ================= */
 .css-wg9zzb-ContentPosterBlock {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 145.37037037037038%;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 145.37037037037038%;
 }
 
 /* ================ 서브리스트 div 포스터 1층 ================= */
 .css-1hdc5d8-Self-LazyLoadingImg {
-  position: relative;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #eae9e8;
-  border-radius: 5px;
-  background: #f8f8f8;
-  -webkit-transition: 300ms;
-  transition: 300ms;
+    position: relative;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eae9e8;
+    border-radius: 5px;
+    background: #f8f8f8;
+    -webkit-transition: 300ms;
+    transition: 300ms;
 }
 
 /* ================ 서브리스트 div 포스터 설정 ================= */
 .css-1onlrbk-Img-LazyLoadingImg {
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  object-fit: cover;
-  background: rgb(248, 248, 248);
-  transition: all 300ms ease 0s;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    object-fit: cover;
+    background: rgb(248, 248, 248);
+    transition: all 300ms ease 0s;
 }
-.css-1onlrbk-Img-LazyLoadingImg {border-style: none;}
+
+.css-1onlrbk-Img-LazyLoadingImg {
+    border-style: none;
+}
 
 /* ================ 서브리스트 div 설명 로비 ================= */
-.css-dmreg0-ContentInfo {text-align: left; width: calc(100% - 10px); margin: 5px 10px 0 0;}
+.css-dmreg0-ContentInfo {
+    text-align: left;
+    width: calc(100% - 10px);
+    margin: 5px 10px 0 0;
+}
 
 /* ================ 서브리스트 div 설명 제목 ================= */
 .css-1teivyt-ContentTitle {
-  color: #292a32;
-  font-size: 18px;
-  font-weight: 400;
-  -webkit-letter-spacing: -0.5px;
-  -moz-letter-spacing: -0.5px;
-  -ms-letter-spacing: -0.5px;
-  letter-spacing: -0.5px;
-  line-height: 20px;
-  font-size: 18px;
-  font-weight: 500;
-  -webkit-letter-spacing: -0.3px;
-  -moz-letter-spacing: -0.3px;
-  -ms-letter-spacing: -0.3px;
-  letter-spacing: -0.3px;
-  line-height: 22px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 3px;
+    color: #292a32;
+    font-size: 18px;
+    font-weight: 400;
+    -webkit-letter-spacing: -0.5px;
+    -moz-letter-spacing: -0.5px;
+    -ms-letter-spacing: -0.5px;
+    letter-spacing: -0.5px;
+    line-height: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    -webkit-letter-spacing: -0.3px;
+    -moz-letter-spacing: -0.3px;
+    -ms-letter-spacing: -0.3px;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 3px;
 }
 
 /* ================ 서브리스트 div 설명 short ================= */
 .css-1teivyt-ContentShort {
-  color: #292a32;
-  font-size: 12px;
-  font-weight: 400;
-  -webkit-letter-spacing: -0.5px;
-  -moz-letter-spacing: -0.5px;
-  -ms-letter-spacing: -0.5px;
-  letter-spacing: -0.5px;
-  line-height: 21px;
-  -webkit-letter-spacing: -0.3px;
-  -moz-letter-spacing: -0.3px;
-  -ms-letter-spacing: -0.3px;
-  letter-spacing: -0.3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* margin-bottom: 4px; */
-  margin-top: 2px;
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    color: #292a32;
+    font-size: 12px;
+    font-weight: 400;
+    -webkit-letter-spacing: -0.5px;
+    -moz-letter-spacing: -0.5px;
+    -ms-letter-spacing: -0.5px;
+    letter-spacing: -0.5px;
+    line-height: 21px;
+    -webkit-letter-spacing: -0.3px;
+    -moz-letter-spacing: -0.3px;
+    -ms-letter-spacing: -0.3px;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* margin-bottom: 4px; */
+    margin-top: 2px;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
-.css-1teivyt-ContentShort span{
-  color: #292a32;
-  font-size: 13.1px;
-  font-weight: 400;
+
+.css-1teivyt-ContentShort span {
+    color: #292a32;
+    font-size: 13.1px;
+    font-weight: 400;
 }
 
 /* ================ 서브리스트 div 설명 MemberNick ================= */
 .css-1teivyt-ContentShortMemberNick {
-  color: #292a32;
-  font-size: 12px;
-  font-weight: 400;
-  -webkit-letter-spacing: -0.5px;
-  -moz-letter-spacing: -0.5px;
-  -ms-letter-spacing: -0.5px;
-  letter-spacing: -0.5px;
-  line-height: 21px;
-  -webkit-letter-spacing: -0.3px;
-  -moz-letter-spacing: -0.3px;
-  -ms-letter-spacing: -0.3px;
-  letter-spacing: -0.3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 0px;
-  margin-top: 2.8px;
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    color: #292a32;
+    font-size: 12px;
+    font-weight: 400;
+    -webkit-letter-spacing: -0.5px;
+    -moz-letter-spacing: -0.5px;
+    -ms-letter-spacing: -0.5px;
+    letter-spacing: -0.5px;
+    line-height: 21px;
+    -webkit-letter-spacing: -0.3px;
+    -moz-letter-spacing: -0.3px;
+    -ms-letter-spacing: -0.3px;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0px;
+    margin-top: 2.8px;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
 
 /* ================ 서브리스트 div 양쪽 틈 ================= */
 .css-1piyrvy-CheatBlock {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  z-index: 1;
-  left: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 8px;
-  height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    left: 0px;
+    background-color: rgb(255, 255, 255);
+    width: 8px;
+    height: 100%;
 }
+
 .css-1avws16-CheatBlock {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  z-index: 1;
-  right: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 8px;
-  height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    right: 0px;
+    background-color: rgb(255, 255, 255);
+    width: 8px;
+    height: 100%;
 }
 
 /* ================ 서브리스트 div 왼쪽 btn ================= */
-.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc(((((100vw - 120px) * 108) / 127) / 7) - 17px);}
-.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button {align-items: flex-start;}
-.css-gxko42-StyledHomeListContainer .arrow_button {opacity: 1 !important;}
+.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button > div {
+    margin-top: calc(((((100vw - 120px) * 108) / 127) / 7) - 17px);
+}
+
+.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button {
+    align-items: flex-start;
+}
+
+.css-gxko42-StyledHomeListContainer .arrow_button {
+    opacity: 1 !important;
+}
+
 .css-1d4tu36-ArrowButtonBlock {
-  display: none;
-  position: absolute;
-  top: 0px;
-  z-index: 2;
-  left: -14px;
-  -webkit-box-align: center;
-  align-items: center;
-  height: 100%;
-  opacity: 0;
-  transition: all 300ms ease 0s;
+    display: none;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    left: -14px;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    opacity: 0;
+    transition: all 300ms ease 0s;
 }
+
 .css-Sub1-BackwardButton-left {
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
-}
-/* ================ 서브리스트 div 오른쪽 btn ================= */
-.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button {align-items: flex-start;}
-.css-gxko42-StyledHomeListContainer .arrow_button {opacity: 1 !important;}
-.css-cj0kkg-ArrowButtonBlock {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  z-index: 2;
-  right: -14px;
-  -webkit-box-align: center;
-  align-items: center;
-  height: 100%;
-  opacity: 0;
-  transition: all 300ms ease 0s;
-}
-.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button > div {margin-top: calc(((((100vw - 120px) * 108) / 127) / 7) - 17px);}
-.css-Sub1-ForwardButton-right {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  background-size: 12px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=) 12px center / 12px no-repeat rgb(255, 255, 255);
+    box-sizing: border-box;
+    border: 1px solid rgb(249, 249, 249);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: opacity 300ms ease 0s;
 }
 
 /* ================ 서브리스트 div 오른쪽 btn ================= */
-.css-Sub1-ForwardButton-right > img {opacity: 0.4;}
-.css-Sub1-ForwardButton-right > img {border-style: none;}
+.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button {
+    align-items: flex-start;
+}
+
+.css-gxko42-StyledHomeListContainer .arrow_button {
+    opacity: 1 !important;
+}
+
+.css-cj0kkg-ArrowButtonBlock {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    right: -14px;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    opacity: 0;
+    transition: all 300ms ease 0s;
+}
+
+.css-1pik52h-StyledHorizontalScrollOuterContainer .arrow_button > div {
+    margin-top: calc(((((100vw - 120px) * 108) / 127) / 7) - 17px);
+}
+
 .css-Sub1-ForwardButton-right {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
-  background-size: 12px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  transition: opacity 300ms ease 0s;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    border: 1px solid rgb(249, 249, 249);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+    background-size: 12px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: opacity 300ms ease 0s;
+}
+
+/* ================ 서브리스트 div 오른쪽 btn ================= */
+.css-Sub1-ForwardButton-right > img {
+    opacity: 0.4;
+}
+
+.css-Sub1-ForwardButton-right > img {
+    border-style: none;
+}
+
+.css-Sub1-ForwardButton-right {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    border: 1px solid rgb(249, 249, 249);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+    background-size: 12px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: opacity 300ms ease 0s;
 }
 
 

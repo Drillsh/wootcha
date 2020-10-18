@@ -9,6 +9,8 @@ $(function () {
     var next = nav.find(".css-1kvaztz-StyledJumbotronArrowButton-StyledJumbotronArrowNextButton");
     var indicator = container.find(".slideShow_indicator");
     var aIndicator = indicator.find("a");
+    var title = $(".movie_title_main > h1");
+    var subTitle = $(".movie_title_main > h2");
     var aIndicatorCount = aIndicator.length; //배열길이 4개
     var currentIndex = 0;
 
@@ -32,7 +34,8 @@ $(function () {
         slideGroup.animate({left: -100 * index + '%'}, 500, 'swing');
         // index : 0번일때 왼쪽은 안보이고 ,오른쪽은 보이고
         // index : 3번일때 왼쪽은 보이고, 오른쪽은 안보이고
-        console.log(movie_title[index]);
+        title.text(movie_title[index]);
+        subTitle.text(movie_subtitle[index]);
         currentIndex = index;
 
         indexDisplay();

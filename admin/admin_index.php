@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin"])){
+    echo("
+      <script>
+      alert('관리자 전용 페이지 입니다.');
+      alert({$_SESSION['admin']});
+      </script>
+  ");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
