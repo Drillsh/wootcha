@@ -1,3 +1,15 @@
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
+
+    $sql = "select count(review_num) as count from review;";
+    $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+
+    $row = mysqli_fetch_array($result);
+    $count = $row['count'];
+?>
+<section class="css-1iuqns0-StyledFooterTopSection e19unuxw1">
+        <span class="css-z9tuc7-StyledRatingSummary e19unuxw2">지금까지 <em>★ <?=$count?> 개의 리뷰가 </em>쌓였어요.</span>
+</section>
 <div id="footer_content">
     <div id="footer_top">
         <div class="footer_container">
@@ -9,7 +21,6 @@
                 <li><a href="http://<?=$_SERVER['HTTP_HOST'];?>/wootcha/movie_introduce_page/movie_introduce_index.php">영화 상세 페이지</a></li>
             </ul>
         </div>
-
         <div class="footer_container">
             <ul>
                 <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/"><strong> 고객 센터 </strong></a></li>
@@ -19,7 +30,6 @@
                 
             </ul>
         </div>
-
         <div class="footer_container">
             <ul>
                 <li><strong> 문의하기 </strong></li>
@@ -40,7 +50,6 @@
                 <li><a href="https://github.com/ktpt0921/wootcha"><i class="fab fa-github-alt"></i> Mail / ETC. </a></li>
             </ul>
         </div>
-
         <div class="footer_container_row">
             <span class="content">© 2020 WOOTCHA, Inc. All rights reserved.</span>
         </div>
