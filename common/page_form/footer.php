@@ -1,7 +1,7 @@
 
-<section class="css-1iuqns0-StyledFooterTopSection e19unuxw1">
+<div class="css-1iuqns0-StyledFooterTopSection e19unuxw1">
         <span class="css-z9tuc7-StyledRatingSummary e19unuxw2">지금까지 <em>★ <?=$_SESSION["count"]?> 개의 리뷰가 </em> 쌓였어요.</span>
-</section>
+</div>
 <div id="footer_content">
     <div id="footer_top">
         <div class="footer_container">
