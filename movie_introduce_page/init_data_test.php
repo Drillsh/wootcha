@@ -20,5 +20,4 @@ function user_init_data(){
     }
     return $sql;
     }    
-    
 ?>

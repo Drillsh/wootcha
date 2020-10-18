@@ -127,7 +127,7 @@
                                     <div class="list_edit_delete_wrap">
                                         <button onclick="submitDelete()">삭제</button>
                                     </div>
-                                    <ul id="member_list">
+                                    <ul id="board_list">
                                         <li>
                                             <span class="col1">No</span>
                                             <span class="col2">공지 제목</span>

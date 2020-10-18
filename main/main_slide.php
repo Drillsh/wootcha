@@ -48,13 +48,13 @@
             <div content="[object Object]" class="css-4bfx6u-Self e9r9i620 enter-done">
                 <div class="css-1fqeujt-StillcutContainer e9r9i621">
                     <div class="e7hewbz0 css-1sxaihu-StyledSelf-DefaultStillCut e1q5rx9q0">
-                            <?php
-                                // $sql = "select A.mi_img_path, M.mv_title from (select * from `movie_img` order by rand() limit 10) as A left join movie M on A.mv_num = M.mv_num order by rand() limit 3;";
-                                // $result = mysqli_query($con, $sql) or die(mysqli_error($con));
-                                // while ($row=mysqli_fetch_array($result)) {
-                                //  $mi_img_path=$row['mi_img_path'];
-                                //  $mv_title=$row['mv_title'];
-                            ?>
+                        <?php
+                        // $sql = "select A.mi_img_path, M.mv_title from (select * from `movie_img` order by rand() limit 10) as A left join movie M on A.mv_num = M.mv_num order by rand() limit 3;";
+                        // $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+                        // while ($row=mysqli_fetch_array($result)) {
+                        //  $mi_img_path=$row['mi_img_path'];
+                        //  $mv_title=$row['mv_title'];
+                        ?>
                         <span class="css-1te5psz-StyledBackground e1q5rx9q1"
                               style="background-image: url(&quot;https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/v1602045273/kc4mrbpdfymvihkqespp.webp&quot;);"></span>
                     </div>
@@ -70,7 +70,7 @@
                     <h3 class="css-15hvbu0-Subtitle e7hewbz1">Part2로 돌아온 최강 스포츠 애니매주 일요일, 왓챠에서 가장 빠르게!</h3>
                 </div>
                 <?php
-                    // }
+                // }
                 ?>
             </div>
         </div>

@@ -15,17 +15,18 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/movie_introduce_page/get_movie_data.php";?>
 </head>
 
-
 <body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php"; ?>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/movie_info.php"; ?>
-
-
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
+
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/movie_introduce_page/stillcut_slide.php";?>
 
     <section>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/movie_introduce_page/movie_introduce_main.php"; ?>
