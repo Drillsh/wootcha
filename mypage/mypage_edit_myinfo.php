@@ -47,7 +47,7 @@
 <?php
                 if (strlen($user_img) <= 22) {
                     echo "<a href='#' class='trigger_mypage_modify'>
-                    <div class='small_img_box'><img src='../review/img/edit_pencil.png' alt=''></div></a>";
+                    <div class='small_img_box'><img src='../review/img/edit_pencil.png' alt='내 정보 수정' title='수정하기'></div></a>";
                 }else{
                     echo "<br><br><br><h3> 카카오 계정으로 이용하고 계십니다. </h3>";
                 }
@@ -59,11 +59,6 @@
                 <!-- db에서 가져온 값이 들어갈 것 -->
                 <form action="#" method="post">
                     <table>
-                        <!-- <tr>
-                            <td>프로필사진</td>
-                            <td>사진을 설정합니다.</td>
-                            <td></td>
-                        </tr> -->
                         <tr>
                             <td>아이디</td>
                             <td><?=$user_mail?></td>

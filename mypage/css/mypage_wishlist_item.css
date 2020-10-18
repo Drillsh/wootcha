@@ -1,6 +1,9 @@
 
+html {
+    background-color: #F5F5F7;
+ }
 .list_item{list-style: none; margin: 10px; width: 180px; height: 280px; overflow: hidden;
-    float: left; text-align: center; background-color: white; box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;}
+    float: left; text-align: center; background-color: #F5F5F7; box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;}
 
 .list_item img{width: 100%; height: 250px; }
 .list_item a{text-decoration: none;}

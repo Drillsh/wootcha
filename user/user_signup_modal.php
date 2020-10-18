@@ -9,7 +9,7 @@
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */
-    .modal_container .modal_content {  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+    .modal_container .modal_content {  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: #F5F5F7; 
          padding: 1rem 1.5rem;   width: 400px;  border-radius: 0.5rem; text-align:center; overflow:hidden; z-index: 211;} 
 
     /* 끄기 버튼 */
@@ -38,7 +38,7 @@
     .modal_content form table tr:nth-child(1) td{position:relative;}
     .modal_content form table tr:nth-child(1) td span{position:absolute; right:12%; top: 30%; 
         transform: translateY(-50%); width:60px; height:30px; overflow:hidden; }
-    .modal_content form table tr:nth-child(1) td span #email_check_button{margin: 0; font-size:10px; color:white; height:25px; background-color:#0C191D; border-radius: 0.5rem;}
+    .modal_content form table tr:nth-child(1) td span #email_check_button{margin: 0; font-size:10px; color:#F5F5F7; height:25px; background-color:rgb(44, 44, 44);border-radius: 0.5rem;}
     /* 생년월일 input */
     .modal_content form table tr:nth-child(11) td{position:relative;}
     .modal_content form table tr:nth-child(11) label{position:absolute; top: 50%;  left: 50%;  transform: translate(-50%, -50%); color:gray;}
@@ -51,8 +51,8 @@
     /* user_img */
     .modal_content form table tr:nth-child(17) img{width: 45px; height: 45px; margin-left:5px; margin-right:5px}
     /* 회원가입 버튼 */
-    .modal_content form input[type=button]{width:90%; height: 40px; background-color:#0C191D; border-style:none;
-        border-radius: 0.5rem;font-size:20px;font-weight: bold; color:white;}
+    .modal_content form input[type=button]{width:90%; height: 40px; background-color:rgb(44, 44, 44);border-style:none;
+        border-radius: 0.5rem;font-size:20px;font-weight: bold; color:#F5F5F7;}
         /* 하단 버튼 */
     .modal_content button{width:40%; height:40px; font-size:15px;margin:10px }
     /* 카카오 */

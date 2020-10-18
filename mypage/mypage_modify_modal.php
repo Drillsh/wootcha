@@ -7,7 +7,7 @@
         opacity: 1;  visibility: hidden; transform: scale(1.0); transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; } 
 
     /* 흰 화면의 dialog 부분 */
-    .modal_container_mypage .modal_content_mypage {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+    .modal_container_mypage .modal_content_mypage {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: #F5F5F7; 
          padding: 1rem 1.5rem;   width: 400px;  height: 450px;   border-radius: 0.5rem; text-align:center; overflow:hidden;} 
 
     /* 끄기 버튼 */
@@ -45,9 +45,18 @@
     .modal_content_mypage #modify_form table tr:nth-child(7) img{width: 45px; height: 45px; margin-left:5px; margin-right:5px}
     
     /* 수정하기 버튼 */
-    .modal_content_mypage #modify_form input[type=button]{width:90%; height: 40px; background-color:#679b9b; border-style:none;
-        border-radius: 0.5rem;font-size:20px;font-weight: bold}
-
+    .modal_content_mypage #modify_form input[type=button]{width:90%; height: 40px; background-color:rgb(44, 44, 44); border-style:none;
+        border-radius: 0.5rem;font-size:20px;font-weight: bold; color:#F5F5F7;}
+        .logo_image_box{width:110px; height:45px;overflow: hidden; display:inline-block;}
+        .logo_image_box img{width: 100%; height: 100%; object-fit: cover;}
+    input[type=button]{width: 90%;
+    height: 40px;
+    background-color: rgb(44, 44, 44);
+    border-style: none;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    font-weight: bold;
+    color: #F5F5F7;}
 </style>
 
 <!-- ****************** -->
@@ -60,9 +69,9 @@
         <!-- 상단 로고 -->
         <div class="modal_content_mypage_header">
             <!-- 로고 -->
-            <!-- <div class="small_img_box">
-                <img src="./img/profile_image< ?=$i?>.png" alt="프로필 이미지">
-            </div>  -->
+            <div class="logo_image_box">
+                <img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/logo.png" alt="로고">
+            </div> 
         </div>
     
         <!-- ***************** -->
@@ -116,9 +125,9 @@
         </table>
         <input type="button" value="수정" onclick="allCheckModify()">
         </form>
-        <hr width="99%" color="#e2e2e2" noshade/><!-- 구분선 -->
         <!-- <button> api 가입하기 </button> -->
-        <a href="#" onclick="withdrawal()">회원탈퇴</a>
+        <input type="button" onclick="withdrawal()" value="회원 탈퇴">
+        <!-- <a href="#" onclick="withdrawal()">회원탈퇴</a> -->
     </div>
 </div>
 

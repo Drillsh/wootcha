@@ -18,7 +18,7 @@
         <!-- db -->
         <?php include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php"; ?>
 
-          
+        
     </head>
     <body>
         <!-- 헤더 -->
@@ -35,9 +35,10 @@
         <nav class="nav_left">
             <?php include_once "./mypage_nav_left.php"?>
         </nav>
-
+        
         <!-- 섹션 -->
         <section>
+        
             <?php
                 $sql = "select * from review where user_num = $write_review_user_num;";
                 $result_total_review_count = mysqli_query($con, $sql);

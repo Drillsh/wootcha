@@ -20,7 +20,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: white;
+        background-color: #F5F5F7;
         padding: 1rem 1.5rem;
         width: 400px;
         height: 400px;
@@ -117,12 +117,12 @@
     .modal_content_find_account form input[type=button] {
         width: 300px;
         height: 50px;
-        background-color: #0C191D;
+        background-color: rgb(44, 44, 44);;
         border-style: none;
         border-radius: 0.5rem;
         font-size: 20px;
         font-weight: bold;
-        color:white;    
+        color:#F5F5F7;    
     }
 
     /* 하단 버튼 */
@@ -132,6 +132,8 @@
         font-size: 15px;
         margin: 10px;
     }
+    .logo_image_box{width:110px; height:45px;overflow: hidden; display:inline-block;}
+    .logo_image_box img{width: 100%; height: 100%; object-fit: cover;}
 </style >
 
 <!-- 팝업 될 레이어 -->
@@ -142,8 +144,8 @@
         <!-- 상단 로고 -->
         <div class="find_account_modal_content_header">
             <!-- 로고 -->
-            <!-- <div class="small_img_box"> <img src="./img/profile_image< ?=$i?>.png"
-            alt="프로필 이미지"> </div> -->
+            <div class="logo_image_box"> <img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/logo.png"
+            alt="로고"> </div>
         </div>
         <hr width="99%" color="#e2e2e2" noshade="noshade"/>
 
