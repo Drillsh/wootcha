@@ -47,7 +47,7 @@
     /* 수정하기 버튼 */
     .modal_content_mypage #modify_form input[type=button]{width:90%; height: 40px; background-color:#679b9b; border-style:none;
         border-radius: 0.5rem;font-size:20px;font-weight: bold}
-}
+
 </style>
 
 <!-- ****************** -->

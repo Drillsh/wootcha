@@ -29,12 +29,13 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/wootcha/movie_introduce_page/js/movie_introduce_contents.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+
 
 <table id="movie_introduce_container">
 
-    <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/movie_introduce_page/stillcut_slide.php";?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/movie_introduce_page/stillcut_slide.php"; ?>
 
     <section>
         <div id="movie_introduce">
@@ -44,9 +45,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                         <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
                             <div class="css-13h49w0-PaneInner e1svyhwg13">
                                 <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
-                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img
-                                                src="<?= $poster_img ?>"
-                                                class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
+                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841" onclick=window.open(img src='<?=$poster_img?>, width=600 height=600')></div>
                                 </div>
                             </div>
                         </div>
@@ -58,8 +57,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                             ?>
                         </h2>
 
-                        <button type='button' id='kakao-link-btn' class='button_next' value='movie_share'
-                                href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share
+                        <button type='button' id='kakao-link-btn' class='button_next' value='movie_share' href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share
                         </button>
 
                         <!-- 공유하기를 위한 자바스크립트 추가 시작 -->
@@ -83,12 +81,12 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                     }
                                 },
                                 buttons: [{
-                                    title: '웹으로 보기',
-                                    link: {
-                                        mobileWebUrl: 'https://developers.kakao.com',
-                                        webUrl: 'https://developers.kakao.com'
-                                    }
-                                },
+                                        title: '웹으로 보기',
+                                        link: {
+                                            mobileWebUrl: 'https://developers.kakao.com',
+                                            webUrl: 'https://developers.kakao.com'
+                                        }
+                                    },
                                     {
                                         title: '앱으로 보기',
                                         link: {
@@ -174,14 +172,12 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
                                 </div>
 
-                                <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?=$wootcha_star ?> / 5.0 </div>
+                                <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?= $wootcha_star ?> / 5.0 </div>
                             </div>
                         </div>
 
 
-                        <span><button type=button id="review_write"
-                                      onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img
-                                        src="./img/review_write.png"></span>
+                        <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img src="./img/review_write.png"></span>
 
 
                         <?php
@@ -198,13 +194,13 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                                 echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
                             }
                         } else {
-                            ?>
+                        ?>
                             <a href="javascript:alert('로그인 후 이용 가능합니다.')"></a>
                             <a>
                                 <button type='button' id='favorite_movie_like_off'></button>
                             </a>
 
-                            <?php
+                        <?php
                         }
                         ?>
 
@@ -234,7 +230,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
             <div id="movie_casting_container">
                 <br>
-                <h2>영화 출연진 목록</h2>
+                <h2>출연 / 제작</h2>
 
                 <div id="movie_cast_1"><?php print_r($actor[0]); ?></div>
                 <div id="movie_cast_2"><?php print_r($actor[1]); ?></div>
@@ -242,7 +238,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                 <div id="movie_cast_4"><?php print_r($actor[3]); ?></div>
                 <div id="movie_cast_5"><?php print_r($actor[4]); ?></div>
                 <div id="movie_cast_6"><?php print_r($actor[5]); ?></div>
-
+            
                 <div id="movie_comment_container">
 
                     <div class="user_comment_title">
@@ -405,8 +401,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
 
                                 <div class="div_chu_box">
                                     <div class="div_chu">
-                                        <div id="like_count" class="like_count<?php echo $num; ?>"
-                                             onclick="update_like('up','<?= $num ?>')">
+                                        <div id="like_count" class="like_count<?php echo $num; ?>" onclick="update_like('up','<?= $num ?>')">
                                             <img src="./img/like.png"> &nbsp;<?= $review_like ?>
                                         </div>
                                     </div>
@@ -416,7 +411,7 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                             <!-- 모달 팝업 -->
                             <!-- *************** -->
 
-                            <?php
+                        <?php
                             $number--;
                         }
                         mysqli_close($con);
@@ -456,13 +451,12 @@ $stillcut = $movie_info->stillcut;                  // 스틸컷
                     </div> <!-- end of user_comment -->
 
 
-                </div>
+                 </div> <!-- end of movie_comment_container -->
 
-            </div>
+            </div>  <!-- end of movie_casting_container -->
 
-        </div>
+        </div> <!-- end of movie_introduce -->
     </section>
 </table>
-
 
 <div id="movetopbt">TOP</div>
