@@ -32,6 +32,11 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
     <section>
+    <?php
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+    $col = isset($_GET["col"]) ? $_GET["col"] : '';
+    $search = isset($_GET["search"]) ? $_GET["search"] : '';
+    ?>
         <div class="my_info_content">
             <div class="left_menu">
                 <!-- 순서대로쭉쭉 -->
@@ -42,62 +47,9 @@
                     <?php
                     include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
 
-                    $y = isset($_GET["y"]) ? $_GET["y"] : date("Y");
-                    $m = isset($_GET["m"]) ? $_GET["m"] : date("n");
-                    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                    $col = isset($_GET["col"]) ? $_GET["col"] : '';
-                    $search = isset($_GET["search"]) ? $_GET["search"] : '';
-
                     ?>
-                    <!-- php 변수를 자바스크립트로 넘겨줌 -->
-                    <script>
-                        var y = <?=$y?>;
-                        var m = <?=$m?>;
-                        var page = "<?=$page?>";
-                        var col = "<?=$col?>";
-                        var search = "<?=$search?>";
-                    </script>
-                    <section>
-                        <div class="sec_top">
-                            <span onclick="prevDateChange('gm_members')"><i class="fas fa-angle-left"></i></span>
-                            <select id="top_select_year" dir="rtl" onchange="topSelect_init_Setting('gm_members')">
-                                <?php
-                                for ($i = 2018; $i <= date("Y"); $i++) {
-                                    echo "<option>$i</option>";
-                                }
-                                ?>
-                            </select>
-                            <span>년 </span>
-                            <select id="top_select_month" dir="rtl" onchange="hrefDateChange('gm_members')">
-                                <?php
-                                $last_m = $y == date("Y") ? date("n") : 12;
-                                for ($i = 1; $i <= $last_m; $i++) {
-                                    echo "<option>$i</option>";
-                                }
-                                ?>
-                            </select>
-                            <span>월 </span>
-                            <span onclick="nextDateChange('gm_members')"><i class="fas fa-angle-right"></i></span>
-                        </div>
-                        <!--end of 년 월 선택바 -->
+                   
 
-                        <?php
-                        $m2 = $m;
-                        if ($m2 < 10) {
-                            $m2 = "0" . $m2;
-                        }
-                        $sql = "SELECT 
-                                COUNT(*) AS count 
-                                FROM
-                                user;";
-                        //          WHERE
-                        //            regist_day BETWEEN '19-01-01' AND LAST_DAY('$y-$m2-01');";
-
-                        $result = mysqli_query($con, $sql);
-                        $row = mysqli_fetch_array($result);
-                        $total_m = mysqli_num_rows($result);
-
-                        ?>
                         <!-- 총 리뷰수 가져오기 -->
                         <div class="sec_content">
                             <div id="g_members_list_wrap">

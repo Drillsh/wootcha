@@ -47,9 +47,9 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
     $subject=str_replace(" ", "&nbsp;",$subject);
     $content=str_replace("\n", "<br>",$content);
     $content=str_replace(" ", "&nbsp;",$content);
-    $file_name_0=$row['qna_file_name'];
-    $file_copied_0=$row['qna_file_copied'];
-    $day=$row['qna_regtime'];
+    // $file_name_0=$row['qna_file_name'];
+    // $file_copied_0=$row['qna_file_copied'];
+    // $day=$row['qna_regtime'];
     // $is_html=$row['is_html'];
     // $checked=($is_html=="y")? ("checked"):("");
     $hit=$row['qna_hit'];
@@ -85,29 +85,29 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="update"){
                 <div class="col1">내&nbsp;&nbsp;용</div>
                 <div class="col2"><textarea name="content" rows="15" cols="79"><?=$content?></textarea>  </div>
               </div><!--end of write_row3  -->
-              <div class="write_line"></div>
+              <!-- <div class="write_line"></div>
               <div id="write_row4">
                 <div class="col1">파일업로드</div>
                 <div class="col2">
-                  <?php
+                  < ?php
                   //업데이트 할지 삽입 할지
                     if($mode=="insert"){
                       echo '<input type="file" name="upfile" >이미지(2MB)파일(0.5MB)';
                     }else{
                   ?>
                     <input type="file" name="upfile" onclick='document.getElementById("del_file").checked=true; document.getElementById("del_file").disabled=true'>
-                 <?php
+                 < ?php
                     }
                   ?>
-                  <?php
+                  < ?php
                     if($mode=="update" && !empty($file_name_0)){
                       echo "$file_name_0 파일등록";
                       echo '<input type="checkbox" id="del_file" name="del_file" value="1">삭제';
                       echo '<div class="clear"></div>';
                     }
                   ?>
-                </div><!--end of col2  -->
-              </div><!--end of write_row4  -->
+                </div>end of col2  -->
+              <!-- </div>  end of write_row4  -->
               <div class="clear"></div>
 
               <div class="write_line"></div>
