@@ -249,7 +249,7 @@
                         $scale = 5;
 
                         if (empty($total_record)) {
-                            echo "<img src=./img/good_before.png><br>리뷰가 없습니다.";
+                            echo "<img src=./img/not_found.png><br>리뷰가 없습니다.";
                         } else {
                         }
                         // 전체 페이지 수($total_page) 계산
