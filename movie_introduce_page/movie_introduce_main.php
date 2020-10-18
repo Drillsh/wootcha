@@ -142,45 +142,11 @@
 
                                 </div>
 
-<<<<<<< HEAD
-                                <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?= $wootcha_star ?> / 5.0 </div>
-=======
+
                                 <div class="wootcha_star"> Wootcha&nbsp;&nbsp;|&nbsp;&nbsp;<?= $wootcha_star ?> / 5.0
                                 </div>
->>>>>>> leesi
                             </div>
                         </div>
-
-
-<<<<<<< HEAD
-                        <span><button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'"><img src="./img/review_write.png"></span>
-
-
-                        <?php
-                        if ($user_num) {
-
-                            // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
-                            $sql = "select exists(select * from fav_movie where user_num = {$user_num} and mv_num = {$mv_code}) as exist;";
-                            $res = mysqli_query($con, $sql);
-                            $row = mysqli_fetch_array($res);
-
-                            if ($row['exist']) {
-                                echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on'></button></a>";
-                            } else {
-                                echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
-                            }
-                        } else {
-                        ?>
-                            <a href="javascript:alert('로그인 후 이용 가능합니다.')"></a>
-                            <a>
-                                <button type='button' id='favorite_movie_like_off'></button>
-                            </a>
-
-                        <?php
-                        }
-                        ?>
-
-=======
                         <!--좋아요, 리뷰쓰기-->
                         <div class="movie_like_write">
                                <button type=button id="review_write"
@@ -207,7 +173,6 @@
                             }
                             ?>
                         </div>
->>>>>>> leesi
                     </div>
                 </div>
             </div>
