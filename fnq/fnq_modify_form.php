@@ -15,7 +15,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
 </header>  
-<section >
+<section id="faq_modify_form">
 	
    	<div id="board_box">
 	    <h3 id="board_title">

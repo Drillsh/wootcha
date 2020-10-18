@@ -1,5 +1,5 @@
 var formsForUpdate = new Array();
-
+var url;
 
 $(function(){
 
@@ -56,4 +56,28 @@ function submitDelete(){
         });
     }
     
+}
+
+function onclickSearch() {
+
+    var col = $('#search_select option:selected').val();
+    var search = $('.form-control').val();
+
+    if (col == "영화 제목") {
+        col = "mv_title";
+    } else if (col == "글쓴이") {
+        col = "user_nickname";
+    } else if (col == "댓글 내용") {
+        col = "review_reply_contents";
+    } else if (col == "댓글 위치") {
+        col = "review_num";
+    } else if (col == "등록일") {
+        col = "review_reply_regtime";
+    }
+
+    if (!search) {
+        alert('검색어를 입력해주세요');
+    } else {
+        location.replace(url + "&col=" + col + "&search=" + search);
+    }
 }
