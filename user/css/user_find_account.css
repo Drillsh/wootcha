@@ -1,5 +1,7 @@
+html {
+   background-color: #F5F5F7;
+}
 section {height: 500px;}
-
 
 /* 빈공간을 어둡게 채우는 창 */
 .modal_container_find_account
@@ -8,7 +10,7 @@ section {height: 500px;}
 
    /* 흰 화면의 dialog 부분 */
    .modal_container_find_account 
-.modal_content_find_account {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+.modal_content_find_account {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: #F5F5F7; 
         padding: 1rem 1.5rem;   width: 400px;  height: 400px;   border-radius: 0.5rem; text-align:center; overflow:hidden;z-index: 100; } 
 
    /* 끄기 버튼 */
@@ -37,8 +39,8 @@ section {height: 500px;}
    .modal_content_find_account form table td input{height:50px;}
    
    /* 로그인 버튼 */
-   .modal_content_find_account form input[type=button]{width:90%; height: 50px; background-color:#679b9b; border-style:none;
-       border-radius: 0.5rem;font-size:20px;font-weight: bold}
+   .modal_content_find_account form input[type=button]{width:90%; height: 50px; background-color:rgb(44, 44, 44); border-style:none;
+       border-radius: 0.5rem;font-size:20px;font-weight: bold; color:#F5F5F7}
 
    /* 하단 버튼 */
    .modal_content_find_account button{width:40%; height:40px; font-size:15px;margin:10px }

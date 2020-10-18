@@ -1,6 +1,8 @@
-
+html {
+    background-color: #F5F5F7;
+ }
 .list_item{position: relative; margin: 30px; width: 700px; height: 150px; padding: 10px; 
-    box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;background-color: white;}
+    box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;background-color: #F5F5F7;}
 .list_item>div{height: 100%;}
 .list_item li{list-style: none;}
 .list_item .left{display: inline-block; width: 100px;}

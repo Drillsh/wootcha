@@ -1,3 +1,7 @@
+html {
+    background-color: #F5F5F7;
+ }
+
 .section_container{margin: 50px; box-shadow: 4px 4px 20px #D1CFCF; border-radius: 10px;}
 .section_container form tr{height: 70px;  border-bottom:solid 1px black;}
 /* .section_container form tr:hover{background-color: blanchedalmond;} */

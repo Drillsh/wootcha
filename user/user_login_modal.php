@@ -12,7 +12,7 @@
 
     /* 흰 화면의 dialog 부분 */
     .modal_container_login 
- .modal_content_login {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: white; 
+ .modal_content_login {  position: absolute;   top: 50%;  left: 50%;  transform: translate(-50%, -50%); background-color: #F5F5F7; 
          padding: 1rem 1.5rem;   width: 400px;  height: 400px;   border-radius: 0.5rem; text-align:center; overflow:hidden;} 
 
     /* 끄기 버튼 */
@@ -41,12 +41,15 @@
     .modal_content_login form table td input{height:50px;}
     
     /* 로그인 버튼 */
-    .modal_content_login form input[type=button]{width:300px; height: 50px; background-color:#0C191D; border-style:none;
-        border-radius: 0.5rem;font-size:20px;font-weight: bold;color:white;}
+    .modal_content_login form input[type=button]{width:300px; height: 50px; background-color:rgb(44, 44, 44); border-style:none;
+        border-radius: 0.5rem;font-size:20px;font-weight: bold;color:#F5F5F7;}
 
     /* 하단 버튼 */
-    .modal_content_login button{width:138px; height:40px; font-size:15px;margin:10px; background-color:#0C191D; border-style:none;
-        border-radius: 0.5rem;color:white;}
+    .modal_content_login button{width:138px; height:40px; font-size:15px;margin:10px; background-color:rgb(44, 44, 44); border-style:none;
+        border-radius: 0.5rem;color:#F5F5F7;}
+
+        .logo_image_box{width:110px; height:45px;overflow: hidden; display:inline-block;}
+        .logo_image_box img{width: 100%; height: 100%; object-fit: cover;}
 </style>
 <script src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/js/login.js?after"></script>
 <!-- ****************** -->
@@ -61,9 +64,9 @@
         <!-- 상단 로고 -->
         <div class="login_modal_content_header">
             <!-- 로고 -->
-            <!-- <div class="small_img_box">
-                <img src="./img/profile_image< ?=$i?>.png" alt="프로필 이미지">
-            </div>  -->
+            <div class="logo_image_box">
+                <img src="http://<?=$_SERVER['HTTP_HOST']?>/wootcha/user/img/logo.png" alt="로고">
+            </div> 
         </div>
         <hr width="99%" color="#e2e2e2" noshade/>
         
