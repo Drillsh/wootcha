@@ -8,8 +8,8 @@ if (isset($_SESSION["user_num"])) $user_num = $_SESSION["user_num"];
 else $user_num = "";
 if (isset($_SESSION["user_img"])) $user_img = $_SESSION["user_img"];
 else $user_img = "";
-if (isset($_SESSION["admin_img"])) $user_img = $_SESSION["admin_img"];
-else $user_img = "";
+if (isset($_SESSION["admin_img"])) $admin_img = $_SESSION["admin_img"];
+else $admin_img = "";
 // 세션 값 존재 여부: main에서 이벤트 방어하기 위해 js로 값을 넘겨서 alert를 주려는데 html화 하기에 위에있는 값들은 노출되면 안되니까
 if (isset($_SESSION["user_mail"])) $session_value_flag = 'true';
 else $session_value_flag = "false";
@@ -116,10 +116,15 @@ else $session_value_flag = "false";
                 ?>
                     <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$user_img?>" alt="프로필 이미지" class="e1cl8ith2 css-1vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall e12ju1w01"></a>
                 <?php
+                        }
                     }
-                ?>
-                <?php
-                    }
+
+                // 로그인이 됐을 때 프로필 이미지(mypage 페이지 버튼) 노출 - 관리자
+                if($admin_img != ""){
+                   ?>
+                        <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/user/img/<?=$admin_img?>" alt="프로필 이미지" class="e1cl8ith2 css-1vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall e12ju1w01"></a>
+                    <?php
+                }
                 ?>
             </li>
             <li class="css-1jqsj0d-NavList e1cl8ith5">
