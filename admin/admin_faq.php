@@ -32,11 +32,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/page_form/header.php"; ?>
     </header>
     <section>
-    <?php
-    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-    $col = isset($_GET["col"]) ? $_GET["col"] : '';
-    $search = isset($_GET["search"]) ? $_GET["search"] : '';
-    ?>
+    
         <div class="my_info_content">
             <div class="left_menu">
                 <!-- 순서대로쭉쭉 -->
@@ -46,6 +42,11 @@
                 <main>
                     <?php
                     include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
+             
+                    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+                    $col = isset($_GET["col"]) ? $_GET["col"] : '';
+                     $search = isset($_GET["search"]) ? $_GET["search"] : '';
+   
                     ?>
                         <!-- 총 리뷰수 가져오기 -->
                         <div class="sec_content">
@@ -98,7 +99,7 @@
                                                  FROM
                                                      faq_board
                                                  WHERE
-                                                    --  $col LIKE '%$search%'
+                                                     $col LIKE '%$search%'
                                                     ORDER BY faq_regtime DESC";
                                         } else {
                                             $sql = "SELECT
@@ -109,6 +110,8 @@
                                                      faq_regtime
                                                   FROM
                                                   faq_board
+                                                  where 
+                                                  faq_title LIKE '%$search%'
                                                   ORDER BY faq_regtime DESC";
                                         }
 
@@ -203,7 +206,7 @@
 
                                                 $url = "/wootcha/admin/admin_faq.php?";
                                                 if ($search != '') {
-                                                    $url .= "&col=$col&search=$search";
+                                                    $url .= "&search=$search";
                                                 }
                                                 // 첫번째 페이지일 때 앵커 비활성화
                                                 if ($first_page == 1) {

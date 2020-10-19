@@ -3,7 +3,7 @@ var url;
 
 $(function(){
   
-    url = "/wootcha/admin/admin_faq.php?";
+    url = "/wootcha/admin/admin_notice.php?";
     
 
 
@@ -11,7 +11,7 @@ $(function(){
 
 function submitDelete(){
 
-    var conf = confirm('선택한 자주묻는 데이터를 삭제하시겠습니까?');
+    var conf = confirm('선택한 공지사항 데이터를 삭제하시겠습니까?');
 
     if(conf){
         var formsForUpdate = new Array();
@@ -36,7 +36,7 @@ function submitDelete(){
             url : "lib/story_delete.php",
             success : function(data){
                 if(data==1){
-                    location.href='/wootcha/admin/admin_faq.php?';
+                    location.href='/wootcha/admin/admin_notice.php?';
                 }else{
                     alert('오류발생: '+data);
                 }
