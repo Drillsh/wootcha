@@ -13,59 +13,23 @@
                         <div class="css-lqm6jo-MaxWidthCol e1pdhzq90">
                             <div class="css-13h49w0-PaneInner e1svyhwg13">
                                 <div class="css-ds7f62-PosterWithRankingInfoBlock e1svyhwg10">
-                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841" onclick=window.open(img src='<?=$poster_img?>, width=600, height=600')></div>
+                                    <div class=" e1pon7hn0 css-m21fst-Self-LazyLoadingImg ewlo9840"><img src="<?= $poster_img ?>" class=" e1pon7hn0 css-1onlrbk-Img-LazyLoadingImg ewlo9841"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="css-bwni1m-Title e1ei9ot91">
-                        <h2>
+                        <h2 id=movie_title>
                             <?php
-                            echo $title . "<h4>" . $subtitle . "</h4>";
+                            echo  $title;
                             ?>
                         </h2>
 
-                        <button type='button' id='kakao-link-btn' class='button_next' value='movie_share' href='javascript:;'><i class='fas fa-share-alt'></i> &nbsp; Share
-                        </button>
-
-                        <!-- 공유하기를 위한 자바스크립트 추가 시작 -->
-                        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-                        <script type="text/javascript">
-                            //<![CDATA[
-                            // // 사용할 앱의 JavaScript 키를 설정해 주세요.
-                            Kakao.init('2b6afa1b53bec9c5c3161feff6ce8026');
-
-                            // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-                            Kakao.Link.createDefaultButton({
-                                container: '#kakao-link-btn',
-                                objectType: 'feed',
-                                content: {
-                                    title: "<?= $title ?>",
-                                    description: "<?= $synopsis ?>",
-                                    imageUrl: 'https://lh3.googleusercontent.com/proxy/ZL6IbPsJ1bP5FHc3fk_ZN9V-XNUFoPOnajGpso_jHq-lKlHIXJk42CF5j8xfHzBnT7_ejQJAd_O1C3PSxP5Z12StImRx1y8Fmp6-_eHXYTTY-acX',
-                                    link: {
-                                        mobileWebUrl: 'https://developers.kakao.com',
-                                        webUrl: 'https:/localhost/wootcha/movie_introduce_page/movie_introduce_index.php'
-                                    }
-                                },
-                                buttons: [{
-                                        title: '웹으로 보기',
-                                        link: {
-                                            mobileWebUrl: 'https://developers.kakao.com',
-                                            webUrl: 'https://developers.kakao.com'
-                                        }
-                                    },
-                                    {
-                                        title: '앱으로 보기',
-                                        link: {
-                                            mobileWebUrl: 'https://developers.kakao.com',
-                                            webUrl: 'https://developers.kakao.com'
-                                        }
-                                    }
-                                ]
-                            });
-                            //]]>
-                        </script>
+                        <h4 id=movie_subtitle>
+                            <?php
+                            echo  $subtitle;
+                            ?>
+                        </h2>
 
 
                         <div class="css-zv7ww6-Detail e1svyhwg15">
@@ -74,16 +38,17 @@
                                 <?php
                                 echo $genre;
                                 ?>
-                                &nbsp;・&nbsp;
+                                &nbsp;·
+
+                              
                                 <?php
                                 echo $nation;
                                 ?>
                                 &nbsp;・&nbsp;
                                 <?php
                                 echo $running_time;
-                                ?>
-                                &nbsp;・&nbsp;
-                                <br>
+                                ?>&nbsp;·&nbsp;
+
                                 <?php
                                 echo $release_date;
                                 ?>
@@ -150,9 +115,8 @@
                         </div>
                         <!--좋아요, 리뷰쓰기-->
                         <div class="movie_like_write">
-                               <button type=button id="review_write"
-                                       onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'">
-                               </button>
+                            <button type=button id="review_write" onclick="location.href='../review/review_insert_form.php?mv_num=<?= $mv_code ?>&mv_title=<?= $title ?>'">
+                            </button>
                             <?php
                             if ($user_num) {
                                 // 해당 리뷰에 session의 user_num이 좋아요를 눌렀었는가
@@ -165,8 +129,8 @@
                                 } else {
                                     echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
                                 }
-                                } else {
-                                ?>
+                            } else {
+                            ?>
                                 <a href="javascript:alert('로그인 후 이용 가능합니다.')">
                                     <button type='button' id='favorite_movie_like_off'></button>
                                 </a>
@@ -201,7 +165,7 @@
                 <div id="movie_cast_4"><?php print_r($actor[3]); ?></div>
                 <div id="movie_cast_5"><?php print_r($actor[4]); ?></div>
                 <div id="movie_cast_6"><?php print_r($actor[5]); ?></div>
-            
+
                 <div id="movie_comment_container">
 
                     <div class="user_comment_title">
@@ -247,10 +211,17 @@
 
                         $result = mysqli_query($con, $sql) or die("review select error: " . mysqli_error($con));
                         $total_record = mysqli_num_rows($result); // 전체 글 수 // 레코드셋 개수체크함수
-                        $scale = 5;
+                        $scale = 5;?>
 
+                       
+                        <?php
                         if (empty($total_record)) {
-                            echo "<img src=./img/not_found.png id='not_review'><br><h1>리뷰가 없습니다.</h1>";
+                            ?> <br><br><br><br><br><br><br><br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;         
+                        <?php
+                        echo "<img src=./img/not_found.png>
+                        <br><h1><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        &emsp; &emsp;&emsp; 리뷰가 없습니다.</h1>";
                         } else {
                         }
                         // 전체 페이지 수($total_page) 계산
@@ -316,7 +287,7 @@
                             }
                             include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/review/review_modal.php";
                             // review_dialog_trigger 클래스가 버튼 역할을 함
-                            ?>
+                        ?>
 
                             <!-- 리뷰 -->
                             <div class="user_comment_content">
@@ -399,7 +370,7 @@
                                 {
                                     echo "<li><b>&nbsp$i&nbsp</b></li>";
                                 } else {
-                                    echo "<li><a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=" . urlencode(json_encode($item)) . "&page=$i'> $i </a><li>";
+                                    echo "<li><a href='/wootcha/movie_introduce_page/movie_introduce_index.php?item=" . urlencode(json_encode($item)) . "&page=$i'> $i</a><li>";
                                 }
                             }
                             if ($total_page >= 9 && $page != $total_page) {
@@ -414,13 +385,12 @@
                     </div> <!-- end of user_comment -->
 
 
-                 </div> <!-- end of movie_comment_container -->
+                </div> <!-- end of movie_comment_container -->
 
-            </div>  <!-- end of movie_casting_container -->
+            </div> <!-- end of movie_casting_container -->
 
         </div> <!-- end of movie_introduce -->
     </section>
 </table>
 
 <div id="movetopbt">TOP</div>
-
