@@ -8,6 +8,8 @@ if (isset($_SESSION["user_num"])) $user_num = $_SESSION["user_num"];
 else $user_num = "";
 if (isset($_SESSION["user_img"])) $user_img = $_SESSION["user_img"];
 else $user_img = "";
+if (isset($_SESSION["admin_img"])) $user_img = $_SESSION["admin_img"];
+else $user_img = "";
 // 세션 값 존재 여부: main에서 이벤트 방어하기 위해 js로 값을 넘겨서 alert를 주려는데 html화 하기에 위에있는 값들은 노출되면 안되니까
 if (isset($_SESSION["user_mail"])) $session_value_flag = 'true';
 else $session_value_flag = "false";
@@ -123,7 +125,7 @@ else $session_value_flag = "false";
             <li class="css-1jqsj0d-NavList e1cl8ith5">
                 <?php
                     //로그인 상태일 경우 로그인 로고 클릭 시 로그아웃됨 
-                    if($user_mail != ""){
+                    if($user_mail != "" || isset($_SESSION['admin'])){
                         $logout = "http://".$_SERVER['HTTP_HOST']."/wootcha/user/user_logout.php";
                         $modalTrigger = "";
                     }else{

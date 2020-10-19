@@ -10,7 +10,7 @@
 
     $login_password = test_input($login_password);
     $login_password = mysqli_real_escape_string($con, $login_password);
-    $login_password = openssl_encrypt($login_password, 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
+
     $login_email = test_input($login_email);
     $login_email = mysqli_real_escape_string($con, $login_email);
 
@@ -18,8 +18,11 @@
     if ($login_email == ADMIN_ID && $login_password == ADMIN_PW) {
         session_start();
         $_SESSION["admin"] = "admin";
+        $_SESSION["admin_img"] = "admin.png";
         header('Location: /wootcha/admin/admin_index.php');
     }
+
+    $login_password = openssl_encrypt($login_password, 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
 
     $sql = "select * from user where user_mail='$login_email'";
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));

@@ -1,3 +1,13 @@
+<?php
+if (!isset($_SESSION["admin"])){
+    echo("
+      <script>
+      alert('관리자 전용 페이지 입니다.');
+      </script>
+  ");
+    exit;
+}
+?>
 <div class="my_info_content">
     <div class="left_menu">
         <!-- 순서대로쭉쭉 -->
