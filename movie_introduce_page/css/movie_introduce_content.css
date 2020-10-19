@@ -294,14 +294,14 @@ p.con_tx {
 #favorite_movie_like_on {
     width: 80px;
     height: 80px;
-    background-image: url('../img/good_after.png');
+    background-image: url('../img/follow_color1.png');
     background-size: cover;
     cursor: pointer;
     font-size: 60px;
 }
 
 #favorite_movie_like_on:hover {
-    background-image: url('../img/good_after.png');
+    background-image: url('../img/follow_color1.png');
     width: 80px;
     height: 80px;
     background-size: cover;
@@ -311,14 +311,14 @@ p.con_tx {
 #favorite_movie_like_off {
     width: 80px;
     height: 80px;
-    background-image: url('../img/good_before.png');
+    background-image: url('../img/movie_like_off.png');
     background-size: cover;
     cursor: pointer;
     font-size: 60px;
 }
 
 #favorite_movie_like_off:hover {
-    background-image: url('../img/good_after.png');
+    background-image: url('../img/follow_color1.png');
     width: 80px;
     height: 80px;
     background-size: cover;

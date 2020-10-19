@@ -125,9 +125,9 @@
                                 $row = mysqli_fetch_array($res);
 
                                 if ($row['exist']) {
-                                    echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on'></button></a>";
+                                    echo "<a href='../search/unfollow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_on' title='좋아요 누르기'></button></a>";
                                 } else {
-                                    echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off'></button></a>";
+                                    echo "<a href='../search/follow.php?no={$mv_code}'><button type='button' id='favorite_movie_like_off' title='좋아요 취소'></button></a>";
                                 }
                             } else {
                             ?>

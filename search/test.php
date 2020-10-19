@@ -20,9 +20,23 @@ function save_StillCut($mv_num, $con)
         }
     }
 }
-$pass = openssl_encrypt('gnstk12!', 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
-$sql = 'update user set password =' .$pass. 'where user_num = 2';
-mysqli_query($con, $sql);
+
+$pass = openssl_encrypt('aaa123!', 'aes-256-cbc', 'wootchacha', true, str_repeat(chr(0), 16));
+for($i = 0; $i < 10; $i++){
+
+    $sql = "insert into user values(null, 'w$i@wootcha.com', '$pass', '김김김' ,'오징어$i', 'user_robot_avatar3.png','1995-01-01', 1, '010-1111-1111', '2020-10-04 (10:13)');"; 
+    mysqli_query($con, $sql) or die(mysqli_error($con));
+}
+mysqli_close($con);
+// $sql = 'update user set password =' .$pass. 'where user_num = 2';
+// $mv_num = [96379, 67769, 66751,183866,136315,115622,167651,130850,102875,100090];
+// for($i = 0; $i < 10; $i++){
+
+//     $sql = "insert into review values();"; 
+//     mysqli_query($con, $sql) or die(mysqli_error($con));
+// }
+
+
 
 // 웹 상에서 파일 가져올 수 있는 것을 막아논 것을 푸는 함수
 //ini_set("allow_url_fopen", 1);
