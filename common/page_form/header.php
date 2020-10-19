@@ -88,7 +88,7 @@ else $session_value_flag = "false";
                                     <option value="28">영화패러디포스터</option>
                                 </select>
                             </label>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </li>
@@ -131,14 +131,16 @@ else $session_value_flag = "false";
                 <?php
                     //로그인 상태일 경우 로그인 로고 클릭 시 로그아웃됨 
                     if($user_mail != "" || isset($_SESSION['admin'])){
+                        echo "<script>$('.e1cl8ith2g').attr('src', 'http://{$_SERVER['HTTP_HOST']}/wootcha/common/img/wootcha_log_in.png');</script>";
                         $logout = "http://".$_SERVER['HTTP_HOST']."/wootcha/user/user_logout.php";
                         $modalTrigger = "";
                     }else{
+                        echo "<script>$('.e1cl8ith2').attr('src', 'http://{$_SERVER['HTTP_HOST']}/wootcha/common/img/wootcha_log_out.png');</script>";
                         $logout = "#";
                         $modalTrigger = "class='trigger_user_login'";
                     }
                 ?>
-                    <a href="<?=$logout?>" <?= $modalTrigger?> id="trigger_user_login"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/img/wootcha_logout.png" alt="프로필 이미지" class="e1cl8ith2 css-2vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall e12ju1w01"></a>
+                <a href="<?=$logout?>" <?= $modalTrigger?> id="trigger_user_login"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/wootcha/common/img/wootcha_log_in.png" alt="프로필 이미지" class="e1cl8ith2 css-2vtztzm-RoundedImageBlock-Self-StyledProfilePhotoSmall e12ju1w01"></a>
                 <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_signup_modal.php"?>
                 <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_login_modal.php"?>
                 <?php include $_SERVER['DOCUMENT_ROOT']."/wootcha/user/user_find_account.php"?>

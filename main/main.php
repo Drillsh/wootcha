@@ -241,7 +241,7 @@
     $sql = "select R.review_rating, R.review_short, R.review_num, M.mv_title, M.mv_img_path, M.mv_release_date,U.user_nickname from review R 
               inner join movie M on R.mv_num = M.mv_num
               inner join user U on R.user_num = U.user_num
-              order by R.review_regtime desc;";
+              order by R.review_regtime desc limit 30;";
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     ?>
     <!-- 리뷰 전체 리스트 -->

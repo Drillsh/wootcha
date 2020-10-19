@@ -8,7 +8,7 @@ $(function () {
 
     var result_count = $('#result_count').val();
 
-    var totalIndex = Math.floor(result_count / VIEW_PAGE);
+    var totalIndex = Math.floor(result_count / VIEW_PAGE) - 1;
 
     var b_movie_index = 0;
     var b_review_index = 0;
@@ -49,7 +49,7 @@ $(function () {
     
     // 이미지 전환
     function startAnimation(index, parent) {
-        parent.css( {'transform' : "translateX("+ (-1255 * index) + "px )"} );
+        parent.css( {'transform' : "translateX("+ (-1240 * index) + "px )"} );
     }
 
     //이전 버튼
