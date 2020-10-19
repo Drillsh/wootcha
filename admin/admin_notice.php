@@ -12,7 +12,8 @@
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="./js/notice_members.js"></script>
+    <!-- <script src="./js/notice_members.js"></script> -->
+    <script src="js/board_function_notice.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">
@@ -105,7 +106,7 @@
                                                  FROM
                                                      notice_board
                                                  WHERE
-                                                    --  $col LIKE '%$search%'
+                                                     $col LIKE '%$search%'
                                                     ORDER BY notice_regtime DESC";
                                         } else {
                                             $sql = "SELECT
@@ -116,6 +117,8 @@
                                                      notice_regtime
                                                   FROM
                                                   notice_board
+                                                  where
+                                                  notice_title LIKE '%$search%'
                                                   ORDER BY notice_regtime DESC";
                                         }
 
@@ -213,7 +216,7 @@
 
                                                 $url = "/wootcha/admin/admin_notice.php?";
                                                 if ($search != '') {
-                                                    $url .= "&col=$col&search=$search";
+                                                    $url .= "&search=$search";
                                                 }
                                                 // 첫번째 페이지일 때 앵커 비활성화
                                                 if ($first_page == 1) {

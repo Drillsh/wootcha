@@ -12,7 +12,8 @@
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./js/admin.js"></script>
-    <script src="js/members.js"></script>
+    <!-- <script src="js/members.js"></script> -->
+    <script src="js/board_function_qna.js"></script>
     <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Montserrat&display=swap" rel="stylesheet">
@@ -46,10 +47,12 @@
                 <main>
                     <?php
                     include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
-
+                   
+                    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+                    $col = isset($_GET["col"]) ? $_GET["col"] : '';
+                     $search = isset($_GET["search"]) ? $_GET["search"] : '';
                     ?>
                    
-
                         <!-- 총 리뷰수 가져오기 -->
                         <div class="sec_content">
                             <div id="g_members_list_wrap">
@@ -96,7 +99,7 @@
                                             on a.user_num=b.user_num ORDER BY qna_regtime desc";
                                         } else {
                                             $sql = " SElECT * from `qna_board` a INNER JOIN `user` b 
-                                            on a.user_num=b.user_num ORDER BY qna_regtime desc";
+                                            on a.user_num=b.user_num where qna_title like '%$search%' ORDER BY qna_regtime desc";
                                         }
 
                                         $result = mysqli_query($con, $sql);

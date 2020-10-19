@@ -3,7 +3,7 @@ var url;
 
 $(function(){
   
-    url = "/wootcha/admin/admin_faq.php?";
+    url = "/wootcha/admin/admin_qna.php?";
     
 
 
@@ -11,7 +11,7 @@ $(function(){
 
 function submitDelete(){
 
-    var conf = confirm('선택한 자주묻는 데이터를 삭제하시겠습니까?');
+    var conf = confirm('선택한 QnA 데이터를 삭제하시겠습니까?');
 
     if(conf){
         var formsForUpdate = new Array();
