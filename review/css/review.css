@@ -67,7 +67,7 @@ section{width: 800px; min-height: 800px;  margin: 100px auto; background-color: 
      background: url("../../common/img/star1.png") repeat-x 0 0; background-size: contain; pointer-events: none; }
 .startRadio__box { position: relative; z-index: 1; float: left; width: 10px; height: 25px; cursor: pointer; }
 .startRadio__box input{opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important;}
-.startRadio__box input:checked + .startRadio__img {background-color: #FB9F00; }
+.startRadio__box input:checked + .startRadio__img {background-color: #20A2F1; }
 .startRadio__img {display: block; position: absolute; right: 0; width: 200px; height: 25px;  pointer-events: none; }
 
 
