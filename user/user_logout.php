@@ -5,6 +5,7 @@
   unset($_SESSION["user_num"]);
   unset($_SESSION["user_img"]);
   unset($_SESSION["admin"]);
+  unset($_SESSION["admin_img"]);
   
   echo("
        <script>
