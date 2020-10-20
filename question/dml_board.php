@@ -2,8 +2,8 @@
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
 
-if(!isset($_SESSION['user_mail'])){
-    echo "<script>alert('권한없음!12');history.go(-1);</script>";
+if(!isset($_SESSION['user_nickname'])){
+    echo "<script>alert('권한없음!');history.go(-1);</script>";
     exit;
 }
 

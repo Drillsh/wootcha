@@ -33,7 +33,7 @@ function submitDelete(){
         $.ajax({
             type: "post",
             data: serialize,
-            url : "lib/story_delete.php",
+            url : "lib/notice_delete.php",
             success : function(data){
                 if(data==1){
                     location.href='/wootcha/admin/admin_notice.php?';

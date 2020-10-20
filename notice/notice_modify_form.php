@@ -21,7 +21,7 @@
 	$num  = $_GET["num"];
 	$page = $_GET["page"];
 	
-	include $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
+	include_once $_SERVER['DOCUMENT_ROOT'] . "/wootcha/common/database/db_connector.php";
 	$sql = "select * from notice_board where notice_num=$num";
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_array($result);
