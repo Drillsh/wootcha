@@ -911,7 +911,7 @@ h1, h3, p, hr {
 }
 
 .review_reply_star .startRadio__box input:checked + .startRadio__img {
-    background-color: #FB9F00;
+    background-color: #20A2F1;
 }
 
 .review_reply_star .startRadio__img {

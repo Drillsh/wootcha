@@ -100,6 +100,7 @@
                         $row = mysqli_fetch_array($result);
                         // 하나의 레코드 가져오기
                         $num = $row["notice_num"];
+                        echo "<script>console.log($i, $num)</script>";
                         $title = $row["notice_title"];
                         $content = $row["notice_contents"];
                         //   $subject     = $row["notice_hit"];
@@ -202,7 +203,7 @@
                         if ($_SESSION['user_nickname'] == "admin") { ?>
 
                             <input class="listwrite" type="image" src="./img/write.png"
-                                   onclick="location.href='notice_form.php'">
+                                   onclick="location.href='notice_form.php?page=<?$page?>'">
 
                             <?php
                         }
