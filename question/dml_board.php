@@ -2,8 +2,8 @@
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT']."/wootcha/common/database/db_connector.php";
 
-if(!isset($_SESSION['user_mail'])){
-    echo "<script>alert('권한없음!12');history.go(-1);</script>";
+if(!isset($_SESSION['user_nickname'])){
+    echo "<script>alert('권한없음!');history.go(-1);</script>";
     exit;
 }
 
@@ -228,7 +228,6 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="insert"){
         $parent = test_input($_POST["parent"]);
         $hit = test_input($_POST["hit"]);
         $q_usernum = mysqli_real_escape_string($con, $_SESSION['user_num']);
-        $q_qnanum = mysqli_real_escape_string($con, $_SESSION['qna_num']);
         $q_content = mysqli_real_escape_string($con, $content);
         $q_parent = mysqli_real_escape_string($con, $parent);
         $regist_day=date("Y-m-d (H:i)");

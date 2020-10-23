@@ -20,6 +20,9 @@
         session_start();
         $_SESSION["admin"] = "admin";
         $_SESSION["admin_img"] = "admin.png";
+        $_SESSION["user_nickname"] = "admin";
+        $_SESSION["user_num"] = 7;
+        $_SESSION["user_mail"] = "admin";
         header('Location: /wootcha/admin/admin_index.php');
     }
 

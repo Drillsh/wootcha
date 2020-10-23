@@ -8,13 +8,13 @@
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
 
-    $copied_name = $row["file_copied"];
+    // $copied_name = $row["file_copied"];
 
-	if ($copied_name)
-	{
-		$file_path = "./data/".$copied_name;
-		unlink($file_path);
-    }
+	// if ($copied_name)
+	// {
+	// 	$file_path = "./data/".$copied_name;
+	// 	unlink($file_path);
+  //   }
 
     $sql = "delete from faq_board where faq_num = $num";
     mysqli_query($con, $sql);

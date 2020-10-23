@@ -38,19 +38,19 @@
 	    		공지사항 > 글 쓰기
 		</h3>
 		<?php
-	$num  = $_GET["num"];
+	// $num  = $_GET["num"];
 	$page = $_GET["page"];
 	
 	
-	$sql = "select * from notice_board where notice_num=$num";
-	$result = mysqli_query($con, $sql);
-	$row = mysqli_fetch_array($result);
-	// $name       = $row["notice_num"];
-	// $page 		=$row("notice_regtime");
-	$subject    = $row["notice_title"];
-	$content    = $row["notice_contents"];
+	// $sql = "select * from notice_board where notice_num=$num";
+	// $result = mysqli_query($con, $sql);
+	// $row = mysqli_fetch_array($result);
+	// // $name       = $row["notice_num"];
+	// // $page 		=$row("notice_regtime");
+	// $subject    = $row["notice_title"];
+	// $content    = $row["notice_contents"];
 ?>
-	    <form  name="board_form" method="post" action="notice_insert.php?num=<?=$num?>&page=<?=$page?> enctype="multipart/form-data">
+	    <form  name="board_form" method="post" action="notice_insert.php?page=<?=$page?>" >
 	    	 <ul id="board_form">
 				<li>
 					<span class="col1">이름 : </span>
@@ -58,12 +58,12 @@
 				</li>		
 	    		<li>
 	    			<span class="col1">제목 : </span>
-	    			<span class="col2"><input name="notice_title" type="text"  value="<?=$subject?>"></span>
+	    			<span class="col2"><input name="notice_title" type="text"  value=""></span>
 	    		</li>	    	
 	    		<li id="text_area">	
 	    			<span class="col1">내용 : </span>
 	    			<span class="col2">
-	    				<textarea name="notice_contents"><?=$content?></textarea>
+	    				<textarea name="notice_contents"></textarea>
 	    			</span>
 	    		</li>
 	    	    </ul>

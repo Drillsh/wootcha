@@ -33,10 +33,10 @@ function submitDelete(){
         $.ajax({
             type: "post",
             data: serialize,
-            url : "lib/story_delete.php",
+            url : "lib/qna_delete.php",
             success : function(data){
                 if(data==1){
-                    location.href='/wootcha/admin/admin_faq.php?';
+                    location.href='/wootcha/admin/admin_qna.php?';
                 }else{
                     alert('오류발생: '+data);
                 }
